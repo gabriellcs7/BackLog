@@ -692,6 +692,13 @@ p {
     display: block;
 }
 
+.jogo_review:hover {
+    transform: translateY(-4px);
+    border: 2px solid #FFD21F;
+    border-color: #FFD21F;
+    transition: 0.3s;
+}
+
 .avaliacao {
     margin: 35px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -737,6 +744,13 @@ p {
     border-radius: 10px;
     flex-shrink: 0;
     display: block;
+}
+
+.lancamento_img:hover {
+    transform: translateY(-4px);
+    border: 2px solid #FFD21F;
+    border-color: #FFD21F;
+    transition: 0.3s;
 }
 
 .lancamento_texto {

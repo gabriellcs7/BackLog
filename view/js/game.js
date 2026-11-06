@@ -5,13 +5,9 @@
     const requestedId = new URLSearchParams(window.location.search).get('id');
     const games = window.BacklogGames;
     const game = games.find(item => item.id === requestedId) || games[0];
-    const storageKey = `backlog:${game.id}`;
-    const saveButton = document.querySelector('#save-game');
-    const saveLabel = document.querySelector('#save-label');
-    const saveIcon = document.querySelector('#save-icon');
+    const statusButtons = document.querySelectorAll('.game-status-button');
     const collectionStatus = document.querySelector('#collection-status');
     const toast = document.querySelector('#toast');
-    let saved = window.Backlog.isSaved(game.id);
     let toastTimer;
 
     // Cada jogo possui uma arte horizontal e um enquadramento para cada tela.
@@ -48,7 +44,7 @@
             ['Studio', game.studio],
             ['Collection', 'Your personal backlog'],
             ['Genre', game.tags.join(' · ')],
-            ['Your status', saved ? 'In your backlog' : 'Ready to discover']
+            ['Your status', window.Backlog.getStatus(game.id)?.label || 'Ready to discover']
         ];
         document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
             detail.querySelector('dt').textContent = values[index][0];
@@ -80,44 +76,49 @@
         toastTimer = setTimeout(() => toast.classList.remove('visible'), 3500);
     }
 
-    function renderSavedState() {
-        saveButton.setAttribute('aria-pressed', String(saved));
-        saveLabel.textContent = saved ? 'Added to backlog' : 'Add to backlog';
-        saveIcon.textContent = saved ? '✓' : '＋';
-        collectionStatus.hidden = !saved;
+    function renderCollectionState() {
+        const status = window.Backlog.getStatus(game.id);
+        statusButtons.forEach(button => {
+            button.setAttribute('aria-pressed', String(button.dataset.status === status?.id));
+        });
+        document.querySelector('#game-status-help').textContent = status
+            ? status.description
+            : 'Escolha um status para adicionar este jogo.';
+        document.querySelector('#collection-status-label').textContent = status?.label || '';
+        collectionStatus.hidden = !status;
         if (game.id !== games[0].id) {
-            document.querySelector('.details-grid>div:last-child dd').textContent = saved ? 'In your backlog' : 'Ready to discover';
+            document.querySelector('.details-grid>div:last-child dd').textContent = status?.label || 'Ready to discover';
         }
         window.Backlog.updateCount();
     }
 
-    function updateSavedState(nextState) {
+    function updateStatus(statusId) {
+        if (window.Backlog.getStatus(game.id)?.id === statusId) return;
         try {
-            if (nextState) localStorage.setItem(storageKey, 'saved');
-            else localStorage.removeItem(storageKey);
-            saved = nextState;
-            renderSavedState();
-            window.dispatchEvent(new Event('backlog-change'));
-            notify(saved ? `${game.title} added to your backlog.` : 'Game removed from your backlog.');
+            window.Backlog.setStatus(game.id, statusId);
+            const status = window.Backlog.getStatus(game.id);
+            notify(`${game.title}: ${status.label}.`);
         } catch {
-            notify('Saving is unavailable in this browser. Please enable local storage.');
+            notify('Não foi possível salvar. Permita o armazenamento neste navegador.');
         }
     }
 
-    saveButton.addEventListener('click', () => updateSavedState(!saved));
+    statusButtons.forEach(button => {
+        button.addEventListener('click', () => updateStatus(button.dataset.status));
+    });
     document.querySelector('#remove-game').addEventListener('click', () => {
-        updateSavedState(false);
-        saveButton.focus();
+        try {
+            window.Backlog.removeStatus(game.id);
+            notify('Jogo removido da sua coleção.');
+            statusButtons[0].focus();
+        } catch {
+            notify('Não foi possível remover. Permita o armazenamento neste navegador.');
+        }
     });
-    window.addEventListener('storage', () => {
-        saved = window.Backlog.isSaved(game.id);
-        renderSavedState();
-    });
-    window.addEventListener('pageshow', () => {
-        saved = window.Backlog.isSaved(game.id);
-        renderSavedState();
-    });
-    renderSavedState();
+    window.addEventListener('backlog-change', renderCollectionState);
+    window.addEventListener('storage', renderCollectionState);
+    window.addEventListener('pageshow', renderCollectionState);
+    renderCollectionState();
 
     const shareDialog = document.querySelector('#share-dialog');
     const shareUrl = document.querySelector('#share-url');

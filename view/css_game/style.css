@@ -807,3 +807,168 @@ h1>span:not(.title-dot) {
         letter-spacing: -1.5px;
     }
 }
+
+/* ===== Status do jogo na coleção pessoal ===== */
+.collection-panel {
+    min-width: 0;
+    margin-top: 20px;
+}
+
+.collection-panel h2 {
+    margin: 0 0 13px;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: -.2px;
+}
+
+.game-status-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.game-status-button {
+    --status-color: var(--yellow);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: 46px;
+    padding: 10px;
+    border: 1px solid #3a3e33;
+    border-radius: 7px;
+    background: #1a1d17;
+    color: #bbc2af;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: left;
+    transition: border-color .2s, background .2s, color .2s;
+}
+
+.game-status-button svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.game-status-button[data-status="playing"] {
+    --status-color: #89d5ff;
+}
+
+.game-status-button[data-status="completed"] {
+    --status-color: #a7e6a1;
+}
+
+.game-status-button[data-status="platinum"] {
+    --status-color: #d1baff;
+}
+
+.game-status-button[data-status="dropped"] {
+    --status-color: #f0ad9a;
+}
+
+.game-status-button:hover {
+    border-color: var(--status-color);
+    color: var(--text);
+    background: #252b1e;
+}
+
+.game-status-button[aria-pressed="true"] {
+    border-color: var(--status-color);
+    color: var(--status-color);
+    background: color-mix(in srgb, var(--status-color) 12%, #171a14);
+    box-shadow: inset 3px 0 var(--status-color);
+}
+
+.game-status-help {
+    min-height: 34px;
+    margin: 12px 0 0;
+    color: #a4ac98;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.collection-status #collection-status-label {
+    color: #d4ddc4;
+}
+
+@media (max-width: 1100px) and (min-width: 561px) {
+    .game-status-button {
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 5px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .game-sidebar {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 12px 16px;
+    }
+
+    .game-sidebar .cover-wrap {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .collection-panel {
+        grid-column: 2;
+        grid-row: 1;
+        margin-top: 0;
+    }
+
+    .collection-panel h2 {
+        margin-bottom: 10px;
+        font-size: 13px;
+    }
+
+    .game-status-options {
+        gap: 7px;
+    }
+
+    .game-status-button {
+        justify-content: center;
+        gap: 6px;
+        min-height: 44px;
+        padding: 8px 5px;
+        font-size: 10px;
+    }
+
+    .game-status-button svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .game-status-help {
+        min-height: 0;
+        margin-top: 10px;
+        font-size: 9px;
+    }
+
+    .game-sidebar > #share-game {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin: 0;
+    }
+
+    .game-sidebar > .save-hint {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .game-sidebar > .collection-status {
+        grid-column: 1 / -1;
+        grid-row: 4;
+        margin: 0;
+    }
+}

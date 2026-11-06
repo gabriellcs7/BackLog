@@ -140,6 +140,17 @@
     margin-bottom: 20px;
 }
 
+.review-cover-link {
+    display: block;
+    flex-shrink: 0;
+    border-radius: 4px;
+    transition: box-shadow .2s;
+}
+
+.review-cover-link:hover {
+    box-shadow: 0 0 0 2px var(--yellow);
+}
+
 .jogo_review {
     width: 54px;
     height: 75px;

@@ -110,11 +110,12 @@
 }
 
 .radar-grid .library-art {
-    aspect-ratio: 1.15;
+    box-sizing: content-box;
+    aspect-ratio: 16 / 9;
 }
 
 .radar-grid .library-art img {
-    object-position: center 25%;
+    object-position: center;
 }
 
 /* ===== 03. Avaliações originais do projeto ===== */
@@ -396,10 +397,6 @@
     .radar-grid {
         grid-template-columns: repeat(2,minmax(0,1fr));
         gap: 25px 16px;
-    }
-
-    .radar-grid .library-art {
-        aspect-ratio: 3/4;
     }
 
     .collection-banner {

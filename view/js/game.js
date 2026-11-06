@@ -14,6 +14,13 @@
     let saved = window.Backlog.isSaved(game.id);
     let toastTimer;
 
+    // Cada jogo possui uma arte horizontal e um enquadramento para cada tela.
+    const hero = document.querySelector('.hero');
+    const backdrop = document.querySelector('.hero-image');
+    backdrop.src = `../imagens/${game.banner}`;
+    hero.style.setProperty('--banner-position', game.bannerPosition || 'center');
+    hero.style.setProperty('--banner-position-mobile', game.bannerPositionMobile || 'center');
+
     // O GTA VI usa a composição original; os demais jogos usam os dados do catálogo.
     document.title = `${game.title} · BackLog`;
     document.querySelector('meta[name="description"]').content = game.description;
@@ -23,10 +30,6 @@
         document.querySelector('#game-title').textContent = game.title;
         document.querySelector('.hero-caption').textContent = game.caption;
         document.querySelector('.breadcrumbs>span:last-child').textContent = game.title;
-        const backdrop = document.querySelector('.hero-image');
-        backdrop.src = `../imagens/capas/${game.cover}`;
-        backdrop.style.objectPosition = 'center 30%';
-        backdrop.style.opacity = '0.55';
         document.querySelector('.hero-heading').classList.add('generic-heading');
 
         const cover = document.querySelector('.game-cover');

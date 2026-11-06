@@ -1,4 +1,4 @@
-/* Catálogo local. Edite os jogos e suas imagens aqui. */
+/* Catálogo local. Edite os jogos, as capas e os banners aqui. */
 window.BacklogGames = [
     {
         "id": "grand-theft-auto-vi",
@@ -17,7 +17,10 @@ window.BacklogGames = [
             "PlayStation 5",
             "Xbox Series X|S"
         ],
-        "setting": "Leonida, Vice City"
+        "setting": "Leonida, Vice City",
+        "banner": "gta-vi-banner-4k.webp",
+        "bannerPosition": "center top",
+        "bannerPositionMobile": "53% top"
     },
     {
         "id": "grand-theft-auto-v",
@@ -30,7 +33,10 @@ window.BacklogGames = [
         ],
         "studio": "Rockstar Games",
         "caption": "Three lives. One city. Endless possibilities.",
-        "description": "Explore Los Santos through three intertwined stories. From the city streets to the surrounding countryside, build a backlog full of memorable adventures."
+        "description": "Explore Los Santos through three intertwined stories. From the city streets to the surrounding countryside, build a backlog full of memorable adventures.",
+        "banner": "banners/grand-theft-auto-v.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "70% center"
     },
     {
         "id": "red-dead-redemption-2",
@@ -43,7 +49,10 @@ window.BacklogGames = [
         ],
         "studio": "Rockstar Games",
         "caption": "An adventure worth getting lost in.",
-        "description": "Ride into a sweeping western story with Arthur Morgan and the Van der Linde gang. Explore a world filled with quiet discoveries and unforgettable characters."
+        "description": "Ride into a sweeping western story with Arthur Morgan and the Van der Linde gang. Explore a world filled with quiet discoveries and unforgettable characters.",
+        "banner": "banners/red-dead-redemption-2.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "78% center"
     },
     {
         "id": "god-of-war-ragnarok",
@@ -56,7 +65,10 @@ window.BacklogGames = [
         ],
         "studio": "Santa Monica Studio",
         "caption": "Every journey has a story.",
-        "description": "Join Kratos and Atreus on a journey through the Norse realms. Discover challenging combat and a story about family, fate and the choices that shape us."
+        "description": "Join Kratos and Atreus on a journey through the Norse realms. Discover challenging combat and a story about family, fate and the choices that shape us.",
+        "banner": "banners/god-of-war-ragnarok.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "65% center"
     },
     {
         "id": "the-last-of-us",
@@ -69,7 +81,10 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "caption": "Some stories stay with you.",
-        "description": "Follow Joel and Ellie through a world transformed. A journey of survival and connection, ready for a place in your collection."
+        "description": "Follow Joel and Ellie through a world transformed. A journey of survival and connection, ready for a place in your collection.",
+        "banner": "banners/the-last-of-us.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "50% center"
     },
     {
         "id": "minecraft",
@@ -82,7 +97,10 @@ window.BacklogGames = [
         ],
         "studio": "Mojang Studios",
         "caption": "Make a world of your own.",
-        "description": "Build, explore and create at your own pace. From a simple shelter to your most ambitious project, your next world starts with a single block."
+        "description": "Build, explore and create at your own pace. From a simple shelter to your most ambitious project, your next world starts with a single block.",
+        "banner": "banners/minecraft.webp",
+        "bannerPosition": "center 47%",
+        "bannerPositionMobile": "53% center"
     },
     {
         "id": "fortnite",
@@ -95,7 +113,10 @@ window.BacklogGames = [
         ],
         "studio": "Epic Games",
         "caption": "Drop in. Team up. Play your way.",
-        "description": "Find your next multiplayer adventure, team up with friends and discover new ways to play. Keep it in your backlog for your next game night."
+        "description": "Find your next multiplayer adventure, team up with friends and discover new ways to play. Keep it in your backlog for your next game night.",
+        "banner": "banners/fortnite.webp",
+        "bannerPosition": "center 35%",
+        "bannerPositionMobile": "52% center"
     },
     {
         "id": "spider-man",
@@ -108,7 +129,10 @@ window.BacklogGames = [
         ],
         "studio": "Insomniac Games",
         "caption": "Your friendly neighborhood adventure.",
-        "description": "Swing through New York and step into the life of Peter Parker. A superhero adventure filled with movement, action and memorable moments."
+        "description": "Swing through New York and step into the life of Peter Parker. A superhero adventure filled with movement, action and memorable moments.",
+        "banner": "banners/spider-man.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "71% center"
     },
     {
         "id": "red-dead-redemption",
@@ -121,7 +145,10 @@ window.BacklogGames = [
         ],
         "studio": "Rockstar Games",
         "caption": "A journey through the American frontier.",
-        "description": "Follow John Marston across the frontier in a western adventure. Add it to your collection and discover the story at your own pace."
+        "description": "Follow John Marston across the frontier in a western adventure. Add it to your collection and discover the story at your own pace.",
+        "banner": "banners/red-dead-redemption.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "53% center"
     },
     {
         "id": "phantom-blade-zero",
@@ -134,7 +161,10 @@ window.BacklogGames = [
         ],
         "studio": "S-GAME",
         "caption": "A new world to discover.",
-        "description": "A martial arts adventure with a dark, atmospheric world. Keep this game on your radar and make room for your next discovery."
+        "description": "A martial arts adventure with a dark, atmospheric world. Keep this game on your radar and make room for your next discovery.",
+        "banner": "banners/phantom-blade-zero.webp",
+        "bannerPosition": "center 38%",
+        "bannerPositionMobile": "52% center"
     },
     {
         "id": "silent-hill-townfall",
@@ -147,7 +177,10 @@ window.BacklogGames = [
         ],
         "studio": "Screen Burn",
         "caption": "Some places are hard to leave behind.",
-        "description": "Step into the unsettling atmosphere of Silent Hill. Save this psychological horror adventure to your collection."
+        "description": "Step into the unsettling atmosphere of Silent Hill. Save this psychological horror adventure to your collection.",
+        "banner": "banners/silent-hill-townfall.webp",
+        "bannerPosition": "center 44%",
+        "bannerPositionMobile": "52% center"
     },
     {
         "id": "minecraft-dungeons-ii",
@@ -160,6 +193,9 @@ window.BacklogGames = [
         ],
         "studio": "Mojang Studios",
         "caption": "Another adventure is calling.",
-        "description": "Discover a new dungeon-crawling adventure inspired by the world of Minecraft. Keep it on your wishlist for your next adventure."
+        "description": "Discover a new dungeon-crawling adventure inspired by the world of Minecraft. Keep it on your wishlist for your next adventure.",
+        "banner": "banners/minecraft-dungeons-ii.webp",
+        "bannerPosition": "center 44%",
+        "bannerPositionMobile": "54% center"
     }
 ];

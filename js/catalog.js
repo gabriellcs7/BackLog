@@ -6,6 +6,7 @@
     const params = new URLSearchParams(window.location.search);
     const searchInput = document.querySelector('#site-search');
     const genreSelect = document.querySelector('#genre-filter');
+    const statusSelect = document.querySelector('#status-filter');
     const sortSelect = document.querySelector('#sort-games');
     const results = document.querySelector('#game-results');
     const emptyState = document.querySelector('#empty-state');
@@ -17,6 +18,9 @@
         genreSelect.value = params.get('genre');
     }
     if (['az', 'za'].includes(params.get('sort'))) sortSelect.value = params.get('sort');
+    if (window.Backlog.statusOptions.some(option => option.id === params.get('status'))) {
+        statusSelect.value = params.get('status');
+    }
 
     function normalize(text) {
         return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -42,10 +46,13 @@
         arrow.textContent = '↗';
         art.append(arrow);
 
-        if (window.Backlog.isSaved(game.id)) {
+        const status = window.Backlog.getStatus(game.id);
+        if (status) {
             const badge = document.createElement('span');
             badge.className = 'saved-badge';
-            badge.textContent = '✓ IN YOUR BACKLOG';
+            badge.dataset.status = status.id;
+            badge.lang = 'pt-BR';
+            badge.textContent = status.label;
             art.append(badge);
         }
 
@@ -65,6 +72,7 @@
         if (collection === 'saved') url.searchParams.set('saved', '1');
         if (genreSelect.value !== 'all') url.searchParams.set('genre', genreSelect.value);
         if (sortSelect.value !== 'featured') url.searchParams.set('sort', sortSelect.value);
+        if (statusSelect.value !== 'all') url.searchParams.set('status', statusSelect.value);
         try {
             history.replaceState(null, '', url.href);
         } catch {
@@ -78,7 +86,8 @@
             const matchesQuery = normalize(game.title).includes(query);
             const matchesGenre = genreSelect.value === 'all' || game.genre === genreSelect.value;
             const matchesCollection = collection === 'all' || window.Backlog.isSaved(game.id);
-            return matchesQuery && matchesGenre && matchesCollection;
+            const matchesStatus = statusSelect.value === 'all' || window.Backlog.getStatus(game.id)?.id === statusSelect.value;
+            return matchesQuery && matchesGenre && matchesCollection && matchesStatus;
         });
 
         if (sortSelect.value !== 'featured') {
@@ -100,10 +109,12 @@
             : 'From familiar favorites to your next obsession. It all starts here.';
 
         const noSavedGames = collection === 'saved' && !games.some(game => window.Backlog.isSaved(game.id));
-        document.querySelector('#empty-title').textContent = noSavedGames ? 'Your next adventure starts here.' : 'No games found.';
+        document.querySelector('#empty-title').textContent = noSavedGames
+            ? 'Your next adventure starts here.'
+            : statusSelect.value !== 'all' ? 'Nenhum jogo com esse status.' : 'No games found.';
         document.querySelector('#empty-description').textContent = noSavedGames
             ? 'Open a game and add it to your backlog. Your saved games will appear here.'
-            : 'Try another search or choose a different genre.';
+            : 'Try another search, status or genre.';
         tabs.forEach(tab => {
             const selected = tab.dataset.collection === collection;
             tab.classList.toggle('selected', selected);
@@ -114,9 +125,11 @@
 
     searchInput.addEventListener('input', render);
     genreSelect.addEventListener('change', render);
+    statusSelect.addEventListener('change', render);
     sortSelect.addEventListener('change', render);
     window.addEventListener('backlog-search', render);
     window.addEventListener('storage', render);
+    window.addEventListener('backlog-change', render);
     window.addEventListener('pageshow', render);
     tabs.forEach(tab => tab.addEventListener('click', () => {
         collection = tab.dataset.collection;
@@ -126,6 +139,7 @@
     document.querySelector('#reset-filters').addEventListener('click', () => {
         searchInput.value = '';
         genreSelect.value = 'all';
+        statusSelect.value = 'all';
         sortSelect.value = 'featured';
         collection = 'all';
         render();

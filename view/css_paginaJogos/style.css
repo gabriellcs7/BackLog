@@ -348,3 +348,56 @@
     }
 
 }
+
+/* ===== Filtro e identificação do status na coleção ===== */
+.catalog-toolbar {
+    flex-wrap: wrap;
+}
+
+.catalog-selects {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.saved-badge {
+    max-width: calc(100% - 20px);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.saved-badge[data-status="playing"] {
+    border-color: #6094b3;
+    background: #14232fef;
+    color: #a7ddff;
+}
+
+.saved-badge[data-status="completed"] {
+    border-color: #709869;
+    background: #1b2c19ef;
+    color: #bfe8b3;
+}
+
+.saved-badge[data-status="platinum"] {
+    border-color: #9e89bd;
+    background: #292037ef;
+    color: #dfceff;
+}
+
+.saved-badge[data-status="dropped"] {
+    border-color: #ae8070;
+    background: #321d18ef;
+    color: #f3c4b4;
+}
+
+.saved-badge[data-status="want-to-play"] {
+    border-color: #bca047;
+    background: #2b2513ef;
+    color: #ffe28b;
+}
+
+@media (max-width: 800px) {
+    .catalog-selects {
+        justify-content: flex-start;
+    }
+}

@@ -1,155 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../imagens/favicon_2-32x32.png" type="image/x-icon">
-    <link rel="stylesheet" href="../view/css_game/style.css">
-    <title>Game</title>
-</head>
-<body>
-
-<nav class="navbar">
-
-    <a href="index.html">
-        <img class="logo" src="../imagens/logo_transparente.png" alt="logo_BackLog">
-    </a>
-
-    <ul class="nav-links">
-
-        <li>
-            <input type="search" class="search" placeholder="Search...">
-        </li>
-
-        <li><a href="#">Sing in</a></li>
-        <li><a href="#">Activity</a></li>
-        <li><a href="view/pagina_jogos.html">Games</a></li>
-        <li><a href="#">Lists</a></li>
-
-        <li class="botao_unico">
-            <a href="#" class="cor_fonte">Plans PRO</a>
-        </li>
-
-    </ul>
-
-    <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
-</nav>
-
-<div class="jogos">
-    <img src="../imagens/capas/semcapa.png" alt="Jogo" class="capa-jogo"> 
-    <div>
-        <p>Rating: 4.5/5</p>
-        <h1>NAME GAME</h1> 
-        <p>Description of the game goes here.</p>
-    </div>
-    <div class="detalhes-jogo">
-        <p>Release Date: 2000-01-01</p>
-        <p>Genre: Action, Adventure</p>
-        <p>Developer: Developer Name</p>
-        <p>Publisher: Publisher Name</p>
-    </div>
-</div>
-
-    <footer class="rodape">
-
-        <div class="rodape-topo">
-
-            <div class="rodape-marca">
-
-                <img
-                    class="rodape-logo"
-                    src="../imagens/logo_transparente.png"
-                    alt="logo_BackLog"
-                >
-
-                <p>
-                    Save, review and discover the next favorite games.
-                </p>
-
-            </div>
-
-
-            <div class="rodape-coluna">
-
-                <h4>To sail</h4>
-
-                <a href="#">About</a>
-                <a href="pagina_jogos.html">Games</a>
-                <a href="#">Lists</a>
-                <a href="#">Activity</a>
-
-            </div>
-
-
-            <div class="rodape-coluna">
-
-                <h4>Account</h4>
-
-                <a href="#">Profile</a>
-                <a href="#">Plans PRO</a>
-                <a href="#">Support</a>
-
-            </div>
-
-
-            <div class="rodape-coluna">
-
-                <h4>Follow</h4>
-
-                <div class="rodape-social">
-
-                    <a href="#">
-                        <img
-                            class="social"
-                            src="../imagens/instagram (1).png"
-                            alt="Instagram"
-                        >
-                    </a>
-
-                    <a href="#">
-                        <img
-                            class="social"
-                            src="../imagens/twitter-alt.png"
-                            alt="Twitter"
-                        >
-                    </a>
-
-                    <a href="#">
-                        <img
-                            class="social"
-                            src="../imagens/discord.png"
-                            alt="Discord"
-                        >
-                    </a>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#131414">
+        <meta name="description" content="Discover Grand Theft Auto VI and keep track of your next adventure on BackLog.">
+        <link rel="icon" href="../imagens/favicon_2-32x32.png">
+        <link rel="stylesheet" href="css_game/style.css">
+        <script src="../js/games.js" defer></script>
+        <script src="../js/site.js" defer></script>
+        <script src="js/game.js" defer></script>
+        <title>Grand Theft Auto VI · BackLog</title>
+    </head>
+    <body class="gta-vi-page">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <!-- Cabeçalho e navegação -->
+        <!-- Navegação compartilhada e pesquisa -->
+        <header class="site-header">
+            <nav class="navbar shell" aria-label="Main navigation">
+                <a class="brand" href="../index.html" aria-label="BackLog home"> <img src="../imagens/logo_transparente.png" alt="BackLog"> </a>
+                <form class="nav-search" role="search" action="../view/pagina_jogos.html" data-catalog="../view/pagina_jogos.html">
+                    <label class="visually-hidden" for="site-search">Search games</label>
+                    <button type="submit" aria-label="Search games">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/>
+                            
+                            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                            
+                        </svg>
+                    </button>
+                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games..." autocomplete="off" maxlength="120">
+                    <kbd aria-hidden="true">
+                        /
+                    </kbd>
+                </form>
+                <div class="nav-links" id="navigation">
+                    <a href="../index.html">Home</a>
+                    <a class="active" aria-current="page" href="../view/pagina_jogos.html">Games</a>
+                    <a href="../view/pagina_jogos.html?saved=1">My backlog <span class="nav-count" id="nav-count">0</span></a>
                 </div>
-
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button>
+            </nav>
+        </header>
+        <main id="main">
+            <!-- Banner do jogo -->
+            <section class="hero" aria-labelledby="game-title">
+                <img class="hero-image" src="../imagens/gta-vi-banner-4k.webp" alt="" fetchpriority="high">
+                <div class="hero-shade">
+                </div>
+                <div class="hero-content shell">
+                    <nav class="breadcrumbs" aria-label="Breadcrumb">
+                        <a href="../index.html">Home</a>
+                        <span aria-hidden="true">/</span>
+                        <a href="pagina_jogos.html">Games</a>
+                        <span aria-hidden="true">/</span>
+                        <span>Grand Theft Auto VI</span>
+                    </nav>
+                    <div class="hero-heading">
+                        <span class="eyebrow"><i></i> YOUR NEXT GREAT ADVENTURE</span>
+                        <h1 id="game-title">Grand Theft<br>Auto <span>VI</span><span class="title-dot">.</span></h1>
+                        <p class="hero-caption">Welcome back to Vice City.</p>
+                        <div class="hero-tags">
+                            <span>Open world</span>
+                            <span>Action</span>
+                            <span>Adventure</span>
+                        </div>
+                    </div>
+                    <span class="hero-index" aria-hidden="true">THE WORLD IS YOURS <span>↘</span></span>
+                </div>
+            </section>
+            <!-- Conteúdo principal: capa, backlog e detalhes -->
+            <div class="game-layout shell">
+                <aside class="game-sidebar" id="my-backlog" aria-label="Your game collection">
+                    <div class="cover-wrap">
+                        <img class="game-cover" src="../imagens/capas/gta6_capa.webp" alt="Grand Theft Auto VI cover">
+                        <span class="cover-label">COMING SOON</span>
+                    </div>
+                    <button class="button button-primary" id="save-game" type="button" aria-pressed="false"><span aria-hidden="true" id="save-icon">＋</span><span id="save-label">Add to backlog</span></button>
+                    <button class="button button-secondary" id="share-game" type="button"><span aria-hidden="true">↗</span> Share game</button>
+                    <p class="save-hint">Your next adventure, all in one place.<br>Saved on this browser.</p>
+                    <div class="collection-status" id="collection-status" hidden>
+                        <span class="status-dot"></span>
+                        On your wishlist
+                        <button id="remove-game" type="button">Remove</button>
+                    </div>
+                </aside>
+                <div class="game-main">
+                    <div class="game-summary">
+                        <div>
+                            <p class="eyebrow muted">ROCKSTAR GAMES</p>
+                            <h2>A new chapter.<br>A familiar kind of chaos.</h2>
+                        </div>
+                        <div class="rating-preview">
+                            <span class="rating-star" aria-hidden="true">☆</span>
+                            <div>
+                                <strong>Not rated yet</strong>
+                                <span>Unreleased game</span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="section-tabs" aria-label="Game sections">
+                        <a class="selected" href="#about">Overview</a>
+                        <a href="#details">Game details</a>
+                        <a href="#more-games">More to discover <span aria-hidden="true">↗</span></a>
+                    </nav>
+                    <section class="about-section" id="about" aria-labelledby="about-title">
+                        <div class="section-heading">
+                            <span class="section-number">01 /</span>
+                            <h3 id="about-title">About the game</h3>
+                        </div>
+                        <p>Neon-lit streets. Endless coastlines. A new story waiting to unfold. Grand Theft Auto VI takes you to the state of Leonida, home to Vice City and a world of possibility beyond it.</p>
+                        <p>Follow Jason and Lucia into the next chapter of Rockstar Games’ open-world series. Start your wishlist here, and keep your next adventure within reach.</p>
+                        <div class="platforms">
+                            <span class="small-label">PLAY IT ON</span>
+                            <span class="platform">PlayStation 5</span>
+                            <span class="platform">Xbox Series X|S</span>
+                        </div>
+                    </section>
+                    <section class="details-section" id="details" aria-labelledby="details-title">
+                        <div class="section-heading">
+                            <span class="section-number">02 /</span>
+                            <h3 id="details-title">The details</h3>
+                        </div>
+                        <dl class="details-grid">
+                            <div>
+                                <dt>Developer</dt>
+                                <dd>Rockstar Games</dd>
+                            </div>
+                            <div>
+                                <dt>Publisher</dt>
+                                <dd>Rockstar Games</dd>
+                            </div>
+                            <div>
+                                <dt>Genre</dt>
+                                <dd>Action · Adventure</dd>
+                            </div>
+                            <div>
+                                <dt>Setting</dt>
+                                <dd>Leonida, Vice City</dd>
+                            </div>
+                        </dl>
+                    </section>
+                </div>
             </div>
-
-        </div>
-
-
-        <div class="rodape-base">
-
-            <p>
-                &copy; 2026 BackLog. All rights reserved.
-            </p>
-
-            <div class="rodape-legal">
-
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-
+            <!-- Sugestões de jogos -->
+            <section class="discover shell" id="more-games" aria-labelledby="discover-title">
+                <div class="discover-heading">
+                    <div>
+                        <span class="eyebrow muted">KEEP EXPLORING</span>
+                        <h2 id="discover-title">Your next obsession awaits<span>.</span></h2>
+                    </div>
+                    <a class="text-link" href="pagina_jogos.html">Browse all games <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="discover-grid">
+                    <a class="discover-card" href="pagina_jogos.html">
+                        <div class="card-art">
+                            <img src="../imagens/capas/gta5_capa.png" alt="" loading="lazy">
+                            <span>EXPLORE GAME ↗</span>
+                        </div>
+                        <h3>Grand Theft Auto V</h3>
+                        <p>Action · Open world</p>
+                    </a>
+                    <a class="discover-card" href="pagina_jogos.html">
+                        <div class="card-art">
+                            <img src="../imagens/capas/Red_Dead_Redemption_2.png" alt="" loading="lazy">
+                            <span>EXPLORE GAME ↗</span>
+                        </div>
+                        <h3>Red Dead Redemption 2</h3>
+                        <p>Adventure · Open world</p>
+                    </a>
+                    <a class="discover-card" href="pagina_jogos.html">
+                        <div class="card-art">
+                            <img src="../imagens/capas/gow_ragnarok_capa.jpg" alt="" loading="lazy">
+                            <span>EXPLORE GAME ↗</span>
+                        </div>
+                        <h3>God of War Ragnarök</h3>
+                        <p>Action · Adventure</p>
+                    </a>
+                    <a class="discover-card" href="pagina_jogos.html">
+                        <div class="card-art">
+                            <img src="../imagens/capas/tlou_capa.png" alt="" loading="lazy">
+                            <span>EXPLORE GAME ↗</span>
+                        </div>
+                        <h3>The Last of Us</h3>
+                        <p>Adventure · Story rich</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+        <!-- Rodapé -->
+        <!-- Rodapé compartilhado -->
+        <footer class="footer">
+            <div class="footer-top shell">
+                <div class="footer-brand">
+                    <a href="../index.html"><img src="../imagens/logo_transparente.png" alt="BackLog"></a>
+                    <p>Great games. Better memories.<br>Keep them all in your backlog.</p>
+                </div>
+                <div class="footer-note">
+                    <span class="eyebrow muted">MADE FOR THE WAY YOU PLAY</span>
+                    <p>Less searching. More playing.</p>
+                    <a class="text-link" href="../view/pagina_jogos.html">Find your next game ↗</a>
+                </div>
             </div>
-
+            <div class="footer-bottom shell">
+                <p>© 2026 BackLog. All rights reserved.</p>
+                <a href="#main">Back to top ↑</a>
+            </div>
+        </footer>
+        <!-- Notificações e janela de compartilhamento -->
+        <div class="toast" id="toast" role="status" aria-live="polite">
         </div>
-
-    </footer>
-
-</body>
+        <dialog id="share-dialog">
+            <form method="dialog">
+                <button class="dialog-close" aria-label="Close" value="close">×</button>
+                <h2>Share this adventure</h2>
+                <p>Copy the address below to share this game.</p>
+                <label for="share-url">Game address</label>
+                <input id="share-url" type="url" readonly>
+                <button class="button button-primary" id="copy-link" type="button">Copy link</button>
+                <p id="copy-status" role="status"></p>
+            </form>
+        </dialog>
+    </body>
 </html>

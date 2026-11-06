@@ -8,13 +8,42 @@
     const menuButton = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('#navigation');
 
-    // O mesmo armazenamento é usado pela página do jogo e pelo catálogo.
-    function isSaved(id) {
+    // Um status atual por jogo, compartilhado pela página de detalhes e pela coleção.
+    const statusOptions = Object.freeze([
+        { id: 'played', label: 'Jogado', description: 'Você já jogou este jogo.' },
+        { id: 'playing', label: 'Jogando', description: 'Você está jogando este jogo agora.' },
+        { id: 'completed', label: 'Zerado', description: 'Você completou o jogo.' },
+        { id: 'platinum', label: 'Platinado', description: 'Você completou todas as missões.' },
+        { id: 'dropped', label: 'Dropado', description: 'Você jogou, mas desistiu de completar.' },
+        { id: 'want-to-play', label: 'Quero jogar', description: 'Você quer jogar este jogo.' }
+    ].map(option => Object.freeze(option)));
+
+    function getStatus(id) {
         try {
-            return localStorage.getItem(`backlog:${id}`) === 'saved';
+            const stored = localStorage.getItem(`backlog:${id}`);
+            // Preserva os jogos salvos antes da introdução dos seis status.
+            if (stored === 'saved') return statusOptions.find(option => option.id === 'want-to-play');
+            return statusOptions.find(option => option.id === stored) || null;
         } catch {
-            return false;
+            return null;
         }
+    }
+
+    function isSaved(id) {
+        return getStatus(id) !== null;
+    }
+
+    function setStatus(id, statusId) {
+        if (!games.some(game => game.id === id) || !statusOptions.some(option => option.id === statusId)) {
+            throw new Error('Invalid game or collection status.');
+        }
+        localStorage.setItem(`backlog:${id}`, statusId);
+        window.dispatchEvent(new Event('backlog-change'));
+    }
+
+    function removeStatus(id) {
+        localStorage.removeItem(`backlog:${id}`);
+        window.dispatchEvent(new Event('backlog-change'));
     }
 
     function updateCount() {
@@ -23,7 +52,7 @@
         return count;
     }
 
-    window.Backlog = { isSaved, updateCount };
+    window.Backlog = { statusOptions, getStatus, setStatus, removeStatus, isSaved, updateCount };
     updateCount();
     window.addEventListener('storage', updateCount);
     window.addEventListener('backlog-change', updateCount);

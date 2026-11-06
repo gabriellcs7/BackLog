@@ -13,7 +13,7 @@ Artes horizontais baixadas de fontes públicas. Os arquivos locais foram otimiza
 | Fortnite | `fortnite.webp` | 1920 × 1080 | [Imagem original](https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/ncom/en_US/articles/2023/battle-royale-chapter-4-season-2-mega/EN_24BR_BattlePassLineup_Social_Social) |
 | Marvel’s Spider-Man | `spider-man.webp` | 3840 × 1240 | [Imagem original](https://cdn.akamai.steamstatic.com/steam/apps/1817070/library_hero_2x.jpg) |
 | Red Dead Redemption | `red-dead-redemption.webp` | 3840 × 1240 | [Imagem original](https://cdn.akamai.steamstatic.com/steam/apps/2668510/library_hero_2x.jpg) |
-| Phantom Blade Zero | `phantom-blade-zero.webp` | 3840 × 2160 | [Imagem original](undefined) |
+| Phantom Blade Zero | `phantom-blade-zero.webp` | 3840 × 2160 | [Imagem original](https://pbs.twimg.com/media/FxG64YOXoAENZ6t.jpg?format=jpg&name=orig) |
 | Silent Hill: Townfall | `silent-hill-townfall.webp` | 3840 × 1635 | [Imagem original](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1636440/870894c942a3de88f35773657cee1fb0009e9a16/ss_870894c942a3de88f35773657cee1fb0009e9a16.jpg?t=1792553312) |
 | Minecraft Dungeons II | `minecraft-dungeons-ii.webp` | 2560 × 1440 | [Imagem original](https://www.minecraft.net/content/dam/minecraftnet/games/spicewood/software/Launch_KeyArt.zip) |
 

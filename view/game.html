@@ -13,6 +13,7 @@
         <script src="../js/account.js" defer></script>
         <script src="../js/site.js" defer></script>
         <script src="js/game.js" defer></script>
+        <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js" defer></script>
         <script src="js/review.js" defer></script>
         <script src="../js/ui.js" defer></script>
@@ -201,6 +202,9 @@
                                     <span class="rating-star-choice" data-star="4"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="3.5 stars"><input type="radio" name="review-rating" value="3.5" aria-label="3.5 stars"></label><label class="rating-half rating-half-right" title="4 stars"><input type="radio" name="review-rating" value="4" aria-label="4 stars"></label></span>
                                     <span class="rating-star-choice" data-star="5"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="4.5 stars"><input type="radio" name="review-rating" value="4.5" aria-label="4.5 stars"></label><label class="rating-half rating-half-right" title="5 stars"><input type="radio" name="review-rating" value="5" aria-label="5 stars"></label></span>
                                 </div><output id="review-rating-value" aria-live="polite">Not rated</output><button class="review-clear-rating" id="clear-rating" type="button" hidden>Clear rating</button></div><p id="rating-help" class="rating-help">Choose a full star or its left half for a half-star rating.</p></fieldset>
+                            <label class="review-text-label" for="review-played-date">Diary date</label>
+                            <input class="review-date-input" id="review-played-date" name="reviewedOn" type="date" min="1900-01-01" required aria-describedby="review-date-help">
+                            <p id="review-date-help" class="review-date-help">Each save adds an entry to your diary. Choose the day you want to log.</p>
                             <label class="review-text-label" for="review-text">Write your review <span>(optional)</span></label>
                             <textarea id="review-text" name="review" rows="5" maxlength="3000" placeholder="The moments you loved, what surprised you, what could be better…" aria-describedby="review-counter review-note"></textarea>
                             <div class="review-text-footer"><span id="review-note">Saved only in this browser.</span><span id="review-counter">0 / 3,000</span></div>

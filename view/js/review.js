@@ -6,6 +6,8 @@
     const reviews = window.BacklogReviews;
     const form = document.querySelector('#review-form');
     const text = document.querySelector('#review-text');
+    const diaryDate = document.querySelector('#review-played-date');
+    diaryDate.max = window.BacklogDiary.today();
     const radios = [...form.querySelectorAll('[name="review-rating"]')];
     const savedPanel = document.querySelector('#review-saved');
     const confirmation = document.querySelector('#review-delete-confirm');
@@ -43,6 +45,7 @@
         confirmation.hidden = true;
         cancel.hidden = !review;
         text.value = review?.text || '';
+        diaryDate.value = review?.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = review?.rating != null && Number(radio.value) === review.rating; });
         if (review) {
             const savedRating = document.querySelector('#review-saved-rating');
@@ -70,8 +73,8 @@
             savedText.textContent = review.text;
             savedText.hidden = !review.text;
             const date = document.querySelector('#review-date');
-            date.dateTime = review.updatedAt;
-            date.textContent = 'Updated ' + new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(new Date(review.updatedAt));
+            date.dateTime = review.reviewedOn || review.updatedAt;
+            date.textContent = 'Logged ' + new Intl.DateTimeFormat('en', { dateStyle: 'medium' }).format(new Date((review.reviewedOn || window.BacklogDiary.dateFromTimestamp(review.updatedAt)) + 'T12:00:00'));
         }
         updateInputs();
         updateSummary();
@@ -80,7 +83,7 @@
         document.querySelector('.review-private').textContent = account?.user ? 'PUBLIC REVIEW' : 'ONLY YOU';
         document.querySelector('#review-note').textContent = account?.user ? 'Saving publishes this review on your profile and this game.' : 'Saved only in this browser.';
         document.querySelector('#use-device-review').hidden = !account?.user || Boolean(review) || !reviews.getDevice(game.id);
-        document.querySelector('#review-delete-confirm > p').textContent = account?.user ? 'Delete your public review, including its likes and comments?' : 'Delete your rating and review for this game?';
+        document.querySelector('#review-delete-confirm > p').textContent = account?.user ? 'Delete your public review, diary entries, likes and comments?' : 'Delete your rating, review and diary entries for this game?';
     }
     form.addEventListener('input', () => {
         dirty = true;
@@ -103,9 +106,9 @@
         }
         try {
             form.inert = true;
-            await reviews.save(game.id, rating(), text.value);
+            const saved = await reviews.save(game.id, rating(), text.value, diaryDate.value);
             render();
-            feedback.textContent = window.BacklogAccount?.user ? 'Your public review has been saved.' : 'Your review has been saved.';
+            feedback.textContent = saved.statusWarning ? 'Review saved to your diary. Could not update your collection in this browser.' : window.BacklogAccount?.user ? 'Your public review has been saved to your diary.' : 'Your review has been saved to your diary.';
             document.querySelector('#edit-review').focus();
         } catch {
             feedback.textContent = 'Could not save your review. Check your connection or browser storage and try again.';
@@ -145,6 +148,7 @@
         const draft = reviews.getDevice(game.id);
         if (!draft) return;
         text.value = draft.text;
+        diaryDate.value = draft.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = draft.rating !== null && Number(radio.value) === draft.rating; });
         dirty = true;
         updateInputs();
@@ -157,6 +161,7 @@
         if (!dirty) render(); else updateSummary();
     });
     window.BacklogAccount?.ready.then(() => { if (!dirty) render(); });
+    window.addEventListener('backlog-diary-change', () => { if (!dirty) render(); });
     window.addEventListener('storage', event => {
         if (event.key === null || event.key === `backlog:review:${game.id}`) {
             updateSummary();

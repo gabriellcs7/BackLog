@@ -1,37 +1,24 @@
-/* Avaliação pessoal por jogo; independente dos status da coleção. */
+/* Avaliações pessoais e diário, com notas de zero a cinco em meias estrelas. */
 (() => {
     'use strict';
-    const limit = 3000;
-    const validGame = id => window.BacklogGames.some(game => game.id === id);
-    const validRating = rating => rating === null || (Number.isFinite(rating) && Number.isInteger(rating * 2) && rating >= 0 && rating <= 5);
-    function getDevice(id) {
-        if (!validGame(id)) return null;
-        try {
-            const value = JSON.parse(localStorage.getItem('backlog:review:' + id));
-            if (!value || !validRating(value.rating) || typeof value.text !== 'string' || value.text.length > limit ||
-                (value.rating === null && !value.text.trim()) || typeof value.updatedAt !== 'string' || !Number.isFinite(Date.parse(value.updatedAt))) return null;
-            return { rating: value.rating, text: value.text, updatedAt: value.updatedAt };
-        } catch { return null; }
+    const limit=3000,diary=window.BacklogDiary;
+    const validGame=id=>window.BacklogGames.some(game=>game.id===id);
+    const validRating=rating=>rating===null||(Number.isFinite(rating)&&Number.isInteger(rating*2)&&rating>=0&&rating<=5);
+    function getDevice(id){return diary.getDeviceReview(id);}
+    function get(id){return window.BacklogAccount?.user?window.BacklogAccount.getReview(id):getDevice(id);}
+    function completedSave(id,value){
+        let statusWarning=false;
+        try{if(window.Backlog&&!window.Backlog.getStatus(id))window.Backlog.setStatus(id,'played');}catch{statusWarning=true;}
+        window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id}}));
+        return {...value,statusWarning};
     }
-    function get(id) {
-        if (window.BacklogAccount?.user) return window.BacklogAccount.getReview(id);
-        return getDevice(id);
+    function save(id,rating,text,date=diary.today()){
+        if(!validGame(id)||!validRating(rating)||typeof text!=='string'||text.length>limit)throw new Error('Invalid review.');
+        if(!diary.validDate(date))throw new Error('Choose today or an earlier date.');
+        const cleaned=text.trim();if(rating===null&&!cleaned)throw new Error('Choose a rating or write a review.');
+        if(window.BacklogAccount?.user)return window.BacklogAccount.saveReview(id,rating,cleaned,date).then(value=>completedSave(id,value));
+        return completedSave(id,diary.saveDevice(id,rating,cleaned,date));
     }
-    function save(id, rating, text) {
-        if (!validGame(id) || !validRating(rating) || typeof text !== 'string' || text.length > limit) throw new Error('Invalid review.');
-        const cleaned = text.trim();
-        if (rating === null && !cleaned) throw new Error('Choose a rating or write a review.');
-        if (window.BacklogAccount?.user) return window.BacklogAccount.saveReview(id, rating, cleaned);
-        const value = { rating, text: cleaned, updatedAt: new Date().toISOString() };
-        localStorage.setItem('backlog:review:' + id, JSON.stringify(value));
-        window.dispatchEvent(new CustomEvent('backlog-review-change', { detail: { id } }));
-        return value;
-    }
-    function remove(id) {
-        if (!validGame(id)) throw new Error('Invalid game.');
-        if (window.BacklogAccount?.user) return window.BacklogAccount.removeReview(id);
-        localStorage.removeItem('backlog:review:' + id);
-        window.dispatchEvent(new CustomEvent('backlog-review-change', { detail: { id } }));
-    }
-    window.BacklogReviews = Object.freeze({ get, getDevice, save, remove, limit });
+    function remove(id){if(!validGame(id))throw new Error('Invalid game.');if(window.BacklogAccount?.user)return window.BacklogAccount.removeReview(id);localStorage.removeItem('backlog:review:'+id);window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id}}));window.dispatchEvent(new Event('backlog-diary-change'));}
+    window.BacklogReviews=Object.freeze({get,getDevice,save,remove,limit});
 })();

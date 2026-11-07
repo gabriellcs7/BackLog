@@ -41,7 +41,7 @@
         changed();
         try {
             const owner = user.id;
-            const [player, reviews] = await Promise.all([loadPlayer(owner,true), client.from('reviews').select('id,game_id,rating,text,updated_at').eq('user_id',owner)]);
+            const [player, reviews] = await Promise.all([loadPlayer(owner,true), client.from('reviews').select('*').eq('user_id',owner)]);
             if (ticket !== generation) return;
             if (!player.profile) throw new Error('Your profile could not be loaded. Please try again.');
             player.reviews = checked(reviews) || [];
@@ -95,19 +95,39 @@
     async function signIn(email,password){await ready;if(!client)throw new Error('Online accounts are not connected yet.');const data=checked(await client.auth.signInWithPassword({email,password}));await synchronize(data.session);if(issue)throw new Error(issue);}
     async function signUp(email,password,name){await ready;if(!client)throw new Error('Online accounts are not connected yet.');name=name.trim();if(name.length<2||name.length>40)throw new Error('Use 2–40 characters for your name.');const data=checked(await client.auth.signUp({email,password,options:{data:{display_name:name},emailRedirectTo:/^https?:$/.test(location.protocol)?new URL('../view/profile.html',base).href:undefined}}));if(data.session)await synchronize(data.session);return Boolean(data.session);}
     async function signOut(){if(client)checked(await client.auth.signOut());await synchronize(null);}
-    async function ownReview(gameId,rating,text) {
+    async function ownReview(gameId,rating,text,date) {
         const owner=requireUser();
-        const existing=state.reviews.find(review=>review.game_id===gameId);
-        const fields={rating,text,updated_at:new Date().toISOString()};
-        const result=existing ? await client.from('reviews').update(fields).eq('id',existing.id).eq('user_id',owner).select('id,game_id,rating,text,updated_at').single() : await client.from('reviews').insert({...fields,user_id:owner,game_id:gameId}).select('id,game_id,rating,text,updated_at').single();
-        const review=checked(result);if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.reviews=[...state.reviews.filter(item=>item.game_id!==gameId),review];window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id:gameId}}));return{rating:review.rating,text:review.text,updatedAt:review.updated_at};
+        const result=await client.rpc('save_review_log',{game_key:gameId,review_rating:rating,review_text:text,log_date:date}).single();
+        const review=checked(result);
+        if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
+        state.reviews=[...state.reviews.filter(item=>item.game_id!==gameId),review];
+        window.dispatchEvent(new Event('backlog-diary-change'));
+        return{rating:review.rating,text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on};
     }
+    async function getDiaryEntries(){
+        const owner=requireUser(),entries=[];
+        for(let offset=0;;offset+=500){
+            const batch=checked(await client.from('diary_entries').select('id,game_id,review_id,rating,text,reviewed_on,created_at').eq('user_id',owner).order('reviewed_on',{ascending:false}).order('created_at',{ascending:false}).order('id').range(offset,offset+499))||[];
+            if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
+            entries.push(...batch);
+            if(batch.length<500)break;
+        }
+        return entries.map(entry=>({id:entry.id,gameId:entry.game_id,rating:entry.rating,text:entry.text,reviewedOn:entry.reviewed_on,createdAt:entry.created_at}));
+    }
+    async function changeDiaryDate(id,date){
+        const owner=requireUser();
+        checked(await client.rpc('set_diary_date',{entry_key:id,new_date:date}));
+        const reviews=checked(await client.from('reviews').select('*').eq('user_id',owner))||[];
+        if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
+        state.reviews=reviews;
+    }
+    async function deleteDiaryEntry(id){const owner=requireUser();checked(await client.from('diary_entries').delete().eq('id',id).eq('user_id',owner));}
     async function removeReview(gameId){const owner=requireUser();checked(await client.from('reviews').delete().eq('user_id',owner).eq('game_id',gameId));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.reviews=state.reviews.filter(item=>item.game_id!==gameId);window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id:gameId}}));}
     async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
     window.BacklogAccount=Object.freeze({
         ready,configured,get loading(){return loading;},get user(){return user?{id:user.id,email:user.email}:null;},get error(){return issue;},get client(){return client;},getState:()=>copy(state),
-        saveProfile,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,
-        getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating,text:review.text,updatedAt:review.updated_at}:null;},
+        saveProfile,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
+        getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating,text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on||window.BacklogDiary?.dateFromTimestamp(review.updated_at)}:null;},
         async getProfile(id){await ready;if(!client)throw new Error('Online profiles are not connected yet.');if(!/^[0-9a-f-]{36}$/i.test(id))throw new Error('Profile not found.');return loadPlayer(id,id===user?.id);}
     });
     window.addEventListener('storage',event=>{if(!user&&(event.key===localKey||event.key===null)){state=localState();changed();}});

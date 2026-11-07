@@ -21,7 +21,11 @@
         document.querySelector('#review-rating-value').textContent = value === null ? 'Not rated' : `${value} / 5`;
         document.querySelector('#clear-rating').hidden = value === null;
         document.querySelector('#review-counter').textContent = `${text.value.length.toLocaleString('en-US')} / 3,000`;
-        radios.forEach(radio => radio.parentElement.classList.toggle('is-filled', value !== null && (Number(radio.value) > 0 ? Number(radio.value) <= value : value === 0)));
+        radios[0].parentElement.classList.toggle('is-filled', value === 0);
+        form.querySelectorAll('.rating-star-choice').forEach(star => {
+            const fill = value === null ? 0 : Math.max(0, Math.min(1, value - Number(star.dataset.star) + 1));
+            star.style.setProperty('--star-fill', (fill * 100) + '%');
+        });
     }
     function updateSummary() {
         const review = reviews.get(game.id);
@@ -40,7 +44,27 @@
         text.value = review?.text || '';
         radios.forEach(radio => { radio.checked = review?.rating != null && Number(radio.value) === review.rating; });
         if (review) {
-            document.querySelector('#review-saved-rating').textContent = review.rating === null ? 'Written review' : `${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}  ${review.rating} / 5`;
+            const savedRating = document.querySelector('#review-saved-rating');
+            savedRating.replaceChildren();
+            if (review.rating === null) {
+                savedRating.textContent = 'Written review';
+                savedRating.removeAttribute('aria-label');
+            } else {
+                savedRating.setAttribute('aria-label', review.rating + ' out of 5 stars');
+                const stars = document.createElement('span');
+                stars.className = 'review-stars';
+                stars.setAttribute('aria-hidden', 'true');
+                for (let index = 0; index < 5; index++) {
+                    const star = document.createElement('span');
+                    star.className = 'rating-star-shape';
+                    star.textContent = '★';
+                    star.style.setProperty('--star-fill', (Math.max(0, Math.min(1, review.rating - index)) * 100) + '%');
+                    stars.append(star);
+                }
+                const score = document.createElement('span');
+                score.textContent = review.rating + ' / 5';
+                savedRating.append(stars, score);
+            }
             const savedText = document.querySelector('#review-saved-text');
             savedText.textContent = review.text;
             savedText.hidden = !review.text;

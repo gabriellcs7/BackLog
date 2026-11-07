@@ -3,7 +3,7 @@
     'use strict';
     const limit = 3000;
     const validGame = id => window.BacklogGames.some(game => game.id === id);
-    const validRating = rating => rating === null || (Number.isInteger(rating) && rating >= 0 && rating <= 5);
+    const validRating = rating => rating === null || (Number.isFinite(rating) && Number.isInteger(rating * 2) && rating >= 0 && rating <= 5);
     function get(id) {
         if (!validGame(id)) return null;
         try {

@@ -80,6 +80,38 @@
         }
     }
 
+    const collectionGroups = [
+        { id: 'played', title: 'Played', description: 'Played, completed, platinum and dropped games.', statuses: ['played','completed','platinum','dropped'] },
+        { id: 'playing', title: 'Playing', description: 'The adventures you are playing right now.', statuses: ['playing'] },
+        { id: 'want-to-play', title: 'Want to play', description: 'Your wishlist for the adventures still to come.', statuses: ['want-to-play'] }
+    ];
+    function renderGroups(matches) {
+        results.replaceChildren();
+        for (const group of collectionGroups) {
+            const section = document.createElement('section');
+            section.id = 'collection-' + group.id;
+            section.className = 'collection-group';
+            const heading = document.createElement('h3');
+            heading.id = section.id + '-title';
+            section.setAttribute('aria-labelledby', heading.id);
+            const items = matches.filter(game => group.statuses.includes(window.Backlog.getStatus(game.id)?.id));
+            heading.textContent = group.title + ' · ' + items.length;
+            const description = document.createElement('p');
+            description.className = 'collection-group-description';
+            description.textContent = group.description;
+            const grid = document.createElement('div');
+            grid.className = 'catalog-grid';
+            grid.append(...items.map(createCard));
+            section.append(heading, description, grid);
+            if (!items.length) {
+                const empty = document.createElement('p');
+                empty.className = 'collection-group-empty';
+                empty.textContent = 'No games in this section match your filters.';
+                section.append(empty);
+            }
+            results.append(section);
+        }
+    }
     function render() {
         const query = normalize(searchInput.value.trim());
         let matches = games.filter(game => {
@@ -96,7 +128,13 @@
             matches = [...matches].sort((a, b) => direction * a.title.localeCompare(b.title, 'en'));
         }
 
-        results.replaceChildren(...matches.map(createCard));
+        results.classList.toggle('is-grouped', collection === 'saved');
+        document.querySelector('#collection-sections').hidden = collection !== 'saved';
+        if (collection === 'saved' && matches.length) renderGroups(matches);
+        else results.replaceChildren(...matches.map(createCard));
+        for (const [id, statuses] of [['played-count', collectionGroups[0].statuses], ['playing-count', ['playing']], ['wishlist-count', ['want-to-play']]]) {
+            document.getElementById(id).textContent = String(games.filter(game => statuses.includes(window.Backlog.getStatus(game.id)?.id)).length);
+        }
         emptyState.hidden = matches.length > 0;
         document.querySelector('#all-count').textContent = String(games.length);
         document.querySelector('#saved-count').textContent = String(window.Backlog.updateCount());
@@ -106,7 +144,7 @@
             ? 'Your games.<br><span>Your story.</span>'
             : 'Find your next<br><span>great adventure.</span>';
         document.querySelector('#catalog-description').textContent = collection === 'saved'
-            ? 'All the adventures you saved, together in this browser.'
+            ? 'Your played games, current adventures and wishlist, each in their own space.'
             : 'From familiar favorites to your next obsession. It all starts here.';
 
         const noSavedGames = collection === 'saved' && !games.some(game => window.Backlog.isSaved(game.id));

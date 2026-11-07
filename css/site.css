@@ -685,7 +685,7 @@ h2 {
 .library-art img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform .35s;
 }
 
@@ -697,7 +697,7 @@ h2 {
 }
 
 .library-card:hover .library-art img {
-    transform: scale(1.045);
+    filter: brightness(1.08);
 }
 
 .library-card:hover h3 {

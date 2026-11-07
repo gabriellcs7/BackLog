@@ -3,7 +3,7 @@ window.BacklogGames = [
     {
         "id": "grand-theft-auto-vi",
         "title": "Grand Theft Auto VI",
-        "cover": "gta6_capa.webp",
+        "cover": "catalogo/grand-theft-auto-vi.webp",
         "genre": "Action",
         "tags": [
             "Open world",
@@ -26,7 +26,7 @@ window.BacklogGames = [
     {
         "id": "grand-theft-auto-v",
         "title": "Grand Theft Auto V",
-        "cover": "gta5_capa.png",
+        "cover": "catalogo/grand-theft-auto-v.webp",
         "genre": "Action",
         "tags": [
             "Open world",
@@ -43,7 +43,7 @@ window.BacklogGames = [
     {
         "id": "red-dead-redemption-2",
         "title": "Red Dead Redemption 2",
-        "cover": "Red_Dead_Redemption_2.png",
+        "cover": "catalogo/red-dead-redemption-2.webp",
         "genre": "Adventure",
         "tags": [
             "Adventure",
@@ -59,7 +59,7 @@ window.BacklogGames = [
     {
         "id": "god-of-war-ragnarok",
         "title": "God of War Ragnarök",
-        "cover": "gow_ragnarok_capa.jpg",
+        "cover": "catalogo/god-of-war-ragnarok.webp",
         "genre": "Action",
         "tags": [
             "Action",
@@ -76,7 +76,7 @@ window.BacklogGames = [
     {
         "id": "the-last-of-us",
         "title": "The Last of Us",
-        "cover": "tlou_capa.png",
+        "cover": "catalogo/the-last-of-us.webp",
         "genre": "Adventure",
         "tags": [
             "Adventure",
@@ -93,7 +93,7 @@ window.BacklogGames = [
     {
         "id": "minecraft",
         "title": "Minecraft",
-        "cover": "minecraf_capa.webp",
+        "cover": "catalogo/minecraft.webp",
         "genre": "Sandbox",
         "tags": [
             "Sandbox",
@@ -109,7 +109,7 @@ window.BacklogGames = [
     {
         "id": "fortnite",
         "title": "Fortnite",
-        "cover": "fortnite_capa.webp",
+        "cover": "catalogo/fortnite.webp",
         "genre": "Action",
         "tags": [
             "Action",
@@ -125,7 +125,7 @@ window.BacklogGames = [
     {
         "id": "spider-man",
         "title": "Marvel’s Spider-Man",
-        "cover": "spiderman.jpg",
+        "cover": "catalogo/spider-man.webp",
         "genre": "Action",
         "tags": [
             "Action",
@@ -142,7 +142,7 @@ window.BacklogGames = [
     {
         "id": "red-dead-redemption",
         "title": "Red Dead Redemption",
-        "cover": "Red_Dead_Redemption_capa.png",
+        "cover": "catalogo/red-dead-redemption.webp",
         "genre": "Adventure",
         "tags": [
             "Adventure",
@@ -158,7 +158,7 @@ window.BacklogGames = [
     {
         "id": "phantom-blade-zero",
         "title": "Phantom Blade Zero",
-        "cover": "phantom_blade0_capa.webp",
+        "cover": "catalogo/phantom-blade-zero.webp",
         "genre": "Action",
         "tags": [
             "Action",
@@ -174,7 +174,7 @@ window.BacklogGames = [
     {
         "id": "silent-hill-townfall",
         "title": "Silent Hill: Townfall",
-        "cover": "silenthill_townfall_capa.webp",
+        "cover": "catalogo/silent-hill-townfall.webp",
         "genre": "Horror",
         "tags": [
             "Horror",
@@ -190,7 +190,7 @@ window.BacklogGames = [
     {
         "id": "minecraft-dungeons-ii",
         "title": "Minecraft Dungeons II",
-        "cover": "mine_dungeons2.webp",
+        "cover": "catalogo/minecraft-dungeons-ii.webp",
         "genre": "RPG",
         "tags": [
             "RPG",

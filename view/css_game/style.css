@@ -1025,9 +1025,8 @@ h1>span:not(.title-dot) {
 /* Cada estrela oferece duas escolhas nativas: meia e inteira. */
 .rating-star-choice { overflow: visible; }
 .rating-star-shape {
-    --star-fill: 0%;
     display: inline-block;
-    background: linear-gradient(to right, var(--yellow) var(--star-fill), #7e8476 var(--star-fill));
+    background: linear-gradient(to right, var(--yellow) var(--star-fill, 0%), #7e8476 var(--star-fill, 0%));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;

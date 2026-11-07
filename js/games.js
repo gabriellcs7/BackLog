@@ -621,7 +621,7 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-2-1998.webp",
         "banner": "banners/resident-evil-2-1998.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "resident-evil-3-nemesis",
@@ -644,7 +644,7 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-3-nemesis.webp",
         "banner": "banners/resident-evil-3-nemesis.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "resident-evil-code-veronica",
@@ -667,7 +667,7 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-code-veronica.webp",
         "banner": "banners/resident-evil-code-veronica.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "resident-evil-zero",

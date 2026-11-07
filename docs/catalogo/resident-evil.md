@@ -43,3 +43,11 @@ Jogos principais da franquia, incluindo Resident Evil Zero e Code: Veronica. Sem
 | Resident Evil Requiem | [Original](https://gpstatic.com/acache/76/80/1/uk/packshot-8c94c91a2450f88885e938c564971be9.jpg) | [Original](https://cdn.mos.cms.futurecdn.net/X678qmF732uZhXp6qa7BWZ.png) |
 
 As imagens são armazenadas localmente em WebP. A capa inteira é preservada no quadro de 600 × 800 pixels. Artes compartilhadas da franquia, quando necessárias para jogos antigos sem material horizontal, são identificadas na tabela.
+
+## Revisão visual
+
+- Resident Evil 2 (1998): https://img.3dmgame.com/uploads/images/news/20240629/1719629704_179253.jpg
+- Resident Evil 3: Nemesis: https://images-2.gog-statics.com/2bbf419731b1f9b0359068593abac9446cfca9fa9eefd11f56375be280913c2f.jpg
+- Resident Evil – Code: Veronica: https://miro.medium.com/max/2560/1%2A8p1l7rvrjaRg-jg3oglh7g.jpeg
+
+Cada jogo usa uma arte própria; os banners não são compartilhados entre jogos.

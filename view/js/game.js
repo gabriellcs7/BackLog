@@ -31,11 +31,20 @@
         const cover = document.querySelector('.game-cover');
         cover.src = `../imagens/capas/${game.cover}`;
         cover.alt = `${game.title} cover`;
-        document.querySelector('.cover-label').textContent = 'BUILD YOUR COLLECTION';
+        document.querySelector('.cover-label').textContent = game.releaseState === 'upcoming'
+            ? 'COMING SOON'
+            : game.releaseState === 'retired' ? 'HISTORICAL GAME' : (game.kind || 'BUILD YOUR COLLECTION').toUpperCase();
         document.querySelector('.game-summary .eyebrow').textContent = game.studio;
         document.querySelector('.game-summary h2').textContent = game.caption;
         document.querySelector('.rating-preview strong').textContent = 'Your next game';
         document.querySelector('.rating-preview div>span').textContent = 'Make it a memory';
+        if (game.releaseState === 'upcoming') {
+            document.querySelector('.rating-preview strong').textContent = 'Coming soon';
+            document.querySelector('.rating-preview div>span').textContent = 'Announced game';
+        } else if (game.releaseState === 'retired') {
+            document.querySelector('.rating-preview strong').textContent = 'Historical game';
+            document.querySelector('.rating-preview div>span').textContent = 'Keep your memories';
+        }
         document.querySelector('.about-section>p').textContent = game.description;
         document.querySelector('.about-section>p + p').textContent = 'Save it to your backlog and come back whenever you are ready for your next adventure.';
         const platforms = document.querySelector('.platforms');
@@ -54,7 +63,7 @@
         const values = [
             ['Studio', game.studio],
             [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Your personal backlog'],
-            [game.year ? 'First release' : 'Genre', game.year ? String(game.year) : game.tags.join(' · ')],
+            [game.year ? (game.releaseState === 'upcoming' ? 'Planned release' : 'First release') : 'Genre', game.year ? String(game.year) : game.tags.join(' · ')],
             ['Your status', window.Backlog.getStatus(game.id)?.label || 'Ready to discover']
         ];
         document.querySelectorAll('.details-grid>div').forEach((detail, index) => {

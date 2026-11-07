@@ -14,7 +14,6 @@
     const hero = document.querySelector('.hero');
     const backdrop = document.querySelector('.hero-image');
     backdrop.src = `../imagens/${game.banner}`;
-    hero.style.setProperty('--banner-image', `url("${backdrop.src}")`);
     hero.style.setProperty('--banner-position', game.bannerPosition || 'center');
     hero.style.setProperty('--banner-position-mobile', game.bannerPositionMobile || 'center');
 

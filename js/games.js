@@ -844,5 +844,66 @@ window.BacklogGames = [
         "cover": "catalogo/league-of-legends.webp",
         "banner": "banners/league-of-legends.webp",
         "bannerPosition": "center"
+    },
+    {
+        "id": "overwatch-1",
+        "title": "Overwatch (2016)",
+        "year": 2016,
+        "genre": "Shooter",
+        "tags": [
+            "Hero shooter",
+            "Multiplayer",
+            "Classic"
+        ],
+        "studio": "Blizzard Entertainment",
+        "releaseState": "retired",
+        "caption": "The team that started a new era.",
+        "description": "The original team-based hero shooter introduced Overwatch’s cast of heroes and objective-based battles. Its original online service was replaced by the sequel; this entry preserves your gaming history.",
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "Xbox One",
+            "Nintendo Switch"
+        ],
+        "aliases": [
+            "Overwatch 1",
+            "OW1"
+        ],
+        "bannerPositionMobile": "53% center",
+        "franchise": "Overwatch",
+        "cover": "catalogo/overwatch-1.webp",
+        "banner": "banners/overwatch-1.webp",
+        "bannerPosition": "center"
+    },
+    {
+        "id": "overwatch-2",
+        "title": "Overwatch 2",
+        "year": 2022,
+        "genre": "Shooter",
+        "tags": [
+            "Hero shooter",
+            "Competitive",
+            "Multiplayer"
+        ],
+        "studio": "Blizzard Entertainment",
+        "caption": "Build a team. Make a difference.",
+        "description": "Team up with a roster of heroes and compete for objectives in Blizzard’s multiplayer shooter. Launched as Overwatch 2, the evolving live game is now named Overwatch.",
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch"
+        ],
+        "aliases": [
+            "OW2",
+            "Overwatch"
+        ],
+        "bannerPositionMobile": "60% center",
+        "franchise": "Overwatch",
+        "cover": "catalogo/overwatch-2.webp",
+        "banner": "banners/overwatch-2.webp",
+        "bannerPosition": "center"
     }
 ];

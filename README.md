@@ -1,27 +1,23 @@
 # 🎮 BackLog · Your Gaming Story
 
-> **Diário e coleção:** a página Diary registra cada avaliação/review com data editável. Os quatro favoritos não têm ranking, e My backlog separa Played, Playing e Want to play. Para atualizar um banco existente, execute somente `supabase/atualizar-diario.sql` (veja [docs/diary.md](docs/diary.md)).
-
-
-> **Atualização — perfis e comunidade:** o site agora tem perfil com top 4, listas personalizadas e integração opcional com Supabase para contas, reviews públicas, likes e comentários. Sem configuração, o modo local continua disponível. Para ativar o modo online, siga [docs/supabase.md](docs/supabase.md); use a biblioteca oficial incluída no projeto. As descrições antigas de armazenamento somente local abaixo se referem ao modo offline.
-
 <p align="center">
   <img src="imagens/logo_transparente.png" alt="BackLog Logo" width="320">
 </p>
 
 <p align="center">
   <strong>Great games. Better memories. Your gaming story belongs here.</strong><br>
-  Uma aplicação web moderna, cinematográfica e 100% client-side para organizar, acompanhar e descobrir seus jogos favoritos.
+  Uma aplicação web cinematográfica, local-first e com recursos sociais opcionais para catalogar, registrar e compartilhar sua jornada gamer.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-yellow?logo=javascript&logoColor=black" alt="JavaScript ES6+">
+  <a href="https://github.com/gabriellcs7/BackLog"><img src="https://img.shields.io/badge/GitHub-gabriellcs7%2FBackLog-181717?logo=github&logoColor=white" alt="Repositório GitHub"></a>
+  <img src="https://img.shields.io/badge/JavaScript-ES6%2B%20Vanilla-yellow?logo=javascript&logoColor=black" alt="JavaScript ES6+">
   <img src="https://img.shields.io/badge/HTML5-Semântico-orange?logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-Custom%20Properties-blue?logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/Storage-LocalStorage-success" alt="LocalStorage">
-  <img src="https://img.shields.io/badge/Jogos%20no%20Catálogo-40%20Títulos-purple" alt="40 Jogos">
-  <img src="https://img.shields.io/badge/Dependências-Zero%20(Pure%20Vanilla)-brightgreen" alt="Zero Dependências">
-  <img src="https://img.shields.io/badge/Status-Ativo%20%7C%20Solo%20Project-informational" alt="Status">
+  <img src="https://img.shields.io/badge/Offline-LocalStorage-success" alt="LocalStorage">
+  <img src="https://img.shields.io/badge/Cloud-Supabase%20%7C%20PostgreSQL-3ECF8E?logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/Catálogo-40%20Títulos%20Canônicos-purple" alt="40 Jogos">
+  <img src="https://img.shields.io/badge/Build%20Tools-Zero%20(Pure%20Web)-brightgreen" alt="Zero Build Tools">
 </p>
 
 <p align="center">
@@ -30,50 +26,62 @@
 
 ---
 
-## 📖 1. Visão Geral & Pitch
+## 📖 1. Visão Geral & Filosofia
 
-O **BackLog** nasce da necessidade que todo gamer tem: uma central rápida, elegante e descomplicada para organizar sua coleção de jogos sem burocracia. Em vez de depender de plataformas pesadas, logins obrigatórios ou algoritmos invasivos, o **BackLog** oferece uma experiência cinematográfica focada no que realmente importa: **jogar, lembrar e planejar suas próximas aventuras**.
+O **BackLog** é uma plataforma gamer moderna e focada em experiência do usuário, projetada para quem valoriza a preservação de memórias e a organização da própria biblioteca de jogos. Sem formulários obrigatórios para começar, anúncios ou algoritmos invasivos, o BackLog adota a filosofia **Local-First com Nuvem Opcional**:
 
-Com uma arquitetura **100% voltada ao navegador (client-side)** e **zero dependências externas**, todos os seus dados ficam salvos de forma privada no `localStorage` do seu próprio dispositivo. Seja rodando direto de uma pasta local (`file:///`) ou hospedado na nuvem, o aplicativo inicia instantaneamente, oferece busca com atalhos de teclado e adapta sua identidade visual a cada jogo do catálogo.
+- **Modo Local (Offline / Guest):** Funciona imediatamente no navegador direto dos arquivos estáticos. Todo o perfil, Top 4 de favoritos, listas personalizadas, diário de jogatina e avaliações pessoais ficam salvos de forma 100% privada no `localStorage` do seu dispositivo.
+- **Modo Conectado (Supabase Cloud):** Conecte uma conta para desbloquear o ecossistema social completo: sincronização na nuvem, perfis públicos com bio, listas compartilháveis, feed comunitário por jogo com curtidas (*likes*) e comentários, tudo protegido por políticas de segurança a nível de linha (*Row Level Security - RLS*) no PostgreSQL.
 
 ---
 
 ## ✨ 2. Principais Funcionalidades
 
-- 🗃️ **Gestão Granular de Coleção (6 Status):** Classifique seus jogos com um clique entre *Jogado*, *Jogando*, *Zerado*, *Platinado*, *Dropado* e *Quero jogar*.
-- ⚡ **Pesquisa Instantânea & Normalização:** Busca em tempo real por título, franquia ou apelidos (aliases), imune a acentuação gráfica (`normalize('NFD')`).
-- ⌨️ **Atalho Rápido de Teclado:** Pressione `/` a qualquer momento para focar a barra de pesquisa, no padrão das melhores ferramentas modernas.
-- 🎯 **Filtros Combinados & Ordenação:** Navegue por gênero (*Ação*, *Aventura*, *Terror*, *RPG*, *Sandbox*, *MOBA*, *Shooter*), alterne entre catálogo geral e coleção pessoal, e ordene de A–Z, Z–A ou por destaques.
-- 🔗 **Persistência de Estado na URL:** Compartilhe ou salve buscas e filtros diretamente pelo link (`?q=...&saved=1&genre=...&status=...&sort=...`) através da API de `history.replaceState`.
-- 🖼️ **Páginas Dinâmicas de Detalhes (`game.html`):** Uma única página inteligente que renderiza dinamicamente qualquer jogo via parâmetros de URL (`?id=...`), exibindo backdrops cinematográficos em 4K, metadados (estúdio, ano, plataformas) e enquadramentos calculados para desktop e mobile.
-- 💡 **Motor de Recomendações Contextuais:** Sugestões inteligentes ao final de cada página priorizando títulos da mesma franquia e sucessos da comunidade.
-- 📣 **Compartilhamento Nativo com Clipboard API:** Modal elegante para copiar o link exato do jogo para a área de transferência com feedback sonoro e visual por toasts.
-- ⭐ **Comunidade & Resenhas:** Feed na página inicial com críticas completas da comunidade em elementos colapsáveis acessíveis (`<details>` / `<summary>`).
-- 📱 **Design Responsivo & Dark Gaming Aesthetic:** Interface imersiva construída sobre uma paleta sóbria (`#131414`) com detalhes dourados (`#ffd21f`), tipografia refinada e menu drawer otimizado para dispositivos móveis.
+### 🎮 Coleção e Backlog
+- 🗃️ **Gestão Granular em 6 Níveis:** Classifique seus jogos entre *Played* (Jogado), *Playing* (Jogando), *Completed* (Zerado), *Platinum* (Platinado), *Dropped* (Dropado) e *Want to play* (Quero jogar).
+- 📑 **Seções Dedicadas no Backlog:** A aba *My backlog* organiza sua coleção automaticamente em três áreas independentes com contadores em tempo real: **Played** (inclui Zerados, Platinados e Dropados), **Playing** e **Want to play**.
+- ⚡ **Pesquisa Global com Atalho Rápido:** Pressione <kbd>/</kbd> em qualquer página para focar imediatamente na barra de busca, com normalização de acentos e diacríticos (`normalize('NFD')`) e suporte a apelidos (*aliases*).
+- 🎯 **Filtros Combinados & Ordenação:** Navegue por gêneros (*Ação*, *Aventura*, *Terror*, *RPG*, *Sandbox*, *MOBA*, *Shooter*), alterne entre catálogo geral e coleção pessoal, e ordene de A–Z, Z–A ou por destaques.
+- 🔗 **Sincronização de Estado na URL:** Compartilhe buscas e filtros preservados diretamente no endereço (`?q=...&saved=1&genre=...&status=...&sort=...`) via `history.replaceState`.
+
+### 📅 Diário de Jogos (Gaming Diary)
+- 🗓️ **Linha do Tempo Cronológica:** Cada avaliação ou review gera um registro temporal com data personalizável (hoje por padrão ou datas retroativas).
+- 📊 **Métricas Pessoais:** Painel no topo exibindo total de registros salvos (**Entries**), jogos distintos registrados (**Games**) e total de dias de jogatina (**Days Logged**).
+- 🔍 **Filtros do Diário:** Pesquisa rápida por título, filtro por mês e separação entre resenhas escritas e notas numéricas.
+- 🛠️ **Edição e Exclusão Segura:** Altere datas de registros passados ou remova entradas específicas sem apagar a review original nem alterar o status do jogo na coleção.
+- 🎯 **Auto-Status:** Registrar uma entrada no diário define o jogo como *Played* caso ele ainda não tenha status definido, preservando status já atribuídos.
+
+### 👤 Perfil do Jogador & Listas
+- 🌟 **The Favorite Four (Top 4):** Escolha seus quatro jogos mais marcantes para brilharem juntos no topo do perfil, sem hierarquia ou ranking.
+- 📋 **Listas Personalizadas de Jogos:** Crie maratonas temáticas (ex: *"Melhores Histórias"*, *"Maratona de Terror"*), com visibilidade pública ou privada, seletor visual de jogos e filtro para listar apenas títulos já jogados.
+- 🔒 **Importação Segura do Dispositivo:** Transfira seus favoritos e listas locais para a nuvem com um clique; listas importadas começam privadas por padrão para sua segurança.
+
+### ⭐ Avaliações com Meia Estrela & Feed Social
+- 🌗 **Sistema de Meia Estrela (0.0 a 5.0):** Selecione notas com precisão de 0.5 estrelas clicando na metade esquerda/direita ou usando as setas do teclado.
+- ✍️ **Resenhas Pessoais:** Textos de até 3.000 caracteres com contador dinâmico e suporte a edição e cancelamento sem perda de dados.
+- 💬 **Feed Comunitário por Jogo:** Veja as análises de outros jogadores, com suporte a curtidas únicas (bloqueio de auto-like garantido no banco) e comentários paginados de até 1.000 caracteres.
+- 🔗 **Compartilhamento Ágil:** Modal com Clipboard API nativa para cópia de links diretos para jogos e perfis públicos.
 
 ---
 
 ## 🏷️ 3. Sistema Canônico de Status
 
-A coleção é gerenciada por meio de seis estados canônicos, cada um com representação visual única e persistência no armazenamento local do navegador:
+A coleção é estruturada sobre seis estados canônicos, exibidos tanto no catálogo quanto na página de detalhes e na sincronização local:
 
 | Status | ID Interno | Ícone | Significado / Critério |
 | :--- | :---: | :---: | :--- |
-| **Jogado** | `played` | 🕹️ | Títulos que você já experimentou, mas não necessariamente concluiu a história. |
-| **Jogando** | `playing` | ▶️ | Jogos ativos na sua rotina atual. |
-| **Zerado** | `completed` | ✔️ | Campanha principal ou história terminada com sucesso. |
-| **Platinado** | `platinum` | 🏆 | Conquista máxima: 100% dos troféus, missões e segredos completados. |
-| **Dropado** | `dropped` | ⏸️ | Jogos abandonados ou pausados por tempo indeterminado. |
-| **Quero jogar** | `want-to-play` | 📌 | Sua lista de desejos / próximo da fila para começar. |
-
-> [!NOTE]
-> **Compatibilidade Retroativa:** Registros salvos na versão legada sob a flag `'saved'` são automaticamente promovidos para `'want-to-play'` sem perda de dados para o usuário.
+| **Played** | `played` | 🕹️ | Títulos que você já experimentou, mas não necessariamente concluiu a história. |
+| **Playing** | `playing` | ▶️ | Jogos ativos na sua rotina atual. |
+| **Completed** | `completed` | ✔️ | Campanha principal ou história terminada com sucesso. |
+| **Platinum** | `platinum` | 🏆 | Conquista máxima: 100% dos troféus, missões e segredos completados. |
+| **Dropped** | `dropped` | ⏸️ | Jogos abandonados ou pausados por tempo indeterminado. |
+| **Want to play** | `want-to-play` | 📌 | Sua lista de desejos / próximo da fila para começar. |
 
 ---
 
 ## 📚 4. Distribuição do Catálogo
 
-O projeto já conta com **40 títulos emblemáticos** curados e catalogados com capas em alta resolução (padrão 3:4 / 600×800 com desfoque de fundo) e banners horizontais:
+O projeto possui **40 títulos emblemáticos** curados e catalogados com capas em alta resolução (padrão 3:4 / 600×800 com desfoque de fundo inteligente) e banners cinematográficos:
 
 ```
 ┌────────────────────────────────────────────────────────┐
@@ -97,38 +105,65 @@ O projeto já conta com **40 títulos emblemáticos** curados e catalogados com 
 
 ## 📂 5. Arquitetura e Árvore de Diretórios
 
-A estrutura do projeto foi planejada de forma modular, separando a base estática compartilhada das views especializadas:
+A estrutura do projeto separa a camada estática pura da integração com serviços e banco de dados:
 
 ```bash
 BackLog/
 ├── index.html                   # Landing page: hero, destaques, favoritos e reviews
-├── README.md                    # Documentação técnica e guia do repositório
+├── README.md                    # Documentação oficial do projeto
 │
-├── css/                         # Folhas de estilo da landing page
+├── css/                         # Folhas de estilo modulares
 │   ├── site.css                 # Design tokens globais, reset, header, navegação e footer
-│   └── style.css                # Estilização exclusiva da página inicial (grid, reviews)
+│   ├── style.css                # Estilização exclusiva da página inicial
+│   ├── social.css               # Estilos para perfis, listas, diálogos modais e feed social
+│   └── diary.css                # Estilos do diário cronológico e linha do tempo
 │
-├── js/                          # Núcleo de lógica e dados
+├── js/                          # Núcleo de lógica, dados e serviços
 │   ├── games.js                 # Catálogo canônico dos 40 jogos (BacklogGames)
-│   ├── site.js                  # Gerenciador global de coleção, localStorage e atalhos
-│   └── catalog.js               # Motor de busca, filtros de gênero/status e paginação
+│   ├── config.js                # Configuração pública (Project URL e Publishable Key)
+│   ├── account.js               # Gerenciador de autenticação, sessão e sincronização
+│   ├── site.js                  # Controle global de coleção, localStorage e atalhos
+│   ├── catalog.js               # Motor de busca, filtros de gênero/status e ordenação
+│   ├── reviews.js               # Lógica de avaliações pessoais, notas e meias estrelas
+│   ├── diary.js                 # Gerenciamento de registros do diário e persistência temporal
+│   ├── community.js             # Integração com o feed da comunidade, curtidas e comentários
+│   ├── ui.js                    # Utilitários de interface, toasts e feedback acessível
+│   └── vendor/                  # Bibliotecas distribuídas localmente
+│       ├── supabase.js          # Supabase JS SDK v2.119.0 oficial
+│       └── SUPABASE-LICENSE.txt # Licença MIT da biblioteca
 │
-├── view/                        # Páginas secundárias e suas dependências
-│   ├── pagina_jogos.html        # Catálogo interativo completo com filtros e abas
-│   ├── game.html                # Página dinâmica de detalhes do jogo selecionado
-│   ├── css_game/style.css       # Estilos específicos da página de detalhes
-│   ├── css_paginaJogos/style.css# Estilos da barra de ferramentas e grid do catálogo
-│   └── js/game.js               # Renderização dinâmica via URL (?id=), modal e status
+├── view/                        # Páginas e views especializadas
+│   ├── pagina_jogos.html        # Catálogo geral e coleção organizada em seções
+│   ├── game.html                # Página dinâmica do jogo: detalhes, review e comunidade
+│   ├── profile.html             # Perfil do jogador: bio, Top 4 favoritos, listas e login
+│   ├── diary.html               # Diário de jogos: histórico cronológico com filtros
+│   ├── css_game/style.css       # Estilos específicos da página de detalhes do jogo
+│   ├── css_paginaJogos/style.css# Estilos da barra de ferramentas e seções do catálogo
+│   └── js/                      # Controladores dedicados de cada view
+│       ├── game.js              # Renderização dinâmica via URL (?id=), status e modal
+│       ├── review.js            # Formulário de review, estrelas fracionadas e rascunhos
+│       ├── community.js         # Feed comunitário, curtidas e comentários
+│       ├── profile.js           # Gerenciamento do perfil, seleção de favoritos e listas
+│       └── diary.js             # Renderização e filtros do diário cronológico
 │
-├── imagens/                     # Ativos gráficos e identidades
+├── supabase/                    # Infraestrutura de banco de dados e migrações
+│   ├── setup.sql                # Script unificado de criação do banco para novos projetos
+│   ├── atualizar-diario.sql     # Script de migração para instâncias existentes
+│   └── migrations/              # Migrações versionadas com políticas Row Level Security
+│
+├── imagens/                     # Ativos gráficos e identidade visual
 │   ├── backlog-showcase-banner.png # Banner visual oficial e vitrine da aplicação
+│   ├── banner_builder.html      # Template construtor do banner em alta resolução
 │   ├── banners/                 # Banners horizontais em alta definição (WebP)
 │   ├── capas/catalogo/          # Capas padronizadas 600x800 com proporção 3:4
 │   ├── destaques/               # Imagens responsivas para o radar com múltiplos srcsets
-│   ├── logo_transparente.png    # Logo oficial do BackLog
+│   ├── logo_transparente.png    # Logotipo oficial do BackLog
 │   └── gta-vi-banner-4k.webp    # Imagem de destaque 4K do GTA VI
 │
-└── docs/                        # Registros técnicos e decisões de design
+└── docs/                        # Documentação técnica detalhada
+    ├── supabase.md              # Guia de configuração de autenticação e banco na nuvem
+    ├── reviews.md               # Especificação de avaliações e meias estrelas
+    ├── diary.md                 # Comportamento e regras de negócio do diário
     └── catalogo/                # Notas de revisão de capas, banners e franquias
 ```
 
@@ -136,103 +171,124 @@ BackLog/
 
 ## 🚀 6. Guia de Instalação e Execução
 
-O **BackLog** não requer compiladores, transpiladores ou gerenciadores de pacotes (`npm`, `yarn`, `cargo`). Você pode executá-lo imediatamente em qualquer sistema operacional:
-
-### Opção 1: Execução Direta (Sem Servidor)
-Dê um duplo clique no arquivo `index.html` ou abra-o diretamente no navegador de sua preferência (`Chrome`, `Firefox`, `Edge`, `Safari`).
-
-### Opção 2: Servidor Local via Python (Recomendado)
-Para uma experiência idêntica à de produção (com histórico de rotas e sem avisos de protocolo `file://`):
+### Opção 1: Execução Local com Python (Recomendado)
+Para uma experiência completa (incluindo rotas do navegador, histórico e autenticação de contas locais sem bloqueios do protocolo `file://`):
 
 ```bash
-# Navegue até a pasta raiz do projeto
-cd c:\Users\gabri\OneDrive\Documentos\projetos_solo\pendentes\BackLog
+# 1. Clone o repositório oficial
+git clone https://github.com/gabriellcs7/BackLog.git
 
-# Inicie o servidor embutido do Python
-python -m http.server 8000
+# 2. Acesse a pasta do projeto
+cd BackLog
+
+# 3. Inicie o servidor HTTP local
+python -m http.server 8000 --bind 127.0.0.1
 ```
+
 Em seguida, abra seu navegador em: **`http://localhost:8000`**
 
-### Opção 3: Extensão VS Code Live Server
-Se estiver utilizando o Visual Studio Code:
-1. Instale a extensão **Live Server** (`ritwickdey.liveserver`).
-2. Clique com o botão direito em `index.html`.
+### Opção 2: VS Code Live Server
+1. Abra a pasta do projeto no **Visual Studio Code**.
+2. Com a extensão **Live Server** instalada, clique com o botão direito em `index.html`.
 3. Selecione **"Open with Live Server"**.
+
+### Opção 3: Modo Convidado Rápido (Sem Servidor)
+Dê um duplo clique direto em `index.html`. Todas as funcionalidades locais (coleção, diário, top 4 e reviews offline) funcionam instantaneamente.
 
 ---
 
-## ⌨️ 7. Atalhos de Teclado & Usabilidade
+## ☁️ 7. Configuração Opcional do Supabase (Nuvem & Social)
+
+Para habilitar login, perfis públicos, sincronização de listas, curtidas e comentários comunitários:
+
+1. Acesse [supabase.com](https://supabase.com) e crie um projeto gratuito chamado **BackLog**.
+2. No painel do Supabase, vá em **SQL Editor** e execute o conteúdo de `supabase/setup.sql`. *(Se já possuir um banco anterior, execute apenas `supabase/atualizar-diario.sql`)*.
+3. Em **Authentication** ➔ **URL Configuration**:
+   - Defina **Site URL** com o endereço do seu site (ex: `http://localhost:8000` em testes locais).
+   - Adicione `http://localhost:8000/view/profile.html` em **Redirect URLs** (e a URL final de produção ao publicar).
+4. Em **Project Settings** ➔ **API**, copie a **Project URL** e a **Publishable Key** (`anon`/`public`).
+5. Configure em `js/config.js`:
+   ```javascript
+   window.BacklogConfig = Object.freeze({
+       supabaseUrl: 'https://SEU-PROJETO.supabase.co',
+       supabasePublishableKey: 'sb_publishable_SUA_CHAVE_PUBLICA'
+   });
+   ```
+
+> [!SECURITY]
+> Todas as tabelas operam sob **Row Level Security (RLS)** estrito. A chave configurada é exclusivamente pública. Nunca insira chaves `service_role` ou secretas no frontend.
+
+---
+
+## ⌨️ 8. Atalhos de Teclado & Usabilidade
 
 | Tecla / Combinação | Onde Funciona | Ação Executada |
 | :---: | :--- | :--- |
-| <kbd>/</kbd> | Qualquer página | Foca instantaneamente na caixa de busca global. |
-| <kbd>Esc</kbd> | Mobile / Modal | Fecha o menu gaveta mobile ou descarta a janela modal de compartilhamento. |
-| <kbd>Enter</kbd> | Barra de busca | Submete o termo e redireciona automaticamente para o catálogo com resultados filtrados. |
-| <kbd>Tab</kbd> | Navegação geral | Acesso aos links de salto acessíveis (*Skip to content*) e controle via teclado. |
+| <kbd>/</kbd> | Em qualquer página | Foca instantaneamente na barra de busca global. |
+| <kbd>Esc</kbd> | Diálogos / Mobile | Fecha modais (diário, listas, login, compartilhar) ou recolhe o menu mobile. |
+| <kbd>Enter</kbd> | Barra de busca | Submete o termo e abre o catálogo com os resultados filtrados. |
+| <kbd>←</kbd> / <kbd>→</kbd> | Avaliação por estrelas | Aumenta ou diminui a nota pessoal em passos de 0.5 estrelas. |
+| <kbd>Tab</kbd> | Navegação geral | Acesso imediato ao *Skip to content* e controles acessíveis. |
 
 ---
 
-## 🛠️ 8. Contrato de Dados (Como Adicionar Novos Jogos)
+## 🛠️ 9. Contrato de Dados (Adicionando Novos Jogos)
 
-Todos os jogos são declarados no arquivo `js/games.js` dentro do array global `window.BacklogGames`. Para registrar um novo título, basta adicionar um objeto seguindo o schema abaixo:
+Para registrar novos títulos no catálogo local, insira um novo objeto no array `window.BacklogGames` em `js/games.js`:
 
 ```javascript
 {
     "id": "nome-do-jogo",                   // Obrigatório: Slug único em minúsculas com hífens
-    "title": "Nome do Jogo",               // Obrigatório: Nome oficial completo
-    "cover": "catalogo/nome-do-jogo.webp", // Obrigatório: Imagem 600x800 dentro de imagens/capas/
-    "genre": "Action",                     // Obrigatório: 'Action' | 'Adventure' | 'Horror' | 'MOBA' | 'RPG' | 'Sandbox' | 'Shooter'
-    "tags": ["Action", "Adventure"],       // Obrigatório: Lista de tags exibidas no card
+    "title": "Nome do Jogo",               // Obrigatório: Título oficial completo
+    "cover": "catalogo/nome-do-jogo.webp", // Obrigatório: Capa 600x800 dentro de imagens/capas/
+    "genre": "Action",                     // Obrigatório: Action, Adventure, Horror, MOBA, RPG, Sandbox, Shooter
+    "tags": ["Action", "Adventure"],       // Obrigatório: Tags temáticas para os cards
     "studio": "Nome do Estúdio",           // Obrigatório: Desenvolvedora ou publicadora
-    "caption": "Frase de efeito marcante", // Obrigatório: Subtítulo ou slogan do jogo
-    "description": "Sinopse do jogo...",   // Obrigatório: Texto descritivo para a página de detalhes
-    "banner": "banners/nome-banner.webp",  // Obrigatório: Imagem panorâmica dentro de imagens/
+    "caption": "Frase de efeito marcante", // Obrigatório: Slogan ou subtítulo
+    "description": "Sinopse do jogo...",   // Obrigatório: Texto descritivo para a página do jogo
+    "banner": "banners/nome-banner.webp",  // Obrigatório: Arte horizontal dentro de imagens/
     "bannerPosition": "center center",     // Obrigatório: Alinhamento CSS no desktop
     "bannerPositionMobile": "50% center",  // Obrigatório: Alinhamento CSS no smartphone
     
-    // Campos Opcionais
-    "franchise": "Nome da Franquia",       // Opcional: Agrupa jogos e alimenta recomendações
+    // Propriedades Opcionais
+    "franchise": "Nome da Franquia",       // Opcional: Agrupa franquias e gera recomendações
     "year": 2024,                          // Opcional: Ano de lançamento
     "platforms": ["PC", "PS5", "Xbox"],    // Opcional: Lista de plataformas suportadas
-    "aliases": ["Sigla", "Nome Alternativo"], // Opcional: Termos extras para busca
-    "releaseState": "upcoming"             // Opcional: 'upcoming' (futuro) | 'retired' (histórico)
+    "aliases": ["Sigla", "Outro Nome"],    // Opcional: Termos extras para a pesquisa
+    "releaseState": "upcoming"             // Opcional: 'upcoming' (futuro) ou 'retired' (histórico)
 }
 ```
 
-### Regras Canônicas para Artes e Mídias
-- **Capas (`imagens/capas/catalogo/`):** Dimensão recomendada de **600 × 800 px** (formato WebP). A arte original é sempre preservada sem cortes agressivos; quando a proporção original difere de 3:4, utiliza-se uma extensão desfocada da própria arte.
-- **Banners (`imagens/banners/`):** Formato panorâmico (WebP) com peso otimizado, permitindo ajuste fino de foco visual via propriedades `bannerPosition` e `bannerPositionMobile`.
-
 ---
 
-## 🎨 9. Design System & Variáveis CSS
+## 🎨 10. Design System & Tokens CSS
 
-O projeto utiliza um conjunto estrito de tokens de design declarados no escopo raiz (`:root`) em `css/site.css`:
+O projeto utiliza um conjunto refinado de variáveis CSS declaradas no escopo raiz (`:root`) em `css/site.css`:
 
 ```css
 :root {
     color-scheme: dark;
     --bg: #131414;        /* Fundo principal escuro profundo */
-    --surface: #1a1b1b;   /* Superfície de cards e seções */
-    --line: #2c2d2c;      /* Linhas e bordas sutis */
+    --surface: #1a1b1b;   /* Superfície de cards, listas e modais */
+    --line: #2c2d2c;      /* Linhas divisórias e bordas sutis */
     --text: #f5f5ef;      /* Texto de alto contraste e legibilidade */
     --muted: #a1a39b;     /* Texto secundário e legendas */
-    --yellow: #ffd21f;    /* Cor de destaque (ouro/âmbar) */
-    --radius: 12px;       /* Arredondamento padrão de bordas */
+    --yellow: #ffd21f;    /* Cor de destaque principal (âmbar/dourado) */
+    --radius: 12px;       /* Arredondamento padrão de cantos */
 }
 ```
 
 ---
 
-## 👨‍💻 10. Autor e Créditos
+## 👨‍💻 11. Autor e Direitos
 
-Desenvolvido com dedicação por **Gabriel** como um projeto solo para celebração e preservação da cultura gamer.
+Projeto idealizado e desenvolvido por **Gabriel** ([@gabriellcs7](https://github.com/gabriellcs7)).
 
-- **Concepção & Desenvolvimento:** Gabriel
-- **Ativos & Marcas:** Todas as marcas registradas, títulos, capas e logotipos mencionados pertencem a seus respectivos proprietários legais (Rockstar Games, Sony Interactive Entertainment, Capcom, Epic Games, Naughty Dog, Mojang Studios, Riot Games, Blizzard Entertainment, etc.).
+- **Repositório:** [https://github.com/gabriellcs7/BackLog](https://github.com/gabriellcs7/BackLog)
+- **Propriedade Intelectual:** Todas as capas, capturas de tela, marcas comerciais e logotipos de jogos pertencem a suas respectivas desenvolvedoras e publicadoras (Rockstar Games, Sony Interactive Entertainment, Capcom, Epic Games, Naughty Dog, Mojang Studios, Riot Games, Blizzard Entertainment, etc.).
 
 ---
 
 <p align="center">
-  <sub>BackLog · Feito para quem ama grandes jogos e melhores memórias.</sub>
+  <sub>BackLog · Feito com paixão para quem ama grandes jogos e melhores memórias.</sub>
 </p>

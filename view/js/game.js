@@ -38,12 +38,23 @@
         document.querySelector('.rating-preview div>span').textContent = 'Make it a memory';
         document.querySelector('.about-section>p').textContent = game.description;
         document.querySelector('.about-section>p + p').textContent = 'Save it to your backlog and come back whenever you are ready for your next adventure.';
-        document.querySelector('.platforms').hidden = true;
+        const platforms = document.querySelector('.platforms');
+        const platformItems = (game.platforms || []).map(platform => {
+            const item = document.createElement('span');
+            item.className = 'platform';
+            item.textContent = platform;
+            return item;
+        });
+        const platformLabel = document.createElement('span');
+        platformLabel.className = 'small-label';
+        platformLabel.textContent = 'PLATFORMS';
+        platforms.replaceChildren(platformLabel, ...platformItems);
+        platforms.hidden = platformItems.length === 0;
 
         const values = [
             ['Studio', game.studio],
-            ['Collection', 'Your personal backlog'],
-            ['Genre', game.tags.join(' · ')],
+            [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Your personal backlog'],
+            [game.year ? 'First release' : 'Genre', game.year ? String(game.year) : game.tags.join(' · ')],
             ['Your status', window.Backlog.getStatus(game.id)?.label || 'Ready to discover']
         ];
         document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
@@ -60,7 +71,9 @@
     document.querySelector('.hero-tags').replaceChildren(...tags);
 
     // As sugestões levam a outros jogos e excluem o jogo aberto.
-    const recommendations = games.filter(item => item.id !== game.id).slice(0, 4);
+    const otherGames = games.filter(item => item.id !== game.id);
+    const relatedGames = otherGames.filter(item => game.franchise && item.franchise === game.franchise);
+    const recommendations = [...relatedGames, ...otherGames.filter(item => !relatedGames.includes(item))].slice(0, 4);
     document.querySelectorAll('.discover-card').forEach((card, index) => {
         const recommendation = recommendations[index];
         card.href = `game.html?id=${encodeURIComponent(recommendation.id)}`;

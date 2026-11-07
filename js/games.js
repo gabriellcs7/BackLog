@@ -132,7 +132,8 @@ window.BacklogGames = [
         "description": "Swing through New York and step into the life of Peter Parker. A superhero adventure filled with movement, action and memorable moments.",
         "banner": "banners/spider-man.webp",
         "bannerPosition": "center center",
-        "bannerPositionMobile": "71% center"
+        "bannerPositionMobile": "71% center",
+        "franchise": "Marvel’s Spider-Man"
     },
     {
         "id": "red-dead-redemption",
@@ -197,5 +198,52 @@ window.BacklogGames = [
         "banner": "banners/minecraft-dungeons-ii.webp",
         "bannerPosition": "center 44%",
         "bannerPositionMobile": "54% center"
+    },
+    {
+        "id": "spider-man-miles-morales",
+        "title": "Marvel’s Spider-Man: Miles Morales",
+        "year": 2020,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Superhero"
+        ],
+        "studio": "Insomniac Games",
+        "caption": "A new Spider-Man. A city to protect.",
+        "description": "Miles Morales learns to balance his everyday life with the responsibility of protecting New York. Master his bioelectric abilities and make his adventure part of your collection.",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "PC"
+        ],
+        "bannerPositionMobile": "70% center",
+        "franchise": "Marvel’s Spider-Man",
+        "cover": "catalogo/spider-man-miles-morales.webp",
+        "banner": "banners/spider-man-miles-morales.webp",
+        "bannerPosition": "center"
+    },
+    {
+        "id": "spider-man-2",
+        "title": "Marvel’s Spider-Man 2",
+        "year": 2023,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Superhero"
+        ],
+        "studio": "Insomniac Games",
+        "caption": "Two heroes. One extraordinary city.",
+        "description": "Peter Parker and Miles Morales face new threats across an expanded New York. Switch between both Spider-Men in a story shaped by the symbiote and the people they want to protect.",
+        "platforms": [
+            "PlayStation 5",
+            "PC"
+        ],
+        "bannerPositionMobile": "65% center",
+        "franchise": "Marvel’s Spider-Man",
+        "cover": "catalogo/spider-man-2.webp",
+        "banner": "banners/spider-man-2.webp",
+        "bannerPosition": "center"
     }
 ];

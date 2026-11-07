@@ -905,5 +905,258 @@ window.BacklogGames = [
         "cover": "catalogo/overwatch-2.webp",
         "banner": "banners/overwatch-2.webp",
         "bannerPosition": "center"
+    },
+    {
+        "id": "resident-evil-1996",
+        "title": "Resident Evil (1996)",
+        "year": 1996,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "The nightmare begins at the mansion.",
+        "description": "Explore the Spencer Mansion with Chris Redfield or Jill Valentine in the original survival-horror adventure.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE (1996)"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-1996.webp",
+        "banner": "banners/resident-evil-1996.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-2-1998",
+        "title": "Resident Evil 2 (1998)",
+        "year": 1998,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "A city in the grip of an outbreak.",
+        "description": "Leon Kennedy and Claire Redfield struggle to survive their arrival in Raccoon City in the original second game.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 2 (1998)"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-2-1998.webp",
+        "banner": "banners/resident-evil-2-1998.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-3-nemesis",
+        "title": "Resident Evil 3: Nemesis",
+        "year": 1999,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "Escape a relentless pursuer.",
+        "description": "Follow Jill Valentine through Raccoon City while the creature known as Nemesis pursues her in the original third game.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 3: Nemesis"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-3-nemesis.webp",
+        "banner": "banners/resident-evil-3-nemesis.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-code-veronica",
+        "title": "Resident Evil – Code: Veronica",
+        "year": 2000,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "The search for family leads deeper into Umbrella.",
+        "description": "Claire Redfield’s search for her brother takes her to Rockfort Island and another chapter of Umbrella’s secrets.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE – Code: Veronica"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-code-veronica.webp",
+        "banner": "banners/resident-evil-code-veronica.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-zero",
+        "title": "Resident Evil Zero",
+        "year": 2002,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "Before the mansion, there was a train.",
+        "description": "Rebecca Chambers and Billy Coen cooperate to investigate the events preceding the first Resident Evil.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE Zero"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-zero.webp",
+        "banner": "banners/resident-evil-zero.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-4-2005",
+        "title": "Resident Evil 4 (2005)",
+        "year": 2005,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "A rescue mission far from Raccoon City.",
+        "description": "Leon Kennedy travels to a remote European village to rescue the president’s daughter in the original Resident Evil 4.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 4 (2005)"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-4-2005.webp",
+        "banner": "banners/resident-evil-4-2005.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-5",
+        "title": "Resident Evil 5",
+        "year": 2009,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "Survive together.",
+        "description": "Chris Redfield and Sheva Alomar investigate a bioterrorism threat in a campaign designed around cooperative action.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 5"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-5.webp",
+        "banner": "banners/resident-evil-5.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-6",
+        "title": "Resident Evil 6",
+        "year": 2012,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "Four campaigns. A global crisis.",
+        "description": "Follow intersecting stories featuring Leon, Chris, Jake and Ada as a new biological threat spreads across the world.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 6"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-6.webp",
+        "banner": "banners/resident-evil-6.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-7",
+        "title": "Resident Evil 7: Biohazard",
+        "year": 2017,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "An invitation you should have ignored.",
+        "description": "Ethan Winters searches for his missing wife and encounters the Baker family in a first-person survival-horror story.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE 7: Biohazard"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-7.webp",
+        "banner": "banners/resident-evil-7.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-village",
+        "title": "Resident Evil Village",
+        "year": 2021,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "A village hiding terrible secrets.",
+        "description": "Continue Ethan Winters’ story as he searches for his daughter in a village controlled by unsettling and powerful figures.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE Village"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-village.webp",
+        "banner": "banners/resident-evil-village.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "resident-evil-requiem",
+        "title": "Resident Evil Requiem",
+        "year": 2026,
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Adventure"
+        ],
+        "studio": "Capcom",
+        "caption": "A new chapter of survival horror.",
+        "description": "Follow Grace Ashcroft and Leon Kennedy in a new chapter that revisits the legacy of the Raccoon City disaster.",
+        "aliases": [
+            "Resident Evil",
+            "Biohazard",
+            "RE Requiem"
+        ],
+        "franchise": "Resident Evil",
+        "cover": "catalogo/resident-evil-requiem.webp",
+        "banner": "banners/resident-evil-requiem.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
     }
 ];

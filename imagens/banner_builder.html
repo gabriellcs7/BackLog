@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>BackLog Showcase Banner</title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        width: 1600px;
+        height: 900px;
+        background: #0d0f0e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        color: #f5f5ef;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 44px 56px 40px;
+        background: radial-gradient(circle at 50% -15%, #2a2818 0%, #121413 55%, #090a0a 100%);
+    }
+
+    /* Subtle background grid pattern */
+    .grid-bg {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 36px 36px;
+        pointer-events: none;
+        mask-image: radial-gradient(circle at 50% 40%, black 45%, transparent 85%);
+    }
+
+    /* Ambient lighting glows */
+    .glow-gold {
+        position: absolute;
+        top: -120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 380px;
+        background: radial-gradient(ellipse, rgba(255, 210, 31, 0.16) 0%, rgba(255, 210, 31, 0) 70%);
+        filter: blur(50px);
+        pointer-events: none;
+    }
+
+    .glow-cyan {
+        position: absolute;
+        bottom: -100px;
+        right: 100px;
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+    }
+
+    /* Top banner header */
+    .banner-top {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .brand-group {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .brand-logo {
+        height: 48px;
+        width: auto;
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+    }
+
+    .brand-tagline-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: #d1d5db;
+        backdrop-filter: blur(8px);
+    }
+
+    .brand-tagline-pill .dot {
+        width: 8px;
+        height: 8px;
+        background: #ffd21f;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #ffd21f;
+    }
+
+    .feature-pills {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(26, 27, 27, 0.85);
+        border: 1px solid #2c2d2c;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 13px;
+        color: #a1a39b;
+        font-weight: 500;
+    }
+
+    .pill strong {
+        color: #f5f5ef;
+    }
+
+    .pill .icon {
+        color: #ffd21f;
+    }
+
+    /* Main Showcase Browser Window */
+    .showcase-stage {
+        position: relative;
+        z-index: 5;
+        flex: 1;
+        margin: 24px 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .browser-frame {
+        width: 100%;
+        height: 600px;
+        background: #141515;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 
+            0 24px 60px -12px rgba(0, 0, 0, 0.8),
+            0 0 0 1px rgba(255, 255, 255, 0.06),
+            0 0 60px rgba(255, 210, 31, 0.06);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    /* Browser titlebar */
+    .browser-titlebar {
+        background: #1b1c1c;
+        padding: 12px 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 1px solid #2c2d2c;
+    }
+
+    .traffic-lights {
+        display: flex;
+        gap: 8px;
+    }
+
+    .traffic-lights span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    .traffic-lights .red { background: #ff5f56; }
+    .traffic-lights .yellow { background: #ffbd2e; }
+    .traffic-lights .green { background: #27c93f; }
+
+    .browser-address {
+        flex: 1;
+        max-width: 480px;
+        margin: 0 auto;
+        background: #111212;
+        border: 1px solid #282928;
+        border-radius: 8px;
+        padding: 5px 14px;
+        font-size: 13px;
+        color: #8b8e86;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .browser-address svg {
+        opacity: 0.6;
+    }
+
+    .browser-address span {
+        color: #d1d5db;
+    }
+
+    .browser-address b {
+        color: #ffd21f;
+        font-weight: 500;
+    }
+
+    /* Browser Viewport */
+    .browser-viewport {
+        flex: 1;
+        padding: 20px 32px 24px;
+        background: #131414;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    /* Navbar simulation */
+    .app-navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #232423;
+    }
+
+    .app-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .app-brand img {
+        height: 30px;
+        width: auto;
+    }
+
+    .app-search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #1c1d1d;
+        border: 1px solid #2e302e;
+        border-radius: 8px;
+        padding: 7px 14px;
+        width: 320px;
+        color: #a1a39b;
+        font-size: 13px;
+    }
+
+    .app-search svg {
+        color: #71736c;
+    }
+
+    .app-search kbd {
+        margin-left: auto;
+        background: #272828;
+        border: 1px solid #363836;
+        border-radius: 4px;
+        padding: 1px 7px;
+        font-size: 11px;
+        color: #ffd21f;
+        font-family: inherit;
+        font-weight: 600;
+    }
+
+    .app-links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #a1a39b;
+    }
+
+    .app-links .active {
+        color: #f5f5ef;
+        position: relative;
+    }
+
+    .app-links .active::after {
+        content: "";
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #ffd21f;
+    }
+
+    .backlog-count-badge {
+        background: #ffd21f;
+        color: #131414;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 10px;
+        margin-left: 6px;
+    }
+
+    /* Catalog controls & headline */
+    .app-subbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 14px 0 16px;
+    }
+
+    .app-headline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .app-headline h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #f5f5ef;
+    }
+
+    .app-headline span {
+        font-size: 13px;
+        color: #8b8e86;
+        border-left: 1px solid #2c2d2c;
+        padding-left: 12px;
+    }
+
+    .app-filters {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tab-btn {
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+
+    .tab-btn.selected {
+        background: #ffd21f;
+        color: #131414;
+    }
+
+    .tab-btn.ghost {
+        background: transparent;
+        color: #a1a39b;
+        border-color: #2c2d2c;
+    }
+
+    .filter-select {
+        background: #1a1b1b;
+        border: 1px solid #2c2d2c;
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 13px;
+        color: #d1d5db;
+    }
+
+    /* Cards Grid */
+    .app-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 18px;
+        margin-top: 4px;
+    }
+
+    .game-card {
+        background: #1a1b1b;
+        border: 1px solid #282928;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-art {
+        position: relative;
+        aspect-ratio: 3/4;
+        width: 100%;
+        overflow: hidden;
+        background: #0f1010;
+    }
+
+    .card-art img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .status-badge {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(19, 20, 20, 0.88);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .status-badge.status-played { color: #60a5fa; border-color: rgba(96, 165, 250, 0.4); }
+    .status-badge.status-playing { color: #c084fc; border-color: rgba(192, 132, 252, 0.4); }
+    .status-badge.status-completed { color: #4ade80; border-color: rgba(74, 222, 128, 0.4); }
+    .status-badge.status-platinum { color: #ffd21f; border-color: rgba(255, 210, 31, 0.4); }
+    .status-badge.status-want { color: #fb923c; border-color: rgba(251, 146, 60, 0.4); }
+
+    .card-info {
+        padding: 10px 12px 12px;
+    }
+
+    .card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #f5f5ef;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .card-meta {
+        font-size: 11px;
+        color: #8b8e86;
+        margin-top: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Floating Status Control Overlay (Bottom Right Glass Card) */
+    .floating-detail-card {
+        position: absolute;
+        bottom: 28px;
+        right: -16px;
+        width: 380px;
+        background: rgba(22, 24, 24, 0.94);
+        border: 1px solid rgba(255, 210, 31, 0.35);
+        border-radius: 14px;
+        padding: 16px 18px;
+        box-shadow: 
+            0 16px 36px rgba(0, 0, 0, 0.7),
+            0 0 30px rgba(255, 210, 31, 0.12);
+        backdrop-filter: blur(16px);
+        z-index: 20;
+    }
+
+    .detail-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #2d2e2d;
+    }
+
+    .detail-card-header strong {
+        font-size: 13px;
+        color: #f5f5ef;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .detail-card-header strong svg {
+        color: #ffd21f;
+    }
+
+    .detail-card-header span {
+        font-size: 11px;
+        color: #a1a39b;
+        background: #272828;
+        padding: 2px 7px;
+        border-radius: 4px;
+    }
+
+    .status-button-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+    }
+
+    .mini-status-btn {
+        background: #171818;
+        border: 1px solid #2a2b2a;
+        border-radius: 6px;
+        padding: 6px 8px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #a1a39b;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .mini-status-btn.active {
+        background: #252622;
+        border-color: #ffd21f;
+        color: #ffd21f;
+        font-weight: 600;
+    }
+
+    /* Banner bottom footer */
+    .banner-footer {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #71736c;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 16px;
+    }
+
+    .banner-footer .hero-motto {
+        color: #d1d5db;
+        font-weight: 500;
+    }
+
+    .banner-footer .tech-stack {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .banner-footer .tech-stack span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .banner-footer .tech-stack span::before {
+        content: "•";
+        color: #ffd21f;
+    }
+</style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-gold"></div>
+    <div class="glow-cyan"></div>
+
+    <!-- Top Bar -->
+    <header class="banner-top">
+        <div class="brand-group">
+            <img class="brand-logo" src="logo_transparente.png" alt="BackLog">
+            <div class="brand-tagline-pill">
+                <span class="dot"></span>
+                <span>A HOME FOR EVERY GAME YOU LOVE</span>
+            </div>
+        </div>
+        <div class="feature-pills">
+            <div class="pill"><span class="icon">⚡</span> Instant Search <strong>(/)</strong></div>
+            <div class="pill"><span class="icon">🔒</span> <strong>100% Client-Side</strong> LocalStorage</div>
+            <div class="pill"><span class="icon">🎮</span> <strong>40</strong> Curated Titles</div>
+            <div class="pill"><span class="icon">🏆</span> <strong>6</strong> Collection Statuses</div>
+        </div>
+    </header>
+
+    <!-- Main Showcase Browser Stage -->
+    <main class="showcase-stage">
+        <div class="browser-frame">
+            <!-- Titlebar -->
+            <div class="browser-titlebar">
+                <div class="traffic-lights">
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+                </div>
+                <div class="browser-address">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>backlog.local/<b>games?status=all</b></span>
+                </div>
+            </div>
+
+            <!-- Web App Viewport -->
+            <div class="browser-viewport">
+                <!-- App Header -->
+                <div class="app-navbar">
+                    <div class="app-brand">
+                        <img src="logo_transparente.png" alt="BackLog">
+                    </div>
+                    <div class="app-search">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span>Search games, franchises, aliases...</span>
+                        <kbd>/</kbd>
+                    </div>
+                    <div class="app-links">
+                        <span>Home</span>
+                        <span class="active">Games</span>
+                        <span>My backlog <span class="backlog-count-badge">6</span></span>
+                    </div>
+                </div>
+
+                <!-- App Subbar -->
+                <div class="app-subbar">
+                    <div class="app-headline">
+                        <h2>Find your next great adventure<span>.</span></h2>
+                        <span>Curated gaming library with real-time filters</span>
+                    </div>
+                    <div class="app-filters">
+                        <button class="tab-btn selected">All games (40)</button>
+                        <button class="tab-btn ghost">My backlog (6)</button>
+                        <div class="filter-select">Status: Todos os status ▾</div>
+                        <div class="filter-select">Genre: All genres ▾</div>
+                    </div>
+                </div>
+
+                <!-- 6 Curated Cards with real status badges -->
+                <div class="app-cards-grid">
+                    <!-- 1. GTA VI -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/grand-theft-auto-vi.webp" alt="GTA VI">
+                            <span class="status-badge status-want">📌 Quero jogar</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Grand Theft Auto VI</div>
+                            <div class="card-meta">Action · Open world</div>
+                        </div>
+                    </div>
+
+                    <!-- 2. The Last of Us -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/the-last-of-us.webp" alt="The Last of Us">
+                            <span class="status-badge status-completed">✔️ Zerado</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">The Last of Us</div>
+                            <div class="card-meta">Adventure · Story rich</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. God of War Ragnarök -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/god-of-war-ragnarok.webp" alt="God of War Ragnarök">
+                            <span class="status-badge status-platinum">🏆 Platinado</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">God of War Ragnarök</div>
+                            <div class="card-meta">Action · Adventure</div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Red Dead Redemption 2 -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/red-dead-redemption-2.webp" alt="Red Dead Redemption 2">
+                            <span class="status-badge status-played">🕹️ Jogado</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Red Dead Redemption 2</div>
+                            <div class="card-meta">Adventure · Open world</div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Spider-Man 2 -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/spider-man-2.webp" alt="Spider-Man 2">
+                            <span class="status-badge status-playing">▶️ Jogando</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Marvel’s Spider-Man 2</div>
+                            <div class="card-meta">Action · Superhero</div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Resident Evil 4 -->
+                    <div class="game-card">
+                        <div class="card-art">
+                            <img src="capas/catalogo/resident-evil-4-2005.webp" alt="Resident Evil 4">
+                            <span class="status-badge status-completed">✔️ Zerado</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-title">Resident Evil 4</div>
+                            <div class="card-meta">Horror · Survival</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Glassmorphic Status Widget -->
+        <div class="floating-detail-card">
+            <div class="detail-card-header">
+                <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    Na sua coleção (LocalStorage)
+                </strong>
+                <span>Status ao vivo</span>
+            </div>
+            <div class="status-button-grid">
+                <div class="mini-status-btn">🕹️ Jogado</div>
+                <div class="mini-status-btn">▶️ Jogando</div>
+                <div class="mini-status-btn">✔️ Zerado</div>
+                <div class="mini-status-btn active">🏆 Platinado</div>
+                <div class="mini-status-btn">⏸️ Dropado</div>
+                <div class="mini-status-btn">📌 Quero jogar</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Banner Bottom Footer -->
+    <footer class="banner-footer">
+        <div class="hero-motto">Great games. Better memories. Your gaming story belongs here.</div>
+        <div class="tech-stack">
+            <span>HTML5 Semântico</span>
+            <span>CSS3 Custom Properties</span>
+            <span>Vanilla JavaScript ES6+</span>
+            <span>Zero Dependências</span>
+        </div>
+    </footer>
+</body>
+</html>

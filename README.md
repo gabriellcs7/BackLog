@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <img src="imagens/gta-vi-banner-4k.webp" alt="BackLog Banner Cinematográfico" width="100%" style="border-radius: 12px; border: 1px solid #2c2d2c;">
+  <img src="imagens/backlog-showcase-banner.png" alt="BackLog Showcase Banner" width="100%" style="border-radius: 12px; border: 1px solid #2c2d2c;">
 </p>
 
 ---
@@ -116,6 +116,7 @@ BackLog/
 │   └── js/game.js               # Renderização dinâmica via URL (?id=), modal e status
 │
 ├── imagens/                     # Ativos gráficos e identidades
+│   ├── backlog-showcase-banner.png # Banner visual oficial e vitrine da aplicação
 │   ├── banners/                 # Banners horizontais em alta definição (WebP)
 │   ├── capas/catalogo/          # Capas padronizadas 600x800 com proporção 3:4
 │   ├── destaques/               # Imagens responsivas para o radar com múltiplos srcsets

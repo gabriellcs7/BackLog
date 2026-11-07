@@ -1,0 +1,211 @@
+-- BackLog: banco completo para um projeto NOVO. Execute uma vez.
+-- Gerado dos arquivos de migrations; não execute ambos os métodos no mesmo projeto.
+
+-- 202611070001_social.sql
+-- BackLog: execute uma vez no SQL Editor de um projeto Supabase novo.
+begin;
+create table public.games (id text primary key);
+create table public.profiles (
+    id uuid primary key references auth.users(id) on delete cascade,
+    display_name text not null default 'Player' check (char_length(trim(display_name)) between 2 and 40),
+    bio text not null default '' check (char_length(bio) <= 280),
+    created_at timestamptz not null default now()
+);
+create table public.favorites (
+    user_id uuid not null references public.profiles(id) on delete cascade,
+    game_id text not null references public.games(id),
+    position smallint not null check (position between 1 and 4),
+    primary key (user_id, position), unique (user_id, game_id)
+);
+create table public.game_lists (
+    id uuid primary key default gen_random_uuid(),
+    user_id uuid not null references public.profiles(id) on delete cascade,
+    name text not null check (char_length(trim(name)) between 1 and 80),
+    description text not null default '' check (char_length(description) <= 500),
+    is_public boolean not null default false,
+    created_at timestamptz not null default now(), updated_at timestamptz not null default now()
+);
+create table public.list_games (
+    list_id uuid not null references public.game_lists(id) on delete cascade,
+    game_id text not null references public.games(id),
+    position smallint not null check (position between 1 and 100),
+    primary key (list_id, game_id), unique (list_id, position)
+);
+create table public.reviews (
+    id uuid primary key default gen_random_uuid(),
+    user_id uuid not null references public.profiles(id) on delete cascade,
+    game_id text not null references public.games(id),
+    rating numeric(2,1) check (rating between 0 and 5 and rating * 2 = trunc(rating * 2)),
+    text text not null default '' check (char_length(text) <= 3000),
+    created_at timestamptz not null default now(), updated_at timestamptz not null default now(),
+    unique (user_id, game_id), check (rating is not null or char_length(trim(text)) > 0)
+);
+create table public.review_likes (
+    review_id uuid not null references public.reviews(id) on delete cascade,
+    user_id uuid not null references public.profiles(id) on delete cascade,
+    created_at timestamptz not null default now(), primary key (review_id, user_id)
+);
+create table public.review_comments (
+    id uuid primary key default gen_random_uuid(),
+    review_id uuid not null references public.reviews(id) on delete cascade,
+    user_id uuid not null references public.profiles(id) on delete cascade,
+    text text not null check (char_length(trim(text)) between 1 and 1000),
+    created_at timestamptz not null default now()
+);
+create index reviews_game_date on public.reviews(game_id, created_at desc, id);
+create index comments_review_date on public.review_comments(review_id, created_at, id);
+create index game_lists_user on public.game_lists(user_id);
+create index likes_user on public.review_likes(user_id);
+create function public.create_player_profile() returns trigger language plpgsql security definer set search_path = '' as $$
+begin
+    insert into public.profiles (id, display_name) values (new.id,
+        case when char_length(trim(coalesce(new.raw_user_meta_data->>'display_name',''))) >= 2
+        then left(trim(new.raw_user_meta_data->>'display_name'),40) else 'Player' end);
+    return new;
+end;
+$$;
+create trigger on_backlog_signup after insert on auth.users for each row execute function public.create_player_profile();
+-- Cria perfis para usuários que já existiam no projeto.
+insert into public.profiles(id) select id from auth.users on conflict do nothing;
+alter table public.games enable row level security;
+alter table public.profiles enable row level security;
+alter table public.favorites enable row level security;
+alter table public.game_lists enable row level security;
+alter table public.list_games enable row level security;
+alter table public.reviews enable row level security;
+alter table public.review_likes enable row level security;
+alter table public.review_comments enable row level security;
+create policy games_read on public.games for select to anon, authenticated using (true);
+create policy profiles_read on public.profiles for select to anon, authenticated using (true);
+create policy profile_update on public.profiles for update to authenticated using ((select auth.uid()) = id) with check ((select auth.uid()) = id);
+create policy favorites_read on public.favorites for select to anon, authenticated using (true);
+create policy favorites_insert on public.favorites for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy favorites_delete on public.favorites for delete to authenticated using ((select auth.uid()) = user_id);
+create policy lists_read on public.game_lists for select to anon, authenticated using (is_public or (select auth.uid()) = user_id);
+create policy lists_insert on public.game_lists for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy lists_update on public.game_lists for update to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy lists_delete on public.game_lists for delete to authenticated using ((select auth.uid()) = user_id);
+create policy list_games_read on public.list_games for select to anon, authenticated using (exists (select 1 from public.game_lists l where l.id = list_id and (l.is_public or l.user_id = (select auth.uid()))));
+create policy list_games_insert on public.list_games for insert to authenticated with check (exists (select 1 from public.game_lists l where l.id = list_id and l.user_id = (select auth.uid())));
+create policy list_games_delete on public.list_games for delete to authenticated using (exists (select 1 from public.game_lists l where l.id = list_id and l.user_id = (select auth.uid())));
+create policy reviews_read on public.reviews for select to anon, authenticated using (true);
+create policy reviews_insert on public.reviews for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy reviews_update on public.reviews for update to authenticated using ((select auth.uid()) = user_id) with check ((select auth.uid()) = user_id);
+create policy reviews_delete on public.reviews for delete to authenticated using ((select auth.uid()) = user_id);
+create policy likes_read on public.review_likes for select to anon, authenticated using (true);
+create policy likes_insert on public.review_likes for insert to authenticated with check ((select auth.uid()) = user_id and exists (select 1 from public.reviews r where r.id = review_id and r.user_id <> (select auth.uid())));
+create policy likes_delete on public.review_likes for delete to authenticated using ((select auth.uid()) = user_id);
+create policy comments_read on public.review_comments for select to anon, authenticated using (true);
+create policy comments_insert on public.review_comments for insert to authenticated with check ((select auth.uid()) = user_id);
+create policy comments_delete on public.review_comments for delete to authenticated using ((select auth.uid()) = user_id);
+-- Funções com security invoker: as políticas do usuário continuam valendo.
+create function public.set_favorites(game_ids text[]) returns void language plpgsql security invoker set search_path = '' as $$
+begin
+    if auth.uid() is null then raise exception 'Sign in first'; end if;
+    if game_ids is null or cardinality(game_ids) > 4 or exists(select 1 from unnest(game_ids) g where g is null) or cardinality(game_ids) <> (select count(distinct g) from unnest(game_ids) g) then raise exception 'Choose up to four different games'; end if;
+    delete from public.favorites where user_id = auth.uid();
+    insert into public.favorites(user_id, game_id, position) select auth.uid(), game_id, position from unnest(game_ids) with ordinality as t(game_id,position);
+end;
+$$;
+create function public.save_game_list(list_id uuid, list_name text, list_description text, public_list boolean, game_ids text[]) returns uuid language plpgsql security invoker set search_path = '' as $$
+declare result uuid;
+begin
+    if auth.uid() is null then raise exception 'Sign in first'; end if;
+    if game_ids is null or cardinality(game_ids) > 100 or exists(select 1 from unnest(game_ids) g where g is null) or cardinality(game_ids) <> (select count(distinct g) from unnest(game_ids) g) then raise exception 'Invalid games'; end if;
+    if list_id is null then
+        insert into public.game_lists(user_id,name,description,is_public) values(auth.uid(),trim(list_name),list_description,public_list) returning id into result;
+    else
+        update public.game_lists set name=trim(list_name),description=list_description,is_public=public_list,updated_at=now() where id=list_id and user_id=auth.uid() returning id into result;
+        if result is null then raise exception 'List not found'; end if;
+    end if;
+    delete from public.list_games where public.list_games.list_id=result;
+    insert into public.list_games(list_id,game_id,position) select result,game_id,position from unnest(game_ids) with ordinality as t(game_id,position);
+    return result;
+end;
+$$;
+revoke all on public.games, public.profiles, public.favorites, public.game_lists, public.list_games, public.reviews, public.review_likes, public.review_comments from anon, authenticated;
+grant select on public.games, public.profiles, public.favorites, public.game_lists, public.list_games, public.reviews, public.review_likes, public.review_comments to anon, authenticated;
+grant update(display_name,bio) on public.profiles to authenticated;
+grant insert,delete on public.favorites, public.list_games, public.review_likes, public.review_comments to authenticated;
+grant insert,delete on public.game_lists, public.reviews to authenticated;
+grant update(name,description,is_public,updated_at) on public.game_lists to authenticated;
+grant update(rating,text,updated_at) on public.reviews to authenticated;
+revoke all on function public.create_player_profile() from public;
+revoke all on function public.set_favorites(text[]) from public;
+revoke all on function public.save_game_list(uuid,text,text,boolean,text[]) from public;
+grant execute on function public.set_favorites(text[]) to authenticated;
+grant execute on function public.save_game_list(uuid,text,text,boolean,text[]) to authenticated;
+-- O catálogo aceito pelo servidor é o mesmo usado no site.
+
+insert into public.games(id) values
+('grand-theft-auto-vi'),
+('grand-theft-auto-v'),
+('red-dead-redemption-2'),
+('god-of-war-ragnarok'),
+('the-last-of-us'),
+('minecraft'),
+('fortnite'),
+('spider-man'),
+('red-dead-redemption'),
+('phantom-blade-zero'),
+('silent-hill-townfall'),
+('minecraft-dungeons-ii'),
+('spider-man-miles-morales'),
+('spider-man-2'),
+('god-of-war-2005'),
+('god-of-war-ii'),
+('god-of-war-iii'),
+('god-of-war-ascension'),
+('god-of-war-2018'),
+('grand-theft-auto'),
+('grand-theft-auto-2'),
+('grand-theft-auto-iii'),
+('gta-vice-city'),
+('gta-san-andreas'),
+('grand-theft-auto-iv'),
+('the-last-of-us-part-ii'),
+('league-of-legends'),
+('overwatch-1'),
+('overwatch-2'),
+('resident-evil-1996'),
+('resident-evil-2-1998'),
+('resident-evil-3-nemesis'),
+('resident-evil-code-veronica'),
+('resident-evil-zero'),
+('resident-evil-4-2005'),
+('resident-evil-5'),
+('resident-evil-6'),
+('resident-evil-7'),
+('resident-evil-village'),
+('resident-evil-requiem');
+commit;
+
+-- 202611070002_review_feed.sql
+begin;
+-- Paginação e contagens calculadas no servidor, sem limite de likes no navegador.
+create function public.review_feed(game_key text, page_offset integer default 0)
+returns table(id uuid,user_id uuid,game_id text,rating numeric,text text,created_at timestamptz,updated_at timestamptz,display_name text,like_count bigint,comment_count bigint,liked boolean)
+language sql stable security invoker set search_path = '' as $$
+    select r.id,r.user_id,r.game_id,r.rating,r.text,r.created_at,r.updated_at,p.display_name,
+    (select count(*) from public.review_likes l where l.review_id=r.id),
+    (select count(*) from public.review_comments c where c.review_id=r.id),
+    exists(select 1 from public.review_likes l where l.review_id=r.id and l.user_id=auth.uid())
+    from public.reviews r join public.profiles p on p.id=r.user_id
+    where r.game_id=game_key order by r.created_at desc,r.id limit 20 offset greatest(0,page_offset);
+$$;
+create function public.set_review_like(review_key uuid, liked boolean) returns bigint
+language plpgsql security invoker set search_path = '' as $$
+declare result bigint;
+begin
+    if auth.uid() is null then raise exception 'Sign in first'; end if;
+    if liked then insert into public.review_likes(review_id,user_id) values(review_key,auth.uid()) on conflict do nothing;
+    else delete from public.review_likes where review_id=review_key and user_id=auth.uid(); end if;
+    select count(*) into result from public.review_likes where review_id=review_key;
+    return result;
+end;
+$$;
+revoke all on function public.review_feed(text,integer) from public;
+revoke all on function public.set_review_like(uuid,boolean) from public;
+grant execute on function public.review_feed(text,integer) to anon,authenticated;
+grant execute on function public.set_review_like(uuid,boolean) to authenticated;
+commit;

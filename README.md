@@ -1,5 +1,7 @@
 # 🎮 BackLog · Your Gaming Story
 
+> **Atualização — perfis e comunidade:** o site agora tem perfil com top 4, listas personalizadas e integração opcional com Supabase para contas, reviews públicas, likes e comentários. Sem configuração, o modo local continua disponível. Para ativar o modo online, siga [docs/supabase.md](docs/supabase.md); use a biblioteca oficial incluída no projeto. As descrições antigas de armazenamento somente local abaixo se referem ao modo offline.
+
 <p align="center">
   <img src="imagens/logo_transparente.png" alt="BackLog Logo" width="320">
 </p>

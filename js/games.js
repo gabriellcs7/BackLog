@@ -293,51 +293,6 @@ window.BacklogGames = [
         "bannerPositionMobile": "60% center"
     },
     {
-        "id": "god-of-war-betrayal",
-        "title": "God of War: Betrayal",
-        "year": 2007,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Mobile",
-            "2D"
-        ],
-        "studio": "Javaground / SOE Los Angeles",
-        "kind": "Mobile game",
-        "caption": "A Spartan adventure in your pocket.",
-        "description": "A two-dimensional chapter originally made for Java mobile phones. Kratos pursues an assassin after being accused of murder.",
-        "platforms": [
-            "Java ME phones"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-betrayal.webp",
-        "banner": "banners/god-of-war-betrayal.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
-        "id": "god-of-war-chains-of-olympus",
-        "title": "God of War: Chains of Olympus",
-        "year": 2008,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Adventure",
-            "PSP"
-        ],
-        "studio": "Ready at Dawn",
-        "caption": "Before the legend, there was a duty.",
-        "description": "Explore a chapter from Kratos’ service to the gods, originally released on PSP, as darkness threatens the Greek world.",
-        "platforms": [
-            "PSP"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-chains-of-olympus.webp",
-        "banner": "banners/god-of-war-chains-of-olympus.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
         "id": "god-of-war-iii",
         "title": "God of War III",
         "year": 2010,
@@ -356,28 +311,6 @@ window.BacklogGames = [
         "franchise": "God of War",
         "cover": "catalogo/god-of-war-iii.webp",
         "banner": "banners/god-of-war-iii.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
-        "id": "god-of-war-ghost-of-sparta",
-        "title": "God of War: Ghost of Sparta",
-        "year": 2010,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Adventure",
-            "PSP"
-        ],
-        "studio": "Ready at Dawn",
-        "caption": "Uncover the past of a god.",
-        "description": "Haunted by his past, Kratos searches for his origins and his brother Deimos in this standalone PSP adventure.",
-        "platforms": [
-            "PSP"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-ghost-of-sparta.webp",
-        "banner": "banners/god-of-war-ghost-of-sparta.webp",
         "bannerPosition": "center",
         "bannerPositionMobile": "60% center"
     },
@@ -424,99 +357,6 @@ window.BacklogGames = [
         "cover": "catalogo/god-of-war-2018.webp",
         "banner": "banners/god-of-war-2018.webp",
         "bannerPosition": "center"
-    },
-    {
-        "id": "god-of-war-a-call-from-the-wilds",
-        "title": "God of War: A Call from the Wilds",
-        "year": 2018,
-        "genre": "Adventure",
-        "tags": [
-            "Interactive fiction",
-            "Mobile"
-        ],
-        "studio": "Santa Monica Studio",
-        "kind": "Mobile game",
-        "caption": "An early journey with Atreus.",
-        "description": "A historical text-based adventure distributed through Facebook Messenger, following Atreus before the events of God of War (2018).",
-        "platforms": [
-            "Facebook Messenger"
-        ],
-        "releaseState": "retired",
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-a-call-from-the-wilds.webp",
-        "banner": "banners/god-of-war-a-call-from-the-wilds.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
-        "id": "god-of-war-ragnarok-valhalla",
-        "title": "God of War Ragnarök: Valhalla",
-        "year": 2023,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Roguelite",
-            "Expansion"
-        ],
-        "studio": "Santa Monica Studio",
-        "kind": "Expansion",
-        "caption": "Face the memories that remain.",
-        "description": "Kratos and Mimir enter Valhalla in a roguelite epilogue for God of War Ragnarök. This expansion requires the base game.",
-        "platforms": [
-            "PlayStation 4",
-            "PlayStation 5",
-            "PC"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-ragnarok-valhalla.webp",
-        "banner": "banners/god-of-war-ragnarok-valhalla.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
-        "id": "god-of-war-sons-of-sparta",
-        "title": "God of War: Sons of Sparta",
-        "year": 2026,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Metroidvania",
-            "2D"
-        ],
-        "studio": "Mega Cat Studios / Santa Monica Studio",
-        "caption": "Two brothers before the legend.",
-        "description": "Meet young Kratos and Deimos during their Spartan training in a two-dimensional adventure set in the Greek era.",
-        "platforms": [
-            "PlayStation 5"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-sons-of-sparta.webp",
-        "banner": "banners/god-of-war-sons-of-sparta.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
-    },
-    {
-        "id": "god-of-war-laufey",
-        "title": "God of War Laufey",
-        "year": 2027,
-        "genre": "Action",
-        "tags": [
-            "Action",
-            "Adventure",
-            "Norse mythology"
-        ],
-        "studio": "Santa Monica Studio",
-        "releaseState": "upcoming",
-        "caption": "A new perspective on the Norse saga.",
-        "description": "The announced adventure centered on Laufey, also known as Faye, expands the Norse era of God of War. Planned for PlayStation 5.",
-        "platforms": [
-            "PlayStation 5"
-        ],
-        "franchise": "God of War",
-        "cover": "catalogo/god-of-war-laufey.webp",
-        "banner": "banners/god-of-war-laufey.webp",
-        "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
     },
     {
         "id": "grand-theft-auto",

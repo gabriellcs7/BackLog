@@ -1,5 +1,8 @@
 # 🎮 BackLog · Your Gaming Story
 
+> **Diário e coleção:** a página Diary registra cada avaliação/review com data editável. Os quatro favoritos não têm ranking, e My backlog separa Played, Playing e Want to play. Para atualizar um banco existente, execute somente `supabase/atualizar-diario.sql` (veja [docs/diary.md](docs/diary.md)).
+
+
 > **Atualização — perfis e comunidade:** o site agora tem perfil com top 4, listas personalizadas e integração opcional com Supabase para contas, reviews públicas, likes e comentários. Sem configuração, o modo local continua disponível. Para ativar o modo online, siga [docs/supabase.md](docs/supabase.md); use a biblioteca oficial incluída no projeto. As descrições antigas de armazenamento somente local abaixo se referem ao modo offline.
 
 <p align="center">

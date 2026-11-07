@@ -102,7 +102,7 @@
         if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
         state.reviews=[...state.reviews.filter(item=>item.game_id!==gameId),review];
         window.dispatchEvent(new Event('backlog-diary-change'));
-        return{rating:review.rating,text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on};
+        return{rating:review.rating===null?null:Number(review.rating),text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on};
     }
     async function getDiaryEntries(){
         const owner=requireUser(),entries=[];
@@ -112,7 +112,7 @@
             entries.push(...batch);
             if(batch.length<500)break;
         }
-        return entries.map(entry=>({id:entry.id,gameId:entry.game_id,rating:entry.rating,text:entry.text,reviewedOn:entry.reviewed_on,createdAt:entry.created_at}));
+        return entries.map(entry=>({id:entry.id,gameId:entry.game_id,rating:entry.rating===null?null:Number(entry.rating),text:entry.text,reviewedOn:entry.reviewed_on,createdAt:entry.created_at}));
     }
     async function changeDiaryDate(id,date){
         const owner=requireUser();
@@ -127,7 +127,7 @@
     window.BacklogAccount=Object.freeze({
         ready,configured,get loading(){return loading;},get user(){return user?{id:user.id,email:user.email}:null;},get error(){return issue;},get client(){return client;},getState:()=>copy(state),
         saveProfile,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
-        getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating,text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on||window.BacklogDiary?.dateFromTimestamp(review.updated_at)}:null;},
+        getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating===null?null:Number(review.rating),text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on||window.BacklogDiary?.dateFromTimestamp(review.updated_at)}:null;},
         async getProfile(id){await ready;if(!client)throw new Error('Online profiles are not connected yet.');if(!/^[0-9a-f-]{36}$/i.test(id))throw new Error('Profile not found.');return loadPlayer(id,id===user?.id);}
     });
     window.addEventListener('storage',event=>{if(!user&&(event.key===localKey||event.key===null)){state=localState();changed();}});

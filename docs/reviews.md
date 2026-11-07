@@ -9,3 +9,5 @@ Validated across all 40 games, with responsive layouts at 320, 390, 768 and 1440
 Half-star ratings: select the left half of a star for a half-step, or its right half for a whole step. Arrow keys move in 0.5 steps. Saved reviews render partially filled stars and the numeric score. Previous integer ratings remain valid without migration.
 
 Online community reviews support one like per person, unlike, paginated comments of up to 1,000 characters, deleting your own comments, and links to public player profiles. Server policies prevent editing another person’s content or liking your own review. See [Supabase setup](supabase.md).
+
+Diary update: each successful save now appends a dated diary entry. The editor accepts today or an earlier date. If the game has no collection status, saving marks it Played; existing statuses are never replaced. See [diary setup and behavior](diary.md).

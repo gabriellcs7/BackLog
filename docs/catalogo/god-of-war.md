@@ -28,3 +28,11 @@ Catálogo reduzido aos jogos principais, conforme solicitado pelo usuário. Spin
 | God of War (2018) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/1593500/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/1593500/library_hero_2x.jpg) |
 
 As imagens são armazenadas localmente em WebP. A capa inteira é preservada no quadro de 600 × 800 pixels. Artes compartilhadas da franquia, quando necessárias para jogos antigos sem material horizontal, são identificadas na tabela.
+
+## Revisão visual
+
+- God of War (2005): https://bpb-us-w2.wpmucdn.com/blogs.pace.edu/dist/5/342/files/2021/09/Kratos-2005.jpg
+- God of War II: https://cdn.thegamesdb.net/images/original/fanart/111300-1.jpg
+- God of War: Ascension: https://images5.alphacoders.com/283/283377.jpg
+
+Cada jogo usa uma arte própria; os banners não são compartilhados entre jogos.

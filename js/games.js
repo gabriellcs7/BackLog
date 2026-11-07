@@ -269,7 +269,7 @@ window.BacklogGames = [
         "cover": "catalogo/god-of-war-2005.webp",
         "banner": "banners/god-of-war-2005.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "god-of-war-ii",
@@ -290,7 +290,7 @@ window.BacklogGames = [
         "cover": "catalogo/god-of-war-ii.webp",
         "banner": "banners/god-of-war-ii.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "god-of-war-iii",
@@ -333,7 +333,7 @@ window.BacklogGames = [
         "cover": "catalogo/god-of-war-ascension.webp",
         "banner": "banners/god-of-war-ascension.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "center"
     },
     {
         "id": "god-of-war-2018",

@@ -10,12 +10,12 @@
 
     // Um status atual por jogo, compartilhado pela página de detalhes e pela coleção.
     const statusOptions = Object.freeze([
-        { id: 'played', label: 'Jogado', description: 'Você já jogou este jogo.' },
-        { id: 'playing', label: 'Jogando', description: 'Você está jogando este jogo agora.' },
-        { id: 'completed', label: 'Zerado', description: 'Você completou o jogo.' },
-        { id: 'platinum', label: 'Platinado', description: 'Você completou todas as missões.' },
-        { id: 'dropped', label: 'Dropado', description: 'Você jogou, mas desistiu de completar.' },
-        { id: 'want-to-play', label: 'Quero jogar', description: 'Você quer jogar este jogo.' }
+        { id: 'played', label: 'Played', description: 'You have played this game.' },
+        { id: 'playing', label: 'Playing', description: 'You are currently playing this game.' },
+        { id: 'completed', label: 'Completed', description: 'You completed the game.' },
+        { id: 'platinum', label: 'Platinum', description: 'You completed all missions.' },
+        { id: 'dropped', label: 'Dropped', description: 'You played this game but stopped before completing it.' },
+        { id: 'want-to-play', label: 'Want to play', description: 'You want to play this game.' }
     ].map(option => Object.freeze(option)));
 
     function getStatus(id) {

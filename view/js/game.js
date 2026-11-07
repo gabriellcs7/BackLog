@@ -105,7 +105,7 @@
         });
         document.querySelector('#game-status-help').textContent = status
             ? status.description
-            : 'Escolha um status para adicionar este jogo.';
+            : 'Choose a status to add this game.';
         document.querySelector('#collection-status-label').textContent = status?.label || '';
         collectionStatus.hidden = !status;
         if (game.id !== games[0].id) {
@@ -121,7 +121,7 @@
             const status = window.Backlog.getStatus(game.id);
             notify(`${game.title}: ${status.label}.`);
         } catch {
-            notify('Não foi possível salvar. Permita o armazenamento neste navegador.');
+            notify('Could not save. Allow storage in this browser.');
         }
     }
 
@@ -131,10 +131,10 @@
     document.querySelector('#remove-game').addEventListener('click', () => {
         try {
             window.Backlog.removeStatus(game.id);
-            notify('Jogo removido da sua coleção.');
+            notify('Game removed from your collection.');
             statusButtons[0].focus();
         } catch {
-            notify('Não foi possível remover. Permita o armazenamento neste navegador.');
+            notify('Could not remove. Allow storage in this browser.');
         }
     });
     window.addEventListener('backlog-change', renderCollectionState);

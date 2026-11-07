@@ -51,7 +51,7 @@
             const badge = document.createElement('span');
             badge.className = 'saved-badge';
             badge.dataset.status = status.id;
-            badge.lang = 'pt-BR';
+            badge.lang = 'en';
             badge.textContent = status.label;
             art.append(badge);
         }
@@ -112,7 +112,7 @@
         const noSavedGames = collection === 'saved' && !games.some(game => window.Backlog.isSaved(game.id));
         document.querySelector('#empty-title').textContent = noSavedGames
             ? 'Your next adventure starts here.'
-            : statusSelect.value !== 'all' ? 'Nenhum jogo com esse status.' : 'No games found.';
+            : statusSelect.value !== 'all' ? 'No games with this status.' : 'No games found.';
         document.querySelector('#empty-description').textContent = noSavedGames
             ? 'Open a game and add it to your backlog. Your saved games will appear here.'
             : 'Try another search, status or genre.';

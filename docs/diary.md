@@ -19,3 +19,7 @@ A página `view/diary.html` aparece como Diary na navegação. Agrupa registros 
 ## Verificação
 
 Foram exercitados o modo local e a biblioteca oficial Supabase contra PostgreSQL com as políticas RLS reais, incluindo importação de avaliações antigas, salvamento atômico, datas anteriores e inválidas, notas 0 e meias estrelas, histórico de múltiplos salvamentos, preservação de likes, mudança de data, exclusão de um registro sem apagar a review, privacidade entre duas contas e exclusão da review com seu histórico. A interface foi conferida em 320, 390, 768, 1024 e 1440 pixels. Os dados pessoais do projeto real não foram usados nesses testes.
+
+## Ativação do projeto atual
+
+Em 7 de novembro de 2026, o usuário aplicou atualizar-diario.sql. Foi verificado que os campos reviewed_on/diary_entry_id estão disponíveis no banco real e que consultas anônimas ao diário são bloqueadas (42501). Não é necessário repetir essa atualização no projeto atual. Nenhuma avaliação real foi criada ou alterada durante essa verificação.

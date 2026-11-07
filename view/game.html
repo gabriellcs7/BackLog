@@ -10,6 +10,8 @@
         <script src="../js/games.js" defer></script>
         <script src="../js/site.js" defer></script>
         <script src="js/game.js" defer></script>
+        <script src="../js/reviews.js" defer></script>
+        <script src="js/review.js" defer></script>
         <title>Grand Theft Auto VI · BackLog</title>
     </head>
     <body class="gta-vi-page">
@@ -132,6 +134,7 @@
                     <nav class="section-tabs" aria-label="Game sections">
                         <a class="selected" href="#about">Overview</a>
                         <a href="#details">Game details</a>
+                        <a href="#your-review">Your review</a>
                         <a href="#more-games">More to discover <span aria-hidden="true">↗</span></a>
                     </nav>
                     <section class="about-section" id="about" aria-labelledby="about-title">
@@ -170,6 +173,31 @@
                                 <dd>Leonida, Vice City</dd>
                             </div>
                         </dl>
+                    </section>
+                    <section class="personal-review" id="your-review" aria-labelledby="review-title">
+                        <div class="section-heading"><span class="section-number">03 /</span><h3 id="review-title">Your review</h3><span class="review-private">ONLY YOU</span></div>
+                        <p class="review-intro">Every game leaves a story. What’s yours?</p>
+                        <div id="review-saved" class="review-saved" hidden>
+                            <div class="review-saved-header"><strong id="review-saved-rating"></strong><time id="review-date"></time></div>
+                            <p id="review-saved-text"></p>
+                            <div class="review-actions"><button class="review-secondary" id="edit-review" type="button">Edit review</button><button class="review-delete" id="delete-review" type="button">Delete review</button></div>
+                            <div id="review-delete-confirm" class="review-delete-confirm" hidden><p>Delete your rating and review for this game?</p><div class="review-actions"><button class="review-delete" id="confirm-delete-review" type="button">Yes, delete</button><button class="review-secondary" id="keep-review" type="button">Keep review</button></div></div>
+                        </div>
+                        <form id="review-form" class="review-editor">
+                            <fieldset class="review-rating"><legend>Your rating</legend><div class="rating-row"><div class="rating-choices">
+                                    <label class="rating-choice rating-zero"><input type="radio" name="review-rating" value="0" aria-label="0 stars"><span aria-hidden="true">0</span></label>
+                                    <label class="rating-choice"><input type="radio" name="review-rating" value="1" aria-label="1 star"><span aria-hidden="true">★</span></label>
+                                    <label class="rating-choice"><input type="radio" name="review-rating" value="2" aria-label="2 stars"><span aria-hidden="true">★</span></label>
+                                    <label class="rating-choice"><input type="radio" name="review-rating" value="3" aria-label="3 stars"><span aria-hidden="true">★</span></label>
+                                    <label class="rating-choice"><input type="radio" name="review-rating" value="4" aria-label="4 stars"><span aria-hidden="true">★</span></label>
+                                    <label class="rating-choice"><input type="radio" name="review-rating" value="5" aria-label="5 stars"><span aria-hidden="true">★</span></label>
+                                </div><output id="review-rating-value" aria-live="polite">Not rated</output><button class="review-clear-rating" id="clear-rating" type="button" hidden>Clear rating</button></div></fieldset>
+                            <label class="review-text-label" for="review-text">Write your review <span>(optional)</span></label>
+                            <textarea id="review-text" name="review" rows="5" maxlength="3000" placeholder="The moments you loved, what surprised you, what could be better…" aria-describedby="review-counter review-note"></textarea>
+                            <div class="review-text-footer"><span id="review-note">Saved only in this browser.</span><span id="review-counter">0 / 3,000</span></div>
+                            <div class="review-actions"><button class="button button-primary" type="submit">Save review <span aria-hidden="true">↗</span></button><button class="review-secondary" id="cancel-review" type="button" hidden>Cancel</button></div>
+                        </form>
+                        <p class="review-feedback" id="review-feedback" role="status" aria-live="polite"></p>
                     </section>
                 </div>
             </div>

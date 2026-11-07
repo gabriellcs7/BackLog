@@ -20,7 +20,8 @@ window.BacklogGames = [
         "setting": "Leonida, Vice City",
         "banner": "gta-vi-banner-4k.webp",
         "bannerPosition": "center top",
-        "bannerPositionMobile": "53% top"
+        "bannerPositionMobile": "53% top",
+        "franchise": "Grand Theft Auto"
     },
     {
         "id": "grand-theft-auto-v",
@@ -36,7 +37,8 @@ window.BacklogGames = [
         "description": "Explore Los Santos through three intertwined stories. From the city streets to the surrounding countryside, build a backlog full of memorable adventures.",
         "banner": "banners/grand-theft-auto-v.webp",
         "bannerPosition": "center center",
-        "bannerPositionMobile": "70% center"
+        "bannerPositionMobile": "70% center",
+        "franchise": "Grand Theft Auto"
     },
     {
         "id": "red-dead-redemption-2",
@@ -512,6 +514,283 @@ window.BacklogGames = [
         "franchise": "God of War",
         "cover": "catalogo/god-of-war-laufey.webp",
         "banner": "banners/god-of-war-laufey.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "grand-theft-auto",
+        "title": "Grand Theft Auto",
+        "year": 1997,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "DMA Design / Rockstar Games",
+        "caption": "Cause a little chaos, from above.",
+        "description": "The original top-down crime game takes you through Liberty City, San Andreas and Vice City.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/grand-theft-auto.webp",
+        "banner": "banners/grand-theft-auto.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-london-1969",
+        "title": "Grand Theft Auto: London 1969",
+        "year": 1999,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "DMA Design / Rockstar Games",
+        "caption": "London, with a criminal twist.",
+        "description": "A mission-pack expansion for the original Grand Theft Auto, set in London during the late sixties.",
+        "kind": "Expansion",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-london-1969.webp",
+        "banner": "banners/gta-london-1969.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-london-1961",
+        "title": "Grand Theft Auto: London 1961",
+        "year": 1999,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "DMA Design / Rockstar Games",
+        "caption": "Another chapter on London’s streets.",
+        "description": "A free historical expansion for Grand Theft Auto: London 1969, featuring an earlier London setting.",
+        "kind": "Expansion",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-london-1961.webp",
+        "banner": "banners/gta-london-1961.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "grand-theft-auto-2",
+        "title": "Grand Theft Auto 2",
+        "year": 1999,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "DMA Design / Rockstar Games",
+        "caption": "Respect is everything.",
+        "description": "A top-down adventure through Anywhere City, where rival gangs offer jobs and your alliances shape the streets.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/grand-theft-auto-2.webp",
+        "banner": "banners/grand-theft-auto-2.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "grand-theft-auto-iii",
+        "title": "Grand Theft Auto III",
+        "year": 2001,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "DMA Design / Rockstar Games",
+        "caption": "Welcome to Liberty City.",
+        "description": "Follow Claude through the criminal world of Liberty City in the series’ first fully three-dimensional adventure.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/grand-theft-auto-iii.webp",
+        "banner": "banners/grand-theft-auto-iii.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-vice-city",
+        "title": "Grand Theft Auto: Vice City",
+        "year": 2002,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Neon nights and new ambitions.",
+        "description": "Tommy Vercetti builds his influence in a colorful city inspired by the music, fashion and excess of the eighties.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-vice-city.webp",
+        "banner": "banners/gta-vice-city.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-advance",
+        "title": "Grand Theft Auto Advance",
+        "year": 2004,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Liberty City, handheld.",
+        "description": "An original Game Boy Advance story starring Mike, returning the series to a top-down perspective.",
+        "platforms": [
+            "Game Boy Advance"
+        ],
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-advance.webp",
+        "banner": "banners/gta-advance.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-san-andreas",
+        "title": "Grand Theft Auto: San Andreas",
+        "year": 2004,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Back to Grove Street.",
+        "description": "Carl Johnson returns home and travels across Los Santos, San Fierro and Las Venturas in a sprawling open-world story.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-san-andreas.webp",
+        "banner": "banners/gta-san-andreas.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-liberty-city-stories",
+        "title": "Grand Theft Auto: Liberty City Stories",
+        "year": 2005,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "A new story in familiar streets.",
+        "description": "Toni Cipriani rises through Liberty City’s criminal underworld in this standalone adventure first released on PSP.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-liberty-city-stories.webp",
+        "banner": "banners/gta-liberty-city-stories.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-vice-city-stories",
+        "title": "Grand Theft Auto: Vice City Stories",
+        "year": 2006,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Before the neon empire.",
+        "description": "Victor Vance becomes entangled in Vice City’s criminal world in a standalone story set before Vice City.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-vice-city-stories.webp",
+        "banner": "banners/gta-vice-city-stories.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "grand-theft-auto-iv",
+        "title": "Grand Theft Auto IV",
+        "year": 2008,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "A new life in Liberty City.",
+        "description": "Niko Bellic arrives in Liberty City looking for a fresh start, only to become caught in old conflicts and new promises.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/grand-theft-auto-iv.webp",
+        "banner": "banners/grand-theft-auto-iv.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-the-lost-and-damned",
+        "title": "Grand Theft Auto: The Lost and Damned",
+        "year": 2009,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Ride with The Lost.",
+        "description": "Johnny Klebitz navigates the conflicts of a biker gang in this story expansion for Grand Theft Auto IV.",
+        "kind": "Expansion",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-the-lost-and-damned.webp",
+        "banner": "banners/gta-the-lost-and-damned.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-chinatown-wars",
+        "title": "Grand Theft Auto: Chinatown Wars",
+        "year": 2009,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Liberty City from a different angle.",
+        "description": "Huang Lee arrives in Liberty City in a stylized handheld adventure centered on the city’s Triad gangs.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-chinatown-wars.webp",
+        "banner": "banners/gta-chinatown-wars.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-the-ballad-of-gay-tony",
+        "title": "Grand Theft Auto: The Ballad of Gay Tony",
+        "year": 2009,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "The city comes alive after dark.",
+        "description": "Luis Lopez balances loyalty and nightlife in an expansion set around Liberty City’s clubs and criminal business.",
+        "kind": "Expansion",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-the-ballad-of-gay-tony.webp",
+        "banner": "banners/gta-the-ballad-of-gay-tony.webp",
+        "bannerPosition": "center",
+        "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "gta-online",
+        "title": "Grand Theft Auto Online",
+        "year": 2013,
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Rockstar Games",
+        "caption": "Build your own criminal story.",
+        "description": "Create a character and explore a shared Los Santos through online missions, races, heists and other multiplayer activities.",
+        "franchise": "Grand Theft Auto",
+        "cover": "catalogo/gta-online.webp",
+        "banner": "banners/gta-online.webp",
         "bannerPosition": "center",
         "bannerPositionMobile": "60% center"
     }

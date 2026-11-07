@@ -87,7 +87,8 @@ window.BacklogGames = [
         "description": "Follow Joel and Ellie through a world transformed. A journey of survival and connection, ready for a place in your collection.",
         "banner": "banners/the-last-of-us.webp",
         "bannerPosition": "center center",
-        "bannerPositionMobile": "50% center"
+        "bannerPositionMobile": "50% center",
+        "franchise": "The Last of Us"
     },
     {
         "id": "minecraft",
@@ -793,5 +794,29 @@ window.BacklogGames = [
         "banner": "banners/gta-online.webp",
         "bannerPosition": "center",
         "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "the-last-of-us-part-ii",
+        "title": "The Last of Us Part II",
+        "year": 2020,
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Survival",
+            "Story rich"
+        ],
+        "studio": "Naughty Dog",
+        "caption": "Every choice leaves a mark.",
+        "description": "Continue Ellie’s story and discover Abby’s perspective in a journey through a post-pandemic world. The campaign is also available in Part II Remastered.",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5 (Remastered)",
+            "PC (Remastered)"
+        ],
+        "bannerPositionMobile": "62% center",
+        "franchise": "The Last of Us",
+        "cover": "catalogo/the-last-of-us-part-ii.webp",
+        "banner": "banners/the-last-of-us-part-ii.webp",
+        "bannerPosition": "center"
     }
 ];

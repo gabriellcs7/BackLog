@@ -154,7 +154,7 @@
 .jogo_review {
     width: 54px;
     height: 75px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 4px;
     flex-shrink: 0;
 }
@@ -536,4 +536,30 @@
     .featured-caption > span:last-child {
         font-size: 11px;
     }
+}
+
+/* O destaque também preserva toda a imagem em qualquer tela. */
+.home-feature { min-height: 0; }
+.home-feature::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    z-index: -4;
+    background: url("../imagens/gta-vi-banner-4k.webp") center / cover;
+    filter: blur(24px) brightness(.45);
+}
+.home-backdrop {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: clamp(220px, 34vw, 540px);
+    object-fit: contain;
+    object-position: center;
+}
+.home-gradient { display: none; }
+.home-feature-inner { padding-top: 32px; padding-bottom: 50px; }
+@media (max-width: 560px) {
+    .home-backdrop { height: clamp(190px, 57vw, 320px); }
+    .home-feature-inner { padding-top: 24px; padding-bottom: 35px; }
 }

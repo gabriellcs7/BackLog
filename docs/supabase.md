@@ -23,3 +23,7 @@ O catálogo do banco contém os 40 IDs atuais. Novos jogos precisam ser inserido
 ## Confirmação de e-mail
 
 Este projeto exige confirmar o e-mail antes de entrar. Em Authentication → URL Configuration, use o endereço real do BackLog como Site URL e adicione a URL completa de `view/profile.html` em Redirect URLs. O cadastro solicita retorno à página de perfil do mesmo endereço em que o site foi aberto. Para desenvolvimento, autorize também o endereço HTTP local usado. Depois de confirmar o e-mail, volte ao perfil e entre com a conta. Nunca desative a confirmação de e-mail para contornar um endereço de retorno incorreto.
+
+## Uso local neste computador
+
+Abra `http://localhost:8000` para criar contas e retornar da confirmação de e-mail. Para iniciar novamente, abra um terminal na pasta BackLog e execute `python -m http.server 8000 --bind 127.0.0.1`. Mantenha o terminal aberto enquanto usa o site. No Supabase, use Site URL `http://localhost:8000` e Redirect URL `http://localhost:8000/view/profile.html`. Ao publicar, acrescente também o endereço publicado. Os dados locais do antigo endereço file:// permanecem nesse endereço; navegadores separam o armazenamento de file:// e localhost.

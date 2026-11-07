@@ -1,5 +1,5 @@
-/* Somente a URL pública e a chave publicável/anon. Nunca use service_role. */
+/* Configuração pública do projeto. Nunca adicione chaves secret ou service_role. */
 window.BacklogConfig = Object.freeze({
-    supabaseUrl: '',
-    supabasePublishableKey: ''
+    supabaseUrl: 'https://ggqdbqqjcinkywcmicoq.supabase.co',
+    supabasePublishableKey: 'sb_publishable__eylIRACdWsUbomdZWg0ug_d42_vhSt'
 });

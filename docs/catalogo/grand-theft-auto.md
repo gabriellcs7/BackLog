@@ -23,9 +23,15 @@ Catálogo reduzido aos jogos principais, conforme solicitado pelo usuário. Spin
 | --- | --- | --- |
 | Grand Theft Auto | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12170/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12170/library_hero_2x.jpg) |
 | Grand Theft Auto 2 | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12180/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12180/library_hero_2x.jpg) |
-| Grand Theft Auto III | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12110/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12110/library_hero_2x.jpg) |
-| Grand Theft Auto: Vice City | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12100/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12100/library_hero_2x.jpg) |
+| Grand Theft Auto III | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12100/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12100/library_hero_2x.jpg) |
+| Grand Theft Auto: Vice City | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12110/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12110/library_hero_2x.jpg) |
 | Grand Theft Auto: San Andreas | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12120/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12120/library_hero_2x.jpg) |
 | Grand Theft Auto IV | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12210/library_600x900_2x.jpg) | [Original](https://cdn.akamai.steamstatic.com/steam/apps/12210/library_hero_2x.jpg) |
 
 As imagens são armazenadas localmente em WebP. A capa inteira é preservada no quadro de 600 × 800 pixels. Artes compartilhadas da franquia, quando necessárias para jogos antigos sem material horizontal, são identificadas na tabela.
+
+## Revisão visual
+
+GTA III e Vice City: capas e banners corrigidos; Steam 12100 e 12110, respectivamente.
+
+Cada jogo usa uma arte própria; os banners não são compartilhados entre jogos.

@@ -818,5 +818,31 @@ window.BacklogGames = [
         "cover": "catalogo/the-last-of-us-part-ii.webp",
         "banner": "banners/the-last-of-us-part-ii.webp",
         "bannerPosition": "center"
+    },
+    {
+        "id": "league-of-legends",
+        "title": "League of Legends",
+        "year": 2009,
+        "genre": "MOBA",
+        "tags": [
+            "MOBA",
+            "Competitive",
+            "Multiplayer"
+        ],
+        "studio": "Riot Games",
+        "caption": "Choose a champion. Play as a team.",
+        "description": "Join a five-player team on Summoner’s Rift, choose a champion and work together to destroy the opposing Nexus in Riot Games’ multiplayer arena.",
+        "platforms": [
+            "PC",
+            "macOS"
+        ],
+        "aliases": [
+            "LoL"
+        ],
+        "bannerPositionMobile": "58% center",
+        "franchise": "League of Legends",
+        "cover": "catalogo/league-of-legends.webp",
+        "banner": "banners/league-of-legends.webp",
+        "bannerPosition": "center"
     }
 ];

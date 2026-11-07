@@ -83,7 +83,8 @@
     function render() {
         const query = normalize(searchInput.value.trim());
         let matches = games.filter(game => {
-            const matchesQuery = normalize(game.title).includes(query);
+            const searchableText = [game.title, game.franchise || '', ...(game.aliases || [])].join(' ');
+            const matchesQuery = normalize(searchableText).includes(query);
             const matchesGenre = genreSelect.value === 'all' || game.genre === genreSelect.value;
             const matchesCollection = collection === 'all' || window.Backlog.isSaved(game.id);
             const matchesStatus = statusSelect.value === 'all' || window.Backlog.getStatus(game.id)?.id === statusSelect.value;

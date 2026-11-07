@@ -4,7 +4,7 @@
     const limit = 3000;
     const validGame = id => window.BacklogGames.some(game => game.id === id);
     const validRating = rating => rating === null || (Number.isFinite(rating) && Number.isInteger(rating * 2) && rating >= 0 && rating <= 5);
-    function get(id) {
+    function getDevice(id) {
         if (!validGame(id)) return null;
         try {
             const value = JSON.parse(localStorage.getItem('backlog:review:' + id));
@@ -13,10 +13,15 @@
             return { rating: value.rating, text: value.text, updatedAt: value.updatedAt };
         } catch { return null; }
     }
+    function get(id) {
+        if (window.BacklogAccount?.user) return window.BacklogAccount.getReview(id);
+        return getDevice(id);
+    }
     function save(id, rating, text) {
         if (!validGame(id) || !validRating(rating) || typeof text !== 'string' || text.length > limit) throw new Error('Invalid review.');
         const cleaned = text.trim();
         if (rating === null && !cleaned) throw new Error('Choose a rating or write a review.');
+        if (window.BacklogAccount?.user) return window.BacklogAccount.saveReview(id, rating, cleaned);
         const value = { rating, text: cleaned, updatedAt: new Date().toISOString() };
         localStorage.setItem('backlog:review:' + id, JSON.stringify(value));
         window.dispatchEvent(new CustomEvent('backlog-review-change', { detail: { id } }));
@@ -24,8 +29,9 @@
     }
     function remove(id) {
         if (!validGame(id)) throw new Error('Invalid game.');
+        if (window.BacklogAccount?.user) return window.BacklogAccount.removeReview(id);
         localStorage.removeItem('backlog:review:' + id);
         window.dispatchEvent(new CustomEvent('backlog-review-change', { detail: { id } }));
     }
-    window.BacklogReviews = Object.freeze({ get, save, remove, limit });
+    window.BacklogReviews = Object.freeze({ get, getDevice, save, remove, limit });
 })();

@@ -6,6 +6,7 @@
         <meta name="theme-color" content="#131414">
         <meta name="description" content="Discover Grand Theft Auto VI and keep track of your next adventure on BackLog.">
         <link rel="icon" href="../imagens/favicon_2-32x32.png">
+        <link rel="stylesheet" href="../css/social.css">
         <link rel="stylesheet" href="css_game/style.css">
         <script src="../js/games.js" defer></script>
         <script src="../js/config.js" defer></script>
@@ -14,6 +15,9 @@
         <script src="js/game.js" defer></script>
         <script src="../js/reviews.js" defer></script>
         <script src="js/review.js" defer></script>
+        <script src="../js/ui.js" defer></script>
+        <script src="../js/community.js" defer></script>
+        <script src="js/community.js" defer></script>
         <title>Grand Theft Auto VI · BackLog</title>
     </head>
     <body class="gta-vi-page">
@@ -138,6 +142,7 @@
                         <a class="selected" href="#about">Overview</a>
                         <a href="#details">Game details</a>
                         <a href="#your-review">Your review</a>
+                        <a href="#community">Community</a>
                         <a href="#more-games">More to discover <span aria-hidden="true">↗</span></a>
                     </nav>
                     <section class="about-section" id="about" aria-labelledby="about-title">
@@ -186,6 +191,7 @@
                             <div class="review-actions"><button class="review-secondary" id="edit-review" type="button">Edit review</button><button class="review-delete" id="delete-review" type="button">Delete review</button></div>
                             <div id="review-delete-confirm" class="review-delete-confirm" hidden><p>Delete your rating and review for this game?</p><div class="review-actions"><button class="review-delete" id="confirm-delete-review" type="button">Yes, delete</button><button class="review-secondary" id="keep-review" type="button">Keep review</button></div></div>
                         </div>
+                        <button class="review-secondary" id="use-device-review" type="button" hidden>Use my device review as a draft</button>
                         <form id="review-form" class="review-editor">
                             <fieldset class="review-rating" aria-describedby="rating-help"><legend>Your rating</legend><div class="rating-row"><div class="rating-choices">
                                     <label class="rating-choice rating-zero"><input type="radio" name="review-rating" value="0" aria-label="0 stars"><span aria-hidden="true">0</span></label>
@@ -202,6 +208,7 @@
                         </form>
                         <p class="review-feedback" id="review-feedback" role="status" aria-live="polite"></p>
                     </section>
+                    <section id="community" class="community-section" aria-labelledby="community-title"><div class="section-heading"><span class="section-number">04 /</span><h3 id="community-title">The conversation</h3></div><p class="community-intro">Different players. Different takes. Find your people.</p><div class="social-actions"><a class="social-button social-button-quiet" id="community-signin" href="profile.html#account">Sign in to like and comment ↗</a><button class="social-button social-button-quiet" id="refresh-community" type="button">Refresh reviews</button></div><p id="community-feedback" class="social-feedback" role="status" aria-live="polite"></p><div id="community-feed" class="community-feed"></div><button id="more-reviews" class="social-button" type="button" hidden>Load more reviews</button></section>
                 </div>
             </div>
             <!-- Sugestões de jogos -->

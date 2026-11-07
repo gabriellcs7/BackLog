@@ -12,6 +12,7 @@
     const feedback = document.querySelector('#review-feedback');
     const cancel = document.querySelector('#cancel-review');
     let dirty = false;
+    let owner = window.BacklogAccount?.user?.id || 'local';
     const rating = () => {
         const checked = radios.find(radio => radio.checked);
         return checked ? Number(checked.value) : null;
@@ -74,6 +75,12 @@
         }
         updateInputs();
         updateSummary();
+        const account = window.BacklogAccount;
+        form.inert = Boolean(account?.loading);
+        document.querySelector('.review-private').textContent = account?.user ? 'PUBLIC REVIEW' : 'ONLY YOU';
+        document.querySelector('#review-note').textContent = account?.user ? 'Saving publishes this review on your profile and this game.' : 'Saved only in this browser.';
+        document.querySelector('#use-device-review').hidden = !account?.user || Boolean(review) || !reviews.getDevice(game.id);
+        document.querySelector('#review-delete-confirm > p').textContent = account?.user ? 'Delete your public review, including its likes and comments?' : 'Delete your rating and review for this game?';
     }
     form.addEventListener('input', () => {
         dirty = true;
@@ -87,7 +94,7 @@
         updateInputs();
         radios[0].focus();
     });
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
         event.preventDefault();
         if (rating() === null && !text.value.trim()) {
             feedback.textContent = 'Choose a rating or write a review before saving.';
@@ -95,13 +102,14 @@
             return;
         }
         try {
-            reviews.save(game.id, rating(), text.value);
+            form.inert = true;
+            await reviews.save(game.id, rating(), text.value);
             render();
-            feedback.textContent = 'Your review has been saved.';
+            feedback.textContent = window.BacklogAccount?.user ? 'Your public review has been saved.' : 'Your review has been saved.';
             document.querySelector('#edit-review').focus();
         } catch {
-            feedback.textContent = 'Could not save your review. Allow storage in this browser and try again.';
-        }
+            feedback.textContent = 'Could not save your review. Check your connection or browser storage and try again.';
+        } finally { form.inert = false; }
     });
     document.querySelector('#edit-review').addEventListener('click', () => {
         render();
@@ -123,14 +131,32 @@
         confirmation.hidden = true;
         document.querySelector('#delete-review').focus();
     });
-    document.querySelector('#confirm-delete-review').addEventListener('click', () => {
+    document.querySelector('#confirm-delete-review').addEventListener('click', async event => {
         try {
-            reviews.remove(game.id);
+            event.currentTarget.disabled = true;
+            await reviews.remove(game.id);
             render();
             feedback.textContent = 'Your rating and review have been deleted.';
             radios[0].focus();
         } catch { feedback.textContent = 'Could not delete your review. Please try again.'; }
+        finally { document.querySelector('#confirm-delete-review').disabled = false; }
     });
+    document.querySelector('#use-device-review').addEventListener('click', () => {
+        const draft = reviews.getDevice(game.id);
+        if (!draft) return;
+        text.value = draft.text;
+        radios.forEach(radio => { radio.checked = draft.rating !== null && Number(radio.value) === draft.rating; });
+        dirty = true;
+        updateInputs();
+        feedback.textContent = 'Device review loaded as a draft. Save review to publish it.';
+        text.focus();
+    });
+    window.addEventListener('backlog-account-change', () => {
+        const nextOwner = window.BacklogAccount?.user?.id || 'local';
+        if (owner !== nextOwner) { dirty = false; owner = nextOwner; feedback.textContent = ''; }
+        if (!dirty) render(); else updateSummary();
+    });
+    window.BacklogAccount?.ready.then(() => { if (!dirty) render(); });
     window.addEventListener('storage', event => {
         if (event.key === null || event.key === `backlog:review:${game.id}`) {
             updateSummary();

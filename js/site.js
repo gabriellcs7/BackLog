@@ -18,9 +18,10 @@
         { id: 'want-to-play', label: 'Want to play', description: 'You want to play this game.' }
     ].map(option => Object.freeze(option)));
 
+    const statusKey = id => window.BacklogAccount?.user ? `backlog:status:${window.BacklogAccount.user.id}:${id}` : `backlog:${id}`;
     function getStatus(id) {
         try {
-            const stored = localStorage.getItem(`backlog:${id}`);
+            const stored = localStorage.getItem(statusKey(id));
             // Preserva os jogos salvos antes da introdução dos seis status.
             if (stored === 'saved') return statusOptions.find(option => option.id === 'want-to-play');
             return statusOptions.find(option => option.id === stored) || null;
@@ -37,12 +38,12 @@
         if (!games.some(game => game.id === id) || !statusOptions.some(option => option.id === statusId)) {
             throw new Error('Invalid game or collection status.');
         }
-        localStorage.setItem(`backlog:${id}`, statusId);
+        localStorage.setItem(statusKey(id), statusId);
         window.dispatchEvent(new Event('backlog-change'));
     }
 
     function removeStatus(id) {
-        localStorage.removeItem(`backlog:${id}`);
+        localStorage.removeItem(statusKey(id));
         window.dispatchEvent(new Event('backlog-change'));
     }
 
@@ -56,6 +57,7 @@
     updateCount();
     window.addEventListener('storage', updateCount);
     window.addEventListener('backlog-change', updateCount);
+    window.addEventListener('backlog-account-change', () => window.dispatchEvent(new Event('backlog-change')));
 
     // A pesquisa funciona também ao abrir os arquivos diretamente no navegador.
     // Fora do catálogo, leva o termo para a página de resultados.

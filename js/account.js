@@ -14,7 +14,7 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280) }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280) }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
@@ -82,9 +82,16 @@
         validateIds(list.gameIds,100);
         if(!name||name.length>80||description.length>500)throw new Error('Add a list name (up to 80 characters) and a description of up to 500 characters.');
         if(list.id&&!state.lists.some(item=>item.id===list.id))throw new Error('List not found.');
-        if(user){ const owner=requireUser();const id=checked(await client.rpc('save_game_list',{list_id:list.id||null,list_name:name,list_description:description,public_list:Boolean(list.is_public),game_ids:list.gameIds}));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');await synchronize({user});return id; }
+        if(user){ const owner=requireUser();
+            const args={list_id:list.id||null,list_name:name,list_description:description,public_list:Boolean(list.is_public),game_ids:list.gameIds};
+            let result=await client.rpc('save_game_list_v2',{...args,ranked_list:list.is_ranked===true});
+            if(result.error?.code==='PGRST202'){
+                if(list.is_ranked===true)throw new Error('Ranked lists need the latest list update. Your selections have not been lost.');
+                result=await client.rpc('save_game_list',args);
+            }
+            const id=checked(result);if(user?.id!==owner)throw new Error('Your account changed. Please reload.');await synchronize({user});return id; }
         const id=list.id||crypto.randomUUID(),now=new Date().toISOString();
-        const saved={id,name,description,is_public:false,gameIds:[...list.gameIds],created_at:state.lists.find(item=>item.id===id)?.created_at||now,updated_at:now};
+        const saved={id,name,description,is_public:false,is_ranked:list.is_ranked===true,gameIds:[...list.gameIds],created_at:state.lists.find(item=>item.id===id)?.created_at||now,updated_at:now};
         persist({...state,lists:[saved,...state.lists.filter(item=>item.id!==id)]});return id;
     }
     async function deleteList(id) {
@@ -123,7 +130,7 @@
     }
     async function deleteDiaryEntry(id){const owner=requireUser();checked(await client.from('diary_entries').delete().eq('id',id).eq('user_id',owner));}
     async function removeReview(gameId){const owner=requireUser();checked(await client.from('reviews').delete().eq('user_id',owner).eq('game_id',gameId));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.reviews=state.reviews.filter(item=>item.game_id!==gameId);window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id:gameId}}));}
-    async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
+    async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&Boolean(existing.is_ranked)===Boolean(list.is_ranked)&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
     window.BacklogAccount=Object.freeze({
         ready,configured,get loading(){return loading;},get user(){return user?{id:user.id,email:user.email}:null;},get error(){return issue;},get client(){return client;},getState:()=>copy(state),
         saveProfile,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,

@@ -92,3 +92,22 @@
 .comment-form-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:10px; flex-wrap:wrap; }
 #use-device-review { margin-bottom:20px; }
 @media(max-width:560px){.community-review{padding:18px 14px;}.review-comment{padding:12px;}.community-review-header>.social-small{font-size:9px;}}
+
+/* Ranking opcional nas listas; os quatro favoritos continuam sem posições. */
+.list-order-panel { margin:24px 0; border-top:1px solid var(--line); padding-top:22px; }
+.list-order-panel h3 { margin:0 0 10px; font-size:16px; }
+.list-selected-games { display:grid; gap:8px; list-style:none; padding:0; margin:16px 0; }
+.selected-game { display:grid; grid-template-columns:34px minmax(0,1fr) auto; align-items:center; gap:10px; border:1px solid #ffffff20; border-radius:8px; padding:10px; background:#111410; }
+.selected-game.is-ranked { grid-template-columns:50px 34px minmax(0,1fr) auto; }
+.selected-game img { width:34px; height:46px; object-fit:cover; border-radius:3px; }
+.selected-game-title { font-size:12px; line-height:1.6; overflow-wrap:anywhere; }
+.social-dialog input.list-rank-input { width:50px; min-height:44px; text-align:center; margin:0; padding:7px 3px; color:var(--yellow); font-size:13px; }
+.selected-game-controls { display:flex; gap:6px; align-items:center; }
+.selected-game-controls .social-button { min-width:36px; min-height:40px; padding:7px 10px; font-size:16px; }
+.selected-game-controls .social-button:disabled { cursor:default; opacity:.3; }
+.list-game-item { position:relative; min-width:0; }
+.list-rank-badge { position:absolute; z-index:1; top:8px; left:8px; padding:6px 9px; background:#111410ed; color:var(--yellow); border:1px solid #ffd21f55; border-radius:5px; font-size:12px; font-weight:700; pointer-events:none; }
+@media(max-width:560px){.selected-game{gap:8px;padding:9px;}.selected-game.is-ranked{grid-template-columns:44px 32px minmax(0,1fr);}.social-dialog input.list-rank-input{width:44px;}.selected-game.is-ranked .selected-game-controls{grid-column:2/-1;justify-content:flex-end;}.selected-game-controls .social-button{min-width:44px;min-height:44px;}.selected-game-title{font-size:11px;}}
+
+.social-dialog input.list-rank-input { appearance:textfield; -moz-appearance:textfield; font-variant-numeric:tabular-nums; }
+.list-rank-input::-webkit-inner-spin-button,.list-rank-input::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }

@@ -248,3 +248,7 @@ Projeto desenvolvido por **Gabriel** ([@gabriellcs7](https://github.com/gabriell
 Repositório: [https://github.com/gabriellcs7/BackLog](https://github.com/gabriellcs7/BackLog)
 
 *As imagens de capas, capturas de tela e marcas registradas citadas pertencem aos seus respectivos proprietários legais (Rockstar Games, Sony Interactive Entertainment, Capcom, Epic Games, Naughty Dog, Mojang Studios, Riot Games, Blizzard Entertainment, entre outros).*
+
+## Listas com ranking opcional
+
+No editor de listas, a opção **Rank this list** permite criar top 10 ou outras listas numeradas, reordenando jogos por setas ou posição direta. Listas normais continuam disponíveis, e os quatro favoritos do perfil permanecem sem ranking. Para atualizar o banco atual, veja [docs/ranked-lists.md](docs/ranked-lists.md).

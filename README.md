@@ -135,7 +135,7 @@ git clone https://github.com/gabriellcs7/BackLog.git
 cd BackLog
 
 # 3. Inicie o servidor local
-python -m http.server 8000 --bind 127.0.0.1
+python servidor.py
 ```
 
 Abra o endereço `http://localhost:8000` no seu navegador.

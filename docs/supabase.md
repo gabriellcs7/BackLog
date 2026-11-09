@@ -26,4 +26,4 @@ Este projeto exige confirmar o e-mail antes de entrar. Em Authentication → URL
 
 ## Uso local neste computador
 
-Abra `http://localhost:8000` para criar contas e retornar da confirmação de e-mail. Para iniciar novamente, abra um terminal na pasta BackLog e execute `python -m http.server 8000 --bind 127.0.0.1`. Mantenha o terminal aberto enquanto usa o site. No Supabase, use Site URL `http://localhost:8000` e Redirect URL `http://localhost:8000/view/profile.html`. Ao publicar, acrescente também o endereço publicado. Os dados locais do antigo endereço file:// permanecem nesse endereço; navegadores separam o armazenamento de file:// e localhost.
+Abra `http://localhost:8000` para criar contas e retornar da confirmação de e-mail. Para iniciar novamente, abra um terminal na pasta BackLog e execute `python servidor.py`. Mantenha o terminal aberto enquanto usa o site. No Supabase, use Site URL `http://localhost:8000` e Redirect URL `http://localhost:8000/view/profile.html`. Ao publicar, acrescente também o endereço publicado. Os dados locais do antigo endereço file:// permanecem nesse endereço; navegadores separam o armazenamento de file:// e localhost.

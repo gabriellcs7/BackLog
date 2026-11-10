@@ -24,7 +24,6 @@
         document.querySelector('#review-rating-value').textContent = value === null ? 'Not rated' : `${value} / 5`;
         document.querySelector('#clear-rating').hidden = value === null;
         document.querySelector('#review-counter').textContent = `${text.value.length.toLocaleString('en-US')} / 3,000`;
-        radios[0].parentElement.classList.toggle('is-filled', value === 0);
         form.querySelectorAll('.rating-star-choice').forEach(star => {
             const fill = value === null ? 0 : Math.max(0, Math.min(1, value - Number(star.dataset.star) + 1));
             star.style.setProperty('--star-fill', (fill * 100) + '%');

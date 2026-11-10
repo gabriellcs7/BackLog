@@ -3,7 +3,7 @@
     'use strict';
     const limit=3000,diary=window.BacklogDiary;
     const validGame=id=>window.BacklogGames.some(game=>game.id===id);
-    const validRating=rating=>rating===null||(Number.isFinite(rating)&&Number.isInteger(rating*2)&&rating>=0&&rating<=5);
+    const validRating=rating=>rating===null||(Number.isFinite(rating)&&Number.isInteger(rating*2)&&rating>=0.5&&rating<=5);
     function getDevice(id){return diary.getDeviceReview(id);}
     function get(id){return window.BacklogAccount?.user?window.BacklogAccount.getReview(id):getDevice(id);}
     async function completedSave(id,value){

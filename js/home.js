@@ -12,7 +12,7 @@
         const actions=el('div','home-review-actions'),message=el('p','social-feedback');message.setAttribute('role','status');
         const like=el('button','social-button social-button-quiet');like.type='button';
         function refresh(){like.textContent=(review.liked?'♥':'♡')+' '+review.like_count;like.setAttribute('aria-label',(review.liked?'Unlike':'Like')+' review by '+review.display_name);like.setAttribute('aria-pressed',String(review.liked));like.disabled=!account.user||account.user.id===review.user_id;like.title=!account.user?'Sign in to like a review':account.user.id===review.user_id?'This is your review':'';}
-        refresh();like.addEventListener('click',()=>ui.action(like,message,async()=>{const next=!review.liked;review.like_count=await api.like(review.id,next);review.liked=next;refresh();}));
+        refresh();like.addEventListener('click',()=>ui.action(like,message,async()=>{const next=!review.liked;review.like_count=await api.like(review.id,next);review.liked=next;refresh();window.dispatchEvent(new Event('backlog-likes-change'));}));
         const read=el('a','','Read review · '+review.comment_count+' comments ↗');read.href=url;actions.append(like,read);
         article.append(link,author,el('p','home-review-copy',review.text),date,actions,message);return article;
     }
@@ -26,11 +26,12 @@
                 if(!account.configured){feed.replaceChildren(el('p','social-empty','Connect online accounts to discover community reviews.'));more.hidden=true;return;}
                 if(kind==='following'&&!account.user){const empty=el('p','social-empty','Sign in to see the latest reviews from players you follow. '),login=el('a','player-link','Sign in ↗');login.href=ui.href('view/profile.html#account');empty.append(login);feed.replaceChildren(empty);more.hidden=true;return;}
                 const items=await api.home(kind,offset);if(ticket!==generation)return;if(reset)feed.replaceChildren();
-                for(const item of items){if(!seen.has(item.id)){seen.add(item.id);const node=card(item);if(node)feed.append(node);}}offset+=items.length;more.hidden=items.length<6;
-                if(!feed.children.length)feed.append(el('p','social-empty',kind==='popular'?'No written reviews yet. Share your first story on a game page.':'No reviews here yet. Follow players from their profiles to see their latest reviews.'));
+                for(const item of items){if(!seen.has(item.id)){seen.add(item.id);const node=card(item);if(node)feed.append(node);}}offset+=items.length;more.hidden=kind==='popular'||items.length<6;
+                if(!feed.children.length)feed.append(el('p','social-empty',kind==='popular'?'No popular reviews yet. Reviews with likes will appear here.':'No reviews here yet. Follow players from their profiles to see their latest reviews.'));
             }catch(error){if(ticket===generation){if(reset)feed.replaceChildren();more.hidden=true;feedback.textContent='Could not load reviews. '+error.message;const retry=el('button','social-button','Try again');retry.type='button';retry.addEventListener('click',()=>load(true));feed.append(retry);}}
             finally{if(ticket===generation){busy=false;more.disabled=false;}}
         }
+        window.addEventListener('backlog-likes-change',()=>{if(kind==='popular')load(true);});
         more.addEventListener('click',()=>load());account.ready.then(()=>load(true));window.addEventListener('backlog-account-change',()=>{if(!account.loading)load(true);});
     }
 })();

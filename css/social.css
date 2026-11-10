@@ -140,3 +140,17 @@
 .community-home .social-empty { grid-column:1/-1; }
 @media(max-width:1000px) { .home-review-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:620px) { .home-review-grid { grid-template-columns:1fr; } .photo-editor { flex-direction:column; align-items:flex-start; } }
+
+/* Compact favorite four, with the same cover proportions and no ranking. */
+.favorites-grid { max-width:960px; gap:20px; }
+.player-avatar,.community-avatar { border-radius:50%; }
+.player-search-section { margin:0 0 36px; scroll-margin-top:140px; }
+.player-search-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.player-search-card { display:flex; align-items:center; gap:14px; padding:18px; border:1px solid var(--line); border-radius:12px; color:var(--text); text-decoration:none; background:#1a1d1a; min-width:0; }
+.player-search-card:hover { border-color:var(--yellow); }
+.player-search-card strong { overflow-wrap:anywhere; font-size:14px; }
+.player-search-card .community-avatar { width:44px; height:44px; }
+.player-search-section .social-empty { grid-column:1/-1; }
+.player-search-section>.social-button { margin-top:18px; }
+@media(max-width:800px) { .player-search-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:560px) { .favorites-grid { max-width:320px; gap:16px 12px; } .player-search-grid { grid-template-columns:1fr; } }

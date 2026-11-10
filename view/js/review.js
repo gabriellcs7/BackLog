@@ -19,8 +19,8 @@
         const checked = radios.find(radio => radio.checked);
         return checked ? Number(checked.value) : null;
     };
-    function updateInputs() {
-        const value = rating();
+    function updateInputs(preview) {
+        const value = typeof preview === 'number' ? preview : rating();
         document.querySelector('#review-rating-value').textContent = value === null ? 'Not rated' : `${value} / 5`;
         document.querySelector('#clear-rating').hidden = value === null;
         document.querySelector('#review-counter').textContent = `${text.value.length.toLocaleString('en-US')} / 3,000`;
@@ -30,6 +30,13 @@
             star.style.setProperty('--star-fill', (fill * 100) + '%');
         });
     }
+    // Native radios keep keyboard/touch selection; hovering only previews a score.
+    form.querySelectorAll('.rating-half').forEach(half => {
+        half.addEventListener('pointerenter', event => {
+            if (event.pointerType !== 'touch') updateInputs(Number(half.querySelector('input').value));
+        });
+    });
+    form.querySelector('.rating-choices').addEventListener('pointerleave', () => updateInputs());
     function updateSummary() {
         const review = reviews.get(game.id);
         const preview = document.querySelector('.rating-preview');

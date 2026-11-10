@@ -1046,3 +1046,12 @@ h1>span:not(.title-dot) {
 .review-date-input { display:block; width:210px; max-width:100%; padding:12px; min-height:44px; border:1px solid #ffffff25; border-radius:7px; background:#101310; color:var(--text); font:inherit; font-size:13px; }
 .review-date-input:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; }
 .review-date-help { color:var(--muted); font-size:10px; line-height:1.7; margin:10px 0 24px; }
+
+/* Continuous five-star control: each half is an accessible native radio. */
+.rating-choices { gap:0; flex-wrap:nowrap; }
+.rating-star-choice, .rating-star-choice:hover { width:42px; height:48px; border:0; border-radius:3px; background:transparent; }
+.rating-star-choice .rating-star-shape { font-size:40px; line-height:1; }
+.rating-zero { margin-right:12px; width:32px; height:32px; border-radius:50%; font-size:12px; }
+.rating-row { column-gap:16px; }
+.rating-star-choice:focus-within { outline-offset:0; }
+@media(max-width:380px) { .rating-star-choice { width:38px; } .rating-star-choice .rating-star-shape { font-size:36px; } }

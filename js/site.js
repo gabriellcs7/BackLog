@@ -65,7 +65,7 @@
         event.preventDefault();
         if (document.querySelector('#game-results')) {
             window.dispatchEvent(new CustomEvent('backlog-search'));
-            document.querySelector('#results-heading').scrollIntoView({ behavior: 'smooth' });
+            (document.querySelector('#player-search-section:not([hidden])')||document.querySelector('#results-heading')).scrollIntoView({ behavior: 'smooth' });
             return;
         }
 

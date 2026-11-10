@@ -24,8 +24,8 @@
             <nav class="navbar shell" aria-label="Main navigation">
                 <a class="brand" href="index.html" aria-label="BackLog home"> <img src="imagens/logo_transparente.png" alt="BackLog"> </a>
                 <form class="nav-search" role="search" action="view/pagina_jogos.html" data-catalog="view/pagina_jogos.html">
-                    <label class="visually-hidden" for="site-search">Search games</label>
-                    <button type="submit" aria-label="Search games">
+                    <label class="visually-hidden" for="site-search">Search games or players</label>
+                    <button type="submit" aria-label="Search games or players">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/>
                             
@@ -33,7 +33,7 @@
                             
                         </svg>
                     </button>
-                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games..." autocomplete="off" maxlength="120">
+                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games or players..." autocomplete="off" maxlength="120">
                     <kbd aria-hidden="true">
                         /
                     </kbd>
@@ -132,12 +132,12 @@
                 </div>
             </section>
             <section class="home-section shell community-home" aria-labelledby="reviews-title">
-                <div class="page-section-heading"><div><span class="eyebrow muted">POPULAR REVIEWS</span><h2 id="reviews-title">Every game tells a story<span>.</span></h2></div><p>The reviews your community loves most.</p></div>
+                <div class="page-section-heading"><div><span class="eyebrow muted">POPULAR REVIEWS</span><h2 id="reviews-title">Every game tells a story<span>.</span></h2></div><p>The four most-liked reviews from your community.</p></div>
                 <div id="popular-reviews" class="home-review-grid" aria-live="polite"><p class="social-empty">Loading popular reviews…</p></div>
                 <p id="popular-feedback" class="social-feedback" role="status"></p><button id="more-popular" class="social-button" type="button" hidden>More popular reviews</button>
             </section>
             <section class="home-section shell community-home" aria-labelledby="following-title">
-                <div class="page-section-heading"><div><span class="eyebrow muted">FROM YOUR PEOPLE</span><h2 id="following-title">Fresh from your circle<span>.</span></h2></div><p>The latest reviews from players you follow.</p></div>
+                <div class="page-section-heading"><div><span class="eyebrow muted">FROM YOUR PEOPLE</span><h2 id="following-title">Fresh from your circle<span>.</span></h2></div><p>One latest review from each player you follow.</p></div>
                 <div id="following-reviews" class="home-review-grid" aria-live="polite"><p class="social-empty">Loading your feed…</p></div>
                 <p id="following-feedback" class="social-feedback" role="status"></p><button id="more-following" class="social-button" type="button" hidden>More recent reviews</button>
             </section>

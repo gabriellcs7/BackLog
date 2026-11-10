@@ -34,15 +34,54 @@
         return getStatus(id) !== null;
     }
 
+    const account=window.BacklogAccount;
+    let cloudOwner=null,hydration=Promise.resolve(),statusQueue=Promise.resolve(),syncIssue='',syncGeneration=0;
+    const syncedKey=(owner,id)=>'backlog:status-synced:'+owner+':'+id;
+    async function hydrateStatuses(){
+        const owner=account?.user?.id;
+        if(!owner){cloudOwner=null;++syncGeneration;return;}
+        if(account.loading||cloudOwner===owner)return;
+        cloudOwner=owner;const ticket=++syncGeneration;
+        hydration=(async()=>{try{
+            const result=await account.client.rpc('my_game_statuses');if(result.error)throw result.error;
+            if(ticket!==syncGeneration||account.user?.id!==owner)return;
+            const rows=new Map((result.data||[]).map(row=>[row.game_id,row.status]));
+            for(const game of games){
+                const key='backlog:status:'+owner+':'+game.id,marker=syncedKey(owner,game.id);
+                if(rows.has(game.id)){localStorage.setItem(key,rows.get(game.id));localStorage.setItem(marker,'yes');}
+                else if(localStorage.getItem(marker)==='yes')localStorage.removeItem(key);
+                else {const old=localStorage.getItem(key);if(statusOptions.some(option=>option.id===old)){
+                    const imported=await account.client.rpc('save_game_status',{game_key:game.id,new_status:old,initial_import:true});if(imported.error)throw imported.error;
+                    if(ticket!==syncGeneration||account.user?.id!==owner)return;localStorage.setItem(marker,'yes');
+                }}
+            }
+            syncIssue='';window.dispatchEvent(new Event('backlog-change'));
+        }catch(error){if(ticket===syncGeneration){cloudOwner=null;syncIssue=error.message;window.dispatchEvent(new Event('backlog-status-sync-error'));}}})();
+        return hydration;
+    }
+    function cloudStatus(id,status){
+        const owner=account.user.id;const task=statusQueue.catch(()=>{}).then(async()=>{await hydration;
+        if(account.user?.id!==owner)throw new Error('Your account changed. Please try again.');
+        const result=await account.client.rpc('save_game_status',{game_key:id,new_status:status,initial_import:false});if(result.error)throw new Error(result.error.message);
+        if(account.user?.id!==owner)throw new Error('Your account changed. Please reload.');
+        const key='backlog:status:'+owner+':'+id;
+        if(status)localStorage.setItem(key,status);else localStorage.removeItem(key);
+        localStorage.setItem(syncedKey(owner,id),'yes');syncIssue='';window.dispatchEvent(new Event('backlog-change'));
+        });statusQueue=task;return task;
+    }
     function setStatus(id, statusId) {
         if (!games.some(game => game.id === id) || !statusOptions.some(option => option.id === statusId)) {
             throw new Error('Invalid game or collection status.');
         }
+        if(account?.user)return cloudStatus(id,statusId);
+        localStorage.setItem('backlog:status-date:local:'+id,new Date().toISOString());
         localStorage.setItem(statusKey(id), statusId);
         window.dispatchEvent(new Event('backlog-change'));
     }
 
     function removeStatus(id) {
+        if(account?.user)return cloudStatus(id,null);
+        localStorage.removeItem('backlog:status-date:local:'+id);
         localStorage.removeItem(statusKey(id));
         window.dispatchEvent(new Event('backlog-change'));
     }
@@ -53,8 +92,10 @@
         return count;
     }
 
-    window.Backlog = { statusOptions, getStatus, setStatus, removeStatus, isSaved, updateCount };
+    window.Backlog = { statusOptions, getStatus, setStatus, removeStatus, isSaved, updateCount, syncStatuses:hydrateStatuses, get statusReady(){return hydration;}, get syncError(){return syncIssue;} };
     updateCount();
+    account?.ready.then(hydrateStatuses);
+    window.addEventListener('backlog-account-change',hydrateStatuses);
     window.addEventListener('storage', updateCount);
     window.addEventListener('backlog-change', updateCount);
     window.addEventListener('backlog-account-change', () => window.dispatchEvent(new Event('backlog-change')));

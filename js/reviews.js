@@ -6,9 +6,9 @@
     const validRating=rating=>rating===null||(Number.isFinite(rating)&&Number.isInteger(rating*2)&&rating>=0&&rating<=5);
     function getDevice(id){return diary.getDeviceReview(id);}
     function get(id){return window.BacklogAccount?.user?window.BacklogAccount.getReview(id):getDevice(id);}
-    function completedSave(id,value){
+    async function completedSave(id,value){
         let statusWarning=false;
-        try{if(window.Backlog&&!window.Backlog.getStatus(id))window.Backlog.setStatus(id,'played');}catch{statusWarning=true;}
+        try{await window.Backlog?.statusReady;if(window.Backlog&&!window.Backlog.getStatus(id))await window.Backlog.setStatus(id,'played');}catch{statusWarning=true;}
         window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id}}));
         return {...value,statusWarning};
     }

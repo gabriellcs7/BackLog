@@ -114,27 +114,27 @@
         window.Backlog.updateCount();
     }
 
-    function updateStatus(statusId) {
+    async function updateStatus(statusId) {
         if (window.Backlog.getStatus(game.id)?.id === statusId) return;
         try {
-            window.Backlog.setStatus(game.id, statusId);
+            await window.Backlog.setStatus(game.id, statusId);
             const status = window.Backlog.getStatus(game.id);
             notify(`${game.title}: ${status.label}.`);
-        } catch {
-            notify('Could not save. Allow storage in this browser.');
+        } catch(error) {
+            notify(error.message||'Could not save this status.');
         }
     }
 
     statusButtons.forEach(button => {
         button.addEventListener('click', () => updateStatus(button.dataset.status));
     });
-    document.querySelector('#remove-game').addEventListener('click', () => {
+    document.querySelector('#remove-game').addEventListener('click', async () => {
         try {
-            window.Backlog.removeStatus(game.id);
+            await window.Backlog.removeStatus(game.id);
             notify('Game removed from your collection.');
             statusButtons[0].focus();
-        } catch {
-            notify('Could not remove. Allow storage in this browser.');
+        } catch(error) {
+            notify(error.message||'Could not remove this game.');
         }
     });
     window.addEventListener('backlog-change', renderCollectionState);

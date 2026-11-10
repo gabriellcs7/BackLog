@@ -6,6 +6,9 @@
     window.BacklogCommunity=Object.freeze({
         async feed(gameId,offset=0){const api=await client();let result=await api.rpc('review_feed_v2',{game_key:gameId,page_offset:offset});if(result.error?.code==='PGRST202')result=await api.rpc('review_feed',{game_key:gameId,page_offset:offset});return check(result)||[];},
         async searchPlayers(query,offset=0){return check(await(await client()).rpc('search_players',{search_term:query,page_offset:offset}))||[];},
+        async activity(offset=0,filter='all'){return check(await(await client(true)).rpc('activity_feed',{page_offset:offset,feed_filter:filter}))||[];},
+        async metrics(id,year){return (check(await(await client()).rpc('profile_metrics',{profile_key:id,calendar_year:year}))||[])[0];},
+        async recent(id){return check(await(await client()).rpc('profile_recent_games',{profile_key:id}))||[];},
         async home(kind,offset=0){return check(await(await client(kind==='following')).rpc('home_review_feed',{feed_kind:kind,page_offset:offset}))||[];},
         async review(id){return (check(await(await client()).rpc('get_review_card',{review_key:id}))||[])[0];},
         async social(id){return (check(await(await client()).rpc('profile_social',{profile_key:id}))||[])[0];},

@@ -154,3 +154,28 @@
 .player-search-section>.social-button { margin-top:18px; }
 @media(max-width:800px) { .player-search-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:560px) { .favorites-grid { max-width:320px; gap:16px 12px; } .player-search-grid { grid-template-columns:1fr; } }
+
+/* Profile totals and a compact recent-game shelf directly below favorite four. */
+.profile-metrics { display:flex; flex-wrap:wrap; gap:36px; margin:28px 0 0; }
+.profile-stat { display:flex; flex-direction:column; gap:7px; }
+.profile-stat strong { font-size:30px; line-height:1; letter-spacing:-1px; }
+.profile-stat span { color:var(--muted); font-size:11px; }
+.profile-recent { padding-top:42px; }
+.recent-games-grid { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:16px; }
+.recent-games-grid .social-empty { grid-column:1/-1; }
+.recent-game-card h3 { font-size:12px; line-height:1.6; }
+.recent-game-label { font-size:11px; color:var(--yellow); margin:8px 0; }
+.activity-page { max-width:1000px; }
+.activity-page h1 { font-size:clamp(36px,5vw,56px); letter-spacing:-2px; margin:14px 0; }
+.activity-page h1 span { color:var(--yellow); }
+.activity-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:25px 0; }
+.activity-tabs [aria-pressed="true"] { background:var(--yellow); color:#131414; }
+.activity-event { display:flex; align-items:center; gap:16px; padding:22px 0; border-bottom:1px solid var(--line); }
+.activity-event>.community-avatar { width:44px; height:44px; }
+.activity-event-copy { flex:1; min-width:0; }
+.activity-event-copy p { font-size:13px; line-height:1.8; overflow-wrap:anywhere; margin:0 0 7px; }
+.activity-game-cover { flex-shrink:0; width:42px; }
+.activity-game-cover img { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:4px; }
+#more-activity { margin-top:24px; }
+@media(max-width:1000px) { .recent-games-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media(max-width:560px) { .recent-games-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; } .profile-metrics { gap:25px; } .profile-stat strong { font-size:26px; } .activity-event { gap:12px; } .activity-event>.community-avatar { width:34px; height:34px; } }

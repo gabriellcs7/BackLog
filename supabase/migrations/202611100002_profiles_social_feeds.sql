@@ -93,4 +93,5 @@ $$;
 revoke all on function public.profile_social(uuid),public.profile_connections(uuid,text,integer),public.set_profile_follow(uuid,boolean),public.review_feed_v2(text,integer),public.home_review_feed(text,integer),public.get_review_card(uuid) from public,anon,authenticated;
 grant execute on function public.profile_social(uuid),public.profile_connections(uuid,text,integer),public.review_feed_v2(text,integer),public.home_review_feed(text,integer),public.get_review_card(uuid) to anon,authenticated;
 grant execute on function public.set_profile_follow(uuid,boolean) to authenticated;
+notify pgrst,'reload schema';
 commit;

@@ -14,7 +14,7 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280) }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
@@ -24,7 +24,7 @@
     function checked(result) { if (result.error) throw new Error(result.error.message || 'Could not connect. Please try again.'); return result.data; }
     async function loadPlayer(id, own) {
         const [profile, favorites, lists] = await Promise.all([
-            client.from('profiles').select('id,display_name,bio,created_at').eq('id',id).maybeSingle(),
+            client.from('profiles').select('*').eq('id',id).maybeSingle(),
             client.from('favorites').select('game_id,position').eq('user_id',id).order('position'),
             (own ? client.from('game_lists').select('*,list_games(game_id,position)').eq('user_id',id) : client.from('game_lists').select('*,list_games(game_id,position)').eq('user_id',id).eq('is_public',true)).order('updated_at',{ascending:false})
         ]);
@@ -66,11 +66,31 @@
             await synchronize(data.session);
         } catch (error) { issue = error.message; changed(); }
     })();
-    async function saveProfile(name,bio) {
+    async function saveProfile(name,bio,photo=undefined) {
         name=name.trim();bio=bio.trim();
         if (name.length<2||name.length>40||bio.length>280) throw new Error('Use 2–40 characters for your name and up to 280 for your bio.');
-        if (user) { const owner=requireUser(); checked(await client.from('profiles').update({display_name:name,bio}).eq('id',owner)); if(user?.id!==owner)throw new Error('Your account changed. Please reload.'); state.profile={...state.profile,display_name:name,bio};changed(); }
-        else persist({...state,profile:{...state.profile,display_name:name,bio}});
+        const patch={display_name:name,bio};
+        if (user && photo!==undefined) {
+            const owner=requireUser();
+            if(photo===null) patch.avatar_path=null;
+            else {
+                if(!(photo instanceof Blob)||photo.type!=='image/webp'||photo.size>524288)throw new Error('Choose a valid profile photo.');
+                const path=owner+'/'+crypto.randomUUID()+'.webp';
+                checked(await client.storage.from('avatars').upload(path,photo,{contentType:'image/webp',cacheControl:'31536000',upsert:false}));
+                if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
+                patch.avatar_path=path;
+            }
+        }
+        if (user) { const owner=requireUser(),oldPath=state.profile.avatar_path; const result=await client.from('profiles').update(patch).eq('id',owner);
+            if(result.error){if(patch.avatar_path)await client.storage.from('avatars').remove([patch.avatar_path]);checked(result);}
+            if(photo!==undefined&&oldPath&&oldPath!==patch.avatar_path)await client.storage.from('avatars').remove([oldPath]); if(user?.id!==owner)throw new Error('Your account changed. Please reload.'); state.profile={...state.profile,...patch};changed(); }
+        else {
+            if(photo!==undefined){
+                if(photo===null)patch.avatar_local=null;
+                else {if(!(photo instanceof Blob)||photo.type!=='image/webp'||photo.size>524288)throw new Error('Choose a valid profile photo.');patch.avatar_local=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('Could not save this photo.'));reader.readAsDataURL(photo);});}
+            }
+            persist({...state,profile:{...state.profile,...patch}});
+        }
     }
     async function saveFavorites(ids) {
         validateIds(ids,4);

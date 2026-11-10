@@ -35,6 +35,7 @@ declare previous text;
 begin
  if auth.uid() is null then raise exception 'Sign in first'; end if;
  if new_status is not null and new_status not in ('played','playing','completed','platinum','dropped','want-to-play') then raise exception 'Invalid status'; end if;
+ perform 1 from public.profiles where id=auth.uid() for update;
  select status into previous from public.game_statuses where user_id=auth.uid() and game_id=game_key for update;
  if initial_import and previous is not null then return; end if;
  if new_status is null then

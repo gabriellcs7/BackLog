@@ -9,7 +9,7 @@
     function note(message){$('#profile-message').textContent=message;}
     async function render(){const ticket=++version;own=!target||target===account.user?.id;
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
-            $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'The games that made you. The adventures still to come.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);document.title=player.profile.display_name+' · BackLog';
+            $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'The games that made you. The adventures still to come.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             for(const id of ['edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
             $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();

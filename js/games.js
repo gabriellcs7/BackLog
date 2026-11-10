@@ -829,5 +829,59 @@ window.BacklogGames = [
         "banner": "banners/resident-evil-requiem.webp",
         "bannerPosition": "center",
         "bannerPositionMobile": "60% center"
+    },
+    {
+        "id": "hollow-knight",
+        "title": "Hollow Knight",
+        "cover": "catalogo/hollow-knight.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Metroidvania",
+            "Platformer",
+            "Action"
+        ],
+        "studio": "Team Cherry",
+        "caption": "Beneath the surface, a kingdom waits.",
+        "description": "Descend into Hallownest, a haunting kingdom of insects and heroes. Explore winding caverns, master precise combat and uncover the secrets of a fallen civilization.",
+        "banner": "banners/hollow-knight.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center",
+        "franchise": "Hollow Knight",
+        "year": 2017,
+        "kind": "Main game",
+        "releaseState": "released",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Xbox",
+            "Nintendo Switch"
+        ]
+    },
+    {
+        "id": "hollow-knight-silksong",
+        "title": "Hollow Knight: Silksong",
+        "cover": "catalogo/hollow-knight-silksong.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Metroidvania",
+            "Platformer",
+            "Action"
+        ],
+        "studio": "Team Cherry",
+        "caption": "Ascend to the heart of a haunted kingdom.",
+        "description": "Become Hornet, the princess-protector of Hallownest, and journey through Pharloom. Hunt, craft and climb through a vast kingdom of silk and song.",
+        "banner": "banners/hollow-knight-silksong.webp",
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center",
+        "franchise": "Hollow Knight",
+        "year": 2025,
+        "kind": "Main game",
+        "releaseState": "released",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Xbox",
+            "Nintendo Switch"
+        ]
     }
 ];

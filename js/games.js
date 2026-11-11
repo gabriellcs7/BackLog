@@ -1467,5 +1467,83 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "the-witcher",
+        "title": "The Witcher",
+        "cover": "catalogo/the-witcher.webp",
+        "banner": "banners/the-witcher.webp",
+        "genre": "RPG",
+        "tags": [
+            "RPG",
+            "Story rich"
+        ],
+        "studio": "CD Projekt Red",
+        "year": 2007,
+        "caption": "Follow the path of the witcher.",
+        "description": "Follow an amnesiac Geralt as he returns to monster hunting and confronts conflict in Temeria.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "The Witcher",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "The Witcher 1"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "the-witcher-2",
+        "title": "The Witcher 2: Assassins of Kings",
+        "cover": "catalogo/the-witcher-2.webp",
+        "banner": "banners/the-witcher-2.webp",
+        "genre": "RPG",
+        "tags": [
+            "RPG",
+            "Story rich"
+        ],
+        "studio": "CD Projekt Red",
+        "year": 2011,
+        "caption": "Follow the path of the witcher.",
+        "description": "Investigate a royal assassination and navigate diverging political alliances as Geralt of Rivia.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "The Witcher",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Witcher 2"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "the-witcher-3",
+        "title": "The Witcher 3: Wild Hunt",
+        "cover": "catalogo/the-witcher-3.webp",
+        "banner": "banners/the-witcher-3.webp",
+        "genre": "RPG",
+        "tags": [
+            "RPG",
+            "Story rich"
+        ],
+        "studio": "CD Projekt Red",
+        "year": 2015,
+        "caption": "Follow the path of the witcher.",
+        "description": "Track Ciri across war-torn regions while taking monster contracts and facing the Wild Hunt.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "The Witcher",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Witcher 3"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

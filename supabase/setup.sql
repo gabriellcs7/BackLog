@@ -669,3 +669,46 @@ grant execute on function public.activity_feed_v2(integer,text) to authenticated
 grant execute on function public.profile_recent_games_v2(uuid),public.profile_logged_games(uuid),public.profile_public_diary(uuid,integer,integer) to anon,authenticated;
 notify pgrst,'reload schema';
 commit;
+
+-- November catalog expansion
+begin;
+insert into public.games(id) values
+    ('alan-wake'),
+    ('alan-wake-2'),
+    ('watch-dogs'),
+    ('watch-dogs-2'),
+    ('watch-dogs-legion'),
+    ('ea-sports-fc-26'),
+    ('ea-sports-fc-27'),
+    ('roblox'),
+    ('counter-strike'),
+    ('counter-strike-condition-zero'),
+    ('counter-strike-source'),
+    ('counter-strike-global-offensive'),
+    ('counter-strike-2'),
+    ('outlast'),
+    ('outlast-2'),
+    ('the-outlast-trials'),
+    ('phasmophobia'),
+    ('superhot'),
+    ('superhot-mind-control-delete'),
+    ('cyberpunk-2077'),
+    ('cyberpunk-2077-phantom-liberty'),
+    ('the-forest'),
+    ('sons-of-the-forest'),
+    ('the-witcher'),
+    ('the-witcher-2'),
+    ('the-witcher-3'),
+    ('injustice-gods-among-us'),
+    ('injustice-2'),
+    ('silent-hill'),
+    ('silent-hill-2'),
+    ('silent-hill-3'),
+    ('silent-hill-4-the-room'),
+    ('silent-hill-origins'),
+    ('silent-hill-homecoming'),
+    ('silent-hill-shattered-memories'),
+    ('silent-hill-downpour'),
+    ('silent-hill-f')
+on conflict (id) do nothing;
+commit;

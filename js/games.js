@@ -1010,5 +1010,59 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "ea-sports-fc-26",
+        "title": "EA Sports FC 26",
+        "cover": "catalogo/ea-sports-fc-26.webp",
+        "banner": "banners/ea-sports-fc-26.webp",
+        "genre": "Sports",
+        "tags": [
+            "Sports",
+            "Football"
+        ],
+        "studio": "EA Vancouver / EA Romania",
+        "year": 2025,
+        "caption": "Take the pitch.",
+        "description": "Build a squad, manage a club, or compete with friends in EA’s football simulation.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "EA Sports FC",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "EA FC 26",
+            "FC 26"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "ea-sports-fc-27",
+        "title": "EA Sports FC 27",
+        "cover": "catalogo/ea-sports-fc-27.webp",
+        "banner": "banners/ea-sports-fc-27.webp",
+        "genre": "Sports",
+        "tags": [
+            "Sports",
+            "Football"
+        ],
+        "studio": "EA Vancouver / EA Romania",
+        "year": 2026,
+        "caption": "Take the pitch.",
+        "description": "Play football across club, career, and multiplayer modes in the 2026 edition of EA Sports FC.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "EA Sports FC",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "EA FC 27",
+            "FC 27"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

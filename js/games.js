@@ -1091,5 +1091,136 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "counter-strike",
+        "title": "Counter-Strike",
+        "cover": "catalogo/counter-strike.webp",
+        "banner": "banners/counter-strike.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "Valve",
+        "year": 2000,
+        "caption": "Every round counts.",
+        "description": "Play round-based tactical matches built around bomb defusal, hostage rescue, and team economy.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Counter-Strike",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Counter Strike 1.6",
+            "CS 1.6"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "counter-strike-condition-zero",
+        "title": "Counter-Strike: Condition Zero",
+        "cover": "catalogo/counter-strike-condition-zero.webp",
+        "banner": "banners/counter-strike-condition-zero.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "Valve / Turtle Rock Studios",
+        "year": 2004,
+        "caption": "Every round counts.",
+        "description": "Complete bot-driven tactical missions and compete in classic Counter-Strike multiplayer matches.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Counter-Strike",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "counter-strike-source",
+        "title": "Counter-Strike: Source",
+        "cover": "catalogo/counter-strike-source.webp",
+        "banner": "banners/counter-strike-source.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "Valve",
+        "year": 2004,
+        "caption": "Every round counts.",
+        "description": "Return to classic Counter-Strike maps and objectives on Valve’s Source engine.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Counter-Strike",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "counter-strike-global-offensive",
+        "title": "Counter-Strike: Global Offensive",
+        "cover": "catalogo/counter-strike-global-offensive.webp",
+        "banner": "banners/counter-strike-global-offensive.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "Valve / Hidden Path Entertainment",
+        "year": 2012,
+        "caption": "Every round counts.",
+        "description": "Compete in the original Global Offensive release, with its ranked tactical matches and updated arsenal.",
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "Xbox 360"
+        ],
+        "franchise": "Counter-Strike",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "CS GO",
+            "CS:GO",
+            "CSGO"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "counter-strike-2",
+        "title": "Counter-Strike 2",
+        "cover": "catalogo/counter-strike-2.webp",
+        "banner": "banners/counter-strike-2.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "Valve",
+        "year": 2023,
+        "caption": "Every round counts.",
+        "description": "Compete in tactical rounds with Source 2 maps, responsive smoke grenades, and the Premier ranking system.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Counter-Strike",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "CS2"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

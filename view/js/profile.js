@@ -32,9 +32,100 @@
     }
     $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
     $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo());$('#profile-dialog').close();note('Profile saved.');await render();});});
-    function openFavorites(){if(!own)return;const container=$('#favorite-selects');container.replaceChildren();for(let i=0;i<4;i++){const label=el('label','','Favorite game');const select=el('select');select.dataset.slot=String(i);select.setAttribute('aria-label','Favorite slot '+(i+1));const none=el('option','','Choose a game');none.value='';select.append(none);for(const item of games){const option=el('option','',item.title);option.value=item.id;select.append(option);}select.value=player.favorites[i]||'';select.addEventListener('change',refreshOptions);label.append(select);container.append(label);}refreshOptions();$('#favorites-feedback').textContent='';$('#favorites-dialog').showModal();}
-    function refreshOptions(){const selects=[...$('#favorite-selects').querySelectorAll('select')];const chosen=selects.map(s=>s.value).filter(Boolean);for(const select of selects)for(const option of select.options)option.disabled=Boolean(option.value&&option.value!==select.value&&chosen.includes(option.value));}
-    $('#choose-favorites').addEventListener('click',openFavorites);$('#favorites-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#favorites-feedback'),async()=>{await account.saveFavorites([...$('#favorite-selects').querySelectorAll('select')].map(s=>s.value).filter(Boolean));$('#favorites-dialog').close();await render();$('#choose-favorites').focus();note('Favorites saved.');});});
+    let favoriteDraft=[];
+    const favoriteSearch=$('#favorite-search');
+    const normalizeFavorite=value=>value.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+
+    function favoriteCover(item){
+        const image=el('img');
+        image.src='../imagens/capas/'+item.cover;
+        image.alt='';
+        image.loading='lazy';
+        return image;
+    }
+
+    function renderFavoriteResults(){
+        const query=normalizeFavorite(favoriteSearch.value.trim());
+        const matches=games.filter(item=>normalizeFavorite([item.title,item.franchise||'',...(item.aliases||[])].join(' ')).includes(query));
+        const results=$('#favorite-results');
+        results.replaceChildren();
+        for(const item of matches){
+            const selected=favoriteDraft.includes(item.id);
+            const control=button('',()=>{
+                const scrollTop=results.scrollTop;
+                if(selected)favoriteDraft=favoriteDraft.filter(id=>id!==item.id);
+                else if(favoriteDraft.length<4)favoriteDraft.push(item.id);
+                renderFavoritePicker();
+                results.scrollTop=scrollTop;
+                const replacement=[...results.children].find(node=>node.dataset.game===item.id);
+                if(replacement&&!replacement.disabled)replacement.focus({preventScroll:true});
+                else favoriteSearch.focus();
+            },'favorite-result');
+            control.dataset.game=item.id;
+            control.setAttribute('aria-pressed',String(selected));
+            control.disabled=!selected&&favoriteDraft.length===4;
+            control.append(favoriteCover(item),el('span','',item.title),el('span','favorite-result-mark',selected?'✓':'+'));
+            control.lastChild.setAttribute('aria-hidden','true');
+            results.append(control);
+        }
+        $('#favorite-search-status').textContent=matches.length
+            ? matches.length+(matches.length===1?' game found':' games found')
+            : 'No games match your search.';
+    }
+
+    function renderFavoritePicker(){
+        const selected=$('#favorite-selected');
+        selected.replaceChildren();
+        $('#favorites-count').textContent=favoriteDraft.length+' / 4 selected';
+        for(let index=0;index<4;index++){
+            const item=game(favoriteDraft[index]);
+            if(!item){
+                const empty=el('div','favorite-pick-empty','+');
+                empty.setAttribute('aria-hidden','true');
+                selected.append(empty);
+                continue;
+            }
+            const remove=button('',()=>{
+                favoriteDraft=favoriteDraft.filter(id=>id!==item.id);
+                renderFavoritePicker();
+                favoriteSearch.focus();
+            },'favorite-pick');
+            remove.setAttribute('aria-label','Remove '+item.title+' from favorites');
+            remove.title=item.title;
+            remove.append(favoriteCover(item),el('span','favorite-pick-remove','×'));
+            selected.append(remove);
+        }
+        renderFavoriteResults();
+    }
+
+    function openFavorites(){
+        if(!own||account.loading||!player)return;
+        favoriteDraft=player.favorites.filter(id=>game(id)).slice(0,4);
+        favoriteSearch.value='';
+        $('#favorites-feedback').textContent='';
+        renderFavoritePicker();
+        $('#favorites-dialog').showModal();
+        favoriteSearch.focus();
+    }
+
+    favoriteSearch.addEventListener('input',()=>{
+        renderFavoriteResults();
+        $('#favorite-results').scrollTop=0;
+    });
+    favoriteSearch.addEventListener('keydown',event=>{
+        if(event.key==='Enter')event.preventDefault();
+    });
+    $('#choose-favorites').addEventListener('click',openFavorites);
+    $('#favorites-form').addEventListener('submit',event=>{
+        event.preventDefault();
+        action(event.submitter,$('#favorites-feedback'),async()=>{
+            await account.saveFavorites([...favoriteDraft]);
+            $('#favorites-dialog').close();
+            await render();
+            $('#choose-favorites').focus();
+            note('Favorites saved.');
+        });
+    });
     for(const genre of [...new Set(games.map(g=>g.genre))].sort()){const option=el('option','',genre);option.value=genre;$('#list-genre').append(option);}
     function matchingGames(){const q=$('#list-search').value.trim().toLowerCase();return games.filter(g=>(g.title+' '+(g.franchise||'')).toLowerCase().includes(q)&&($('#list-genre').value==='all'||g.genre===$('#list-genre').value)&&(!$('#list-played').checked||['played','playing','completed','platinum','dropped'].includes(window.Backlog.getStatus(g.id)?.id)));}
     function updateSelected(){$('#list-selected-count').textContent=selected.size+' selected';renderSelection();}

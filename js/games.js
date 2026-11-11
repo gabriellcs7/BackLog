@@ -1545,5 +1545,53 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "injustice-gods-among-us",
+        "title": "Injustice: Gods Among Us",
+        "cover": "catalogo/injustice-gods-among-us.webp",
+        "banner": "banners/injustice-gods-among-us.webp",
+        "genre": "Fighting",
+        "tags": [
+            "Fighting",
+            "DC Comics"
+        ],
+        "studio": "NetherRealm Studios",
+        "year": 2013,
+        "caption": "Choose your side in the DC universe.",
+        "description": "Fight as DC heroes and villains in a story about an alternate world ruled by Superman.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Injustice",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "injustice-2",
+        "title": "Injustice 2",
+        "cover": "catalogo/injustice-2.webp",
+        "banner": "banners/injustice-2.webp",
+        "genre": "Fighting",
+        "tags": [
+            "Fighting",
+            "DC Comics"
+        ],
+        "studio": "NetherRealm Studios",
+        "year": 2017,
+        "caption": "Choose your side in the DC universe.",
+        "description": "Continue the DC fighting series as Batman and his allies face Brainiac and the remnants of Superman’s regime.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Injustice",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

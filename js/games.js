@@ -1366,5 +1366,53 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "cyberpunk-2077",
+        "title": "Cyberpunk 2077",
+        "cover": "catalogo/cyberpunk-2077.webp",
+        "banner": "banners/cyberpunk-2077.webp",
+        "genre": "RPG",
+        "tags": [
+            "RPG",
+            "Story rich"
+        ],
+        "studio": "CD Projekt Red",
+        "year": 2020,
+        "caption": "Make your name in Night City.",
+        "description": "Play as mercenary V and build a life in Night City while contending with a prototype implant.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Cyberpunk",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "cyberpunk-2077-phantom-liberty",
+        "title": "Cyberpunk 2077: Phantom Liberty",
+        "cover": "catalogo/cyberpunk-2077-phantom-liberty.webp",
+        "banner": "banners/cyberpunk-2077-phantom-liberty.webp",
+        "genre": "RPG",
+        "tags": [
+            "RPG",
+            "Story rich"
+        ],
+        "studio": "CD Projekt Red",
+        "year": 2023,
+        "caption": "Make your name in Night City.",
+        "description": "Enter Dogtown in a spy-thriller expansion where V becomes entangled in a rescue mission and political intrigue.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Cyberpunk",
+        "kind": "Expansion",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

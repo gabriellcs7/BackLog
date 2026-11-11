@@ -1318,5 +1318,53 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "superhot",
+        "title": "SUPERHOT",
+        "cover": "catalogo/superhot.webp",
+        "banner": "banners/superhot.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "SUPERHOT Team",
+        "year": 2016,
+        "caption": "Time moves when you move.",
+        "description": "Plan each shot and dodge in a minimalist shooter where time moves when you move.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "SUPERHOT",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "superhot-mind-control-delete",
+        "title": "SUPERHOT: Mind Control Delete",
+        "cover": "catalogo/superhot-mind-control-delete.webp",
+        "banner": "banners/superhot-mind-control-delete.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Shooter",
+            "First-person"
+        ],
+        "studio": "SUPERHOT Team",
+        "year": 2020,
+        "caption": "Time moves when you move.",
+        "description": "Combine abilities and navigate changing combat encounters in a standalone follow-up to SUPERHOT.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "SUPERHOT",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

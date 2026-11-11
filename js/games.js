@@ -938,5 +938,77 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "watch-dogs",
+        "title": "Watch Dogs",
+        "cover": "catalogo/watch-dogs.webp",
+        "banner": "banners/watch-dogs.webp",
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Ubisoft Montreal",
+        "year": 2014,
+        "caption": "The city is your network.",
+        "description": "Hack Chicago’s connected infrastructure as Aiden Pearce while tracking the people behind a family tragedy.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Watch Dogs",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "watch-dogs-2",
+        "title": "Watch Dogs 2",
+        "cover": "catalogo/watch-dogs-2.webp",
+        "banner": "banners/watch-dogs-2.webp",
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Ubisoft Montreal",
+        "year": 2016,
+        "caption": "The city is your network.",
+        "description": "Join DedSec in the San Francisco Bay Area and expose a surveillance system through hacking and improvisation.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Watch Dogs",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "watch-dogs-legion",
+        "title": "Watch Dogs: Legion",
+        "cover": "catalogo/watch-dogs-legion.webp",
+        "banner": "banners/watch-dogs-legion.webp",
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Open world"
+        ],
+        "studio": "Ubisoft Toronto",
+        "year": 2020,
+        "caption": "The city is your network.",
+        "description": "Recruit Londoners into DedSec and use their skills to challenge the forces controlling the city.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Watch Dogs",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

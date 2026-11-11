@@ -1180,7 +1180,7 @@ window.BacklogGames = [
         "studio": "Valve / Hidden Path Entertainment",
         "year": 2012,
         "caption": "Every round counts.",
-        "description": "Compete in the original Global Offensive release, with its ranked tactical matches and updated arsenal.",
+        "description": "The 2012 Counter-Strike entry introduced ranked matchmaking, new modes and an updated arsenal. Valve later upgraded its Steam release to Counter-Strike 2.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -1188,7 +1188,7 @@ window.BacklogGames = [
         ],
         "franchise": "Counter-Strike",
         "kind": "Main game",
-        "releaseState": "released",
+        "releaseState": "retired",
         "aliases": [
             "CS GO",
             "CS:GO",

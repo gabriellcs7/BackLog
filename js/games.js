@@ -1064,5 +1064,32 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "roblox",
+        "title": "Roblox",
+        "cover": "catalogo/roblox.webp",
+        "banner": "banners/roblox.webp",
+        "genre": "Sandbox",
+        "tags": [
+            "Sandbox",
+            "Multiplayer"
+        ],
+        "studio": "Roblox Corporation",
+        "year": 2006,
+        "caption": "Discover worlds made by players.",
+        "description": "Explore and create user-made experiences across a multiplayer platform spanning many genres.",
+        "platforms": [
+            "PC",
+            "Mobile",
+            "PlayStation",
+            "Xbox"
+        ],
+        "franchise": "Roblox",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

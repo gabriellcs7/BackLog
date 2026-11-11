@@ -15,5 +15,9 @@
         return node;
     }
     async function action(button,feedback,task){button.disabled=true;feedback.textContent='';try{return await task();}catch(error){feedback.textContent=error.message||'Something went wrong. Please try again.';}finally{button.disabled=false;}}
-    window.BacklogUI={element,game,gameCard,profileLink,avatar,href,action,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
+    function reviewOrdinal(number){
+        const suffix=new Intl.PluralRules('en',{type:'ordinal'}).select(Number(number));
+        return number+({one:'st',two:'nd',few:'rd',other:'th'}[suffix])+' review';
+    }
+    window.BacklogUI={element,game,gameCard,profileLink,avatar,href,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
 })();

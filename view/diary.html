@@ -15,6 +15,7 @@
         <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js" defer></script>
         <script src="../js/ui.js" defer></script>
+        <script src="../js/community.js" defer></script>
         <script src="js/diary.js" defer></script>
         <title>Diary · BackLog</title>
     </head>
@@ -41,17 +42,17 @@
                 </form>
                 <div class="nav-links" id="navigation">
                     <a href="../index.html">Home</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="activity.html">Activity</a>
                     <a href="../view/pagina_jogos.html">Games</a>
                     <a href="../view/pagina_jogos.html?saved=1">My backlog <span class="nav-count" id="nav-count">0</span></a>
-                    <a href="profile.html">Profile</a>
                     <a class="active" aria-current="page" href="diary.html">Diary</a>
-                    <a href="activity.html">Activity</a>
                 </div>
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button>
             </nav>
         </header>
                         <main id="main" class="diary-page shell">
-            <header class="diary-heading"><div><span class="eyebrow">ONE MORE CHAPTER</span><h1>Your gaming<br><span>diary.</span></h1><p>Every rating. Every review. A timeline of the games that stay with you.</p></div><a class="social-button" href="pagina_jogos.html">Log a game ↗</a></header>
+            <header class="diary-heading"><div><span class="eyebrow">ONE MORE CHAPTER</span><h1 id="diary-title">Your gaming<br><span>diary.</span></h1><p>Every rating. Every review. A timeline of the games that stay with you.</p></div><a class="social-button" href="pagina_jogos.html">Log a game ↗</a></header>
             <div class="diary-summary" aria-label="Diary summary"><div><strong id="diary-total">0</strong><span>ENTRIES</span></div><div><strong id="diary-games">0</strong><span>GAMES</span></div><div><strong id="diary-days">0</strong><span>DAYS LOGGED</span></div></div>
             <p id="diary-account-note" class="social-small"></p>
             <div class="diary-toolbar"><label>Find a game<input type="search" id="diary-search" placeholder="Search your diary…" maxlength="120"></label><label>Month<input type="month" id="diary-month" min="1900-01"></label><label>Entries<select id="diary-type"><option value="all">All entries</option><option value="reviews">Written reviews</option><option value="ratings">Ratings only</option></select></label><button class="social-button" type="button" id="reset-diary-filters">Clear filters</button></div>

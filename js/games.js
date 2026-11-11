@@ -1222,5 +1222,77 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "outlast",
+        "title": "Outlast",
+        "cover": "catalogo/outlast.webp",
+        "banner": "banners/outlast.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Red Barrels",
+        "year": 2013,
+        "caption": "Survive what you cannot fight.",
+        "description": "Investigate Mount Massive Asylum with a night-vision camcorder and escape without weapons.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Outlast",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "outlast-2",
+        "title": "Outlast 2",
+        "cover": "catalogo/outlast-2.webp",
+        "banner": "banners/outlast-2.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Red Barrels",
+        "year": 2017,
+        "caption": "Survive what you cannot fight.",
+        "description": "Search for Lynn in a remote Arizona settlement while surviving pursuit and disturbing visions.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Outlast",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "the-outlast-trials",
+        "title": "The Outlast Trials",
+        "cover": "catalogo/the-outlast-trials.webp",
+        "banner": "banners/the-outlast-trials.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Red Barrels",
+        "year": 2024,
+        "caption": "Survive what you cannot fight.",
+        "description": "Survive Murkoff’s Cold War experiments alone or with a team in objective-based trials.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Outlast",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

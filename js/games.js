@@ -883,5 +883,60 @@ window.BacklogGames = [
             "Xbox",
             "Nintendo Switch"
         ]
+    },
+    {
+        "id": "alan-wake",
+        "title": "Alan Wake",
+        "cover": "catalogo/alan-wake.webp",
+        "banner": "banners/alan-wake.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Remedy Entertainment",
+        "year": 2010,
+        "caption": "A nightmare written into reality.",
+        "description": "A novelist searches Bright Falls for his missing wife as pages from his unwritten story come to life.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Alan Wake",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Allan Wake"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "alan-wake-2",
+        "title": "Alan Wake 2",
+        "cover": "catalogo/alan-wake-2.webp",
+        "banner": "banners/alan-wake-2.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Remedy Entertainment",
+        "year": 2023,
+        "caption": "A nightmare written into reality.",
+        "description": "FBI agent Saga Anderson and trapped writer Alan Wake investigate a nightmare unfolding across two realities.",
+        "platforms": [
+            "PC",
+            "PlayStation 5",
+            "Xbox Series X|S"
+        ],
+        "franchise": "Alan Wake",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Allan Wake 2",
+            "Alan Wake II"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

@@ -1822,5 +1822,151 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "uncharted-drakes-fortune",
+        "title": "Uncharted: Drake’s Fortune",
+        "cover": "catalogo/uncharted-drakes-fortune.webp",
+        "banner": "banners/uncharted-drakes-fortune.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Action",
+            "Treasure hunting"
+        ],
+        "studio": "Naughty Dog",
+        "year": 2007,
+        "caption": "The search for El Dorado.",
+        "description": "A clue in Sir Francis Drake’s coffin leads Nathan Drake and Elena Fisher to a Pacific island where mercenaries are searching for the same treasure.",
+        "platforms": [
+            "PlayStation 3",
+            "PlayStation 4"
+        ],
+        "franchise": "Uncharted",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Uncharted: Drake's Fortune",
+            "Uncharted 1"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "uncharted-2-among-thieves",
+        "title": "Uncharted 2: Among Thieves",
+        "cover": "catalogo/uncharted-2-among-thieves.webp",
+        "banner": "banners/uncharted-2-among-thieves.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Action",
+            "Treasure hunting"
+        ],
+        "studio": "Naughty Dog",
+        "year": 2009,
+        "caption": "Race to Shambhala.",
+        "description": "Nathan Drake follows the trail of Marco Polo’s lost fleet, from a museum heist in Istanbul to the mountains of Nepal and Tibet.",
+        "platforms": [
+            "PlayStation 3",
+            "PlayStation 4"
+        ],
+        "franchise": "Uncharted",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Uncharted 2: Among Thieves",
+            "Uncharted 2"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "uncharted-3-drakes-deception",
+        "title": "Uncharted 3: Drake’s Deception",
+        "cover": "catalogo/uncharted-3-drakes-deception.webp",
+        "banner": "banners/uncharted-3-drakes-deception.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Action",
+            "Treasure hunting"
+        ],
+        "studio": "Naughty Dog",
+        "year": 2011,
+        "caption": "Into the Arabian Desert.",
+        "description": "Nathan Drake and Sully trace a clue left by Francis Drake to a lost city in the Rub’ al Khali, pursued by a secret society.",
+        "platforms": [
+            "PlayStation 3",
+            "PlayStation 4"
+        ],
+        "franchise": "Uncharted",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Uncharted 3: Drake's Deception",
+            "Uncharted 3"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "uncharted-4-a-thiefs-end",
+        "title": "Uncharted 4: A Thief’s End",
+        "cover": "catalogo/uncharted-4-a-thiefs-end.webp",
+        "banner": "banners/uncharted-4-a-thiefs-end.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Action",
+            "Treasure hunting"
+        ],
+        "studio": "Naughty Dog",
+        "year": 2016,
+        "caption": "One last treasure hunt.",
+        "description": "Nathan’s brother Sam returns and draws him into a search for Henry Avery’s pirate fortune and the settlement of Libertalia.",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "PC"
+        ],
+        "franchise": "Uncharted",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Uncharted 4: A Thief's End",
+            "Uncharted 4"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "uncharted-the-lost-legacy",
+        "title": "Uncharted: The Lost Legacy",
+        "cover": "catalogo/uncharted-the-lost-legacy.webp",
+        "banner": "banners/uncharted-the-lost-legacy.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Adventure",
+            "Action",
+            "Treasure hunting"
+        ],
+        "studio": "Naughty Dog",
+        "year": 2017,
+        "caption": "Find the Tusk of Ganesh.",
+        "description": "Chloe Frazer and Nadine Ross travel through India’s Western Ghats to recover an ancient artifact before a rebel leader can claim it.",
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5",
+            "PC"
+        ],
+        "franchise": "Uncharted",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Uncharted: The Lost Legacy"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

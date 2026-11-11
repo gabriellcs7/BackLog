@@ -180,3 +180,7 @@
 .activity-game-cover img { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:4px; }
 #more-activity { margin-top:24px; }
 @media(max-width:560px) {  .profile-metrics { gap:25px; } .profile-stat strong { font-size:26px; } .activity-event { gap:12px; } .activity-event>.community-avatar { width:34px; height:34px; } }
+
+.logged-games-heading { margin-top:24px; }
+.logged-games-heading h1 { font-size:clamp(28px,4vw,48px); margin:0 0 10px; overflow-wrap:anywhere; }
+.logged-games-grid .social-empty { grid-column:1/-1; }

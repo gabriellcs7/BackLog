@@ -16,19 +16,7 @@
             let latest=review?{game_id:item.id,kind:'rating',rating:review.rating,review_number:review.text.trim()?reviewCounts.get(item.id):null,created_at:review.updatedAt}:null;
             if(status&&date&&(!latest||date>latest.created_at))latest={game_id:item.id,kind:'status',status:status.id,created_at:date};if(latest)recent.push(latest);
         }
-        return {metrics:{played_this_year:annual.size,list_count:player.lists.length,logged_games:logged.size},logged:[...logged],recent:recent.sort((a,b)=>b.created_at.localeCompare(a.created_at)).slice(0,4)};
-    }
-    async function showLogged(player,localIds){
-        const dialog=$('logged-games-dialog'),grid=$('logged-games-grid'),feedback=$('logged-games-feedback');
-        grid.replaceChildren();
-        feedback.textContent='Loading games…';
-        dialog.showModal();
-        try{
-            const ids=localIds||(await api.loggedGames(player.profile.id)).map(row=>row.game_id);
-            const games=ids.map(ui.game).filter(Boolean).sort((a,b)=>a.title.localeCompare(b.title));
-            grid.replaceChildren(...games.map(game=>ui.gameCard(game.id)));
-            feedback.textContent=games.length?'':'No logged games yet.';
-        }catch(error){feedback.textContent='Could not load games. '+error.message;}
+        return {metrics:{played_this_year:annual.size,list_count:player.lists.length,logged_games:logged.size},recent:recent.sort((a,b)=>b.created_at.localeCompare(a.created_at)).slice(0,4)};
     }
     async function render(player,own){
         current={player,own};const ticket=++version,year=new Date().getFullYear();$('metrics-feedback').textContent='';$('recent-feedback').textContent='';
@@ -39,12 +27,13 @@
             const diaryUrl=new URL(ui.href('view/diary.html'));
             diaryUrl.searchParams.set('year',year);
             if(player.profile.id!=='local')diaryUrl.searchParams.set('id',player.profile.id);
-            const diaryLink=ui.element('a','profile-stat'),listLink=ui.element('a','profile-stat'),loggedButton=ui.element('button','profile-stat');
+            const diaryLink=ui.element('a','profile-stat'),listLink=ui.element('a','profile-stat'),loggedLink=ui.element('a','profile-stat');
             diaryLink.href=diaryUrl.href;
             listLink.href='#profile-list-section';
-            loggedButton.type='button';
-            loggedButton.addEventListener('click',()=>showLogged(player,data.logged));
-            const stats=[[diaryLink,data.metrics.played_this_year,'Played in '+year],[listLink,data.metrics.list_count,own?'Lists':'Public lists'],[loggedButton,data.metrics.logged_games,'Games logged']];
+            const loggedUrl=new URL(ui.href('view/logged-games.html'));
+            loggedUrl.searchParams.set('id',player.profile.id);
+            loggedLink.href=loggedUrl.href;
+            const stats=[[diaryLink,data.metrics.played_this_year,'Played in '+year],[listLink,data.metrics.list_count,own?'Lists':'Public lists'],[loggedLink,data.metrics.logged_games,'Games logged']];
             for(const [control,value,label] of stats){
                 control.append(ui.element('strong','',value),ui.element('span','',label));
                 $('profile-metrics').append(control);

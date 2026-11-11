@@ -1593,5 +1593,234 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill",
+        "title": "Silent Hill",
+        "cover": "catalogo/silent-hill.webp",
+        "banner": "banners/silent-hill.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Konami Team Silent",
+        "year": 1999,
+        "caption": "Follow the road into the fog.",
+        "description": "Search a fog-covered town as Harry Mason, whose daughter disappears after a car crash.",
+        "platforms": [
+            "PlayStation"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Silent Hill 1"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-2",
+        "title": "Silent Hill 2",
+        "cover": "catalogo/silent-hill-2.webp",
+        "banner": "banners/silent-hill-2.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Konami Team Silent",
+        "year": 2001,
+        "caption": "Follow the road into the fog.",
+        "description": "Follow James Sunderland into Silent Hill after receiving a letter from his late wife.",
+        "platforms": [
+            "PlayStation 2",
+            "Xbox",
+            "PC"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Silent Hill 2 2001"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-3",
+        "title": "Silent Hill 3",
+        "cover": "catalogo/silent-hill-3.webp",
+        "banner": "banners/silent-hill-3.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Konami Team Silent",
+        "year": 2003,
+        "caption": "Follow the road into the fog.",
+        "description": "Follow Heather Mason through a nightmare tied to her past and the events of the original game.",
+        "platforms": [
+            "PlayStation 2",
+            "PC"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-4-the-room",
+        "title": "Silent Hill 4: The Room",
+        "cover": "catalogo/silent-hill-4-the-room.webp",
+        "banner": "banners/silent-hill-4-the-room.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Konami Team Silent",
+        "year": 2004,
+        "caption": "Follow the road into the fog.",
+        "description": "Escape a locked apartment through mysterious passages connected to a series of murders.",
+        "platforms": [
+            "PlayStation 2",
+            "Xbox",
+            "PC"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-origins",
+        "title": "Silent Hill: Origins",
+        "cover": "catalogo/silent-hill-origins.webp",
+        "banner": "banners/silent-hill-origins.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Climax Studios",
+        "year": 2007,
+        "caption": "Follow the road into the fog.",
+        "description": "Explore events before the original Silent Hill as truck driver Travis Grady confronts the town and his memories.",
+        "platforms": [
+            "PSP",
+            "PlayStation 2"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-homecoming",
+        "title": "Silent Hill: Homecoming",
+        "cover": "catalogo/silent-hill-homecoming.webp",
+        "banner": "banners/silent-hill-homecoming.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Double Helix Games",
+        "year": 2008,
+        "caption": "Follow the road into the fog.",
+        "description": "Return to Shepherd’s Glen as Alex Shepherd and search for your missing brother.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-shattered-memories",
+        "title": "Silent Hill: Shattered Memories",
+        "cover": "catalogo/silent-hill-shattered-memories.webp",
+        "banner": "banners/silent-hill-shattered-memories.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Climax Studios",
+        "year": 2009,
+        "caption": "Follow the road into the fog.",
+        "description": "Revisit Harry Mason’s search in a standalone reimagining shaped by psychological interviews and icy pursuits.",
+        "platforms": [
+            "Wii",
+            "PlayStation 2",
+            "PSP"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-downpour",
+        "title": "Silent Hill: Downpour",
+        "cover": "catalogo/silent-hill-downpour.webp",
+        "banner": "banners/silent-hill-downpour.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Vatra Games",
+        "year": 2012,
+        "caption": "Follow the road into the fog.",
+        "description": "Explore the town as escaped prisoner Murphy Pendleton and confront choices from his past.",
+        "platforms": [
+            "PlayStation 3",
+            "Xbox 360"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "silent-hill-f",
+        "title": "Silent Hill f",
+        "cover": "catalogo/silent-hill-f.webp",
+        "banner": "banners/silent-hill-f.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "NeoBards Entertainment",
+        "year": 2025,
+        "caption": "Follow the road into the fog.",
+        "description": "Follow Hinako Shimizu through a fog-shrouded Japanese town in the 1960s as a strange bloom spreads.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Silent Hill",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

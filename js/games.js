@@ -1414,5 +1414,58 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "the-forest",
+        "title": "The Forest",
+        "cover": "catalogo/the-forest.webp",
+        "banner": "banners/the-forest.webp",
+        "genre": "Survival",
+        "tags": [
+            "Survival",
+            "Crafting"
+        ],
+        "studio": "Endnight Games",
+        "year": 2018,
+        "caption": "Build, explore and survive.",
+        "description": "Build shelter and explore a forest peninsula after a plane crash while searching for your son.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "The Forest",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "The Forest 1"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "sons-of-the-forest",
+        "title": "Sons of the Forest",
+        "cover": "catalogo/sons-of-the-forest.webp",
+        "banner": "banners/sons-of-the-forest.webp",
+        "genre": "Survival",
+        "tags": [
+            "Survival",
+            "Crafting"
+        ],
+        "studio": "Endnight Games",
+        "year": 2024,
+        "caption": "Build, explore and survive.",
+        "description": "Search a remote island for a missing billionaire and survive its changing seasons and hostile inhabitants.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "The Forest",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "The Forest 2",
+            "SOTF"
+        ],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

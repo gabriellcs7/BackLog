@@ -1294,5 +1294,29 @@ window.BacklogGames = [
         "aliases": [],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "phasmophobia",
+        "title": "Phasmophobia",
+        "cover": "catalogo/phasmophobia.webp",
+        "banner": "banners/phasmophobia.webp",
+        "genre": "Horror",
+        "tags": [
+            "Horror",
+            "Survival horror"
+        ],
+        "studio": "Kinetic Games",
+        "year": 2020,
+        "caption": "Find the evidence. Identify the ghost.",
+        "description": "Use ghost-hunting equipment and compare evidence with your team to identify paranormal entities.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Phasmophobia",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [],
+        "bannerPosition": "center center",
+        "bannerPositionMobile": "center center"
     }
 ];

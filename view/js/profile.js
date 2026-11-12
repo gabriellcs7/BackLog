@@ -145,7 +145,7 @@
         });
     });
 
-    let favoriteDraft=[];
+    let favoriteDraft=[], draggedFavorite=null;
     const favoriteSearch=$('#favorite-search');
     const normalizeFavorite=value=>value.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
 
@@ -186,6 +186,51 @@
             : 'No games match your search.';
     }
 
+    function moveFavorite(id,position,focusDirection){
+        const index=favoriteDraft.indexOf(id);
+        if(index<0)return;
+        const destination=Math.min(favoriteDraft.length-1,Math.max(0,position));
+        if(index===destination)return;
+        const before=new Map([...$('#favorite-selected').children].map(node=>[node.dataset.game,node.getBoundingClientRect()]));
+        favoriteDraft.splice(index,1);
+        favoriteDraft.splice(destination,0,id);
+        renderFavoritePicker();
+        const selected=$('#favorite-selected');
+        if(matchMedia('(prefers-reduced-motion: no-preference)').matches){
+            for(const node of selected.children){
+                const previous=before.get(node.dataset.game);
+                if(!previous||!node.dataset.game)continue;
+                const current=node.getBoundingClientRect();
+                node.animate([{transform:`translate(${previous.x-current.x}px,${previous.y-current.y}px)`},{transform:'none'}],{duration:210,easing:'ease-out'});
+            }
+        }
+        if(focusDirection){
+            const moved=[...selected.children].find(node=>node.dataset.game===id);
+            const arrow=moved.querySelector('[data-direction="'+focusDirection+'"]');
+            (arrow.disabled?moved.querySelector('.favorite-pick'):arrow).focus({preventScroll:true});
+        }
+    }
+
+    function favoriteDropTarget(node,index){
+        node.addEventListener('dragover',event=>{
+            if(!draggedFavorite||node.dataset.game===draggedFavorite)return;
+            event.preventDefault();
+            event.dataTransfer.dropEffect='move';
+            node.classList.add('is-drop-target');
+        });
+        node.addEventListener('dragleave',event=>{
+            if(!node.contains(event.relatedTarget))node.classList.remove('is-drop-target');
+        });
+        node.addEventListener('drop',event=>{
+            if(!draggedFavorite)return;
+            event.preventDefault();
+            const id=draggedFavorite;
+            draggedFavorite=null;
+            node.classList.remove('is-drop-target');
+            moveFavorite(id,index);
+        });
+    }
+
     function renderFavoritePicker(){
         const selected=$('#favorite-selected');
         selected.replaceChildren();
@@ -195,6 +240,7 @@
             if(!item){
                 const empty=el('div','favorite-pick-empty','+');
                 empty.setAttribute('aria-hidden','true');
+                favoriteDropTarget(empty,index);
                 selected.append(empty);
                 continue;
             }
@@ -206,13 +252,39 @@
             remove.setAttribute('aria-label','Remove '+item.title+' from favorites');
             remove.title=item.title;
             remove.append(favoriteCover(item),el('span','favorite-pick-remove','×'));
-            selected.append(remove);
+            const slot=el('div','favorite-order-slot');
+            slot.dataset.game=item.id;
+            slot.draggable=true;
+            remove.firstChild.draggable=false;
+            slot.addEventListener('dragstart',event=>{
+                draggedFavorite=item.id;
+                event.dataTransfer.effectAllowed='move';
+                event.dataTransfer.setData('text/plain',item.id);
+                slot.classList.add('is-dragging');
+            });
+            slot.addEventListener('dragend',()=>{
+                draggedFavorite=null;
+                slot.classList.remove('is-dragging');
+                selected.querySelectorAll('.is-drop-target').forEach(target=>target.classList.remove('is-drop-target'));
+            });
+            favoriteDropTarget(slot,index);
+            const arrows=el('div','favorite-order-arrows');
+            for(const [direction,delta,icon] of [['left',-1,'←'],['right',1,'→']]){
+                const arrow=button(icon,()=>moveFavorite(item.id,index+delta,direction),'favorite-move');
+                arrow.dataset.direction=direction;
+                arrow.setAttribute('aria-label','Move '+item.title+' '+direction);
+                arrow.disabled=index+delta<0||index+delta>=favoriteDraft.length;
+                arrows.append(arrow);
+            }
+            slot.append(remove,arrows);
+            selected.append(slot);
         }
         renderFavoriteResults();
     }
 
     function openFavorites(){
         if(!own||account.loading||!player)return;
+        draggedFavorite=null;
         favoriteDraft=player.favorites.filter(id=>game(id)).slice(0,4);
         favoriteSearch.value='';
         $('#favorites-feedback').textContent='';

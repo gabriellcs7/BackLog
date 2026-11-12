@@ -227,3 +227,12 @@
 .profile-details { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px; margin-top:13px; font-size:12px; color:var(--muted); overflow-wrap:anywhere; }
 .profile-details a { color:var(--yellow); text-underline-offset:3px; }
 #profile-location::before { content:"⌖"; margin-right:6px; color:var(--yellow); }
+
+.favorite-order-slot { min-width:0; cursor:grab; border-radius:8px; }
+.favorite-order-slot .favorite-pick { width:100%; display:block; cursor:grab; }
+.favorite-order-slot.is-dragging { opacity:.48; }
+.favorite-order-slot.is-drop-target,.favorite-pick-empty.is-drop-target { outline:2px dashed var(--yellow); outline-offset:3px; }
+.favorite-order-arrows { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; margin-top:6px; }
+.favorite-move { min-height:32px; border:1px solid var(--line); border-radius:6px; background:#20231d; color:var(--text); cursor:pointer; }
+.favorite-move:hover:not(:disabled) { border-color:var(--yellow); color:var(--yellow); }
+.favorite-move:disabled { opacity:.3; cursor:default; }

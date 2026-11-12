@@ -852,3 +852,30 @@ h2 {
     }
 
 }
+
+/* Shared catalog cover grid. */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(6,minmax(0,1fr));
+    gap: 34px 22px;
+}
+.catalog-grid .library-card {
+    position: relative;
+}
+@media(max-width:1100px) {
+    .catalog-grid {
+        grid-template-columns: repeat(4,minmax(0,1fr));
+    }
+}
+@media(max-width:800px) {
+    .catalog-grid {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        gap: 28px 18px;
+    }
+}
+@media(max-width:560px) {
+    .catalog-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 26px 16px;
+    }
+}

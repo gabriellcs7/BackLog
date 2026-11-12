@@ -183,6 +183,7 @@
 
 .logged-games-heading { margin-top:24px; }
 .logged-games-heading h1 { font-size:clamp(28px,4vw,48px); margin:0 0 10px; overflow-wrap:anywhere; }
+.logged-games-grid { margin-top:24px; }
 .logged-games-grid .social-empty { grid-column:1/-1; }
 
 .favorites-dialog { width:min(720px,calc(100% - 24px)); }

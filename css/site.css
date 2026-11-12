@@ -860,28 +860,6 @@ h2 {
     gap: 34px 22px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    main { animation:page-arrival 220ms ease-out; }
-    dialog[open] { animation:dialog-arrival 180ms ease-out; }
-    .social-button,.catalog-pages a,.profile-stat,.favorite-result,.player-search-card {
-        transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,translate 160ms ease;
-    }
-    @media (hover: hover) {
-        .social-button:not(:disabled):hover,.catalog-pages a:hover,.profile-stat:hover,.player-search-card:hover {
-            translate:0 -2px;
-        }
-    }
-}
-
-@keyframes page-arrival {
-    from { opacity:.65; translate:0 5px; }
-    to { opacity:1; translate:0 0; }
-}
-
-@keyframes dialog-arrival {
-    from { opacity:0; translate:0 6px; }
-    to { opacity:1; translate:0 0; }
-}
 .catalog-grid .library-card {
     position: relative;
 }
@@ -926,6 +904,29 @@ h2 {
     @media(hover:hover){.library-card:hover .library-art[data-cover-status]{translate:0 -3px}}
 }
 
+/* Page, dialog and interaction motion. */
+@media (prefers-reduced-motion: no-preference) {
+    main { animation:page-arrival 220ms ease-out; }
+    dialog[open] { animation:dialog-arrival 180ms ease-out; }
+    .social-button,.catalog-pages a,.profile-stat,.favorite-result,.player-search-card {
+        transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,translate 160ms ease;
+    }
+    @media (hover: hover) {
+        .social-button:not(:disabled):hover,.catalog-pages a:hover,.profile-stat:hover,.player-search-card:hover {
+            translate:0 -2px;
+        }
+    }
+}
+
+@keyframes page-arrival {
+    from { opacity:.65; translate:0 5px; }
+    to { opacity:1; translate:0 0; }
+}
+
+@keyframes dialog-arrival {
+    from { opacity:0; translate:0 6px; }
+    to { opacity:1; translate:0 0; }
+}
 @media(prefers-reduced-motion:no-preference){
     .library-art img { transition:transform 260ms ease,filter 200ms ease; }
     .button:active,.social-button:active,.favorite-move:active { scale:.98; }

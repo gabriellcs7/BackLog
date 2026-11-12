@@ -42,7 +42,7 @@ O projeto opera em dois modos:
 - **Auto-status:** Ao registrar uma entrada no diário para um jogo que ainda não possui status, ele é automaticamente classificado como *Played*. Status prévios (como *Playing* ou *Want to play*) nunca são sobrescritos.
 
 ### Perfil, Conexões e Listas (`view/profile.html`)
-- **Identidade do jogador:** Nome de exibição, biografia curta e upload de foto de perfil personalizada (JPG, PNG ou WebP de até 5 MB, com corte quadrado automático).
+- **Identidade do jogador:** Nome de exibição, biografia curta, localização, um link social, banner do catálogo e upload de foto de perfil personalizada (JPG, PNG ou WebP de até 5 MB, com corte quadrado automático).
 - **The Favorite Four (Top 4):** Escolha quatro jogos favoritos para ficarem fixados em destaque conjunto no topo do seu perfil, sem ordem ou hierarquia. O diálogo inclui busca em tempo real com visualização gráfica das capas.
 - **Rede social e seguidores:** Sistema de seguir (*Follow/Unfollow*) outros jogadores, com contadores de seguidores e seguindo e modal de conexões.
 - **Atividade recente e estatísticas:** Linha do tempo com as últimas avaliações e atualizações de coleção do perfil, além de métricas anuais de jogatina.
@@ -110,12 +110,14 @@ BackLog/
 │   ├── games.js                 # Catálogo canônico dos 84 jogos
 │   ├── config.js                # Chaves públicas de conexão com o Supabase
 │   ├── account.js               # Estado da sessão, login, cadastro e importação
-│   ├── site.js                  # Controle global de status, atalhos de teclado e contadores
-│   ├── catalog.js               # Lógica de filtros, pesquisa de jogos/jogadores e catálogo
+│   ├── site.js                  # Navegação, status, bordas das capas e movimento compartilhado
+│   ├── catalog.js               # Filtros e paginação de 42 jogos
+│   ├── player-search.js         # Resultados de perfis na busca
+│   ├── home.js                  # Feeds de reviews da home
 │   ├── reviews.js               # Validação de notas fracionadas e salvamento de reviews
 │   ├── diary.js                 # Manipulação das entradas temporais do diário
 │   ├── community.js             # Requisições de feed social, conexões, likes e comentários
-│   ├── ui.js                    # Toasts, notificações acessíveis e diálogos
+│   ├── ui.js                    # Componentes de capas, perfis e links
 │   └── vendor/
 │       ├── supabase.js          # Biblioteca oficial @supabase/supabase-js v2.119.0
 │       └── SUPABASE-LICENSE.txt # Licença MIT do cliente Supabase
@@ -124,18 +126,29 @@ BackLog/
 │   ├── pagina_jogos.html        # Catálogo geral, busca de jogadores e visualização da coleção
 │   ├── game.html                # Página do jogo: metadados, avaliação pessoal e feed comunitário
 │   ├── profile.html             # Perfil do jogador, seguidores, Top 4, listas ranqueadas e conta
-│   ├── diary.html               # Linha do tempo cronológica do diário com filtros
+│   ├── diary.html               # Diário com filtros
+│   ├── activity.html            # Atividade social
+│   ├── logged-games.html        # Coleção de jogos registrados de um perfil
+│   ├── review.html              # Review individual e comentários
 │   ├── css_game/style.css       # Estilos da página de detalhes do jogo
 │   ├── css_paginaJogos/style.css# Estilos do grid e da barra de filtros do catálogo
 │   └── js/                      # Scripts controladores de cada página
 │       ├── game.js              # Carregamento dinâmico do jogo via parâmetro ?id=
 │       ├── review.js            # Formulário de avaliação e estrelas fracionadas
-│       ├── community.js         # Renderização do feed social e envio de comentários
+│       ├── community.js         # Feed de reviews de um jogo
+│       ├── review-card.js       # Review pública, likes e discussão
+│       ├── single-review.js     # Página de uma review pública ou pessoal
 │       ├── profile.js           # Gerenciamento de perfil, foto, Top 4 e criador de listas
-│       └── diary.js             # Filtros e paginação do diário de jogos
+│       ├── profile-social.js    # Foto, seguidores e conexões
+│       ├── profile-activity.js  # Estatísticas e jogos recentes no perfil
+│       ├── logged-games.js      # Coleção registrada do jogador
+│       ├── activity.js          # Eventos da comunidade
+│       └── diary.js             # Filtros e paginação do diário
 │
 ├── supabase/
 │   ├── setup.sql                # Criação completa do banco para novas instalações
+│   ├── atualizar-detalhes-perfil.sql # Localização e link em bancos existentes
+│   ├── atualizar-banner-perfil.sql   # Banner em bancos existentes
 │   ├── atualizar-uncharted.sql  # Registro dos 5 títulos Uncharted no banco existente
 │   ├── atualizar-catalogo-novembro.sql # Registro dos novos jogos no banco existente
 │   ├── atualizar-diario.sql     # Script de migração para o diário cronológico

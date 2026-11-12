@@ -861,8 +861,8 @@ h2 {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    main { animation:page-arrival 220ms ease-out both; }
-    dialog[open] { animation:dialog-arrival 180ms ease-out both; }
+    main { animation:page-arrival 220ms ease-out; }
+    dialog[open] { animation:dialog-arrival 180ms ease-out; }
     .social-button,.catalog-pages a,.profile-stat,.favorite-result,.player-search-card {
         transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,translate 160ms ease;
     }

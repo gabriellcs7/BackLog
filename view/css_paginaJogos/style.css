@@ -398,3 +398,4 @@
 .catalog-pages a { display:grid; place-items:center; min-width:44px; min-height:44px; border:1px solid var(--line); border-radius:8px; color:var(--text); text-decoration:none; }
 .catalog-pages a:hover { border-color:var(--yellow); }
 .catalog-pages a[aria-current="page"] { background:var(--yellow); color:#151614; border-color:var(--yellow); font-weight:700; }
+#results-heading { scroll-margin-top:110px; }

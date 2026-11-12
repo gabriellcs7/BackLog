@@ -127,7 +127,9 @@
         if (pagination.hidden) return;
         for (let number = 1; number <= totalPages; number++) {
             const link = document.createElement('a');
-            link.href = catalogAddress(number).href;
+            const address = catalogAddress(number);
+            address.hash = 'results-heading';
+            link.href = address.href;
             link.textContent = String(number);
             link.setAttribute('aria-label', 'Page ' + number);
             if (number === page) link.setAttribute('aria-current', 'page');

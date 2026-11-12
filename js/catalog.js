@@ -11,6 +11,9 @@
     const results = document.querySelector('#game-results');
     const emptyState = document.querySelector('#empty-state');
     const tabs = document.querySelectorAll('[data-collection]');
+    const pageSize = 42;
+    const pagination = document.querySelector('#catalog-pages');
+    let page = Math.max(1, Number.parseInt(params.get('page'), 10) || 1);
     let collection = params.get('saved') === '1' ? 'saved' : 'all';
 
     searchInput.value = (params.get('q') || '').slice(0, 120);
@@ -64,7 +67,7 @@
         return link;
     }
 
-    function updateAddress() {
+    function catalogAddress(pageNumber) {
         const url = new URL(window.location.href);
         url.search = '';
         const query = searchInput.value.trim();
@@ -73,6 +76,12 @@
         if (genreSelect.value !== 'all') url.searchParams.set('genre', genreSelect.value);
         if (sortSelect.value !== 'featured') url.searchParams.set('sort', sortSelect.value);
         if (statusSelect.value !== 'all') url.searchParams.set('status', statusSelect.value);
+        if (collection === 'all' && pageNumber > 1) url.searchParams.set('page', String(pageNumber));
+        return url;
+    }
+
+    function updateAddress() {
+        const url = catalogAddress(page);
         try {
             history.replaceState(null, '', url.href);
         } catch {
@@ -112,6 +121,20 @@
             results.append(section);
         }
     }
+    function renderPagination(totalPages) {
+        pagination.hidden = totalPages < 2;
+        pagination.replaceChildren();
+        if (pagination.hidden) return;
+        for (let number = 1; number <= totalPages; number++) {
+            const link = document.createElement('a');
+            link.href = catalogAddress(number).href;
+            link.textContent = String(number);
+            link.setAttribute('aria-label', 'Page ' + number);
+            if (number === page) link.setAttribute('aria-current', 'page');
+            pagination.append(link);
+        }
+    }
+
     function render() {
         const query = normalize(searchInput.value.trim());
         let matches = games.filter(game => {
@@ -130,8 +153,12 @@
 
         results.classList.toggle('is-grouped', collection === 'saved');
         document.querySelector('#collection-sections').hidden = collection !== 'saved';
+        const totalPages = collection === 'all' ? Math.ceil(matches.length / pageSize) : 0;
+        page = Math.min(page, Math.max(1, totalPages));
+        const start = (page - 1) * pageSize;
         if (collection === 'saved' && matches.length) renderGroups(matches);
-        else results.replaceChildren(...matches.map(createCard));
+        else results.replaceChildren(...matches.slice(start, start + pageSize).map(createCard));
+        renderPagination(totalPages);
         for (const [id, statuses] of [['played-count', collectionGroups[0].statuses], ['playing-count', ['playing']], ['wishlist-count', ['want-to-play']]]) {
             document.getElementById(id).textContent = String(games.filter(game => statuses.includes(window.Backlog.getStatus(game.id)?.id)).length);
         }
@@ -139,6 +166,9 @@
         document.querySelector('#all-count').textContent = String(games.length);
         document.querySelector('#saved-count').textContent = String(window.Backlog.updateCount());
         document.querySelector('#result-count').textContent = `${matches.length} ${matches.length === 1 ? 'game' : 'games'}${query ? ` for “${searchInput.value.trim()}”` : ' to discover'}`;
+        if (totalPages > 1) {
+            document.querySelector('#result-count').textContent = `${start + 1}–${Math.min(start + pageSize, matches.length)} of ${matches.length} games`;
+        }
         document.querySelector('#results-heading').textContent = collection === 'saved' ? 'Your collection' : 'The collection';
         document.querySelector('#catalog-title').innerHTML = collection === 'saved'
             ? 'Your games.<br><span>Your story.</span>'
@@ -162,17 +192,21 @@
         updateAddress();
     }
 
-    searchInput.addEventListener('input', render);
-    genreSelect.addEventListener('change', render);
-    statusSelect.addEventListener('change', render);
-    sortSelect.addEventListener('change', render);
-    window.addEventListener('backlog-search', render);
+    function resetPage() {
+        page = 1;
+        render();
+    }
+    searchInput.addEventListener('input', resetPage);
+    genreSelect.addEventListener('change', resetPage);
+    statusSelect.addEventListener('change', resetPage);
+    sortSelect.addEventListener('change', resetPage);
+    window.addEventListener('backlog-search', resetPage);
     window.addEventListener('storage', render);
     window.addEventListener('backlog-change', render);
     window.addEventListener('pageshow', render);
     tabs.forEach(tab => tab.addEventListener('click', () => {
         collection = tab.dataset.collection;
-        render();
+        resetPage();
     }));
 
     document.querySelector('#reset-filters').addEventListener('click', () => {
@@ -181,7 +215,7 @@
         statusSelect.value = 'all';
         sortSelect.value = 'featured';
         collection = 'all';
-        render();
+        resetPage();
         searchInput.focus();
     });
 

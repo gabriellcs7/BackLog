@@ -393,3 +393,8 @@
 .collection-group > h3 { font-size:22px; margin:0 0 8px; letter-spacing:-.5px; }
 .collection-group-description { color:var(--muted); font-size:12px; line-height:1.8; margin:0 0 24px; }
 .collection-group-empty { color:var(--muted); padding:20px; border:1px dashed #ffffff25; border-radius:8px; font-size:12px; }
+
+.catalog-pages { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:34px 0 16px; }
+.catalog-pages a { display:grid; place-items:center; min-width:44px; min-height:44px; border:1px solid var(--line); border-radius:8px; color:var(--text); text-decoration:none; }
+.catalog-pages a:hover { border-color:var(--yellow); }
+.catalog-pages a[aria-current="page"] { background:var(--yellow); color:#151614; border-color:var(--yellow); font-weight:700; }

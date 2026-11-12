@@ -11,6 +11,7 @@
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
             $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'The games that made you. The adventures still to come.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             renderProfileBanner();
+            renderProfileDetails();
             for(const id of ['choose-profile-banner','edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
             $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();
@@ -79,8 +80,25 @@
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';
         if(account.user){$('#account-email').textContent=account.user.email;let imported=false;try{imported=localStorage.getItem('backlog:imported:'+account.user.id)==='yes';}catch{}$('#import-device').disabled=imported;$('#import-device').textContent=imported?'Device profile copied':'Copy device profile & lists to account';}
     }
-    $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
-    $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo());$('#profile-dialog').close();note('Profile saved.');await render();});});
+    $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#profile-location-input').value=player.profile.location||'';$('#profile-website-input').value=player.profile.website||'';$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
+    $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo(),{location:$('#profile-location-input').value,website:$('#profile-website-input').value});$('#profile-dialog').close();note('Profile saved.');await render();});});
+    function renderProfileDetails(){
+        const location=$('#profile-location'),website=$('#profile-website');
+        location.textContent=player.profile.location||'';
+        location.hidden=!location.textContent;
+        website.hidden=true;
+        website.removeAttribute('href');
+        try{
+            const url=new URL(player.profile.website);
+            if(['http:','https:'].includes(url.protocol)&&!url.username&&!url.password){
+                website.href=url.href;
+                website.textContent=url.hostname.replace(/^www\./,'')+' ↗';
+                website.hidden=false;
+            }
+        }catch{}
+        $('#profile-details').hidden=location.hidden&&website.hidden;
+    }
+
     const bannerSelect=$('#profile-banner-game');
     for(const item of games){
         const option=el('option','',item.title);

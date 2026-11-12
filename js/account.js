@@ -14,7 +14,7 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), location: String(value.profile.location || '').slice(0,80), website: String(value.profile.website || '').slice(0,300), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
@@ -66,10 +66,24 @@
             await synchronize(data.session);
         } catch (error) { issue = error.message; changed(); }
     })();
-    async function saveProfile(name,bio,photo=undefined) {
+    async function saveProfile(name,bio,photo=undefined,details=undefined) {
         name=name.trim();bio=bio.trim();
         if (name.length<2||name.length>40||bio.length>280) throw new Error('Use 2–40 characters for your name and up to 280 for your bio.');
         const patch={display_name:name,bio};
+        if (details) {
+            const location=details.location.trim();
+            const website=details.website.trim();
+            if(location.length>80)throw new Error('Use up to 80 characters for your location.');
+            if(website){
+                let url;
+                try{url=new URL(website);}catch{}
+                if(!url||!['http:','https:'].includes(url.protocol)||url.username||url.password||/\s/.test(website)||website.length>300){
+                    throw new Error('Enter one valid link beginning with https:// or http://.');
+                }
+            }
+            if(location!==(state.profile.location||''))patch.location=location;
+            if(website!==(state.profile.website||''))patch.website=website;
+        }
         if (user && photo!==undefined) {
             const owner=requireUser();
             if(photo===null) patch.avatar_path=null;

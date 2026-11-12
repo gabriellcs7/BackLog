@@ -223,3 +223,7 @@
 .single-review-heading img { width:72px; aspect-ratio:3/4; object-fit:cover; border-radius:7px; }
 .single-review-heading h1 { margin:0 0 8px; font-size:clamp(24px,4vw,38px); overflow-wrap:anywhere; }
 .single-review-heading p { margin:0; }
+
+.profile-details { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px; margin-top:13px; font-size:12px; color:var(--muted); overflow-wrap:anywhere; }
+.profile-details a { color:var(--yellow); text-underline-offset:3px; }
+#profile-location::before { content:"⌖"; margin-right:6px; color:var(--yellow); }

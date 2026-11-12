@@ -857,22 +857,6 @@ h1>span:not(.title-dot) {
     stroke-linejoin: round;
 }
 
-.game-status-button[data-status="playing"] {
-    --status-color: #89d5ff;
-}
-
-.game-status-button[data-status="completed"] {
-    --status-color: #a7e6a1;
-}
-
-.game-status-button[data-status="platinum"] {
-    --status-color: #d1baff;
-}
-
-.game-status-button[data-status="dropped"] {
-    --status-color: #f0ad9a;
-}
-
 .game-status-button:hover {
     border-color: var(--status-color);
     color: var(--text);

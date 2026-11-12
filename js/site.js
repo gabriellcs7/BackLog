@@ -3,6 +3,10 @@
     'use strict';
 
     const games = window.BacklogGames;
+    const gameByCover = new Map(games.map(game => [
+        new URL('../imagens/capas/' + game.cover, document.currentScript.src).pathname,
+        game.id
+    ]));
     const searchForm = document.querySelector('.nav-search');
     const searchInput = document.querySelector('#site-search');
     const menuButton = document.querySelector('.menu-toggle');
@@ -85,6 +89,31 @@
         localStorage.removeItem(statusKey(id));
         window.dispatchEvent(new Event('backlog-change'));
     }
+
+    function updateCoverStatus(image) {
+        const path = new URL(image.src, document.baseURI).pathname;
+        const id = gameByCover.get(path);
+        const frame = image.closest('.library-art') || image;
+        if (id) frame.dataset.coverStatus = getStatus(id)?.id || 'none';
+        else delete frame.dataset.coverStatus;
+    }
+
+    function updateCovers(root = document) {
+        if (root instanceof HTMLImageElement && root.hasAttribute('src')) updateCoverStatus(root);
+        root.querySelectorAll('img[src]').forEach(updateCoverStatus);
+    }
+
+    updateCovers();
+    new MutationObserver(records => {
+        for (const record of records) {
+            if (record.type === 'attributes') updateCoverStatus(record.target);
+            else for (const node of record.addedNodes) {
+                if (node instanceof Element) updateCovers(node);
+            }
+        }
+    }).observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+    window.addEventListener('backlog-change', () => updateCovers());
+    window.addEventListener('storage', () => updateCovers());
 
     function updateCount() {
         const count = games.filter(game => isSaved(game.id)).length;

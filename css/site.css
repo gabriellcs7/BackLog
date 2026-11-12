@@ -902,3 +902,26 @@ h2 {
         gap: 26px 16px;
     }
 }
+
+/* The same palette drives collection controls and cover highlights. */
+:is(.game-status-button[data-status="played"],[data-cover-status="played"]) { --status-color:#79dec1; }
+:is(.game-status-button[data-status="playing"],[data-cover-status="playing"]) { --status-color:#89d5ff; }
+:is(.game-status-button[data-status="completed"],[data-cover-status="completed"]) { --status-color:#a7e6a1; }
+:is(.game-status-button[data-status="platinum"],[data-cover-status="platinum"]) { --status-color:#d1baff; }
+:is(.game-status-button[data-status="dropped"],[data-cover-status="dropped"]) { --status-color:#f0ad9a; }
+:is(.game-status-button[data-status="want-to-play"],[data-cover-status="want-to-play"]) { --status-color:#f4ba76; }
+[data-cover-status] { outline:2px solid transparent; outline-offset:-2px; }
+[data-cover-status]:hover,:focus-visible [data-cover-status] {
+    outline-color:var(--status-color,var(--yellow));
+}
+.library-card:hover .library-art[data-cover-status] {
+    border-color:var(--status-color,var(--yellow));
+}
+.library-card:hover .library-art[data-cover-status]::after {
+    box-shadow:inset 0 0 0 1px var(--status-color,var(--yellow));
+    pointer-events:none;
+}
+@media(prefers-reduced-motion:no-preference){
+    [data-cover-status] { transition:outline-color 180ms ease,border-color 180ms ease,translate 180ms ease; }
+    @media(hover:hover){.library-card:hover .library-art[data-cover-status]{translate:0 -3px}}
+}

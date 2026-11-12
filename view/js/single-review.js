@@ -8,6 +8,8 @@
     const heading = document.querySelector('#single-review-heading');
     const content = document.querySelector('#single-review-content');
     const feedback = document.querySelector('#single-review-feedback');
+    const layout = document.querySelector('#single-review-layout');
+    const coverLink = document.querySelector('#single-review-cover');
     const back = document.querySelector('#single-review-back');
     let version = 0;
 
@@ -15,6 +17,7 @@
         const ticket = ++version;
         await account.ready;
         feedback.textContent = 'Loading review…';
+        layout.hidden = true;
         heading.replaceChildren();
         content.replaceChildren();
         try {
@@ -39,10 +42,12 @@
             const header = ui.element('header', 'single-review-heading');
             const cover = ui.element('img');
             cover.src = '../imagens/capas/' + item.cover;
-            cover.alt = '';
+            cover.alt = item.title + ' cover';
+            coverLink.href = gameUrl;
+            coverLink.replaceChildren(cover);
             const copy = ui.element('div');
             copy.append(ui.element('h1', '', item.title), ui.element('p', 'social-small', id ? 'Community review' : 'Your review'));
-            header.append(cover, copy);
+            header.append(copy);
             heading.append(header);
             if (id) {
                 content.append(window.BacklogReviewCard(review, true));
@@ -58,6 +63,7 @@
                 content.append(article);
             }
             document.title = item.title + ' · Review · BackLog';
+            layout.hidden = false;
             feedback.textContent = '';
         } catch (error) {
             if (ticket === version) feedback.textContent = error.message || 'Could not load this review.';

@@ -20,11 +20,59 @@
     function renderLists(){const container=$('#profile-lists');container.replaceChildren();if(!player.lists.length){container.append(el('p','social-empty',own?'Start a list for your next marathon, your favorite genre or the games you’ve completed.':'No public lists yet.'));return;}
         for(const list of player.lists){const card=el('article','game-list-card');const covers=button('',()=>openListView(list),'list-cover-stack');covers.setAttribute('aria-label','Open '+list.name);for(const id of list.gameIds.slice(0,4)){const img=el('img');img.src='../imagens/capas/'+game(id).cover;img.alt='';covers.append(img);}if(!list.gameIds.length)covers.append(el('span','','+ Add your first game'));const heading=button(list.name,()=>openListView(list),'list-title-button');const count=el('span','social-small',list.gameIds.length+' games'+(list.is_ranked?' · Ranked':'')+' · '+(list.is_public?'Public':'Private'));card.append(covers,heading,count,el('p','list-description',list.description));if(own){const actions=el('div','social-actions');actions.append(button('Edit',()=>openListEditor(list),'social-button social-button-quiet'),button('Delete',()=>{pendingDelete=list.id;$('#delete-list-name').textContent=list.name;$('#delete-list-feedback').textContent='';$('#delete-list-dialog').showModal();},'social-button social-button-quiet social-danger'));card.append(actions);}container.append(card);}
     }
-    async function renderReviews(ticket){let reviews=own?window.BacklogGames.map(g=>{const r=window.BacklogReviews.get(g.id);return r?{...r,game_id:g.id}:null;}).filter(Boolean):[];
-        if(!own&&account.client){const result=await account.client.from('reviews').select('id,game_id,rating,text,updated_at').eq('user_id',player.profile.id).order('updated_at',{ascending:false}).limit(100);if(result.error)throw result.error;reviews=result.data;}
-        if(ticket!==version)return;const container=$('#profile-reviews');container.replaceChildren();if(!reviews.length){container.append(el('p','social-empty',own?'Your reviews will appear here. Open a game and share your take.':'No reviews yet.'));return;}
-        for(const review of reviews){const item=game(review.game_id);if(!item)continue;const card=el('a','profile-review-card');card.href='game.html?id='+encodeURIComponent(item.id)+(own?'#your-review':'#community');const img=el('img');img.src='../imagens/capas/'+item.cover;img.alt='';const copy=el('div');copy.append(el('h3','',item.title),el('span','social-rating',review.rating===null?'Written review':review.rating+' / 5 ★'),el('p','',review.text||'Rated this game.'));card.append(img,copy);container.append(card);}
+    const reviewGrid=$('#profile-reviews'),moreReviews=$('#more-profile-reviews'),reviewFeedback=$('#profile-reviews-feedback');
+    let reviewsOffset=0;
+
+    function profileReviewCard(review){
+        const item=game(review.game_id);
+        if(!item)return null;
+        const card=el('a','profile-review-card');
+        card.href='game.html?id='+encodeURIComponent(item.id)+(review.id?'#review-'+review.id:'#your-review');
+        const image=el('img');
+        image.src='../imagens/capas/'+item.cover;
+        image.alt='';
+        image.loading='lazy';
+        const copy=el('div');
+        const rating=review.rating===null?'Written review':review.rating+' / 5 ★';
+        const likes=Number(review.like_count||0);
+        copy.append(el('h3','',item.title),el('span','social-rating',rating+' · '+likes+' '+(likes===1?'like':'likes')),el('p','',review.text||'Rated this game.'));
+        card.append(image,copy);
+        return card;
     }
+
+    async function renderReviews(ticket,reset=true){
+        if(reset){
+            reviewsOffset=0;
+            reviewGrid.replaceChildren();
+            moreReviews.hidden=true;
+        }
+        const limit=reset?4:12;
+        const offset=reviewsOffset;
+        moreReviews.disabled=true;
+        reviewFeedback.textContent='';
+        try{
+            let reviews;
+            if(player.profile.id==='local'){
+                reviews=games.map(item=>{
+                    const review=window.BacklogReviews.getDevice(item.id);
+                    return review?{...review,game_id:item.id}:null;
+                }).filter(Boolean).sort((a,b)=>b.updatedAt.localeCompare(a.updatedAt)).slice(offset,offset+limit+1);
+            }else{
+                reviews=await window.BacklogCommunity.profileReviews(player.profile.id,offset,limit+1);
+            }
+            if(ticket!==version)return;
+            const visible=reviews.slice(0,limit);
+            reviewGrid.append(...visible.map(profileReviewCard).filter(Boolean));
+            reviewsOffset+=visible.length;
+            moreReviews.hidden=reviews.length<=limit;
+            if(reset&&!visible.length)reviewGrid.append(el('p','social-empty',own?'Your reviews will appear here. Open a game and share your take.':'No reviews yet.'));
+        }catch(error){
+            if(ticket===version)reviewFeedback.textContent=error.message||'Could not load reviews.';
+        }finally{
+            if(ticket===version)moreReviews.disabled=false;
+        }
+    }
+    moreReviews.addEventListener('click',()=>renderReviews(version,false));
     function renderAccount(){if(!own)return;$('#signed-in').hidden=!account.user;const filePreview=location.protocol==='file:'&&account.configured;$('#auth-form').hidden=Boolean(account.user)||!account.configured||filePreview;$('#local-preview-link').hidden=!filePreview||Boolean(account.user);
         $('#account-link').textContent=account.user?'Your account ↗':'Sign in ↗';$('#account-note').textContent=account.user?'Your profile, lists and favorites are connected to your account.':account.configured?'Sign in to sync your profile and join the conversation. Your device profile stays separate.':'Online accounts are not connected yet. You can still save your profile, top four and lists on this device.';
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';

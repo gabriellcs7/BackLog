@@ -12,6 +12,14 @@
         async publicDiary(id,year,offset){return check(await(await client()).rpc('profile_public_diary',{profile_key:id,calendar_year:year,page_offset:offset}))||[];},
         async recent(id){const api=await client(),params={profile_key:id};let result=await api.rpc('profile_recent_games_v2',params);if(result.error?.code==='PGRST202')result=await api.rpc('profile_recent_games',params);return check(result)||[];},
         async home(kind,offset=0){return check(await(await client(kind==='following')).rpc('home_review_feed',{feed_kind:kind,page_offset:offset}))||[];},
+        async profileReviews(id,offset,limit){
+            const api=await client();
+            return check(await api.from('review_cards')
+                .select('id,game_id,rating,text,like_count,updated_at')
+                .eq('user_id',id).order('like_count',{ascending:false})
+                .order('updated_at',{ascending:false}).order('id')
+                .range(offset,offset+limit-1))||[];
+        },
         async review(id){return (check(await(await client()).rpc('get_review_card',{review_key:id}))||[])[0];},
         async social(id){return (check(await(await client()).rpc('profile_social',{profile_key:id}))||[])[0];},
         async follow(id,value){check(await(await client(true)).rpc('set_profile_follow',{profile_key:id,should_follow:value}));},

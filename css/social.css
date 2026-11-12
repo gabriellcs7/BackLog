@@ -202,3 +202,5 @@
 .favorite-result:disabled { opacity:.45; cursor:default; }
 .favorite-result-mark { color:var(--yellow); font-size:17px; }
 @media(max-width:560px){.favorite-results{grid-template-columns:1fr}.favorite-selected{gap:8px}}
+
+#more-profile-reviews { margin-top:18px; }

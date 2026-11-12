@@ -4,7 +4,7 @@
     function card(review){
         const game=ui.game(review.game_id);if(!game)return null;
         const article=el('article','home-review-card');article.dataset.review=review.id;
-        const url=ui.href('view/game.html?id='+encodeURIComponent(game.id)+'#review-'+review.id);
+        const url=ui.reviewHref('id',review.id);
         const link=el('a','home-review-game');link.href=url;const cover=el('img');cover.src=ui.href('imagens/capas/'+game.cover);cover.alt='';cover.loading='lazy';
         const title=el('div');title.append(el('h3','',game.title),el('p','social-rating',review.rating===null?'Written review':review.rating+' / 5 ★'));link.append(cover,title);
         const author=el('div','home-review-author'),profile={id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path};author.append(ui.avatar(profile),ui.profileLink(profile));
@@ -14,7 +14,8 @@
         function refresh(){like.textContent=(review.liked?'♥':'♡')+' '+review.like_count;like.setAttribute('aria-label',(review.liked?'Unlike':'Like')+' review by '+review.display_name);like.setAttribute('aria-pressed',String(review.liked));like.disabled=!account.user||account.user.id===review.user_id;like.title=!account.user?'Sign in to like a review':account.user.id===review.user_id?'This is your review':'';}
         refresh();like.addEventListener('click',()=>ui.action(like,message,async()=>{const next=!review.liked;review.like_count=await api.like(review.id,next);review.liked=next;refresh();window.dispatchEvent(new Event('backlog-likes-change'));}));
         const read=el('a','','Read review · '+review.comment_count+' comments ↗');read.href=url;actions.append(like,read);
-        article.append(link,author,el('p','home-review-copy',review.text),date,actions,message);return article;
+        const excerpt=el('a','home-review-copy review-text-link',review.text);excerpt.href=url;
+        article.append(link,author,excerpt,date,actions,message);return article;
     }
     for(const kind of ['popular','following']){
         const feed=document.getElementById(kind+'-reviews'),feedback=document.getElementById(kind+'-feedback'),more=document.getElementById('more-'+kind);

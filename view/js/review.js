@@ -77,6 +77,8 @@
             }
             const savedText = document.querySelector('#review-saved-text');
             savedText.textContent = review.text;
+            const savedId=window.BacklogAccount.getState().reviews.find(item=>item.game_id===game.id)?.id;
+            document.querySelector('#open-saved-review').href=window.BacklogUI.reviewHref(savedId?'id':'game',savedId||game.id);
             savedText.hidden = !review.text;
             const date = document.querySelector('#review-date');
             date.dateTime = review.reviewedOn || review.updatedAt;

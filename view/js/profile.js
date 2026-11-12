@@ -28,7 +28,7 @@
         const item=game(review.game_id);
         if(!item)return null;
         const card=el('a','profile-review-card');
-        card.href='game.html?id='+encodeURIComponent(item.id)+(review.id?'#review-'+review.id:'#your-review');
+        card.href=ui.reviewHref(review.id?'id':'game',review.id||item.id);
         const image=el('img');
         image.src='../imagens/capas/'+item.cover;
         image.alt='';

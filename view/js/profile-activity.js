@@ -39,7 +39,7 @@
                 $('profile-metrics').append(control);
             }
             const grid=$('profile-recent-games');grid.replaceChildren();
-            for(const entry of data.recent.slice(0,4)){const item=ui.game(entry.game_id);if(!item)continue;const card=ui.gameCard(item.id);card.classList.add('favorite-slot','recent-game-card');if(entry.review_id)card.href=ui.href('view/game.html?id='+encodeURIComponent(item.id)+'#review-'+entry.review_id);
+            for(const entry of data.recent.slice(0,4)){const item=ui.game(entry.game_id);if(!item)continue;const card=ui.gameCard(item.id);card.classList.add('favorite-slot','recent-game-card');if(entry.review_id)card.href=ui.reviewHref('id',entry.review_id);else if(entry.kind==='rating'&&player.profile.id==='local')card.href=ui.reviewHref('game',item.id);
                 const label=entry.kind==='rating'?(entry.rating===null?'Reviewed':entry.rating+' / 5 ★'):window.Backlog.statusOptions.find(s=>s.id===entry.status)?.label||'Updated collection';
                 const date=ui.element('time','social-small',ui.date(entry.created_at));date.dateTime=entry.created_at;card.append(ui.element('p','recent-game-label',label),date);if(entry.review_number>1)card.append(ui.element('p','recent-game-label',ui.reviewOrdinal(entry.review_number)));grid.append(card);}
             if(!grid.children.length)grid.append(ui.element('p','social-empty','No recent activity yet. Rate a game or choose a status to start your story.'));

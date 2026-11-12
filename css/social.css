@@ -215,3 +215,11 @@
 .profile-banner-credit:hover { text-decoration:underline; }
 .profile-banner-preview { display:block; width:100%; aspect-ratio:3/1; object-fit:cover; border-radius:8px; margin:12px 0; }
 @media(max-width:560px){.has-profile-banner{padding:20px;min-height:240px}}
+
+.review-text-link { color:inherit; text-decoration:none; }
+.review-text-link:hover { text-decoration:underline; text-underline-offset:3px; }
+.single-review-page { max-width:860px; }
+.single-review-heading { display:flex; gap:18px; align-items:center; margin:24px 0; }
+.single-review-heading img { width:72px; aspect-ratio:3/4; object-fit:cover; border-radius:7px; }
+.single-review-heading h1 { margin:0 0 8px; font-size:clamp(24px,4vw,38px); overflow-wrap:anywhere; }
+.single-review-heading p { margin:0; }

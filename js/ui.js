@@ -19,5 +19,8 @@
         const suffix=new Intl.PluralRules('en',{type:'ordinal'}).select(Number(number));
         return number+({one:'st',two:'nd',few:'rd',other:'th'}[suffix])+' review';
     }
-    window.BacklogUI={element,game,gameCard,profileLink,avatar,href,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
+    function reviewHref(key,value){
+        return href('view/review.html?'+new URLSearchParams({[key]:value}));
+    }
+    window.BacklogUI={element,game,gameCard,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
 })();

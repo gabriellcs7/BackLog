@@ -106,7 +106,9 @@
     updateCovers();
     new MutationObserver(records => {
         for (const record of records) {
-            if (record.type === 'attributes') updateCoverStatus(record.target);
+            if (record.type === 'attributes') {
+                if (record.target instanceof HTMLImageElement) updateCoverStatus(record.target);
+            }
             else for (const node of record.addedNodes) {
                 if (node instanceof Element) updateCovers(node);
             }
@@ -114,6 +116,24 @@
     }).observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
     window.addEventListener('backlog-change', () => updateCovers());
     window.addEventListener('storage', () => updateCovers());
+
+    // Reveal sections as they enter view without hiding them if JavaScript is unavailable.
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    if ('IntersectionObserver' in window) {
+        const reveal = new IntersectionObserver(entries => {
+            for (const entry of entries) {
+                if (!entry.isIntersecting) continue;
+                reveal.unobserve(entry.target);
+                if (!reducedMotion.matches && entry.boundingClientRect.top > 120) {
+                    entry.target.animate(
+                        [{ opacity: .72, transform: 'translateY(9px)' }, { opacity: 1, transform: 'none' }],
+                        { duration: 320, easing: 'cubic-bezier(.2,.7,.25,1)' }
+                    );
+                }
+            }
+        }, { threshold: .08 });
+        document.querySelectorAll('main section').forEach(section => reveal.observe(section));
+    }
 
     function updateCount() {
         const count = games.filter(game => isSaved(game.id)).length;

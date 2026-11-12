@@ -925,3 +925,14 @@ h2 {
     [data-cover-status] { transition:outline-color 180ms ease,border-color 180ms ease,translate 180ms ease; }
     @media(hover:hover){.library-card:hover .library-art[data-cover-status]{translate:0 -3px}}
 }
+
+@media(prefers-reduced-motion:no-preference){
+    .library-art img { transition:transform 260ms ease,filter 200ms ease; }
+    .button:active,.social-button:active,.favorite-move:active { scale:.98; }
+    .catalog-pages a:active { scale:.95; }
+    @media(hover:hover){
+        .library-card:hover .library-art img { transform:scale(1.025); }
+        .profile-review-card,.home-review-card,.activity-event { transition:background-color 180ms ease,border-color 180ms ease; }
+        .profile-review-card:hover,.home-review-card:hover,.activity-event:focus-within { background-color:#22251d; }
+    }
+}

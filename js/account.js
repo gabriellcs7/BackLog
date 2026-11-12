@@ -14,7 +14,7 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
@@ -92,6 +92,19 @@
             persist({...state,profile:{...state.profile,...patch}});
         }
     }
+    async function saveProfileBanner(gameId) {
+        if (gameId !== null && !known(gameId)) throw new Error('Choose a game from the catalog.');
+        const patch = { banner_game_id: gameId };
+        if (!user) {
+            persist({ ...state, profile: { ...state.profile, ...patch } });
+            return;
+        }
+        const owner = requireUser();
+        checked(await client.from('profiles').update(patch).eq('id', owner));
+        if (user?.id !== owner) throw new Error('Your account changed. Please reload.');
+        state.profile = { ...state.profile, ...patch };
+        changed();
+    }
     async function saveFavorites(ids) {
         validateIds(ids,4);
         if (user) { const owner=requireUser();checked(await client.rpc('set_favorites',{game_ids:ids}));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.favorites=[...ids];changed(); }
@@ -153,7 +166,7 @@
     async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&Boolean(existing.is_ranked)===Boolean(list.is_ranked)&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
     window.BacklogAccount=Object.freeze({
         ready,configured,get loading(){return loading;},get user(){return user?{id:user.id,email:user.email}:null;},get error(){return issue;},get client(){return client;},getState:()=>copy(state),
-        saveProfile,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
+        saveProfile,saveProfileBanner,saveFavorites,saveList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
         getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating===null?null:Number(review.rating),text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on||window.BacklogDiary?.dateFromTimestamp(review.updated_at)}:null;},
         async getProfile(id){await ready;if(!client)throw new Error('Online profiles are not connected yet.');if(!/^[0-9a-f-]{36}$/i.test(id))throw new Error('Profile not found.');return loadPlayer(id,id===user?.id);}
     });

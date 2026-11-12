@@ -10,7 +10,8 @@
     async function render(){const ticket=++version;own=!target||target===account.user?.id;
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
             $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'The games that made you. The adventures still to come.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
-            for(const id of ['edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
+            renderProfileBanner();
+            for(const id of ['choose-profile-banner','edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
             $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();
             for(let i=0;i<4;i++){const id=player.favorites[i],slot=el('div','favorite-slot');if(id){slot.append(gameCard(id));}else{const empty=own?button('+',openFavorites,'favorite-empty'):el('div','favorite-empty','☆');if(own)empty.setAttribute('aria-label','Choose favorite game '+(i+1));empty.append(el('span','',own?'Choose a game':'Not selected'));slot.append(empty);}$('#favorites-grid').append(slot);}
@@ -80,6 +81,52 @@
     }
     $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
     $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo());$('#profile-dialog').close();note('Profile saved.');await render();});});
+    const bannerSelect=$('#profile-banner-game');
+    for(const item of games){
+        const option=el('option','',item.title);
+        option.value=item.id;
+        bannerSelect.append(option);
+    }
+
+    function setBannerImage(image,item){
+        image.hidden=!item?.banner;
+        if(image.hidden)image.removeAttribute('src');
+        else{
+            image.src=ui.href('imagens/'+item.banner);
+            image.style.objectPosition=item.bannerPosition||'center';
+        }
+    }
+
+    function renderProfileBanner(){
+        const item=game(player.profile.banner_game_id);
+        const banner=$('#profile-banner'),credit=$('#profile-banner-credit');
+        setBannerImage(banner,item);
+        banner.parentElement.classList.toggle('has-profile-banner',!banner.hidden);
+        credit.hidden=banner.hidden;
+        if(!credit.hidden){
+            credit.href=ui.href('view/game.html?id='+encodeURIComponent(item.id));
+            credit.textContent=item.title+' ↗';
+        }
+    }
+
+    const bannerPreview=$('#profile-banner-preview');
+    bannerSelect.addEventListener('change',()=>setBannerImage(bannerPreview,game(bannerSelect.value)));
+    $('#choose-profile-banner').addEventListener('click',()=>{
+        if(!own||account.loading)return;
+        bannerSelect.value=game(player.profile.banner_game_id)?.id||'';
+        setBannerImage(bannerPreview,game(bannerSelect.value));
+        $('#profile-banner-feedback').textContent='';
+        $('#profile-banner-dialog').showModal();
+    });
+    $('#profile-banner-form').addEventListener('submit',event=>{
+        event.preventDefault();
+        action(event.submitter,$('#profile-banner-feedback'),async()=>{
+            await account.saveProfileBanner(bannerSelect.value||null);
+            $('#profile-banner-dialog').close();
+            note('Profile banner saved.');
+        });
+    });
+
     let favoriteDraft=[];
     const favoriteSearch=$('#favorite-search');
     const normalizeFavorite=value=>value.normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();

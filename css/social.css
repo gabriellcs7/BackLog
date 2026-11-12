@@ -204,3 +204,14 @@
 @media(max-width:560px){.favorite-results{grid-template-columns:1fr}.favorite-selected{gap:8px}}
 
 #more-profile-reviews { margin-top:18px; }
+
+.has-profile-banner { position:relative; isolation:isolate; overflow:hidden; min-height:280px; padding:32px; align-content:end; border:1px solid var(--line); border-radius:14px; }
+.profile-banner,.has-profile-banner::before { position:absolute; inset:0; width:100%; height:100%; z-index:-1; }
+.profile-banner { object-fit:cover; }
+.has-profile-banner::before { content:""; z-index:0; background:linear-gradient(0deg,#131414 0%,#131414c4 42%,#13141425 100%); }
+.has-profile-banner > :not(.profile-banner) { position:relative; z-index:1; }
+.has-profile-banner .profile-identity { max-width:100%; }
+.profile-banner-credit { flex-basis:100%; color:var(--yellow); text-decoration:none; font-size:12px; }
+.profile-banner-credit:hover { text-decoration:underline; }
+.profile-banner-preview { display:block; width:100%; aspect-ratio:3/1; object-fit:cover; border-radius:8px; margin:12px 0; }
+@media(max-width:560px){.has-profile-banner{padding:20px;min-height:240px}}

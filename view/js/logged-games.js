@@ -2,7 +2,10 @@
     'use strict';
     const account = window.BacklogAccount;
     const ui = window.BacklogUI;
-    const target = new URLSearchParams(location.search).get('id');
+    const params = new URLSearchParams(location.search);
+    const target = params.get('id');
+    const filter = params.get('rating');
+    const selectedRating = filter !== null && /^(?:[0-4](?:\.5)?|5)$/.test(filter) ? Number(filter) : null;
     const grid = document.querySelector('#logged-games-grid');
     const title = document.querySelector('#logged-games-title');
     const count = document.querySelector('#logged-games-count');
@@ -26,6 +29,7 @@
         const ticket = ++version;
         await account.ready;
         const id = target || account.user?.id || 'local';
+        title.textContent = 'Games logged';
         profileLink.href = id === 'local' ? 'profile.html' : 'profile.html?id=' + encodeURIComponent(id);
         grid.replaceChildren();
         feedback.textContent = '';
@@ -50,14 +54,19 @@
                 if (!player.profile) throw new Error('Profile not found.');
                 title.textContent = player.profile.display_name + '\'s logged games';
                 games = rows.map(row => ui.game(row.game_id)).filter(Boolean);
+                if (scoreRows === null && selectedRating !== null) throw new Error('Could not load star ratings.');
                 if (scoreRows === null) feedback.textContent = 'Could not load star ratings.';
                 else for (const row of scoreRows) ratings.set(row.game_id, row.rating);
             }
             if (ticket !== version) return;
+            if (selectedRating !== null) {
+                title.textContent += ' · ' + selectedRating + ' / 5 ★';
+                games = games.filter(game => ratings.has(game.id) && Number(ratings.get(game.id)) === selectedRating);
+            }
             games.sort((a, b) => a.title.localeCompare(b.title));
             count.textContent = games.length + (games.length === 1 ? ' game' : ' games');
             grid.replaceChildren(...games.map(game => cardWithRating(game, ratings.get(game.id))));
-            if (!games.length) grid.append(ui.element('p', 'social-empty', 'No logged games yet.'));
+            if (!games.length) grid.append(ui.element('p', 'social-empty', selectedRating === null ? 'No logged games yet.' : 'No games with this rating.'));
         } catch (error) {
             if (ticket !== version) return;
             count.textContent = '';

@@ -1,6 +1,6 @@
 (() => {
     'use strict';
-    const {element:el}=window.BacklogUI;
+    const {element:el,href}=window.BacklogUI;
     const account=window.BacklogAccount;
     const chart=document.getElementById('profile-ratings-chart');
     const feedback=document.getElementById('profile-ratings-feedback');
@@ -48,7 +48,13 @@
                 bin.setAttribute('aria-label',description);
                 const bar=el('span','ratings-bar');
                 bar.style.setProperty('--bar-height',count/maximum*100+'%');
-                bin.append(bar);
+                const link=el('a','ratings-bin-link');
+                link.href=href('view/logged-games.html?'+new URLSearchParams({id:profileId,rating:index/2}));
+                link.setAttribute('aria-label',description+' · View games');
+                link.title=description;
+                bar.setAttribute('aria-hidden','true');
+                link.append(bar);
+                bin.append(link);
                 histogram.append(bin);
             }
             const scale=el('div','ratings-scale');

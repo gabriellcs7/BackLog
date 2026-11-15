@@ -6,6 +6,7 @@
     const configured = Boolean(config.supabaseUrl && config.supabasePublishableKey);
     const games = window.BacklogGames;
     const known = id => games.some(game => game.id === id);
+    const platforms = new Set(['PC', 'PlayStation', 'Xbox', 'Nintendo', 'Mobile', 'Steam Deck', 'Other']);
     const localKey = 'backlog:player:local';
     let client = null, user = null, issue = '', generation = 0, loading = false;
     const empty = () => ({ profile: { id: 'local', display_name: 'Your profile', bio: '' }, favorites: [], lists: [], reviews: [] });
@@ -14,7 +15,7 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), location: String(value.profile.location || '').slice(0,80), website: String(value.profile.website || '').slice(0,300), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), location: String(value.profile.location || '').slice(0,80), website: String(value.profile.website || '').slice(0,300), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, gaming_platform: platforms.has(value.profile.gaming_platform) ? value.profile.gaming_platform : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
@@ -71,6 +72,9 @@
         if (name.length<2||name.length>40||bio.length>280) throw new Error('Use 2–40 characters for your name and up to 280 for your bio.');
         const patch={display_name:name,bio};
         if (details) {
+            const platform=details.platform||null;
+            if(platform!==null&&!platforms.has(platform))throw new Error('Choose a gaming platform.');
+            if(platform!==(state.profile.gaming_platform||null))patch.gaming_platform=platform;
             const location=details.location.trim();
             const website=details.website.trim();
             if(location.length>80)throw new Error('Use up to 80 characters for your location.');

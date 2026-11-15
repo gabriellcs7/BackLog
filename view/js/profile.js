@@ -80,8 +80,8 @@
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';
         if(account.user){$('#account-email').textContent=account.user.email;let imported=false;try{imported=localStorage.getItem('backlog:imported:'+account.user.id)==='yes';}catch{}$('#import-device').disabled=imported;$('#import-device').textContent=imported?'Device profile copied':'Copy device profile & lists to account';}
     }
-    $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#profile-location-input').value=player.profile.location||'';$('#profile-website-input').value=player.profile.website||'';$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
-    $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo(),{location:$('#profile-location-input').value,website:$('#profile-website-input').value});$('#profile-dialog').close();note('Profile saved.');await render();});});
+    $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#profile-location-input').value=player.profile.location||'';$('#profile-website-input').value=player.profile.website||'';$('#profile-platform-input').value=player.profile.gaming_platform||'';$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
+    $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo(),{location:$('#profile-location-input').value,website:$('#profile-website-input').value,platform:$('#profile-platform-input').value});$('#profile-dialog').close();note('Profile saved.');await render();});});
     function renderProfileDetails(){
         const location=$('#profile-location'),website=$('#profile-website');
         location.textContent=player.profile.location||'';
@@ -96,7 +96,10 @@
                 website.hidden=false;
             }
         }catch{}
-        $('#profile-details').hidden=location.hidden&&website.hidden;
+        const platform=$('#profile-platform');
+        platform.textContent=player.profile.gaming_platform||'';
+        platform.hidden=!platform.textContent;
+        $('#profile-details').hidden=location.hidden&&website.hidden&&platform.hidden;
     }
 
     const bannerSelect=$('#profile-banner-game');

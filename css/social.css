@@ -267,8 +267,18 @@
 .player-profile .has-profile-banner { min-height:215px; padding:24px; }
 .player-profile .profile-social-bar:has(> :not([hidden])) { margin:14px 0; }
 .player-profile .profile-social-bar:not(:has(> :not([hidden]))) { display:none; }
-.profile-overview { display:grid; grid-template-columns:minmax(0,1fr) minmax(200px,310px); align-items:center; gap:24px; padding:14px 18px; border:1px solid var(--line); border-radius:12px; background:#191c17; margin:16px 0 24px; }
-.profile-overview .profile-metrics,.profile-overview .profile-ratings { margin:0; }
+.profile-overview { display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,.8fr); gap:12px; margin:16px 0 22px; }
+.profile-totals,.profile-overview .profile-ratings { min-width:0; padding:14px; border:1px solid var(--line); border-radius:12px; background:#191c17; }
+.profile-overview .profile-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:0; height:100%; }
+.profile-overview .profile-stat { justify-content:center; padding:10px 8px; border-radius:8px; background:#23261e; text-align:center; }
+.profile-overview .profile-stat:hover,.profile-overview .profile-stat:focus-visible { background:#2e3124; }
+.profile-overview .profile-stat strong { font-size:clamp(22px,3vw,34px); }
+.profile-overview .profile-stat span { line-height:1.4; }
+.profile-overview .profile-ratings { max-width:none; margin:0; }
+.profile-overview .ratings-summary { margin-top:-4px; }
+.profile-overview .ratings-histogram { height:42px; }
+.profile-overview .ratings-bar { background:#748263; }
+.profile-overview .ratings-bin:hover .ratings-bar { background:var(--yellow); }
 #profile-ratings-feedback:empty { display:none; }
 .profile-content { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:22px; align-items:start; }
 .profile-shelves,.profile-community { display:grid; min-width:0; gap:18px; }
@@ -282,7 +292,7 @@
 @media(max-width:850px){.profile-content{grid-template-columns:1fr}}
 @media(max-width:560px){
     .player-profile{padding-top:20px}
-    .profile-overview{grid-template-columns:1fr;gap:14px;padding:14px}
+    .profile-overview{grid-template-columns:1fr;gap:10px}
     .profile-overview .profile-ratings{max-width:none}
     .profile-content{gap:14px}
     .profile-content section{padding:12px}

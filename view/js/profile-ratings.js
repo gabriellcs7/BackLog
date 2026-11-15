@@ -53,7 +53,7 @@
             }
             const scale=el('div','ratings-scale');
             scale.setAttribute('aria-hidden','true');
-            scale.append(el('span','',first===0?'0':'½ ★'),el('span','','★★★★★'));
+            scale.append(el('span','','★'),el('span','','★★★★★'));
             chart.append(summary,histogram,scale);
         }catch(error){
             if(ticket===generation)feedback.textContent='Could not load ratings.';

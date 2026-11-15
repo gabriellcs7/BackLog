@@ -9,6 +9,10 @@
     const button=(text,task,className='social-button')=>{const b=el('button',className,text);b.type='button';b.addEventListener('click',task);return b;};
     function note(message){$('#profile-message').textContent=message;}
     async function render(){const ticket=++version;own=!target||target===account.user?.id;
+        const profileNav=$('#profile-nav-link');
+        profileNav.classList.toggle('active',own);
+        if(own)profileNav.setAttribute('aria-current','page');
+        else profileNav.removeAttribute('aria-current');
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
             $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'Games you play, reviews, and custom lists.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             renderProfileBanner();

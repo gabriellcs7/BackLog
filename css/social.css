@@ -125,7 +125,7 @@
 .photo-editor>div { flex:1; min-width:0; }
 .photo-editor input { max-width:100%; }
 .photo-editor .player-avatar { width:88px; height:88px; display:grid; place-items:center; }
-.connection-row { display:flex; align-items:center; gap:12px; padding:14px 0; border-bottom:1px solid #ffffff12; }
+
 .comment-avatar { width:24px; height:24px; font-size:12px; }
 /* Public home feeds use the same profile identity as game reviews. */
 .home-review-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
@@ -316,3 +316,25 @@
 #more-profile-lists { margin-top:12px; }
 .game-list-card .social-actions { margin-top:10px; gap:6px; }
 .profile-content .list-grid>.social-empty { grid-column:1/-1; }
+
+/* Profile connections */
+.profile-connection-counts { flex-wrap:wrap; }
+.connection-stat { display:grid; grid-template-columns:auto auto auto; align-items:center; gap:9px; min-height:46px; padding:8px 13px; color:var(--text); border:1px solid var(--line); border-radius:9px; background:#20231b; cursor:pointer; font:inherit; }
+.connection-stat strong { color:var(--yellow); font-size:18px; font-variant-numeric:tabular-nums; }
+.connection-stat span { font-size:12px; }
+.connection-chevron { color:var(--yellow); }
+.connection-stat:hover,.connection-stat:focus-visible { background:#292d21; border-color:var(--yellow); }
+.connections-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.connections-header h2 { margin:0; flex:1; min-width:0; font-size:20px; overflow-wrap:anywhere; }
+.connections-header .community-avatar { flex:none; }
+.connections-close { flex:none; width:40px; padding:0; font-size:22px; }
+.connections-tabs { display:grid; grid-template-columns:1fr 1fr; gap:4px; padding:4px; border-radius:9px; background:#111410; }
+.connections-tab { display:flex; align-items:center; justify-content:center; gap:6px; min-height:42px; border:1px solid transparent; border-radius:7px; background:none; color:var(--muted); font:inherit; font-size:12px; cursor:pointer; }
+.connections-tab[aria-pressed="true"] { border-color:var(--line); background:#292d21; color:var(--text); }
+.connections-tab span { color:var(--yellow); font-variant-numeric:tabular-nums; }
+.connections-list { display:grid; gap:6px; list-style:none; padding:0; margin:14px 0; }
+.connection-row { display:flex; align-items:center; gap:10px; padding:8px 10px; border:1px solid var(--line); border-radius:8px; text-decoration:none; }
+.connection-row:hover,.connection-row:focus-visible { border-color:var(--yellow); background:#24271e; }
+.connection-row .community-avatar { flex:none; }
+.connection-name { flex:1; min-width:0; overflow-wrap:anywhere; }
+@media(prefers-reduced-motion:no-preference){.connection-stat,.connections-tab,.connection-row{transition:background 160ms,border-color 160ms}}

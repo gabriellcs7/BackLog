@@ -269,7 +269,7 @@
 .player-profile .profile-social-bar:not(:has(> :not([hidden]))) { display:none; }
 .profile-overview { display:grid; grid-template-columns:minmax(0,1fr) minmax(200px,310px); align-items:center; gap:24px; padding:14px 18px; border:1px solid var(--line); border-radius:12px; background:#191c17; margin:16px 0 24px; }
 .profile-overview .profile-metrics,.profile-overview .profile-ratings { margin:0; }
-.profile-overview .profile-ratings-feedback:empty,#profile-ratings-feedback:empty { display:none; }
+#profile-ratings-feedback:empty { display:none; }
 .profile-content { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:22px; align-items:start; }
 .profile-shelves,.profile-community { display:grid; min-width:0; gap:18px; }
 .profile-content section { min-width:0; padding:16px; border:1px solid var(--line); border-radius:12px; background:#191c17; }
@@ -291,3 +291,11 @@
     .profile-content .favorite-empty span{font-size:9px}
     .profile-content .favorite-slot .library-card h3{font-size:10px;overflow-wrap:anywhere}
 }
+
+.list-cover-stack,.list-title-button { text-decoration:none; }
+.player-profile .list-cover-stack { height:88px; justify-content:flex-start; }
+.player-profile .list-cover-stack img { flex:0 0 auto; width:66px; }
+.player-profile .list-cover-stack span { margin:auto; }
+.list-page-description { white-space:pre-wrap; overflow-wrap:anywhere; }
+#list-page-games { list-style:none; padding:0; }
+#list-page-games li { position:relative; min-width:0; }

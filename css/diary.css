@@ -22,6 +22,8 @@
 .diary-day span { color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:1px; }
 .diary-cover img { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:6px; }
 .diary-entry-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.diary-title-group { display:flex; align-items:center; flex-wrap:wrap; min-width:0; column-gap:10px; row-gap:2px; }
+.diary-title-group .game-rating-stars { flex:none; white-space:nowrap; }
 .diary-game-title { font-size:17px; font-weight:700; line-height:1.5; }
 .diary-game-title:hover { color:var(--yellow); }
 .diary-review-text,.diary-excerpt,.diary-review p { font-size:12px; line-height:1.9; color:#c1c7b7; white-space:pre-wrap; overflow-wrap:anywhere; margin:12px 0; }

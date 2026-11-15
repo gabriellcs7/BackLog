@@ -14,8 +14,11 @@
         const day=el('time','diary-day');day.dateTime=entry.reviewedOn;day.append(el('strong','',entry.reviewedOn.slice(8)),el('span','',format(entry.reviewedOn,{weekday:'short'})));
         const cover=el('a','diary-cover');cover.href='game.html?id='+encodeURIComponent(game.id);const image=el('img');image.src='../imagens/capas/'+game.cover;image.alt=game.title+' cover';image.loading='lazy';cover.append(image);
         const content=el('div','diary-entry-content'),heading=el('div','diary-entry-heading'),title=el('a','diary-game-title',game.title);title.href=cover.href;
-        heading.append(title);
-        if(entry.rating!==null||entry.text||entry.reviewId)heading.append(el('span','social-rating',entry.rating===null?'Written review':entry.rating+' / 5 ★'));
+        const titleGroup=el('div','diary-title-group');
+        titleGroup.append(title);
+        if(entry.rating!=null)titleGroup.append(ui.ratingStars(entry.rating));
+        else if(entry.text||entry.reviewId)titleGroup.append(el('span','social-rating','Written review'));
+        heading.append(titleGroup);
         if(entry.status){
             const status=window.Backlog.statusOptions.find(option=>option.id===entry.status);
             if(status)heading.append(el('span','social-small',status.label));

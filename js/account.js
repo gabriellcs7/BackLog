@@ -179,7 +179,12 @@
         if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
         state.reviews=reviews;
     }
-    async function deleteDiaryEntry(id){const owner=requireUser();checked(await client.from('diary_entries').delete().eq('id',id).eq('user_id',owner));}
+    async function deleteDiaryEntry(id){
+        const owner=requireUser();
+        checked(await client.from('diary_entries').delete().eq('id',id).eq('user_id',owner));
+        if(user?.id!==owner)throw new Error('Your account changed. Please reload.');
+        state.reviews=state.reviews.map(review=>review.diary_entry_id===id?{...review,diary_entry_id:null}:review);
+    }
     async function removeReview(gameId){const owner=requireUser();checked(await client.from('reviews').delete().eq('user_id',owner).eq('game_id',gameId));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.reviews=state.reviews.filter(item=>item.game_id!==gameId);window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id:gameId}}));}
     async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&Boolean(existing.is_ranked)===Boolean(list.is_ranked)&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
     window.BacklogAccount=Object.freeze({

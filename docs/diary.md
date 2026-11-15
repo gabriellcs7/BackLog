@@ -1,6 +1,6 @@
 # Diário de jogos
 
-Cada salvamento de uma avaliação ou review gera um novo registro, com uma data de calendário escolhida pelo usuário (hoje por padrão; datas futuras não são aceitas). Registros anteriores permanecem como histórico. Editar a data no diário altera somente o registro selecionado; se for o registro atual, a data da review atual também é corrigida. Remover um registro do diário preserva a review e o status. Excluir a review do jogo apaga seus registros relacionados, como informado na confirmação.
+O diário exibe somente a entrada atual de cada jogo. Salvar novamente atualiza essa entrada com a nota, o texto e a data escolhida. Entradas históricas continuam disponíveis pelos links existentes. Remover a entrada do diário preserva a review e o status. A migração `supabase/migrations/202611150001_single_diary_entry.sql` ativa a atualização da entrada existente nas contas online.
 
 As avaliações antigas geram um registro inicial. No navegador, usa-se a data local do timestamp existente. No banco, a importação considera o horário de Fortaleza. Não é possível reconstruir versões anteriores que nunca foram armazenadas; as datas importadas podem ser editadas. Notas zero e meias estrelas são preservadas.
 

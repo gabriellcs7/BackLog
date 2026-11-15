@@ -1,4 +1,4 @@
-/* Diário: datas locais e histórico de cada salvamento, sem apagar avaliações antigas. */
+/* Diário: edição do registro atual e leitura de entradas anteriores. */
 (() => {
     'use strict';
     const games=window.BacklogGames;
@@ -13,12 +13,35 @@
         return[{id:'legacy:'+id,gameId:id,rating:value.rating,text:value.text,reviewedOn:validDate(value.reviewedOn)?value.reviewedOn:dateFromTimestamp(value.updatedAt),createdAt:value.updatedAt}];}
     function notify(id){window.dispatchEvent(new CustomEvent('backlog-diary-change',{detail:{id}}));}
     function getDeviceReview(id){const value=raw(id);return value?{rating:value.rating,text:value.text,updatedAt:value.updatedAt,reviewedOn:validDate(value.reviewedOn)?value.reviewedOn:dateFromTimestamp(value.updatedAt)}:null;}
-    function saveDevice(id,rating,text,date){if(!known(id)||!validDate(date)||!validRating(rating))throw new Error('Invalid diary entry.');const now=new Date().toISOString(),entry={id:crypto.randomUUID(),gameId:id,rating,text,reviewedOn:date,createdAt:now};const entries=[...history(id,raw(id)),entry];const value={rating,text,updatedAt:now,reviewedOn:date,currentEntryId:entry.id,entries};localStorage.setItem(key(id),JSON.stringify(value));notify(id);return{rating,text,updatedAt:now,reviewedOn:date};}
+    function currentId(id,review){
+        return review?.currentEntryId===undefined?'legacy:'+id:review.currentEntryId;
+    }
+    function saveDevice(id,rating,text,date){
+        if(!known(id)||!validDate(date)||!validRating(rating))throw new Error('Invalid diary entry.');
+        const previous=raw(id),entries=history(id,previous);
+        const current=entries.find(entry=>entry.id===currentId(id,previous));
+        const now=new Date().toISOString();
+        const entry={id:current?.id||crypto.randomUUID(),gameId:id,rating,text,reviewedOn:date,createdAt:current?.createdAt||now};
+        const value={rating,text,updatedAt:now,reviewedOn:date,currentEntryId:entry.id,
+            entries:[...entries.filter(item=>item.id!==entry.id),entry]};
+        localStorage.setItem(key(id),JSON.stringify(value));
+        notify(id);
+        return {rating,text,updatedAt:now,reviewedOn:date};
+    }
     function localEntries(){return games.flatMap(game=>history(game.id,raw(game.id)));}
     async function entries(){const account=window.BacklogAccount;await account?.ready;return account?.user?account.getDiaryEntries():localEntries();}
+    async function currentEntries(){
+        const account=window.BacklogAccount;
+        const all=await entries();
+        if(account?.user){
+            const ids=new Set(account.getState().reviews.map(review=>review.diary_entry_id).filter(Boolean));
+            return all.filter(entry=>ids.has(entry.id));
+        }
+        return all.filter(entry=>entry.id===currentId(entry.gameId,raw(entry.gameId)));
+    }
     async function changeDate(entryId,date){if(!validDate(date))throw new Error('Choose today or an earlier date.');const account=window.BacklogAccount;if(account?.user){await account.changeDiaryDate(entryId,date);notify(null);return;}
         const entry=localEntries().find(item=>item.id===entryId);if(!entry)throw new Error('Diary entry not found.');const value=raw(entry.gameId);value.entries=history(entry.gameId,value).map(item=>item.id===entryId?{...item,reviewedOn:date}:item);if(value.currentEntryId===entryId||(value.currentEntryId===undefined&&entryId==='legacy:'+entry.gameId))value.reviewedOn=date;localStorage.setItem(key(entry.gameId),JSON.stringify(value));notify(entry.gameId);}
     async function removeEntry(entryId){const account=window.BacklogAccount;if(account?.user){await account.deleteDiaryEntry(entryId);notify(null);return;}
         const entry=localEntries().find(item=>item.id===entryId);if(!entry)throw new Error('Diary entry not found.');const value=raw(entry.gameId);value.entries=history(entry.gameId,value).filter(item=>item.id!==entryId);if(value.currentEntryId===entryId||value.currentEntryId===undefined)value.currentEntryId=null;localStorage.setItem(key(entry.gameId),JSON.stringify(value));notify(entry.gameId);}
-    window.BacklogDiary=Object.freeze({today,dateFromTimestamp,validDate,getDeviceReview,saveDevice,entries,changeDate,removeEntry});
+    window.BacklogDiary=Object.freeze({today,dateFromTimestamp,validDate,getDeviceReview,saveDevice,entries,currentEntries,changeDate,removeEntry});
 })();

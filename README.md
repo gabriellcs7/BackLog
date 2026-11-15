@@ -35,7 +35,7 @@ O projeto opera em dois modos:
 - **URLs sincronizadas:** Parâmetros de pesquisa, gênero, status e ordenação são refletidos na URL (`?q=...&saved=1&genre=...`) via `history.replaceState`.
 
 ### Diário de Jogos (`view/diary.html`)
-- **Linha do tempo cronológica:** Toda vez que você avalia ou altera a resenha de um jogo, o sistema registra uma entrada com a data escolhida (hoje por padrão ou datas passadas). Datas futuras são bloqueadas.
+- **Linha do tempo cronológica:** O diário exibe uma entrada por jogo. Ao editar uma avaliação, a entrada atual recebe a nota, o texto e a data escolhida. Datas futuras são bloqueadas.
 - **Métricas no topo:** Contadores de total de entradas (**Entries**), jogos distintos registrados (**Games**) e dias de jogatina anotados (**Days Logged**).
 - **Filtros dedicados:** Busca por título, seleção de mês específico e separação entre entradas com resenha escrita ou apenas nota numérica.
 - **Edição segura:** Você pode alterar a data de um registro ou removê-lo do diário sem apagar a avaliação principal do jogo nem perder seu status na coleção.

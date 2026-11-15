@@ -9,12 +9,17 @@
     const date=value=>new Date(value+'T12:00:00');
     const format=(value,options)=>new Intl.DateTimeFormat('en',options).format(date(value));
     $('#diary-month').max=diary.today().slice(0,7);$('#diary-edit-date').max=diary.today();
-    function filtered(){const query=$('#diary-search').value.trim().toLowerCase(),month=$('#diary-month').value,type=$('#diary-type').value;return entries.filter(entry=>{const game=ui.game(entry.gameId);return game&&game.title.toLowerCase().includes(query)&&(!month||entry.reviewedOn.startsWith(month))&&(type==='all'||(type==='reviews'?Boolean(entry.text.trim()||entry.reviewNumber):!entry.text.trim()&&!entry.reviewNumber&&!entry.status));}).sort((a,b)=>b.reviewedOn.localeCompare(a.reviewedOn)||b.createdAt.localeCompare(a.createdAt)||a.id.localeCompare(b.id));}
+    function filtered(){const query=$('#diary-search').value.trim().toLowerCase(),month=$('#diary-month').value,type=$('#diary-type').value;return entries.filter(entry=>{const game=ui.game(entry.gameId);return game&&game.title.toLowerCase().includes(query)&&(!month||entry.reviewedOn.startsWith(month))&&(type==='all'||(type==='reviews'?Boolean(entry.text.trim()||entry.reviewNumber):entry.rating!==null&&!entry.text.trim()&&!entry.reviewNumber));}).sort((a,b)=>b.reviewedOn.localeCompare(a.reviewedOn)||b.createdAt.localeCompare(a.createdAt)||a.id.localeCompare(b.id));}
     function entryCard(entry){const game=ui.game(entry.gameId),row=el('article','diary-entry');row.dataset.entry=entry.id;
         const day=el('time','diary-day');day.dateTime=entry.reviewedOn;day.append(el('strong','',entry.reviewedOn.slice(8)),el('span','',format(entry.reviewedOn,{weekday:'short'})));
         const cover=el('a','diary-cover');cover.href='game.html?id='+encodeURIComponent(game.id);const image=el('img');image.src='../imagens/capas/'+game.cover;image.alt=game.title+' cover';image.loading='lazy';cover.append(image);
         const content=el('div','diary-entry-content'),heading=el('div','diary-entry-heading'),title=el('a','diary-game-title',game.title);title.href=cover.href;
-        const rating=el('span','social-rating',entry.status?window.Backlog.statusOptions.find(option=>option.id===entry.status)?.label:entry.rating===null?'Written review':entry.rating+' / 5 ★');heading.append(title,rating);if(entry.reviewNumber>1)heading.append(el('span','social-small',ui.reviewOrdinal(entry.reviewNumber)));content.append(heading);
+        heading.append(title);
+        if(entry.rating!==null||entry.text||entry.reviewId)heading.append(el('span','social-rating',entry.rating===null?'Written review':entry.rating+' / 5 ★'));
+        if(entry.status){
+            const status=window.Backlog.statusOptions.find(option=>option.id===entry.status);
+            if(status)heading.append(el('span','social-small',status.label));
+        }content.append(heading);
         if(entry.text){if(entry.text.length>220){const details=el('details','diary-review');details.append(el('summary','','Preview review'),el('p','',entry.text));content.append(el('p','diary-excerpt',entry.text.slice(0,200)+'…'),details);}else content.append(el('p','diary-review-text',entry.text));}
         else if(!publicView)content.append(el('p','social-small','Rated this game.'));
         if(publicView){if(entry.reviewId)title.href=ui.reviewHref('id',entry.reviewId);row.append(day,cover,content);return row;}
@@ -40,14 +45,18 @@
                 result.push(...rows.map(row=>({id:row.id,gameId:row.game_id,rating:row.rating,status:row.status,text:'',createdAt:row.created_at,reviewedOn:row.public_date,reviewNumber:row.review_number,reviewId:row.review_id})));
                 if(rows.length<100)break;
             }
-        }else{
-            result=await diary.entries();
-            const counts=new Map();
-            for(const entry of [...result].sort((a,b)=>a.createdAt.localeCompare(b.createdAt))){
-                if(!entry.text.trim())continue;
-                entry.reviewNumber=(counts.get(entry.gameId)||0)+1;
-                counts.set(entry.gameId,entry.reviewNumber);
+            // Older servers return one row per event. Fold those rows into the current game entry.
+            const reviews=new Map(),statuses=new Map();
+            for(const entry of result){
+                if(entry.reviewId&&!reviews.has(entry.gameId))reviews.set(entry.gameId,entry);
+                if(entry.status&&!statuses.has(entry.gameId))statuses.set(entry.gameId,entry);
             }
+            result=[...reviews.values()].map(entry=>({...entry,status:statuses.get(entry.gameId)?.status}));
+            for(const entry of statuses.values())if(!reviews.has(entry.gameId))result.push(entry);
+        }else{
+            result=await diary.currentEntries();
+            await window.Backlog.statusReady;
+            result=result.map(entry=>({...entry,status:window.Backlog.getStatus(entry.gameId)?.id}));
         }
         if(ticket!==version)return;
         publicView=visiting;

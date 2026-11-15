@@ -147,11 +147,6 @@ BackLog/
 │
 ├── supabase/
 │   ├── setup.sql                # Criação completa do banco para novas instalações
-│   ├── atualizar-detalhes-perfil.sql # Localização e link em bancos existentes
-│   ├── atualizar-banner-perfil.sql   # Banner em bancos existentes
-│   ├── atualizar-uncharted.sql  # Registro dos 5 títulos Uncharted no banco existente
-│   ├── atualizar-catalogo-novembro.sql # Registro dos novos jogos no banco existente
-│   ├── atualizar-diario.sql     # Script de migração para o diário cronológico
 │   └── migrations/              # Histórico das migrações SQL com políticas RLS
 │
 ├── imagens/
@@ -203,7 +198,7 @@ Para ativar cadastro de contas, perfis públicos, seguidores, sincronização de
 ### 1. Criar o banco de dados
 Acesse [supabase.com](https://supabase.com), crie um projeto gratuito e abra o **SQL Editor**:
 - Para um projeto novo: execute o conteúdo consolidado de `supabase/setup.sql`.
-- Para projetos já existentes: execute os arquivos de atualização pertinentes em `supabase/` (como `atualizar-catalogo-novembro.sql` e `atualizar-uncharted.sql`).
+- Para projetos já existentes: aplique somente as migrações pendentes em `supabase/migrations/`, na ordem dos nomes dos arquivos.
 
 Todas as tabelas contam com políticas de **Row Level Security (RLS)** ativas. Visitantes anônimos só leem dados públicos, e operações de escrita exigem autenticação do próprio autor.
 

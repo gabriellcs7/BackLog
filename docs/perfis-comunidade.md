@@ -2,7 +2,7 @@
 
 ## Ativação no projeto existente
 
-Execute somente `supabase/atualizar-perfis-comunidade.sql` no SQL Editor do Supabase. O arquivo reúne as duas migrações de 10/11/2026: IDs de Hollow Knight e Silksong, fotos, seguidores e feeds. Pode ser executado novamente sem duplicar dados. Não execute o setup antigo: `setup.sql` é exclusivo para novos projetos.
+No SQL Editor, aplique as migrações pendentes `supabase/migrations/202611100001_hollow_knight.sql` e `supabase/migrations/202611100002_profiles_social_feeds.sql`, nessa ordem. A primeira cadastra Hollow Knight e Silksong. A segunda adiciona fotos, seguidores e feeds.
 
 Depois, mantenha `python servidor.py` aberto na pasta BackLog e recarregue o site. Nada precisa ser publicado na internet.
 

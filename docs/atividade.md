@@ -2,7 +2,7 @@
 
 ## Ativar
 
-Execute somente `supabase/atualizar-atividade.sql` no SQL Editor do projeto existente. Pode executar novamente sem duplicar dados. Não execute setup.sql. Depois recarregue o localhost, com `python servidor.py` aberto na pasta BackLog.
+Execute somente `supabase/migrations/202611100004_activity.sql` no SQL Editor do projeto existente. Pode executar novamente sem duplicar dados. Não execute setup.sql. Depois recarregue o localhost, com `python servidor.py` aberto na pasta BackLog.
 
 ## Recursos
 

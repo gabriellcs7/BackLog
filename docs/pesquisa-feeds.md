@@ -1,6 +1,6 @@
 # Pesquisa, feeds e perfis compactos
 
-Execute `supabase/atualizar-pesquisa-feeds.sql` no SQL Editor para ativar as novas consultas. Este arquivo não apaga dados e pode ser executado novamente. Não repita setup.sql.
+Execute `supabase/migrations/202611100003_discovery.sql` no SQL Editor para ativar as novas consultas. Este arquivo não apaga dados e pode ser executado novamente. Não repita setup.sql.
 
 - Every game tells a story: apenas as quatro reviews escritas com mais likes (mínimo de um like). Empates seguem a publicação mais recente. Sem likes, aparece um estado vazio. Não há botão para carregar mais nesta seção.
 - From your people: somente a última review escrita de cada conta seguida, por data de publicação, com desempate pelo ID. A seleção de uma por autor acontece no banco antes da paginação, portanto o botão de carregar mais traz outras pessoas.

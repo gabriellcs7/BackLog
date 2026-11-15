@@ -8,7 +8,7 @@ Ao salvar, o jogo recebe Played somente se ainda não tiver status. Qualquer sta
 
 ## Atualizar o projeto Supabase existente
 
-No SQL Editor do projeto BackLog, execute **somente `supabase/atualizar-diario.sql`**, uma vez. Ele adiciona o diário e importa as reviews existentes sem removê-las. Não execute novamente setup.sql no banco existente. setup.sql reúne todas as migrações somente para projetos novos.
+No SQL Editor do projeto BackLog, execute **somente `supabase/migrations/202611070003_diary.sql`**, uma vez. Ele adiciona o diário e importa as reviews existentes sem removê-las. Não execute novamente setup.sql no banco existente. setup.sql reúne todas as migrações somente para projetos novos.
 
 O diário é pessoal: no modo conectado, somente o autor pode consultar, mudar datas ou excluir seus registros. A review pública mais recente continua na comunidade e mantém seus likes/comentários ao ser atualizada. O salvamento da review e a criação do registro no banco ocorrem na mesma transação. Os status continuam no armazenamento local de cada conta, como antes.
 
@@ -22,4 +22,4 @@ Foram exercitados o modo local e a biblioteca oficial Supabase contra PostgreSQL
 
 ## Ativação do projeto atual
 
-Em 7 de novembro de 2026, o usuário aplicou atualizar-diario.sql. Foi verificado que os campos reviewed_on/diary_entry_id estão disponíveis no banco real e que consultas anônimas ao diário são bloqueadas (42501). Não é necessário repetir essa atualização no projeto atual. Nenhuma avaliação real foi criada ou alterada durante essa verificação.
+Em 7 de novembro de 2026, o usuário aplicou 202611070003_diary.sql. Foi verificado que os campos reviewed_on/diary_entry_id estão disponíveis no banco real e que consultas anônimas ao diário são bloqueadas (42501). Não é necessário repetir essa atualização no projeto atual. Nenhuma avaliação real foi criada ou alterada durante essa verificação.

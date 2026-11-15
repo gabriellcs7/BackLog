@@ -69,7 +69,7 @@
     })();
     async function saveProfile(name,bio,photo=undefined,details=undefined) {
         name=name.trim();bio=bio.trim();
-        if (name.length<2||name.length>40||bio.length>280) throw new Error('Use 2–40 characters for your name and up to 280 for your bio.');
+        if (name.length<2||name.length>40||bio.length>280) throw new Error('Use 2 to 40 characters for your name and up to 280 for your bio.');
         const patch={display_name:name,bio};
         if (details) {
             const platform=details.platform||null;
@@ -151,7 +151,7 @@
         else persist({...state,lists:state.lists.filter(list=>list.id!==id)});
     }
     async function signIn(email,password){await ready;if(!client)throw new Error('Online accounts are not connected yet.');const data=checked(await client.auth.signInWithPassword({email,password}));await synchronize(data.session);if(issue)throw new Error(issue);}
-    async function signUp(email,password,name){await ready;if(!client)throw new Error('Online accounts are not connected yet.');name=name.trim();if(name.length<2||name.length>40)throw new Error('Use 2–40 characters for your name.');const data=checked(await client.auth.signUp({email,password,options:{data:{display_name:name},emailRedirectTo:/^https?:$/.test(location.protocol)?new URL('../view/profile.html',base).href:undefined}}));if(data.session)await synchronize(data.session);return Boolean(data.session);}
+    async function signUp(email,password,name){await ready;if(!client)throw new Error('Online accounts are not connected yet.');name=name.trim();if(name.length<2||name.length>40)throw new Error('Use 2 to 40 characters for your name.');const data=checked(await client.auth.signUp({email,password,options:{data:{display_name:name},emailRedirectTo:/^https?:$/.test(location.protocol)?new URL('../view/profile.html',base).href:undefined}}));if(data.session)await synchronize(data.session);return Boolean(data.session);}
     async function signOut(){if(client)checked(await client.auth.signOut());await synchronize(null);}
     async function ownReview(gameId,rating,text,date) {
         const owner=requireUser();

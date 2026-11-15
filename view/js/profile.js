@@ -10,7 +10,7 @@
     function note(message){$('#profile-message').textContent=message;}
     async function render(){const ticket=++version;own=!target||target===account.user?.id;
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
-            $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'The games that made you. The adventures still to come.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
+            $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'Games you play, reviews, and custom lists.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             renderProfileBanner();
             window.BacklogProfileRatings.render(player.profile.id);
             renderProfileDetails();
@@ -76,13 +76,13 @@
             grid.append(...reviews.slice(0,4).map(api.card).filter(Boolean));
             more.href=ui.href('view/profile-reviews.html?id='+encodeURIComponent(profileId));
             more.hidden=reviews.length<=4;
-            if(!reviews.length)grid.append(el('p','social-empty',own?'Your reviews will appear here. Open a game and share your take.':'No reviews yet.'));
+            if(!reviews.length)grid.append(el('p','social-empty',own?'Your reviews will appear here once you write one.':'No reviews yet.'));
         }catch(error){
             if(ticket===version)feedback.textContent=error.message||'Could not load reviews.';
         }
     }
     function renderAccount(){if(!own)return;$('#signed-in').hidden=!account.user;const filePreview=location.protocol==='file:'&&account.configured;$('#auth-form').hidden=Boolean(account.user)||!account.configured||filePreview;$('#local-preview-link').hidden=!filePreview||Boolean(account.user);
-        $('#account-link').textContent=account.user?'Your account ↗':'Sign in ↗';$('#account-note').textContent=account.user?'Your profile, lists and favorites are connected to your account.':account.configured?'Sign in to sync your profile and join the conversation. Your device profile stays separate.':'Online accounts are not connected yet. You can still save your profile, top four and lists on this device.';
+        $('#account-link').textContent=account.user?'Your account ↗':'Sign in ↗';$('#account-note').textContent=account.user?'Your profile, lists and favorites are connected to your account.':account.configured?'Sign in to sync your profile across devices. Your local profile stays separate.':'Online accounts are not connected yet. You can still save your profile, top four and lists on this device.';
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';
         if(account.user){$('#account-email').textContent=account.user.email;let imported=false;try{imported=localStorage.getItem('backlog:imported:'+account.user.id)==='yes';}catch{}$('#import-device').disabled=imported;$('#import-device').textContent=imported?'Device profile copied':'Copy device profile & lists to account';}
     }

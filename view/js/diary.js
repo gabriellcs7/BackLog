@@ -31,7 +31,7 @@
         if(visiting){
             const player=await account.getProfile(profileId);
             if(!player.profile)throw new Error('Profile not found.');
-            heading=player.profile.display_name+'’s diary';
+            heading=player.profile.display_name+'\'s diary';
             note='Public ratings, reviews and collection updates.';
             result=[];
             for(let offset=0;;offset+=100){

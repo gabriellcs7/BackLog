@@ -5,7 +5,7 @@
     function row(event){
         const item=ui.element('article','activity-event'),profile={id:event.actor_id,display_name:event.display_name,avatar_path:event.avatar_path};item.dataset.kind=event.kind;
         const identity=ui.element('div','activity-event-copy'),sentence=ui.element('p');sentence.append(ui.profileLink(profile));const game=ui.game(event.game_id),target=event.target_id===account.user?.id?'you':event.target_name||'a player';
-        const messages={follow:' followed '+target+'.',like:' liked '+(target==='you'?'your':target+'’s')+' review of ',comment:' commented on '+(target==='you'?'your':target+'’s')+' review of ',rating:event.review_number||event.rating===null?' reviewed ':' rated ',status:' marked '};sentence.append(document.createTextNode(messages[event.kind]||' updated '));
+        const messages={follow:' followed '+target+'.',like:' liked '+(target==='you'?'your':target+'\'s')+' review of ',comment:' commented on '+(target==='you'?'your':target+'\'s')+' review of ',rating:event.review_number||event.rating===null?' reviewed ':' rated ',status:' marked '};sentence.append(document.createTextNode(messages[event.kind]||' updated '));
         const destination=event.review_id?ui.reviewHref('id',event.review_id):game?ui.href('view/game.html?id='+encodeURIComponent(game.id)):null;
         if(game){const link=ui.element('a','player-link',game.title);link.href=destination;sentence.append(link);}
         if(event.kind==='rating'&&event.rating!==null)sentence.append(document.createTextNode(' '+event.rating+' / 5 ★.'));

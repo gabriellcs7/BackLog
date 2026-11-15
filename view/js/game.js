@@ -33,20 +33,20 @@
         cover.alt = `${game.title} cover`;
         document.querySelector('.cover-label').textContent = game.releaseState === 'upcoming'
             ? 'COMING SOON'
-            : game.releaseState === 'retired' ? 'HISTORICAL GAME' : (game.kind || 'BUILD YOUR COLLECTION').toUpperCase();
+            : game.releaseState === 'retired' ? 'HISTORICAL GAME' : (game.kind || 'CATALOG').toUpperCase();
         document.querySelector('.game-summary .eyebrow').textContent = game.studio;
         document.querySelector('.game-summary h2').textContent = game.caption;
-        document.querySelector('.rating-preview strong').textContent = 'Your next game';
-        document.querySelector('.rating-preview div>span').textContent = 'Make it a memory';
+        document.querySelector('.rating-preview strong').textContent = 'Not rated yet';
+        document.querySelector('.rating-preview div>span').textContent = 'Add your rating below';
         if (game.releaseState === 'upcoming') {
             document.querySelector('.rating-preview strong').textContent = 'Coming soon';
             document.querySelector('.rating-preview div>span').textContent = 'Announced game';
         } else if (game.releaseState === 'retired') {
             document.querySelector('.rating-preview strong').textContent = 'Historical game';
-            document.querySelector('.rating-preview div>span').textContent = 'Keep your memories';
+            document.querySelector('.rating-preview div>span').textContent = 'Classic title';
         }
         document.querySelector('.about-section>p').textContent = game.description;
-        document.querySelector('.about-section>p + p').textContent = 'Save it to your backlog and come back whenever you are ready for your next adventure.';
+        document.querySelector('.about-section>p + p').textContent = 'Add this game to your backlog or log it in your diary when you play.';
         const platforms = document.querySelector('.platforms');
         const platformItems = (game.platforms || []).map(platform => {
             const item = document.createElement('span');
@@ -62,9 +62,9 @@
 
         const values = [
             ['Studio', game.studio],
-            [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Your personal backlog'],
+            [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Backlog'],
             [game.year ? (game.releaseState === 'upcoming' ? 'Planned release' : 'First release') : 'Genre', game.year ? String(game.year) : game.tags.join(' · ')],
-            ['Your status', window.Backlog.getStatus(game.id)?.label || 'Ready to discover']
+            ['Your status', window.Backlog.getStatus(game.id)?.label || 'Not in collection']
         ];
         document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
             detail.querySelector('dt').textContent = values[index][0];
@@ -109,7 +109,7 @@
         document.querySelector('#collection-status-label').textContent = status?.label || '';
         collectionStatus.hidden = !status;
         if (game.id !== games[0].id) {
-            document.querySelector('.details-grid>div:last-child dd').textContent = status?.label || 'Ready to discover';
+            document.querySelector('.details-grid>div:last-child dd').textContent = status?.label || 'Not in collection';
         }
         window.Backlog.updateCount();
     }
@@ -159,7 +159,7 @@
         } catch {
             shareUrl.focus();
             shareUrl.select();
-            document.querySelector('#copy-status').textContent = 'Select the address and copy it with Ctrl+C or your device’s copy menu.';
+            document.querySelector('#copy-status').textContent = 'Select the address and copy it with Ctrl+C or your device\'s copy menu.';
         }
     });
 })();

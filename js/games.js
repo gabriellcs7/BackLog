@@ -11,8 +11,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Rockstar Games",
-        "caption": "Welcome back to Vice City.",
-        "description": "Neon-lit streets. Endless coastlines. A new story waiting to unfold. Return to Vice City with Jason and Lucia and keep your next adventure within reach.",
+        "caption": "Vice City and the state of Leonida.",
+        "description": "An open-world crime game following dual protagonists Lucia and Jason across modern-day Vice City and the surrounding state of Leonida.",
         "platforms": [
             "PlayStation 5",
             "Xbox Series X|S"
@@ -33,8 +33,8 @@ window.BacklogGames = [
             "Action"
         ],
         "studio": "Rockstar Games",
-        "caption": "Three lives. One city. Endless possibilities.",
-        "description": "Explore Los Santos through three intertwined stories. From the city streets to the surrounding countryside, build a backlog full of memorable adventures.",
+        "caption": "Three protagonists across Los Santos.",
+        "description": "An open-world action game following retired bank robber Michael, street hustler Franklin, and erratic smuggler Trevor as they plan and execute heists.",
         "banner": "banners/grand-theft-auto-v.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "70% center",
@@ -50,8 +50,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "Rockstar Games",
-        "caption": "An adventure worth getting lost in.",
-        "description": "Ride into a sweeping western story with Arthur Morgan and the Van der Linde gang. Explore a world filled with quiet discoveries and unforgettable characters.",
+        "caption": "Arthur Morgan and the Van der Linde gang.",
+        "description": "A prequel set in 1899 America following Arthur Morgan as the Van der Linde gang faces internal fractures, lawmen, and a closing frontier.",
         "banner": "banners/red-dead-redemption-2.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "78% center"
@@ -66,8 +66,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "Every journey has a story.",
-        "description": "Join Kratos and Atreus on a journey through the Norse realms. Discover challenging combat and a story about family, fate and the choices that shape us.",
+        "caption": "Kratos and Atreus prepare for Ragnarök.",
+        "description": "An action-adventure following Kratos and Atreus through the Nine Realms as Norse gods gather and the prophesied war approaches.",
         "banner": "banners/god-of-war-ragnarok.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "65% center",
@@ -83,8 +83,8 @@ window.BacklogGames = [
             "Story rich"
         ],
         "studio": "Naughty Dog",
-        "caption": "Some stories stay with you.",
-        "description": "Follow Joel and Ellie through a world transformed. A journey of survival and connection, ready for a place in your collection.",
+        "caption": "Joel and Ellie travel across a ruined United States.",
+        "description": "A post-pandemic action-adventure following smuggler Joel as he escorts teenage Ellie across infected cities and bandit territory.",
         "banner": "banners/the-last-of-us.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "50% center",
@@ -100,8 +100,8 @@ window.BacklogGames = [
             "Survival"
         ],
         "studio": "Mojang Studios",
-        "caption": "Make a world of your own.",
-        "description": "Build, explore and create at your own pace. From a simple shelter to your most ambitious project, your next world starts with a single block.",
+        "caption": "Block-based sandbox survival and construction.",
+        "description": "A procedurally generated voxel game where players mine materials, build structures, and survive hostile mobs in an open world.",
         "banner": "banners/minecraft.webp",
         "bannerPosition": "center 47%",
         "bannerPositionMobile": "53% center"
@@ -116,15 +116,15 @@ window.BacklogGames = [
             "Multiplayer"
         ],
         "studio": "Epic Games",
-        "caption": "Drop in. Team up. Play your way.",
-        "description": "Find your next multiplayer adventure, team up with friends and discover new ways to play. Keep it in your backlog for your next game night.",
+        "caption": "100-player battle royale with building and seasonal updates.",
+        "description": "A free-to-play shooter where players drop onto an island, gather resources, build defensive cover, and fight to be the last squad standing.",
         "banner": "banners/fortnite.webp",
         "bannerPosition": "center 35%",
         "bannerPositionMobile": "52% center"
     },
     {
         "id": "spider-man",
-        "title": "Marvel’s Spider-Man",
+        "title": "Marvel's Spider-Man",
         "cover": "catalogo/spider-man.webp",
         "genre": "Action",
         "tags": [
@@ -132,12 +132,12 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Insomniac Games",
-        "caption": "Your friendly neighborhood adventure.",
-        "description": "Swing through New York and step into the life of Peter Parker. A superhero adventure filled with movement, action and memorable moments.",
+        "caption": "Peter Parker defends Manhattan.",
+        "description": "An open-world action-adventure featuring fluid web-swinging, gadget combat, and an original story involving Mister Negative and the Sinister Six.",
         "banner": "banners/spider-man.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "71% center",
-        "franchise": "Marvel’s Spider-Man"
+        "franchise": "Marvel's Spider-Man"
     },
     {
         "id": "red-dead-redemption",
@@ -149,8 +149,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "Rockstar Games",
-        "caption": "A journey through the American frontier.",
-        "description": "Follow John Marston across the frontier in a western adventure. Add it to your collection and discover the story at your own pace.",
+        "caption": "John Marston tracks his former gang members.",
+        "description": "A western action-adventure following former outlaw John Marston across the American Southwest and Mexico to protect his family.",
         "banner": "banners/red-dead-redemption.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "53% center"
@@ -165,8 +165,8 @@ window.BacklogGames = [
             "Martial arts"
         ],
         "studio": "S-GAME",
-        "caption": "A new world to discover.",
-        "description": "A martial arts adventure with a dark, atmospheric world. Keep this game on your radar and make room for your next discovery.",
+        "caption": "Martial arts combat in a dark fantasy setting.",
+        "description": "A semi-open world action RPG featuring rapid swordplay choreography and dark fantasy aesthetics inspired by classic wuxia films.",
         "banner": "banners/phantom-blade-zero.webp",
         "bannerPosition": "center 38%",
         "bannerPositionMobile": "52% center"
@@ -181,8 +181,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Screen Burn",
-        "caption": "Some places are hard to leave behind.",
-        "description": "Step into the unsettling atmosphere of Silent Hill. Save this psychological horror adventure to your collection.",
+        "caption": "Psychological horror by No Code and Annapurna Interactive.",
+        "description": "A standalone psychological horror entry co-developed by No Code and Annapurna Interactive, exploring fresh perspectives on Silent Hill.",
         "banner": "banners/silent-hill-townfall.webp",
         "bannerPosition": "center 44%",
         "bannerPositionMobile": "52% center"
@@ -197,15 +197,15 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Mojang Studios",
-        "caption": "Another adventure is calling.",
-        "description": "Discover a new dungeon-crawling adventure inspired by the world of Minecraft. Keep it on your wishlist for your next adventure.",
+        "caption": "Cooperative dungeon crawling in the Minecraft universe.",
+        "description": "An action RPG sequel where players team up to explore dungeons, defeat monster mobs, and collect new weapon builds.",
         "banner": "banners/minecraft-dungeons-ii.webp",
         "bannerPosition": "center 44%",
         "bannerPositionMobile": "54% center"
     },
     {
         "id": "spider-man-miles-morales",
-        "title": "Marvel’s Spider-Man: Miles Morales",
+        "title": "Marvel's Spider-Man: Miles Morales",
         "year": 2020,
         "genre": "Action",
         "tags": [
@@ -214,22 +214,22 @@ window.BacklogGames = [
             "Superhero"
         ],
         "studio": "Insomniac Games",
-        "caption": "A new Spider-Man. A city to protect.",
-        "description": "Miles Morales learns to balance his everyday life with the responsibility of protecting New York. Master his bioelectric abilities and make his adventure part of your collection.",
+        "caption": "Miles Morales defends winter Harlem.",
+        "description": "A standalone action-adventure following Miles Morales as he masters bioelectric venom blasts and optical camouflage during a turf war in East Harlem.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5",
             "PC"
         ],
         "bannerPositionMobile": "70% center",
-        "franchise": "Marvel’s Spider-Man",
+        "franchise": "Marvel's Spider-Man",
         "cover": "catalogo/spider-man-miles-morales.webp",
         "banner": "banners/spider-man-miles-morales.webp",
         "bannerPosition": "center"
     },
     {
         "id": "spider-man-2",
-        "title": "Marvel’s Spider-Man 2",
+        "title": "Marvel's Spider-Man 2",
         "year": 2023,
         "genre": "Action",
         "tags": [
@@ -238,14 +238,14 @@ window.BacklogGames = [
             "Superhero"
         ],
         "studio": "Insomniac Games",
-        "caption": "Two heroes. One extraordinary city.",
-        "description": "Peter Parker and Miles Morales face new threats across an expanded New York. Switch between both Spider-Men in a story shaped by the symbiote and the people they want to protect.",
+        "caption": "Peter Parker and Miles Morales face Kraven and Venom.",
+        "description": "An action-adventure where players switch between Peter Parker and Miles Morales across expanded boroughs of New York, contending with Kraven the Hunter and the alien symbiote.",
         "platforms": [
             "PlayStation 5",
             "PC"
         ],
         "bannerPositionMobile": "65% center",
-        "franchise": "Marvel’s Spider-Man",
+        "franchise": "Marvel's Spider-Man",
         "cover": "catalogo/spider-man-2.webp",
         "banner": "banners/spider-man-2.webp",
         "bannerPosition": "center"
@@ -260,8 +260,8 @@ window.BacklogGames = [
             "Greek mythology"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "The beginning of the Spartan legend.",
-        "description": "Follow Kratos through ancient Greece in the adventure that began the series, confronting mythical creatures and the god Ares.",
+        "caption": "The Spartan warrior's quest to slay Ares.",
+        "description": "The original hack-and-slash adventure following Kratos across ancient Greece on a mission from Athena to defeat the god of war.",
         "platforms": [
             "PlayStation 2"
         ],
@@ -281,8 +281,8 @@ window.BacklogGames = [
             "Greek mythology"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "Defy the will of Olympus.",
-        "description": "Kratos challenges fate itself in a Greek adventure filled with mythological battles, puzzles and a quest for vengeance.",
+        "caption": "Kratos seeks the Sisters of Fate.",
+        "description": "Betrayed by Zeus, Kratos journeys to the Isle of Creation to change his destiny with help from the Titans.",
         "platforms": [
             "PlayStation 2"
         ],
@@ -302,8 +302,8 @@ window.BacklogGames = [
             "Greek mythology"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "The final assault on Olympus.",
-        "description": "Kratos brings his struggle against the Greek gods to a dramatic conclusion, ascending Olympus amid battles with gods and Titans.",
+        "caption": "The assault on Mount Olympus.",
+        "description": "Kratos scales Mount Olympus alongside the Titans to confront Zeus and the remaining Greek gods in a climactic conclusion to the Greek trilogy.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4 (Remastered)"
@@ -324,8 +324,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "Break the bonds of an oath.",
-        "description": "Discover an earlier chapter in Kratos’ life as he struggles against the Furies and the consequences of his pact with Ares.",
+        "caption": "Kratos breaks his blood oath to Ares.",
+        "description": "A prequel showing Kratos imprisoned by the three Furies after renouncing his pledge to Ares, six months after the death of his family.",
         "platforms": [
             "PlayStation 3"
         ],
@@ -346,8 +346,8 @@ window.BacklogGames = [
             "Story rich"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "A father. A son. A new beginning.",
-        "description": "Kratos and Atreus travel through a world of Norse mythology on a personal journey that tests their relationship.",
+        "caption": "A fresh Norse journey for Kratos and his young son.",
+        "description": "Living in the Norse wilderness, Kratos and his son Atreus set out to scatter his wife's ashes from the highest peak in the realms.",
         "platforms": [
             "PlayStation 4",
             "PC"
@@ -368,8 +368,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "DMA Design / Rockstar Games",
-        "caption": "Cause a little chaos, from above.",
-        "description": "The original top-down crime game takes you through Liberty City, San Andreas and Vice City.",
+        "caption": "Top-down urban crime across three classic cities.",
+        "description": "The original 1997 top-down action game that introduced vehicle theft, radio stations, and criminal jobs in Liberty City, San Andreas, and Vice City.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/grand-theft-auto.webp",
         "banner": "banners/grand-theft-auto.webp",
@@ -386,8 +386,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "DMA Design / Rockstar Games",
-        "caption": "Respect is everything.",
-        "description": "A top-down adventure through Anywhere City, where rival gangs offer jobs and your alliances shape the streets.",
+        "caption": "Anywhere City gang warfare and reputation.",
+        "description": "A top-down sequel introducing a respect system where working for one gang damages your standing with rival factions.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/grand-theft-auto-2.webp",
         "banner": "banners/grand-theft-auto-2.webp",
@@ -404,8 +404,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "DMA Design / Rockstar Games",
-        "caption": "Welcome to Liberty City.",
-        "description": "Follow Claude through the criminal world of Liberty City in the series’ first fully three-dimensional adventure.",
+        "caption": "The 3D open-world breakthrough in Liberty City.",
+        "description": "Claude navigates the mafia, cartels, and street gangs of Liberty City in the landmark release that popularized 3D open-world design.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/grand-theft-auto-iii.webp",
         "banner": "banners/grand-theft-auto-iii.webp",
@@ -422,8 +422,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "Rockstar Games",
-        "caption": "Neon nights and new ambitions.",
-        "description": "Tommy Vercetti builds his influence in a colorful city inspired by the music, fashion and excess of the eighties.",
+        "caption": "Tommy Vercetti in 1980s Florida.",
+        "description": "Tommy Vercetti takes over criminal rackets and luxury assets across 1986 Vice City, featuring licensed 80s radio stations and neon style.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/gta-vice-city.webp",
         "banner": "banners/gta-vice-city.webp",
@@ -440,8 +440,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "Rockstar Games",
-        "caption": "Back to Grove Street.",
-        "description": "Carl Johnson returns home and travels across Los Santos, San Fierro and Las Venturas in a sprawling open-world story.",
+        "caption": "CJ returns to Los Santos in 1992.",
+        "description": "Carl Johnson rebuilds the Grove Street Families while exploring Los Santos, San Fierro, Las Venturas, and the countryside between them.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/gta-san-andreas.webp",
         "banner": "banners/gta-san-andreas.webp",
@@ -458,8 +458,8 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "Rockstar Games",
-        "caption": "A new life in Liberty City.",
-        "description": "Niko Bellic arrives in Liberty City looking for a fresh start, only to become caught in old conflicts and new promises.",
+        "caption": "Niko Bellic seeks the American dream.",
+        "description": "Eastern European veteran Niko Bellic arrives in a gritty rendition of Liberty City to help his cousin Roman and settle old debts.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/grand-theft-auto-iv.webp",
         "banner": "banners/grand-theft-auto-iv.webp",
@@ -477,8 +477,8 @@ window.BacklogGames = [
             "Story rich"
         ],
         "studio": "Naughty Dog",
-        "caption": "Every choice leaves a mark.",
-        "description": "Continue Ellie’s story and discover Abby’s perspective in a journey through a post-pandemic world. The campaign is also available in Part II Remastered.",
+        "caption": "Ellie and Abby in Seattle.",
+        "description": "A story of grief and retaliation split between Ellie and Abby across the overgrown ruins of Seattle.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5 (Remastered)",
@@ -501,8 +501,8 @@ window.BacklogGames = [
             "Multiplayer"
         ],
         "studio": "Riot Games",
-        "caption": "Choose a champion. Play as a team.",
-        "description": "Join a five-player team on Summoner’s Rift, choose a champion and work together to destroy the opposing Nexus in Riot Games’ multiplayer arena.",
+        "caption": "5v5 competitive tactical arena on Summoner's Rift.",
+        "description": "A team-based MOBA where players control distinct champions, farm gold, secure neutral monsters, and push lanes to take down the enemy Nexus.",
         "platforms": [
             "PC",
             "macOS"
@@ -528,8 +528,8 @@ window.BacklogGames = [
         ],
         "studio": "Blizzard Entertainment",
         "releaseState": "retired",
-        "caption": "The team that started a new era.",
-        "description": "The original team-based hero shooter introduced Overwatch’s cast of heroes and objective-based battles. Its original online service was replaced by the sequel; this entry preserves your gaming history.",
+        "caption": "The original 6v6 hero shooter.",
+        "description": "The 2016 release featuring 6v6 team matches, objective maps, and hero compositions. Archived here for play logging.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -557,8 +557,8 @@ window.BacklogGames = [
             "Multiplayer"
         ],
         "studio": "Blizzard Entertainment",
-        "caption": "Build a team. Make a difference.",
-        "description": "Team up with a roster of heroes and compete for objectives in Blizzard’s multiplayer shooter. Launched as Overwatch 2, the evolving live game is now named Overwatch.",
+        "caption": "5v5 hero shooter with role queue and continuous updates.",
+        "description": "A free-to-play 5v5 shooter featuring tank, damage, and support roles competing on escort, control, flashpoint, and clash maps.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -587,8 +587,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "The nightmare begins at the mansion.",
-        "description": "Explore the Spencer Mansion with Chris Redfield or Jill Valentine in the original survival-horror adventure.",
+        "caption": "Survival horror in the Spencer Mansion.",
+        "description": "Chris Redfield and Jill Valentine investigate missing teammates in the Arklay Mountains and become trapped inside a biological lab disguised as a mansion.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -610,8 +610,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "A city in the grip of an outbreak.",
-        "description": "Leon Kennedy and Claire Redfield struggle to survive their arrival in Raccoon City in the original second game.",
+        "caption": "Leon and Claire arrive during the Raccoon City outbreak.",
+        "description": "Rookie cop Leon S. Kennedy and college student Claire Redfield navigate the Raccoon Police Department in a classic dual-scenario horror campaign.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -633,8 +633,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "Escape a relentless pursuer.",
-        "description": "Follow Jill Valentine through Raccoon City while the creature known as Nemesis pursues her in the original third game.",
+        "caption": "Jill Valentine escapes a bio-organic weapon.",
+        "description": "Jill Valentine attempts to flee Raccoon City as the Umbrella Corporation deploys the relentless Nemesis to hunt down surviving S.T.A.R.S. members.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -648,7 +648,7 @@ window.BacklogGames = [
     },
     {
         "id": "resident-evil-code-veronica",
-        "title": "Resident Evil – Code: Veronica",
+        "title": "Resident Evil - Code: Veronica",
         "year": 2000,
         "genre": "Horror",
         "tags": [
@@ -656,12 +656,12 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "The search for family leads deeper into Umbrella.",
-        "description": "Claire Redfield’s search for her brother takes her to Rockfort Island and another chapter of Umbrella’s secrets.",
+        "caption": "Claire and Chris Redfield investigate Rockfort Island.",
+        "description": "Claire Redfield is captured by Umbrella and shipped to an isolated Antarctic facility run by the eccentric Ashford twins.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
-            "RE – Code: Veronica"
+            "RE - Code: Veronica"
         ],
         "franchise": "Resident Evil",
         "cover": "catalogo/resident-evil-code-veronica.webp",
@@ -679,8 +679,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "Before the mansion, there was a train.",
-        "description": "Rebecca Chambers and Billy Coen cooperate to investigate the events preceding the first Resident Evil.",
+        "caption": "Rebecca Chambers and Billy Coen on the Ecliptic Express.",
+        "description": "A prequel following S.T.A.R.S. rookie Rebecca Chambers and escaped convict Billy Coen using a partner-swapping system without item boxes.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -702,8 +702,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "A rescue mission far from Raccoon City.",
-        "description": "Leon Kennedy travels to a remote European village to rescue the president’s daughter in the original Resident Evil 4.",
+        "caption": "Leon S. Kennedy rescues the president's daughter.",
+        "description": "Leon travels to an isolated Spanish village controlled by the Los Iluminados cult, pioneering over-the-shoulder action camera design.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -725,8 +725,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "Survive together.",
-        "description": "Chris Redfield and Sheva Alomar investigate a bioterrorism threat in a campaign designed around cooperative action.",
+        "caption": "Chris Redfield and Sheva Alomar in West Africa.",
+        "description": "A cooperative action-horror campaign following BSAA agents Chris Redfield and Sheva Alomar investigating a black market bio-weapon outbreak.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -748,8 +748,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "Four campaigns. A global crisis.",
-        "description": "Follow intersecting stories featuring Leon, Chris, Jake and Ada as a new biological threat spreads across the world.",
+        "caption": "Four interconnected campaigns facing the C-Virus.",
+        "description": "A global action game featuring distinct campaigns led by Leon S. Kennedy, Chris Redfield, Jake Muller, and Ada Wong.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -771,8 +771,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "An invitation you should have ignored.",
-        "description": "Ethan Winters searches for his missing wife and encounters the Baker family in a first-person survival-horror story.",
+        "caption": "First-person horror on the Baker plantation.",
+        "description": "Ethan Winters searches for his missing wife Mia at a derelict Louisiana plantation house inhabited by the infected Baker family.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -794,8 +794,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "A village hiding terrible secrets.",
-        "description": "Continue Ethan Winters’ story as he searches for his daughter in a village controlled by unsettling and powerful figures.",
+        "caption": "Ethan Winters confronts the Four Lords.",
+        "description": "Ethan Winters tracks his kidnapped daughter Rose into a snowy European village governed by Mother Miranda and four eccentric lords.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -817,8 +817,8 @@ window.BacklogGames = [
             "Adventure"
         ],
         "studio": "Capcom",
-        "caption": "A new chapter of survival horror.",
-        "description": "Follow Grace Ashcroft and Leon Kennedy in a new chapter that revisits the legacy of the Raccoon City disaster.",
+        "caption": "New survival-horror storyline revisiting Raccoon City lore.",
+        "description": "A horror entry following Grace Ashcroft and Leon S. Kennedy investigating lingering fallout from the Raccoon City incident.",
         "aliases": [
             "Resident Evil",
             "Biohazard",
@@ -841,8 +841,8 @@ window.BacklogGames = [
             "Action"
         ],
         "studio": "Team Cherry",
-        "caption": "Beneath the surface, a kingdom waits.",
-        "description": "Descend into Hallownest, a haunting kingdom of insects and heroes. Explore winding caverns, master precise combat and uncover the secrets of a fallen civilization.",
+        "caption": "Metroidvania exploration through the kingdom of Hallownest.",
+        "description": "A 2D action-adventure following a nameless knight through ruined underground caverns, challenging boss fights, and interconnected bug communities.",
         "banner": "banners/hollow-knight.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center",
@@ -868,8 +868,8 @@ window.BacklogGames = [
             "Action"
         ],
         "studio": "Team Cherry",
-        "caption": "Ascend to the heart of a haunted kingdom.",
-        "description": "Become Hornet, the princess-protector of Hallownest, and journey through Pharloom. Hunt, craft and climb through a vast kingdom of silk and song.",
+        "caption": "Hornet explores the haunted kingdom of Pharloom.",
+        "description": "Hornet travels through a new kingdom of coral and moss, featuring swift needle combat, acrobatic traversal, and tool crafting.",
         "banner": "banners/hollow-knight-silksong.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center",
@@ -896,8 +896,8 @@ window.BacklogGames = [
         ],
         "studio": "Remedy Entertainment",
         "year": 2010,
-        "caption": "A nightmare written into reality.",
-        "description": "A novelist searches Bright Falls for his missing wife as pages from his unwritten story come to life.",
+        "caption": "Psychological thriller set in Bright Falls.",
+        "description": "Troubled writer Alan Wake searches for his missing wife in the Pacific Northwest while fighting shadowy Taken with a flashlight and handgun.",
         "platforms": [
             "PC"
         ],
@@ -922,8 +922,8 @@ window.BacklogGames = [
         ],
         "studio": "Remedy Entertainment",
         "year": 2023,
-        "caption": "A nightmare written into reality.",
-        "description": "FBI agent Saga Anderson and trapped writer Alan Wake investigate a nightmare unfolding across two realities.",
+        "caption": "Dual campaigns with Saga Anderson and Alan Wake.",
+        "description": "FBI agent Saga Anderson investigates ritual murders in Watery while Alan Wake crafts reality shifts to escape the surreal Dark Place.",
         "platforms": [
             "PC",
             "PlayStation 5",
@@ -951,8 +951,8 @@ window.BacklogGames = [
         ],
         "studio": "Ubisoft Montreal",
         "year": 2014,
-        "caption": "The city is your network.",
-        "description": "Hack Chicago’s connected infrastructure as Aiden Pearce while tracking the people behind a family tragedy.",
+        "caption": "Hacking and vigilante justice in Chicago.",
+        "description": "Aiden Pearce uses a smartphone profiler to manipulate Chicago's ctOS traffic lights, bridges, and surveillance cameras to avenge his niece.",
         "platforms": [
             "PC"
         ],
@@ -975,8 +975,8 @@ window.BacklogGames = [
         ],
         "studio": "Ubisoft Montreal",
         "year": 2016,
-        "caption": "The city is your network.",
-        "description": "Join DedSec in the San Francisco Bay Area and expose a surveillance system through hacking and improvisation.",
+        "caption": "DedSec hacks the San Francisco Bay Area.",
+        "description": "Marcus Holloway and the DedSec hacker collective pull off tech operations and drone reconnaissance across San Francisco and Silicon Valley.",
         "platforms": [
             "PC"
         ],
@@ -999,8 +999,8 @@ window.BacklogGames = [
         ],
         "studio": "Ubisoft Toronto",
         "year": 2020,
-        "caption": "The city is your network.",
-        "description": "Recruit Londoners into DedSec and use their skills to challenge the forces controlling the city.",
+        "caption": "Recruit anyone in near-future surveillance London.",
+        "description": "An open-world adventure where players can recruit and play as any citizen in London to rebel against private military contractor Albion.",
         "platforms": [
             "PC"
         ],
@@ -1023,8 +1023,8 @@ window.BacklogGames = [
         ],
         "studio": "EA Vancouver / EA Romania",
         "year": 2025,
-        "caption": "Take the pitch.",
-        "description": "Build a squad, manage a club, or compete with friends in EA’s football simulation.",
+        "caption": "Football simulation with career and Ultimate Team modes.",
+        "description": "EA's 2025 release featuring updated club rosters, tactical HyperMotion capture, and licensed domestic leagues.",
         "platforms": [
             "PC"
         ],
@@ -1050,8 +1050,8 @@ window.BacklogGames = [
         ],
         "studio": "EA Vancouver / EA Romania",
         "year": 2026,
-        "caption": "Take the pitch.",
-        "description": "Play football across club, career, and multiplayer modes in the 2026 edition of EA Sports FC.",
+        "caption": "The 2026 edition of EA's club football series.",
+        "description": "The follow-up football simulation featuring updated international rosters, club management, and online competition.",
         "platforms": [
             "PC"
         ],
@@ -1077,8 +1077,8 @@ window.BacklogGames = [
         ],
         "studio": "Roblox Corporation",
         "year": 2006,
-        "caption": "Discover worlds made by players.",
-        "description": "Explore and create user-made experiences across a multiplayer platform spanning many genres.",
+        "caption": "User-generated multiplayer gaming platform.",
+        "description": "An online platform where millions of community creators build and share games across obstacle courses, simulations, and roleplay genres.",
         "platforms": [
             "PC",
             "Mobile",
@@ -1104,8 +1104,8 @@ window.BacklogGames = [
         ],
         "studio": "Valve",
         "year": 2000,
-        "caption": "Every round counts.",
-        "description": "Play round-based tactical matches built around bomb defusal, hostage rescue, and team economy.",
+        "caption": "The original 1.6 tactical shooter.",
+        "description": "The classic mod-turned-phenomenon pitting Terrorists against Counter-Terrorists with recoil control, corner angles, and team buys.",
         "platforms": [
             "PC"
         ],
@@ -1131,8 +1131,8 @@ window.BacklogGames = [
         ],
         "studio": "Valve / Turtle Rock Studios",
         "year": 2004,
-        "caption": "Every round counts.",
-        "description": "Complete bot-driven tactical missions and compete in classic Counter-Strike multiplayer matches.",
+        "caption": "Single-player tour of duty and classic multiplayer.",
+        "description": "Features offline bot challenges with specific weapon objectives alongside standard Counter-Strike multiplayer matches.",
         "platforms": [
             "PC"
         ],
@@ -1155,8 +1155,8 @@ window.BacklogGames = [
         ],
         "studio": "Valve",
         "year": 2004,
-        "caption": "Every round counts.",
-        "description": "Return to classic Counter-Strike maps and objectives on Valve’s Source engine.",
+        "caption": "Source engine remake of classic maps.",
+        "description": "Rebuilt classic maps including Dust II, Aztec, and Office with updated physics, textures, and grenade dynamics.",
         "platforms": [
             "PC"
         ],
@@ -1179,8 +1179,8 @@ window.BacklogGames = [
         ],
         "studio": "Valve / Hidden Path Entertainment",
         "year": 2012,
-        "caption": "Every round counts.",
-        "description": "The 2012 Counter-Strike entry introduced ranked matchmaking, new modes and an updated arsenal. Valve later upgraded its Steam release to Counter-Strike 2.",
+        "caption": "The competitive tactical shooter that defined an era.",
+        "description": "Introduced official matchmaking ranks, weapon skins, and major esports championships over a decade of competitive play.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -1209,8 +1209,8 @@ window.BacklogGames = [
         ],
         "studio": "Valve",
         "year": 2023,
-        "caption": "Every round counts.",
-        "description": "Compete in tactical rounds with Source 2 maps, responsive smoke grenades, and the Premier ranking system.",
+        "caption": "Source 2 tactical gameplay with dynamic smoke.",
+        "description": "Built on Source 2 with sub-tick server response, volumetric smoke grenades that react to bullets, and the Premier rating mode.",
         "platforms": [
             "PC"
         ],
@@ -1235,8 +1235,8 @@ window.BacklogGames = [
         ],
         "studio": "Red Barrels",
         "year": 2013,
-        "caption": "Survive what you cannot fight.",
-        "description": "Investigate Mount Massive Asylum with a night-vision camcorder and escape without weapons.",
+        "caption": "Found-footage horror in Mount Massive Asylum.",
+        "description": "Journalist Miles Upshur explores a remote psychiatric hospital in Colorado armed only with a battery-powered night-vision camcorder.",
         "platforms": [
             "PC"
         ],
@@ -1259,8 +1259,8 @@ window.BacklogGames = [
         ],
         "studio": "Red Barrels",
         "year": 2017,
-        "caption": "Survive what you cannot fight.",
-        "description": "Search for Lynn in a remote Arizona settlement while surviving pursuit and disturbing visions.",
+        "caption": "Rural horror in the Supai region of Arizona.",
+        "description": "Cameraman Blake Langermann searches for his missing wife in the desert while evading a fanatical cult and remembering childhood trauma.",
         "platforms": [
             "PC"
         ],
@@ -1283,8 +1283,8 @@ window.BacklogGames = [
         ],
         "studio": "Red Barrels",
         "year": 2024,
-        "caption": "Survive what you cannot fight.",
-        "description": "Survive Murkoff’s Cold War experiments alone or with a team in objective-based trials.",
+        "caption": "Cooperative psychological horror therapy.",
+        "description": "Teams of test subjects complete sadistic rehabilitation trials designed by the Murkoff Corporation during the Cold War.",
         "platforms": [
             "PC"
         ],
@@ -1307,8 +1307,8 @@ window.BacklogGames = [
         ],
         "studio": "Kinetic Games",
         "year": 2020,
-        "caption": "Find the evidence. Identify the ghost.",
-        "description": "Use ghost-hunting equipment and compare evidence with your team to identify paranormal entities.",
+        "caption": "Cooperative 4-player ghost hunting.",
+        "description": "Gather evidence using EMF readers, spirit boxes, and thermometers inside haunted houses and prisons to identify ghost types before hunts begin.",
         "platforms": [
             "PC"
         ],
@@ -1331,8 +1331,8 @@ window.BacklogGames = [
         ],
         "studio": "SUPERHOT Team",
         "year": 2016,
-        "caption": "Time moves when you move.",
-        "description": "Plan each shot and dodge in a minimalist shooter where time moves when you move.",
+        "caption": "Time moves only when you move.",
+        "description": "A minimalist first-person puzzle shooter where bullets and enemies crawl in slow motion until the player moves or fires.",
         "platforms": [
             "PC"
         ],
@@ -1355,8 +1355,8 @@ window.BacklogGames = [
         ],
         "studio": "SUPERHOT Team",
         "year": 2020,
-        "caption": "Time moves when you move.",
-        "description": "Combine abilities and navigate changing combat encounters in a standalone follow-up to SUPERHOT.",
+        "caption": "Roguelike expansion with customizable hacks.",
+        "description": "Adds procedural arena progression, persistent perks, and distinct core loadouts to the slow-motion combat formula.",
         "platforms": [
             "PC"
         ],
@@ -1379,8 +1379,8 @@ window.BacklogGames = [
         ],
         "studio": "CD Projekt Red",
         "year": 2020,
-        "caption": "Make your name in Night City.",
-        "description": "Play as mercenary V and build a life in Night City while contending with a prototype implant.",
+        "caption": "Open-world mercenary RPG in Night City.",
+        "description": "Mercenary V takes on jobs across the six districts of Night City while coping with a dying mind linked to rockerboy Johnny Silverhand.",
         "platforms": [
             "PC"
         ],
@@ -1403,8 +1403,8 @@ window.BacklogGames = [
         ],
         "studio": "CD Projekt Red",
         "year": 2023,
-        "caption": "Make your name in Night City.",
-        "description": "Enter Dogtown in a spy-thriller expansion where V becomes entangled in a rescue mission and political intrigue.",
+        "caption": "Spy-thriller expansion in Dogtown.",
+        "description": "V enters the walled combat zone of Dogtown to rescue the NUSA President alongside sleeper agent Solomon Reed.",
         "platforms": [
             "PC"
         ],
@@ -1427,8 +1427,8 @@ window.BacklogGames = [
         ],
         "studio": "Endnight Games",
         "year": 2018,
-        "caption": "Build, explore and survive.",
-        "description": "Build shelter and explore a forest peninsula after a plane crash while searching for your son.",
+        "caption": "Survival crafting against cannibal tribes.",
+        "description": "A plane crash survivor builds shelters, cuts down timber, and crafts weapons to fend off mutant cannibals while searching for his kidnapped son.",
         "platforms": [
             "PC"
         ],
@@ -1453,8 +1453,8 @@ window.BacklogGames = [
         ],
         "studio": "Endnight Games",
         "year": 2024,
-        "caption": "Build, explore and survive.",
-        "description": "Search a remote island for a missing billionaire and survive its changing seasons and hostile inhabitants.",
+        "caption": "Island survival with AI companions.",
+        "description": "Sent to locate a missing billionaire on a remote island, you gather resources, build compound defenses, and explore underground bunkers.",
         "platforms": [
             "PC"
         ],
@@ -1480,8 +1480,8 @@ window.BacklogGames = [
         ],
         "studio": "CD Projekt Red",
         "year": 2007,
-        "caption": "Follow the path of the witcher.",
-        "description": "Follow an amnesiac Geralt as he returns to monster hunting and confronts conflict in Temeria.",
+        "caption": "Geralt of Rivia returns to Temeria.",
+        "description": "An amnesiac Geralt of Rivia tracks stolen witcher secrets and investigates the Salamandra criminal syndicate around Vizima.",
         "platforms": [
             "PC"
         ],
@@ -1506,8 +1506,8 @@ window.BacklogGames = [
         ],
         "studio": "CD Projekt Red",
         "year": 2011,
-        "caption": "Follow the path of the witcher.",
-        "description": "Investigate a royal assassination and navigate diverging political alliances as Geralt of Rivia.",
+        "caption": "Framed for regicide in the Northern Kingdoms.",
+        "description": "Geralt hunts the Kingslayer Letho of Gulet in an adventure featuring diverging chapter paths between Iorveth and Vernon Roche.",
         "platforms": [
             "PC"
         ],
@@ -1532,8 +1532,8 @@ window.BacklogGames = [
         ],
         "studio": "CD Projekt Red",
         "year": 2015,
-        "caption": "Follow the path of the witcher.",
-        "description": "Track Ciri across war-torn regions while taking monster contracts and facing the Wild Hunt.",
+        "caption": "Geralt searches for Ciri across Velen and Skellige.",
+        "description": "Geralt tracks his adopted daughter Ciri across war-torn Velen, Novigrad, and the Skellige Isles while pursued by the otherworldly Wild Hunt.",
         "platforms": [
             "PC"
         ],
@@ -1558,8 +1558,8 @@ window.BacklogGames = [
         ],
         "studio": "NetherRealm Studios",
         "year": 2013,
-        "caption": "Choose your side in the DC universe.",
-        "description": "Fight as DC heroes and villains in a story about an alternate world ruled by Superman.",
+        "caption": "Fighting game set in a regime-ruled DC world.",
+        "description": "Batman leads an insurgency against a totalitarian Superman who took power following the destruction of Metropolis.",
         "platforms": [
             "PC"
         ],
@@ -1582,8 +1582,8 @@ window.BacklogGames = [
         ],
         "studio": "NetherRealm Studios",
         "year": 2017,
-        "caption": "Choose your side in the DC universe.",
-        "description": "Continue the DC fighting series as Batman and his allies face Brainiac and the remnants of Superman’s regime.",
+        "caption": "DC fighting roster against Brainiac's invasion.",
+        "description": "Batman and Superman's opposing factions clash over how to handle alien invader Brainiac as he targets Earth's cities.",
         "platforms": [
             "PC"
         ],
@@ -1606,8 +1606,8 @@ window.BacklogGames = [
         ],
         "studio": "Konami Team Silent",
         "year": 1999,
-        "caption": "Follow the road into the fog.",
-        "description": "Search a fog-covered town as Harry Mason, whose daughter disappears after a car crash.",
+        "caption": "Harry Mason searches for Cheryl in the fog.",
+        "description": "Harry Mason's daughter vanishes after a car accident outside Silent Hill, leading him into the town's shifting Fog and Otherworld states.",
         "platforms": [
             "PlayStation"
         ],
@@ -1632,8 +1632,8 @@ window.BacklogGames = [
         ],
         "studio": "Konami Team Silent",
         "year": 2001,
-        "caption": "Follow the road into the fog.",
-        "description": "Follow James Sunderland into Silent Hill after receiving a letter from his late wife.",
+        "caption": "James Sunderland's letter from his late wife.",
+        "description": "James Sunderland travels to Silent Hill after receiving a letter signed by his wife Mary, who died three years earlier.",
         "platforms": [
             "PlayStation 2",
             "Xbox",
@@ -1660,8 +1660,8 @@ window.BacklogGames = [
         ],
         "studio": "Konami Team Silent",
         "year": 2003,
-        "caption": "Follow the road into the fog.",
-        "description": "Follow Heather Mason through a nightmare tied to her past and the events of the original game.",
+        "caption": "Heather Mason confronts an emerging cult.",
+        "description": "Heather Mason's normal shopping trip shifts into an Otherworld nightmare tied directly to the cult events of the first game.",
         "platforms": [
             "PlayStation 2",
             "PC"
@@ -1685,8 +1685,8 @@ window.BacklogGames = [
         ],
         "studio": "Konami Team Silent",
         "year": 2004,
-        "caption": "Follow the road into the fog.",
-        "description": "Escape a locked apartment through mysterious passages connected to a series of murders.",
+        "caption": "Henry Townshend trapped in Room 302.",
+        "description": "Henry Townshend finds himself chained inside his South Ashfield apartment, with only a fleshy hole in the bathroom wall leading to surreal victim worlds.",
         "platforms": [
             "PlayStation 2",
             "Xbox",
@@ -1711,8 +1711,8 @@ window.BacklogGames = [
         ],
         "studio": "Climax Studios",
         "year": 2007,
-        "caption": "Follow the road into the fog.",
-        "description": "Explore events before the original Silent Hill as truck driver Travis Grady confronts the town and his memories.",
+        "caption": "Travis Grady uncovers the town's origins.",
+        "description": "Truck driver Travis Grady rescues a girl from a burning house and becomes trapped in Silent Hill, shifting between dimensions through mirrors.",
         "platforms": [
             "PSP",
             "PlayStation 2"
@@ -1736,8 +1736,8 @@ window.BacklogGames = [
         ],
         "studio": "Double Helix Games",
         "year": 2008,
-        "caption": "Follow the road into the fog.",
-        "description": "Return to Shepherd’s Glen as Alex Shepherd and search for your missing brother.",
+        "caption": "Alex Shepherd returns to Shepherd's Glen.",
+        "description": "Discharged soldier Alex Shepherd investigates the sudden disappearance of his younger brother Joshua and the mystery behind the town founders.",
         "platforms": [
             "PC"
         ],
@@ -1760,8 +1760,8 @@ window.BacklogGames = [
         ],
         "studio": "Climax Studios",
         "year": 2009,
-        "caption": "Follow the road into the fog.",
-        "description": "Revisit Harry Mason’s search in a standalone reimagining shaped by psychological interviews and icy pursuits.",
+        "caption": "Psychological reimagining with frozen chases.",
+        "description": "A reimagining of Harry Mason's search where therapy sessions alter character personalities and icy nightmares replace combat with escape routes.",
         "platforms": [
             "Wii",
             "PlayStation 2",
@@ -1786,8 +1786,8 @@ window.BacklogGames = [
         ],
         "studio": "Vatra Games",
         "year": 2012,
-        "caption": "Follow the road into the fog.",
-        "description": "Explore the town as escaped prisoner Murphy Pendleton and confront choices from his past.",
+        "caption": "Murphy Pendleton in southeastern Silent Hill.",
+        "description": "Convict Murphy Pendleton survives a prison bus crash and explores rainfall-soaked districts of Silent Hill while wrestling with past decisions.",
         "platforms": [
             "PlayStation 3",
             "Xbox 360"
@@ -1811,8 +1811,8 @@ window.BacklogGames = [
         ],
         "studio": "NeoBards Entertainment",
         "year": 2025,
-        "caption": "Follow the road into the fog.",
-        "description": "Follow Hinako Shimizu through a fog-shrouded Japanese town in the 1960s as a strange bloom spreads.",
+        "caption": "1960s rural Japan psychological horror.",
+        "description": "Set in 1960s Japan, following high schooler Hinako Shimizu as a town is consumed by parasitic crimson flora.",
         "platforms": [
             "PC"
         ],
@@ -1825,7 +1825,7 @@ window.BacklogGames = [
     },
     {
         "id": "uncharted-drakes-fortune",
-        "title": "Uncharted: Drake’s Fortune",
+        "title": "Uncharted: Drake's Fortune",
         "cover": "catalogo/uncharted-drakes-fortune.webp",
         "banner": "banners/uncharted-drakes-fortune.webp",
         "genre": "Adventure",
@@ -1836,8 +1836,8 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "year": 2007,
-        "caption": "The search for El Dorado.",
-        "description": "A clue in Sir Francis Drake’s coffin leads Nathan Drake and Elena Fisher to a Pacific island where mercenaries are searching for the same treasure.",
+        "caption": "Nathan Drake hunts for El Dorado.",
+        "description": "Nathan Drake, Elena Fisher, and Victor Sullivan follow Sir Francis Drake's coordinates to an uncharted Pacific island guarded by mercenaries.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -1865,8 +1865,8 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "year": 2009,
-        "caption": "Race to Shambhala.",
-        "description": "Nathan Drake follows the trail of Marco Polo’s lost fleet, from a museum heist in Istanbul to the mountains of Nepal and Tibet.",
+        "caption": "The expedition for the Cintamani Stone and Shambhala.",
+        "description": "Nathan Drake follows Marco Polo's lost fleet across Istanbul, Borneo, and war-torn Nepal in a race against war criminal Zoran Lazarevic.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -1883,7 +1883,7 @@ window.BacklogGames = [
     },
     {
         "id": "uncharted-3-drakes-deception",
-        "title": "Uncharted 3: Drake’s Deception",
+        "title": "Uncharted 3: Drake's Deception",
         "cover": "catalogo/uncharted-3-drakes-deception.webp",
         "banner": "banners/uncharted-3-drakes-deception.webp",
         "genre": "Adventure",
@@ -1894,8 +1894,8 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "year": 2011,
-        "caption": "Into the Arabian Desert.",
-        "description": "Nathan Drake and Sully trace a clue left by Francis Drake to a lost city in the Rub’ al Khali, pursued by a secret society.",
+        "caption": "Searching for the Atlantis of the Sands.",
+        "description": "Nathan Drake and Sully travel to the Rub' al Khali desert to uncover the lost city of Ubar before an occult British order finds it.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -1912,7 +1912,7 @@ window.BacklogGames = [
     },
     {
         "id": "uncharted-4-a-thiefs-end",
-        "title": "Uncharted 4: A Thief’s End",
+        "title": "Uncharted 4: A Thief's End",
         "cover": "catalogo/uncharted-4-a-thiefs-end.webp",
         "banner": "banners/uncharted-4-a-thiefs-end.webp",
         "genre": "Adventure",
@@ -1923,8 +1923,8 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "year": 2016,
-        "caption": "One last treasure hunt.",
-        "description": "Nathan’s brother Sam returns and draws him into a search for Henry Avery’s pirate fortune and the settlement of Libertalia.",
+        "caption": "Henry Avery's pirate colony in Libertalia.",
+        "description": "Nathan Drake comes out of retirement when his presumed-dead brother Sam resurfaces needing help finding pirate captain Henry Avery's treasure.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5",
@@ -1953,8 +1953,8 @@ window.BacklogGames = [
         ],
         "studio": "Naughty Dog",
         "year": 2017,
-        "caption": "Find the Tusk of Ganesh.",
-        "description": "Chloe Frazer and Nadine Ross travel through India’s Western Ghats to recover an ancient artifact before a rebel leader can claim it.",
+        "caption": "Chloe Frazer and Nadine Ross in India's Western Ghats.",
+        "description": "Treasure hunter Chloe Frazer partners with mercenary Nadine Ross in the mountains of India to locate the golden Tusk of Ganesh before an insurgent leader.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5",

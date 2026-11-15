@@ -33,7 +33,7 @@
                 ]);
                 if (ticket !== version) return;
                 if (!player.profile) throw new Error('Profile not found.');
-                title.textContent = player.profile.display_name + '’s logged games';
+                title.textContent = player.profile.display_name + '\'s logged games';
                 games = rows.map(row => ui.game(row.game_id)).filter(Boolean);
             }
             if (ticket !== version) return;

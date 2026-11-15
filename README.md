@@ -57,8 +57,8 @@ O projeto opera em dois modos:
 - **Curtidas com regra de unicidade:** Cada pessoa pode curtir uma review uma única vez. As regras de banco impedem que o autor curta a própria publicação.
 - **Comentários de até 1.000 caracteres:** Discussões paginadas com opção de exclusão pelo próprio autor do comentário.
 - **Feeds sociais na página inicial (`index.html`):**
-  - *Popular Reviews:* As três avaliações mais curtidas da comunidade.
-  - *Fresh from your circle:* Feed com as resenhas recentes publicadas pelos jogadores que você segue.
+  - *Popular Reviews:* As avaliações mais curtidas da comunidade.
+  - *Following Feed:* Feed com as resenhas recentes publicadas pelos jogadores que você segue.
 
 ---
 

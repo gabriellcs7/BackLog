@@ -25,7 +25,7 @@
             if(profileId!=='local')profileUrl.searchParams.set('id',profileId);
             profileUrl.hash='profile-list-section';
             back.href=profileUrl.href;
-            title.textContent=own?'Your game lists':player.profile.display_name+'’s game lists';
+            title.textContent=own?'Your game lists':player.profile.display_name+'\'s game lists';
             document.title=title.textContent+' · BackLog';
             for(const list of player.lists){
                 const card=window.BacklogListCard(list,profileId);

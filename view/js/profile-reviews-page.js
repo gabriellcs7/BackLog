@@ -30,7 +30,7 @@
                     const player=await account.getProfile(profileId);
                     if(ticket!==generation)return;
                     if(!player.profile)throw new Error('Profile not found.');
-                    title.textContent=player.profile.display_name+'’s reviews';
+                    title.textContent=player.profile.display_name+'\'s reviews';
                     document.title=title.textContent+' · BackLog';
                 }
             }

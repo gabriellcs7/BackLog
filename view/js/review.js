@@ -88,7 +88,7 @@
         updateSummary();
         const account = window.BacklogAccount;
         form.inert = Boolean(account?.loading);
-        document.querySelector('.review-private').textContent = account?.user ? 'PUBLIC REVIEW' : 'ONLY YOU';
+        document.querySelector('.review-private').textContent = account?.user ? 'PUBLIC REVIEW' : 'LOCAL ONLY';
         document.querySelector('#review-note').textContent = account?.user ? 'Saving publishes this review on your profile and this game.' : 'Saved only in this browser.';
         document.querySelector('#use-device-review').hidden = !account?.user || Boolean(review) || !reviews.getDevice(game.id);
         document.querySelector('#review-delete-confirm > p').textContent = account?.user ? 'Delete your public review, diary entries, likes and comments?' : 'Delete your rating, review and diary entries for this game?';

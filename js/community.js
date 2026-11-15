@@ -26,7 +26,7 @@
         async connections(id,kind,offset=0){return check(await(await client()).rpc('profile_connections',{profile_key:id,connection_kind:kind,page_offset:offset}))||[];},
         async like(reviewId,liked){return Number(check(await(await client(true)).rpc('set_review_like',{review_key:reviewId,liked})));},
         async comments(reviewId,offset=0){return check(await(await client()).from('review_comments').select('id,user_id,text,created_at,profiles(id,display_name,avatar_path)').eq('review_id',reviewId).order('created_at').order('id').range(offset,offset+19))||[];},
-        async comment(reviewId,text){text=text.trim();if(!text||text.length>1000)throw new Error('Write a comment of 1–1,000 characters.');const api=await client(true);return check(await api.from('review_comments').insert({review_id:reviewId,user_id:account.user.id,text}).select('id,user_id,text,created_at,profiles(id,display_name,avatar_path)').single());},
+        async comment(reviewId,text){text=text.trim();if(!text||text.length>1000)throw new Error('Write a comment between 1 and 1,000 characters.');const api=await client(true);return check(await api.from('review_comments').insert({review_id:reviewId,user_id:account.user.id,text}).select('id,user_id,text,created_at,profiles(id,display_name,avatar_path)').single());},
         async removeComment(id){const api=await client(true);check(await api.from('review_comments').delete().eq('id',id).eq('user_id',account.user.id));}
     });
 })();

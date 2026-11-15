@@ -90,9 +90,9 @@
     }
 
     const collectionGroups = [
-        { id: 'played', title: 'Played', description: 'Played, completed, platinum and dropped games.', statuses: ['played','completed','platinum','dropped'] },
-        { id: 'playing', title: 'Playing', description: 'The adventures you are playing right now.', statuses: ['playing'] },
-        { id: 'want-to-play', title: 'Want to play', description: 'Your wishlist for the adventures still to come.', statuses: ['want-to-play'] }
+        { id: 'played', title: 'Played', description: 'Games you have played, finished, or dropped.', statuses: ['played','completed','platinum','dropped'] },
+        { id: 'playing', title: 'Playing', description: 'Games you are currently playing.', statuses: ['playing'] },
+        { id: 'want-to-play', title: 'Want to play', description: 'Games saved to your wishlist.', statuses: ['want-to-play'] }
     ];
     function renderGroups(matches) {
         results.replaceChildren();
@@ -167,24 +167,24 @@
         emptyState.hidden = matches.length > 0;
         document.querySelector('#all-count').textContent = String(games.length);
         document.querySelector('#saved-count').textContent = String(window.Backlog.updateCount());
-        document.querySelector('#result-count').textContent = `${matches.length} ${matches.length === 1 ? 'game' : 'games'}${query ? ` for “${searchInput.value.trim()}”` : ' to discover'}`;
+        document.querySelector('#result-count').textContent = `${matches.length} ${matches.length === 1 ? 'game' : 'games'}${query ? ` matching "${searchInput.value.trim()}"` : ' in catalog'}`;
         if (totalPages > 1) {
-            document.querySelector('#result-count').textContent = `${start + 1}–${Math.min(start + pageSize, matches.length)} of ${matches.length} games`;
+            document.querySelector('#result-count').textContent = `${start + 1}-${Math.min(start + pageSize, matches.length)} of ${matches.length} games`;
         }
-        document.querySelector('#results-heading').textContent = collection === 'saved' ? 'Your collection' : 'The collection';
+        document.querySelector('#results-heading').textContent = collection === 'saved' ? 'My backlog' : 'Catalog';
         document.querySelector('#catalog-title').innerHTML = collection === 'saved'
-            ? 'Your games.<br><span>Your story.</span>'
-            : 'Find your next<br><span>great adventure.</span>';
+            ? 'Your saved<br><span>backlog.</span>'
+            : 'Explore games and<br><span>organize your backlog.</span>';
         document.querySelector('#catalog-description').textContent = collection === 'saved'
-            ? 'Your played games, current adventures and wishlist, each in their own space.'
-            : 'From familiar favorites to your next obsession. It all starts here.';
+            ? 'Your played games, current playthroughs, and wishlist in one place.'
+            : 'Browse titles by genre, check details, and track what you want to play.';
 
         const noSavedGames = collection === 'saved' && !games.some(game => window.Backlog.isSaved(game.id));
         document.querySelector('#empty-title').textContent = noSavedGames
-            ? 'Your next adventure starts here.'
+            ? 'No saved games yet.'
             : statusSelect.value !== 'all' ? 'No games with this status.' : 'No games found.';
         document.querySelector('#empty-description').textContent = noSavedGames
-            ? 'Open a game and add it to your backlog. Your saved games will appear here.'
+            ? 'Open any game page to add it to your backlog.'
             : 'Try another search, status or genre.';
         tabs.forEach(tab => {
             const selected = tab.dataset.collection === collection;

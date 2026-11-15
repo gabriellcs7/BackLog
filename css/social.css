@@ -281,12 +281,14 @@
 .profile-overview .ratings-bin:hover .ratings-bar { background:var(--yellow); }
 #profile-ratings-feedback:empty { display:none; }
 .profile-content { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:22px; align-items:start; }
-.profile-shelves,.profile-community { display:grid; min-width:0; gap:18px; }
+.profile-content > :is(.profile-favorites,.profile-reviews) { grid-column:1/-1; }
 .profile-content section { min-width:0; padding:16px; border:1px solid var(--line); border-radius:12px; background:#191c17; }
 .profile-content .social-section-heading { margin-bottom:14px; gap:8px; }
 .profile-content .social-section-heading h2 { margin:0; font-size:clamp(19px,2vw,25px); letter-spacing:-.5px; }
-.profile-content .favorites-grid { gap:12px; max-width:none; }
-.profile-content .list-grid,.profile-content .profile-review-grid { grid-template-columns:minmax(0,1fr); gap:8px; }
+.profile-content .favorites-grid { gap:12px; max-width:650px; }
+.profile-content .list-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.profile-content .profile-review-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+@media(max-width:560px){.profile-content .profile-review-grid{grid-template-columns:1fr}}
 .profile-content .social-empty { padding:15px; }
 .player-profile .account-panel { margin-top:24px; }
 @media(max-width:850px){.profile-content{grid-template-columns:1fr}}

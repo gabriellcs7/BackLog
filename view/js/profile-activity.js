@@ -15,7 +15,7 @@
             if(review)logged.add(item.id);if(status&&status.id!=='want-to-play')logged.add(item.id);
             if(status&&status.id!=='want-to-play'&&date&&new Date(date).getFullYear()===year)annual.add(item.id);
             let latest=review?{game_id:item.id,kind:'rating',rating:review.rating,review_number:review.text.trim()?reviewCounts.get(item.id):null,created_at:review.updatedAt}:null;
-            if(status&&date&&(!latest||date>latest.created_at))latest={game_id:item.id,kind:'status',status:status.id,created_at:date};if(latest)recent.push(latest);
+            if(status&&date&&(!latest||date>latest.created_at))latest={game_id:item.id,kind:'status',status:status.id,rating:review?.rating,created_at:date};if(latest)recent.push(latest);
         }
         return {metrics:{played_this_year:annual.size,list_count:player.lists.length,logged_games:logged.size},recent:recent.sort((a,b)=>b.created_at.localeCompare(a.created_at)).slice(0,4)};
     }
@@ -23,7 +23,15 @@
         current={player,own};const ticket=++version,year=new Date().getFullYear();$('metrics-feedback').textContent='';$('recent-feedback').textContent='';
         try{
             let data;if(player.profile.id==='local')data=await localData(player);
-            else{if(own)await window.Backlog.statusReady;const [metrics,recent]=await Promise.all([api.metrics(player.profile.id,year),api.recent(player.profile.id)]);data={metrics,recent};}
+            else{
+                if(own)await window.Backlog.statusReady;
+                const id=player.profile.id;
+                const [metrics,recent,scores]=await Promise.all([
+                    api.metrics(id,year),api.recent(id),api.gameRatings(id).catch(()=>[])
+                ]);
+                const ratings=new Map(scores.map(row=>[row.game_id,row.rating]));
+                data={metrics,recent:recent.map(entry=>entry.kind==='status'?{...entry,rating:ratings.get(entry.game_id)}:entry)};
+            }
             if(ticket!==version)return;$('profile-metrics').replaceChildren();
             const diaryUrl=new URL(ui.href('view/diary.html'));
             diaryUrl.searchParams.set('year',year);
@@ -42,11 +50,10 @@
             const grid=$('profile-recent-games');grid.replaceChildren();
             for(const entry of data.recent.filter(entry=>entry.status!=='want-to-play').slice(0,4)){const item=ui.game(entry.game_id);if(!item)continue;const card=ui.gameCard(item.id);card.classList.add('favorite-slot','recent-game-card');if(entry.review_id)card.href=ui.reviewHref('id',entry.review_id);else if(entry.kind==='rating'&&player.profile.id==='local')card.href=ui.reviewHref('game',item.id);
                 const label=entry.kind==='rating'?'Reviewed':window.Backlog.statusOptions.find(s=>s.id===entry.status)?.label||'Updated collection';
-                const rating=entry.kind==='rating'&&entry.rating!=null
-                    ? ui.ratingStars(entry.rating)
-                    : ui.element('span','recent-game-label',label);
                 const meta=ui.element('div','recent-game-meta');
-                const date=ui.element('time','social-small',ui.date(entry.created_at));date.dateTime=entry.created_at;meta.append(rating,date);card.append(meta);if(entry.review_number>1)card.append(ui.element('p','recent-game-label',ui.reviewOrdinal(entry.review_number)));grid.append(card);}
+                if(entry.kind==='status'||entry.rating==null)meta.append(ui.element('span','recent-game-label',label));
+                if(entry.rating!=null)meta.append(ui.ratingStars(entry.rating));
+                const date=ui.element('time','social-small',ui.date(entry.created_at));date.dateTime=entry.created_at;meta.append(date);card.append(meta);if(entry.review_number>1)card.append(ui.element('p','recent-game-label',ui.reviewOrdinal(entry.review_number)));grid.append(card);}
             if(!grid.children.length)grid.append(ui.element('p','social-empty','No recent activity yet. Rate a game or set a status to get started.'));
         }catch(error){if(ticket===version){$('profile-metrics').replaceChildren();$('profile-recent-games').replaceChildren();$('metrics-feedback').textContent='Could not load statistics. '+error.message;$('recent-feedback').textContent='Recent activity is unavailable. Please try again.';}}
     }

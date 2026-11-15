@@ -256,3 +256,5 @@
 .ratings-bin:hover .ratings-bar { background:var(--yellow); }
 .ratings-scale { display:flex; justify-content:space-between; color:var(--yellow); font-size:11px; margin-top:5px; }
 @media(prefers-reduced-motion:no-preference){.ratings-bar{transition:background-color 160ms ease;}}
+
+#more-all-reviews { margin-top:18px; }

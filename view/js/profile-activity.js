@@ -11,6 +11,7 @@
         }
         for(const item of window.BacklogGames){
             const review=window.BacklogReviews.getDevice(item.id),status=window.Backlog.getStatus(item.id),date=localStorage.getItem('backlog:status-date:local:'+item.id);
+            if(status?.id==='want-to-play'){if(review)logged.add(item.id);continue;}
             if(review)logged.add(item.id);if(status&&status.id!=='want-to-play')logged.add(item.id);
             if(status&&status.id!=='want-to-play'&&date&&new Date(date).getFullYear()===year)annual.add(item.id);
             let latest=review?{game_id:item.id,kind:'rating',rating:review.rating,review_number:review.text.trim()?reviewCounts.get(item.id):null,created_at:review.updatedAt}:null;
@@ -39,7 +40,7 @@
                 $('profile-metrics').append(control);
             }
             const grid=$('profile-recent-games');grid.replaceChildren();
-            for(const entry of data.recent.slice(0,4)){const item=ui.game(entry.game_id);if(!item)continue;const card=ui.gameCard(item.id);card.classList.add('favorite-slot','recent-game-card');if(entry.review_id)card.href=ui.reviewHref('id',entry.review_id);else if(entry.kind==='rating'&&player.profile.id==='local')card.href=ui.reviewHref('game',item.id);
+            for(const entry of data.recent.filter(entry=>entry.status!=='want-to-play').slice(0,4)){const item=ui.game(entry.game_id);if(!item)continue;const card=ui.gameCard(item.id);card.classList.add('favorite-slot','recent-game-card');if(entry.review_id)card.href=ui.reviewHref('id',entry.review_id);else if(entry.kind==='rating'&&player.profile.id==='local')card.href=ui.reviewHref('game',item.id);
                 const label=entry.kind==='rating'?'Reviewed':window.Backlog.statusOptions.find(s=>s.id===entry.status)?.label||'Updated collection';
                 const rating=entry.kind==='rating'&&entry.rating!=null
                     ? ui.ratingStars(entry.rating)

@@ -188,6 +188,14 @@
 .logged-games-heading h1 { font-size:clamp(28px,4vw,48px); margin:0 0 10px; overflow-wrap:anywhere; }
 .logged-games-grid { margin-top:24px; }
 .logged-games-grid .social-empty { grid-column:1/-1; }
+.logged-game-rating {
+    display:inline-block;
+    font-size:14px;
+    line-height:1.25;
+    background:linear-gradient(to right,var(--yellow) var(--rating-fill),var(--muted) var(--rating-fill));
+    background-clip:text;
+    color:transparent;
+}
 
 .favorites-dialog { width:min(720px,calc(100% - 24px)); }
 .favorites-picker-heading { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 16px; }

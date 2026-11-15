@@ -31,9 +31,9 @@
 .list-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
 .list-grid>.social-empty { grid-column:1/-1; }
 .game-list-card { min-width:0; padding:16px; border:1px solid #ffffff21; border-radius:10px; background:#191c17; }
-.list-cover-stack { display:flex; min-height:56px; width:100%; border-radius:6px; background:#111410; align-items:center; gap:3px; color:var(--muted); text-decoration:none; }
+.list-cover-stack { display:flex; width:max-content; max-width:100%; border-radius:6px; background:#111410; align-items:center; gap:3px; color:var(--muted); text-decoration:none; }
 .list-cover-stack img { flex:0 1 60px; min-width:0; display:block; width:60px; aspect-ratio:3/4; object-fit:cover; border-radius:3px; }
-.list-cover-stack span { margin:auto; }
+.list-cover-stack span { padding:8px 10px; }
 .list-title-button { display:block; color:var(--text); background:transparent; border:0; text-align:left; font-size:16px; font-weight:700; padding:16px 0 8px; overflow-wrap:anywhere; }
 .list-title-button:hover { color:var(--yellow); }
 .list-description { min-height:20px; font-size:12px; line-height:1.8; color:var(--muted); overflow-wrap:anywhere; }
@@ -307,7 +307,6 @@
 }
 
 .list-title-button { text-decoration:none; }
-.player-profile .list-cover-stack { min-height:88px; }
 .player-profile .list-cover-stack img { width:66px; flex-basis:66px; }
 .list-page-description { white-space:pre-wrap; overflow-wrap:anywhere; }
 #list-page-games { list-style:none; padding:0; }

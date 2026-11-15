@@ -281,12 +281,13 @@
 .profile-overview .ratings-bin:hover .ratings-bar { background:var(--yellow); }
 #profile-ratings-feedback:empty { display:none; }
 .profile-content { display:grid; grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:22px; align-items:start; }
-.profile-content > :is(.profile-favorites,.profile-reviews) { grid-column:1/-1; }
+.profile-shelves { display:grid; min-width:0; gap:18px; }
+.profile-content > .profile-reviews { grid-column:1/-1; }
 .profile-content section { min-width:0; padding:16px; border:1px solid var(--line); border-radius:12px; background:#191c17; }
 .profile-content .social-section-heading { margin-bottom:14px; gap:8px; }
 .profile-content .social-section-heading h2 { margin:0; font-size:clamp(19px,2vw,25px); letter-spacing:-.5px; }
-.profile-content .favorites-grid { gap:12px; max-width:650px; }
-.profile-content .list-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.profile-content .favorites-grid { gap:12px; max-width:none; }
+.profile-content .list-grid { grid-template-columns:minmax(0,1fr); gap:8px; }
 .profile-content .profile-review-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
 @media(max-width:560px){.profile-content .profile-review-grid{grid-template-columns:1fr}}
 .profile-content .social-empty { padding:15px; }
@@ -308,13 +309,12 @@
 .list-cover-stack { height:auto; min-height:56px; justify-content:flex-start; }
 .list-cover-stack img { flex:0 1 60px; width:calc((100% - 9px) / 4); max-width:60px; height:auto; aspect-ratio:3/4; border-radius:3px; }
 .list-cover-stack span { margin:auto; }
+.player-profile .list-cover-stack { height:88px; }
+.player-profile .list-cover-stack img { flex-basis:66px; max-width:66px; }
 .list-page-description { white-space:pre-wrap; overflow-wrap:anywhere; }
 #list-page-games { list-style:none; padding:0; }
 #list-page-games li { position:relative; min-width:0; }
 
 #more-profile-lists { margin-top:12px; }
 .game-list-card .social-actions { margin-top:10px; gap:6px; }
-.profile-content .game-list-card { padding:10px; }
-.profile-content .game-list-card .social-button { min-height:34px; padding:6px 8px; }
 .profile-content .list-grid>.social-empty { grid-column:1/-1; }
-@media(max-width:380px){.profile-content .list-grid{grid-template-columns:1fr}}

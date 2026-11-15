@@ -47,30 +47,31 @@
         }
         document.querySelector('.about-section>p').textContent = game.description;
         document.querySelector('.about-section>p + p').textContent = 'Add this game to your backlog or log it in your diary when you play.';
-        const platforms = document.querySelector('.platforms');
-        const platformItems = (game.platforms || []).map(platform => {
-            const item = document.createElement('span');
-            item.className = 'platform';
-            item.textContent = platform;
-            return item;
-        });
-        const platformLabel = document.createElement('span');
-        platformLabel.className = 'small-label';
-        platformLabel.textContent = 'PLATFORMS';
-        platforms.replaceChildren(platformLabel, ...platformItems);
-        platforms.hidden = platformItems.length === 0;
-
-        const values = [
-            ['Studio', game.studio],
-            [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Backlog'],
-            [game.year ? (game.releaseState === 'upcoming' ? 'Planned release' : 'First release') : 'Genre', game.year ? String(game.year) : game.tags.join(' · ')],
-            ['Your status', window.Backlog.getStatus(game.id)?.label || 'Not in collection']
-        ];
-        document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
-            detail.querySelector('dt').textContent = values[index][0];
-            detail.querySelector('dd').textContent = values[index][1];
-        });
     }
+
+    const platforms = document.querySelector('.platforms');
+    const platformItems = (game.platforms || []).map(platform => {
+        const item = document.createElement('span');
+        item.className = 'platform';
+        item.textContent = platform;
+        return item;
+    });
+    const platformLabel = document.createElement('span');
+    platformLabel.className = 'small-label';
+    platformLabel.textContent = 'PLATFORMS';
+    platforms.replaceChildren(platformLabel, ...platformItems);
+    platforms.hidden = platformItems.length === 0;
+
+    const values = [
+        ['Studio', game.studio],
+        [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Backlog'],
+        [game.releaseState === 'upcoming' ? 'Planned release' : 'First release', String(game.year)],
+        ['Your status', window.Backlog.getStatus(game.id)?.label || 'Not in collection']
+    ];
+    document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
+        detail.querySelector('dt').textContent = values[index][0];
+        detail.querySelector('dd').textContent = values[index][1];
+    });
 
     const tags = game.tags.map(tag => {
         const span = document.createElement('span');

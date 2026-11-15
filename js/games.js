@@ -21,7 +21,9 @@ window.BacklogGames = [
         "banner": "gta-vi-banner-4k.webp",
         "bannerPosition": "center top",
         "bannerPositionMobile": "53% top",
-        "franchise": "Grand Theft Auto"
+        "franchise": "Grand Theft Auto",
+        "year": 2026,
+        "releaseState": "upcoming"
     },
     {
         "id": "grand-theft-auto-v",
@@ -38,7 +40,17 @@ window.BacklogGames = [
         "banner": "banners/grand-theft-auto-v.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "70% center",
-        "franchise": "Grand Theft Auto"
+        "franchise": "Grand Theft Auto",
+        "year": 2013,
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox 360",
+            "Xbox One",
+            "Xbox Series X|S"
+        ]
     },
     {
         "id": "red-dead-redemption-2",
@@ -54,7 +66,13 @@ window.BacklogGames = [
         "description": "A prequel set in 1899 America following Arthur Morgan as the Van der Linde gang faces internal fractures, lawmen, and a closing frontier.",
         "banner": "banners/red-dead-redemption-2.webp",
         "bannerPosition": "center center",
-        "bannerPositionMobile": "78% center"
+        "bannerPositionMobile": "78% center",
+        "year": 2018,
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "Xbox One"
+        ]
     },
     {
         "id": "god-of-war-ragnarok",
@@ -71,7 +89,13 @@ window.BacklogGames = [
         "banner": "banners/god-of-war-ragnarok.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "65% center",
-        "franchise": "God of War"
+        "franchise": "God of War",
+        "year": 2022,
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5"
+        ]
     },
     {
         "id": "the-last-of-us",
@@ -88,7 +112,14 @@ window.BacklogGames = [
         "banner": "banners/the-last-of-us.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "50% center",
-        "franchise": "The Last of Us"
+        "franchise": "The Last of Us",
+        "year": 2013,
+        "platforms": [
+            "PlayStation 3",
+            "PlayStation 4 (Remastered)",
+            "PlayStation 5 (Part I)",
+            "PC (Part I)"
+        ]
     },
     {
         "id": "minecraft",
@@ -104,7 +135,20 @@ window.BacklogGames = [
         "description": "A procedurally generated voxel game where players mine materials, build structures, and survive hostile mobs in an open world.",
         "banner": "banners/minecraft.webp",
         "bannerPosition": "center 47%",
-        "bannerPositionMobile": "53% center"
+        "bannerPositionMobile": "53% center",
+        "year": 2011,
+        "platforms": [
+            "PC",
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "iOS",
+            "Android"
+        ]
     },
     {
         "id": "fortnite",
@@ -120,7 +164,19 @@ window.BacklogGames = [
         "description": "A free-to-play shooter where players drop onto an island, gather resources, build defensive cover, and fight to be the last squad standing.",
         "banner": "banners/fortnite.webp",
         "bannerPosition": "center 35%",
-        "bannerPositionMobile": "52% center"
+        "bannerPositionMobile": "52% center",
+        "year": 2017,
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2",
+            "Android",
+            "iOS (availability varies)"
+        ]
     },
     {
         "id": "spider-man",
@@ -137,7 +193,13 @@ window.BacklogGames = [
         "banner": "banners/spider-man.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "71% center",
-        "franchise": "Marvel's Spider-Man"
+        "franchise": "Marvel's Spider-Man",
+        "year": 2018,
+        "platforms": [
+            "PlayStation 4",
+            "PlayStation 5 (Remastered)",
+            "PC (Remastered)"
+        ]
     },
     {
         "id": "red-dead-redemption",
@@ -153,7 +215,20 @@ window.BacklogGames = [
         "description": "A western action-adventure following former outlaw John Marston across the American Southwest and Mexico to protect his family.",
         "banner": "banners/red-dead-redemption.webp",
         "bannerPosition": "center center",
-        "bannerPositionMobile": "53% center"
+        "bannerPositionMobile": "53% center",
+        "year": 2010,
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox 360",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2",
+            "iOS",
+            "Android"
+        ]
     },
     {
         "id": "phantom-blade-zero",
@@ -169,7 +244,13 @@ window.BacklogGames = [
         "description": "A semi-open world action RPG featuring rapid swordplay choreography and dark fantasy aesthetics inspired by classic wuxia films.",
         "banner": "banners/phantom-blade-zero.webp",
         "bannerPosition": "center 38%",
-        "bannerPositionMobile": "52% center"
+        "bannerPositionMobile": "52% center",
+        "year": 2026,
+        "platforms": [
+            "PC",
+            "PlayStation 5"
+        ],
+        "releaseState": "released"
     },
     {
         "id": "silent-hill-townfall",
@@ -185,7 +266,13 @@ window.BacklogGames = [
         "description": "A standalone psychological horror entry co-developed by No Code and Annapurna Interactive, exploring fresh perspectives on Silent Hill.",
         "banner": "banners/silent-hill-townfall.webp",
         "bannerPosition": "center 44%",
-        "bannerPositionMobile": "52% center"
+        "bannerPositionMobile": "52% center",
+        "year": 2026,
+        "platforms": [
+            "PC",
+            "PlayStation 5"
+        ],
+        "releaseState": "released"
     },
     {
         "id": "minecraft-dungeons-ii",
@@ -201,7 +288,16 @@ window.BacklogGames = [
         "description": "An action RPG sequel where players team up to explore dungeons, defeat monster mobs, and collect new weapon builds.",
         "banner": "banners/minecraft-dungeons-ii.webp",
         "bannerPosition": "center 44%",
-        "bannerPositionMobile": "54% center"
+        "bannerPositionMobile": "54% center",
+        "year": 2026,
+        "platforms": [
+            "PC",
+            "PlayStation 5",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2"
+        ],
+        "releaseState": "released"
     },
     {
         "id": "spider-man-miles-morales",
@@ -374,7 +470,12 @@ window.BacklogGames = [
         "cover": "catalogo/grand-theft-auto.webp",
         "banner": "banners/grand-theft-auto.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Game Boy Color"
+        ]
     },
     {
         "id": "grand-theft-auto-2",
@@ -392,7 +493,13 @@ window.BacklogGames = [
         "cover": "catalogo/grand-theft-auto-2.webp",
         "banner": "banners/grand-theft-auto-2.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Dreamcast",
+            "Game Boy Color"
+        ]
     },
     {
         "id": "grand-theft-auto-iii",
@@ -410,7 +517,20 @@ window.BacklogGames = [
         "cover": "catalogo/grand-theft-auto-iii.webp",
         "banner": "banners/grand-theft-auto-iii.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "macOS",
+            "PlayStation 2",
+            "Xbox",
+            "iOS",
+            "Android",
+            "PlayStation 4 (Definitive Edition)",
+            "PlayStation 5 (Definitive Edition)",
+            "Xbox One (Definitive Edition)",
+            "Xbox Series X|S (Definitive Edition)",
+            "Nintendo Switch (Definitive Edition)"
+        ]
     },
     {
         "id": "gta-vice-city",
@@ -428,7 +548,20 @@ window.BacklogGames = [
         "cover": "catalogo/gta-vice-city.webp",
         "banner": "banners/gta-vice-city.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "macOS",
+            "PlayStation 2",
+            "Xbox",
+            "iOS",
+            "Android",
+            "PlayStation 4 (Definitive Edition)",
+            "PlayStation 5 (Definitive Edition)",
+            "Xbox One (Definitive Edition)",
+            "Xbox Series X|S (Definitive Edition)",
+            "Nintendo Switch (Definitive Edition)"
+        ]
     },
     {
         "id": "gta-san-andreas",
@@ -446,7 +579,22 @@ window.BacklogGames = [
         "cover": "catalogo/gta-san-andreas.webp",
         "banner": "banners/gta-san-andreas.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "macOS",
+            "PlayStation 2",
+            "PlayStation 3",
+            "Xbox",
+            "Xbox 360",
+            "iOS",
+            "Android",
+            "PlayStation 4 (Definitive Edition)",
+            "PlayStation 5 (Definitive Edition)",
+            "Xbox One (Definitive Edition)",
+            "Xbox Series X|S (Definitive Edition)",
+            "Nintendo Switch (Definitive Edition)"
+        ]
     },
     {
         "id": "grand-theft-auto-iv",
@@ -464,7 +612,12 @@ window.BacklogGames = [
         "cover": "catalogo/grand-theft-auto-iv.webp",
         "banner": "banners/grand-theft-auto-iv.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "Xbox 360"
+        ]
     },
     {
         "id": "the-last-of-us-part-ii",
@@ -598,7 +751,13 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-1996.webp",
         "banner": "banners/resident-evil-1996.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Sega Saturn",
+            "Nintendo DS (Deadly Silence)"
+        ]
     },
     {
         "id": "resident-evil-2-1998",
@@ -621,7 +780,14 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-2-1998.webp",
         "banner": "banners/resident-evil-2-1998.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "center"
+        "bannerPositionMobile": "center",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Nintendo 64",
+            "Dreamcast",
+            "GameCube"
+        ]
     },
     {
         "id": "resident-evil-3-nemesis",
@@ -644,7 +810,13 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-3-nemesis.webp",
         "banner": "banners/resident-evil-3-nemesis.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "center"
+        "bannerPositionMobile": "center",
+        "platforms": [
+            "PC",
+            "PlayStation",
+            "Dreamcast",
+            "GameCube"
+        ]
     },
     {
         "id": "resident-evil-code-veronica",
@@ -667,7 +839,15 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-code-veronica.webp",
         "banner": "banners/resident-evil-code-veronica.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "center"
+        "bannerPositionMobile": "center",
+        "platforms": [
+            "Dreamcast",
+            "PlayStation 2",
+            "GameCube",
+            "PlayStation 3 (HD)",
+            "Xbox 360 (HD)",
+            "PlayStation 4 (X)"
+        ]
     },
     {
         "id": "resident-evil-zero",
@@ -690,7 +870,17 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-zero.webp",
         "banner": "banners/resident-evil-zero.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "GameCube",
+            "Wii",
+            "PC (HD)",
+            "PlayStation 3 (HD)",
+            "PlayStation 4 (HD)",
+            "Xbox 360 (HD)",
+            "Xbox One (HD)",
+            "Nintendo Switch (HD)"
+        ]
     },
     {
         "id": "resident-evil-4-2005",
@@ -713,7 +903,19 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-4-2005.webp",
         "banner": "banners/resident-evil-4-2005.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "GameCube",
+            "PlayStation 2",
+            "Wii",
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "Xbox 360",
+            "Xbox One",
+            "Nintendo Switch",
+            "Meta Quest (VR)"
+        ]
     },
     {
         "id": "resident-evil-5",
@@ -736,7 +938,15 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-5.webp",
         "banner": "banners/resident-evil-5.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "Xbox 360",
+            "Xbox One",
+            "Nintendo Switch"
+        ]
     },
     {
         "id": "resident-evil-6",
@@ -759,7 +969,15 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-6.webp",
         "banner": "banners/resident-evil-6.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "Xbox 360",
+            "Xbox One",
+            "Nintendo Switch"
+        ]
     },
     {
         "id": "resident-evil-7",
@@ -782,7 +1000,18 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-7.webp",
         "banner": "banners/resident-evil-7.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "macOS",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch (Cloud)",
+            "iOS",
+            "Nintendo Switch 2"
+        ]
     },
     {
         "id": "resident-evil-village",
@@ -805,7 +1034,18 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-village.webp",
         "banner": "banners/resident-evil-village.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "macOS",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch (Cloud)",
+            "iOS",
+            "Nintendo Switch 2"
+        ]
     },
     {
         "id": "resident-evil-requiem",
@@ -828,7 +1068,13 @@ window.BacklogGames = [
         "cover": "catalogo/resident-evil-requiem.webp",
         "banner": "banners/resident-evil-requiem.webp",
         "bannerPosition": "center",
-        "bannerPositionMobile": "60% center"
+        "bannerPositionMobile": "60% center",
+        "platforms": [
+            "PC",
+            "PlayStation 5",
+            "Xbox Series X|S",
+            "Nintendo Switch 2"
+        ]
     },
     {
         "id": "hollow-knight",
@@ -852,9 +1098,12 @@ window.BacklogGames = [
         "releaseState": "released",
         "platforms": [
             "PC",
-            "PlayStation",
-            "Xbox",
-            "Nintendo Switch"
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "Xbox One",
+            "Nintendo Switch",
+            "Nintendo Switch 2"
         ]
     },
     {
@@ -879,9 +1128,14 @@ window.BacklogGames = [
         "releaseState": "released",
         "platforms": [
             "PC",
-            "PlayStation",
-            "Xbox",
-            "Nintendo Switch"
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2"
         ]
     },
     {
@@ -899,7 +1153,13 @@ window.BacklogGames = [
         "caption": "Psychological thriller set in Bright Falls.",
         "description": "Troubled writer Alan Wake searches for his missing wife in the Pacific Northwest while fighting shadowy Taken with a flashlight and handgun.",
         "platforms": [
-            "PC"
+            "PC",
+            "Xbox 360",
+            "PlayStation 4 (Remastered)",
+            "PlayStation 5 (Remastered)",
+            "Xbox One (Remastered)",
+            "Xbox Series X|S (Remastered)",
+            "Nintendo Switch (Remastered)"
         ],
         "franchise": "Alan Wake",
         "kind": "Main game",
@@ -954,7 +1214,12 @@ window.BacklogGames = [
         "caption": "Hacking and vigilante justice in Chicago.",
         "description": "Aiden Pearce uses a smartphone profiler to manipulate Chicago's ctOS traffic lights, bridges, and surveillance cameras to avenge his niece.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "Xbox 360",
+            "Xbox One",
+            "Wii U"
         ],
         "franchise": "Watch Dogs",
         "kind": "Main game",
@@ -978,7 +1243,9 @@ window.BacklogGames = [
         "caption": "DedSec hacks the San Francisco Bay Area.",
         "description": "Marcus Holloway and the DedSec hacker collective pull off tech operations and drone reconnaissance across San Francisco and Silicon Valley.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "Xbox One"
         ],
         "franchise": "Watch Dogs",
         "kind": "Main game",
@@ -1002,7 +1269,11 @@ window.BacklogGames = [
         "caption": "Recruit anyone in near-future surveillance London.",
         "description": "An open-world adventure where players can recruit and play as any citizen in London to rebel against private military contractor Albion.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S"
         ],
         "franchise": "Watch Dogs",
         "kind": "Main game",
@@ -1026,7 +1297,13 @@ window.BacklogGames = [
         "caption": "Football simulation with career and Ultimate Team modes.",
         "description": "EA's 2025 release featuring updated club rosters, tactical HyperMotion capture, and licensed domestic leagues.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2"
         ],
         "franchise": "EA Sports FC",
         "kind": "Main game",
@@ -1053,7 +1330,13 @@ window.BacklogGames = [
         "caption": "The 2026 edition of EA's club football series.",
         "description": "The follow-up football simulation featuring updated international rosters, club management, and online competition.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch",
+            "Nintendo Switch 2"
         ],
         "franchise": "EA Sports FC",
         "kind": "Main game",
@@ -1081,9 +1364,14 @@ window.BacklogGames = [
         "description": "An online platform where millions of community creators build and share games across obstacle courses, simulations, and roleplay genres.",
         "platforms": [
             "PC",
-            "Mobile",
-            "PlayStation",
-            "Xbox"
+            "macOS",
+            "iOS",
+            "Android",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Meta Quest"
         ],
         "franchise": "Roblox",
         "kind": "Main game",
@@ -1107,7 +1395,10 @@ window.BacklogGames = [
         "caption": "The original 1.6 tactical shooter.",
         "description": "The classic mod-turned-phenomenon pitting Terrorists against Counter-Terrorists with recoil control, corner angles, and team buys.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux",
+            "Xbox"
         ],
         "franchise": "Counter-Strike",
         "kind": "Main game",
@@ -1134,7 +1425,9 @@ window.BacklogGames = [
         "caption": "Single-player tour of duty and classic multiplayer.",
         "description": "Features offline bot challenges with specific weapon objectives alongside standard Counter-Strike multiplayer matches.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux"
         ],
         "franchise": "Counter-Strike",
         "kind": "Main game",
@@ -1158,7 +1451,9 @@ window.BacklogGames = [
         "caption": "Source engine remake of classic maps.",
         "description": "Rebuilt classic maps including Dust II, Aztec, and Office with updated physics, textures, and grenade dynamics.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux"
         ],
         "franchise": "Counter-Strike",
         "kind": "Main game",
@@ -1212,7 +1507,8 @@ window.BacklogGames = [
         "caption": "Source 2 tactical gameplay with dynamic smoke.",
         "description": "Built on Source 2 with sub-tick server response, volumetric smoke grenades that react to bullets, and the Premier rating mode.",
         "platforms": [
-            "PC"
+            "PC",
+            "Linux"
         ],
         "franchise": "Counter-Strike",
         "kind": "Main game",
@@ -1238,7 +1534,12 @@ window.BacklogGames = [
         "caption": "Found-footage horror in Mount Massive Asylum.",
         "description": "Journalist Miles Upshur explores a remote psychiatric hospital in Colorado armed only with a battery-powered night-vision camcorder.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "Xbox One",
+            "Nintendo Switch"
         ],
         "franchise": "Outlast",
         "kind": "Main game",
@@ -1262,7 +1563,10 @@ window.BacklogGames = [
         "caption": "Rural horror in the Supai region of Arizona.",
         "description": "Cameraman Blake Langermann searches for his missing wife in the desert while evading a fanatical cult and remembering childhood trauma.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "Xbox One",
+            "Nintendo Switch"
         ],
         "franchise": "Outlast",
         "kind": "Main game",
@@ -1286,7 +1590,11 @@ window.BacklogGames = [
         "caption": "Cooperative psychological horror therapy.",
         "description": "Teams of test subjects complete sadistic rehabilitation trials designed by the Murkoff Corporation during the Cold War.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S"
         ],
         "franchise": "Outlast",
         "kind": "Main game",
@@ -1310,7 +1618,9 @@ window.BacklogGames = [
         "caption": "Cooperative 4-player ghost hunting.",
         "description": "Gather evidence using EMF readers, spirit boxes, and thermometers inside haunted houses and prisons to identify ghost types before hunts begin.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 5",
+            "Xbox Series X|S"
         ],
         "franchise": "Phasmophobia",
         "kind": "Main game",
@@ -1334,7 +1644,12 @@ window.BacklogGames = [
         "caption": "Time moves only when you move.",
         "description": "A minimalist first-person puzzle shooter where bullets and enemies crawl in slow motion until the player moves or fires.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "Xbox One",
+            "Nintendo Switch"
         ],
         "franchise": "SUPERHOT",
         "kind": "Main game",
@@ -1358,7 +1673,12 @@ window.BacklogGames = [
         "caption": "Roguelike expansion with customizable hacks.",
         "description": "Adds procedural arena progression, persistent perks, and distinct core loadouts to the slow-motion combat formula.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux",
+            "PlayStation 4",
+            "Xbox One",
+            "Xbox Series X|S"
         ],
         "franchise": "SUPERHOT",
         "kind": "Main game",
@@ -1382,7 +1702,13 @@ window.BacklogGames = [
         "caption": "Open-world mercenary RPG in Night City.",
         "description": "Mercenary V takes on jobs across the six districts of Night City while coping with a dying mind linked to rockerboy Johnny Silverhand.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch 2"
         ],
         "franchise": "Cyberpunk",
         "kind": "Main game",
@@ -1406,7 +1732,11 @@ window.BacklogGames = [
         "caption": "Spy-thriller expansion in Dogtown.",
         "description": "V enters the walled combat zone of Dogtown to rescue the NUSA President alongside sleeper agent Solomon Reed.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "PlayStation 5",
+            "Xbox Series X|S",
+            "Nintendo Switch 2"
         ],
         "franchise": "Cyberpunk",
         "kind": "Expansion",
@@ -1430,7 +1760,8 @@ window.BacklogGames = [
         "caption": "Survival crafting against cannibal tribes.",
         "description": "A plane crash survivor builds shelters, cuts down timber, and crafts weapons to fend off mutant cannibals while searching for his kidnapped son.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4"
         ],
         "franchise": "The Forest",
         "kind": "Main game",
@@ -1483,7 +1814,8 @@ window.BacklogGames = [
         "caption": "Geralt of Rivia returns to Temeria.",
         "description": "An amnesiac Geralt of Rivia tracks stolen witcher secrets and investigates the Salamandra criminal syndicate around Vizima.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS"
         ],
         "franchise": "The Witcher",
         "kind": "Main game",
@@ -1509,7 +1841,10 @@ window.BacklogGames = [
         "caption": "Framed for regicide in the Northern Kingdoms.",
         "description": "Geralt hunts the Kingslayer Letho of Gulet in an adventure featuring diverging chapter paths between Iorveth and Vernon Roche.",
         "platforms": [
-            "PC"
+            "PC",
+            "macOS",
+            "Linux",
+            "Xbox 360"
         ],
         "franchise": "The Witcher",
         "kind": "Main game",
@@ -1535,7 +1870,12 @@ window.BacklogGames = [
         "caption": "Geralt searches for Ciri across Velen and Skellige.",
         "description": "Geralt tracks his adopted daughter Ciri across war-torn Velen, Novigrad, and the Skellige Isles while pursued by the otherworldly Wild Hunt.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "Nintendo Switch"
         ],
         "franchise": "The Witcher",
         "kind": "Main game",
@@ -1561,7 +1901,12 @@ window.BacklogGames = [
         "caption": "Fighting game set in a regime-ruled DC world.",
         "description": "Batman leads an insurgency against a totalitarian Superman who took power following the destruction of Metropolis.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 3",
+            "PlayStation 4",
+            "PS Vita",
+            "Xbox 360",
+            "Wii U"
         ],
         "franchise": "Injustice",
         "kind": "Main game",
@@ -1585,7 +1930,9 @@ window.BacklogGames = [
         "caption": "DC fighting roster against Brainiac's invasion.",
         "description": "Batman and Superman's opposing factions clash over how to handle alien invader Brainiac as he targets Earth's cities.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 4",
+            "Xbox One"
         ],
         "franchise": "Injustice",
         "kind": "Main game",
@@ -1739,7 +2086,9 @@ window.BacklogGames = [
         "caption": "Alex Shepherd returns to Shepherd's Glen.",
         "description": "Discharged soldier Alex Shepherd investigates the sudden disappearance of his younger brother Joshua and the mystery behind the town founders.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 3",
+            "Xbox 360"
         ],
         "franchise": "Silent Hill",
         "kind": "Main game",
@@ -1814,7 +2163,9 @@ window.BacklogGames = [
         "caption": "1960s rural Japan psychological horror.",
         "description": "Set in 1960s Japan, following high schooler Hinako Shimizu as a town is consumed by parasitic crimson flora.",
         "platforms": [
-            "PC"
+            "PC",
+            "PlayStation 5",
+            "Xbox Series X|S"
         ],
         "franchise": "Silent Hill",
         "kind": "Main game",

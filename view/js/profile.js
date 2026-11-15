@@ -12,6 +12,7 @@
         try{const value=own?account.getState():await account.getProfile(target);if(ticket!==version)return;if(!value.profile)throw new Error('Profile not found.');player=value;
             $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'Games you play, reviews, and custom lists.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             renderProfileBanner();
+            window.BacklogProfileWishlist.render(player.profile.id);
             window.BacklogProfileRatings.render(player.profile.id);
             renderProfileDetails();
             for(const id of ['choose-profile-banner','edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;

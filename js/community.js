@@ -8,6 +8,13 @@
         async searchPlayers(query,offset=0){return check(await(await client()).rpc('search_players',{search_term:query,page_offset:offset}))||[];},
         async activity(offset=0,filter='all'){const api=await client(true),params={page_offset:offset,feed_filter:filter};let result=await api.rpc('activity_feed_v2',params);if(result.error?.code==='PGRST202')result=await api.rpc('activity_feed',params);return check(result)||[];},
         async metrics(id,year){return (check(await(await client()).rpc('profile_metrics',{profile_key:id,calendar_year:year}))||[])[0];},
+        async wantToPlay(id){
+            if(id==='local')return window.BacklogGames.filter(game=>window.Backlog.getStatus(game.id,null)?.id==='want-to-play');
+            const api=await client();
+            if(id===account.user?.id)await window.Backlog.statusReady;
+            const rows=check(await api.from('game_statuses').select('game_id').eq('user_id',id).eq('status','want-to-play').order('updated_at',{ascending:false}).order('game_id'))||[];
+            return rows.map(row=>window.BacklogGames.find(game=>game.id===row.game_id)).filter(Boolean);
+        },
         async loggedGames(id){return check(await(await client()).rpc('profile_logged_games',{profile_key:id}))||[];},
         async gameRatings(id){
             const api=await client();

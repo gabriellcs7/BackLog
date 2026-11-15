@@ -22,10 +22,10 @@
         { id: 'want-to-play', label: 'Want to play', description: 'You want to play this game.' }
     ].map(option => Object.freeze(option)));
 
-    const statusKey = id => window.BacklogAccount?.user ? `backlog:status:${window.BacklogAccount.user.id}:${id}` : `backlog:${id}`;
-    function getStatus(id) {
+    const statusKey = (id,owner=window.BacklogAccount?.user?.id) => owner ? `backlog:status:${owner}:${id}` : `backlog:${id}`;
+    function getStatus(id,owner) {
         try {
-            const stored = localStorage.getItem(statusKey(id));
+            const stored = localStorage.getItem(statusKey(id,owner));
             // Preserva os jogos salvos antes da introdução dos seis status.
             if (stored === 'saved') return statusOptions.find(option => option.id === 'want-to-play');
             return statusOptions.find(option => option.id === stored) || null;

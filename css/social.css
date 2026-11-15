@@ -360,3 +360,13 @@
     #single-review-content,.single-review-body .community-review { flex:1; }
     #single-review-content > .social-button { align-self:flex-start; margin-top:12px; }
 }
+
+.profile-side-shelves { display:grid; gap:18px; min-width:0; }
+.wishlist-preview { display:block; color:var(--text); text-decoration:none; }
+.wishlist-heading { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:9px; margin-bottom:12px; border-bottom:1px solid var(--line); }
+.wishlist-heading h2 { font-size:clamp(19px,2vw,25px); margin:0; }
+.wishlist-heading span { color:var(--yellow); font-variant-numeric:tabular-nums; }
+.wishlist-preview:hover h2,.wishlist-preview:focus-visible h2 { color:var(--yellow); }
+.wishlist-covers { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; }
+.wishlist-covers img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:5px; }
+#wishlist-feedback:empty { display:none; }

@@ -363,6 +363,9 @@
 }
 
 .profile-side-shelves { display:grid; gap:18px; min-width:0; }
+@media(width > 850px){
+    .profile-shelves,.profile-side-shelves { align-self:stretch; grid-template-rows:auto 1fr; }
+}
 .wishlist-preview { display:block; color:var(--text); text-decoration:none; }
 .wishlist-heading { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:9px; margin-bottom:12px; border-bottom:1px solid var(--line); }
 .wishlist-heading h2 { font-size:clamp(19px,2vw,25px); margin:0; }

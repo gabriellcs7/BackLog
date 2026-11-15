@@ -323,7 +323,8 @@
 #list-page-games { list-style:none; padding:0; }
 #list-page-games li { position:relative; min-width:0; }
 
-#more-profile-lists { margin-top:12px; }
+.profile-list-heading-link { color:inherit; text-decoration:none; }
+.profile-list-heading-link:hover,.profile-list-heading-link:focus-visible { color:var(--yellow); }
 .game-list-card .social-actions { margin-top:10px; gap:6px; }
 .profile-content .list-grid>.social-empty { grid-column:1/-1; }
 

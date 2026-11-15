@@ -46,10 +46,9 @@
     }
 
     function renderLists(){
-        const container=$('#profile-lists'),more=$('#more-profile-lists');
+        const container=$('#profile-lists'),link=$('#profile-lists-link');
         container.replaceChildren();
-        more.href=ui.href('view/profile-lists.html?'+new URLSearchParams({id:player.profile.id}));
-        more.hidden=!player.lists.length;
+        link.href=ui.href('view/profile-lists.html?'+new URLSearchParams({id:player.profile.id}));
         if(!player.lists.length){
             container.append(el('p','social-empty',own?'No lists yet.':'No public lists yet.'));
             return;

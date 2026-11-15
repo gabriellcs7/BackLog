@@ -2,7 +2,8 @@
     'use strict';
     const account=window.BacklogAccount,ui=window.BacklogUI,{element:el,game,gameCard,action}=ui;
     const $=selector=>document.querySelector(selector);
-    const target=new URLSearchParams(location.search).get('id');
+    const params=new URLSearchParams(location.search);
+    const target=params.get('id');
     const games=[...window.BacklogGames].sort((a,b)=>a.title.localeCompare(b.title));
     let player=null,own=true,signup=false,pendingDelete=null,selected=new Set(),version=0;
     const button=(text,task,className='social-button')=>{const b=el('button',className,text);b.type='button';b.addEventListener('click',task);return b;};
@@ -17,11 +18,50 @@
             $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();
             for(let i=0;i<4;i++){const id=player.favorites[i],slot=el('div','favorite-slot');if(id){slot.append(gameCard(id));}else{const empty=own?button('+',openFavorites,'favorite-empty'):el('div','favorite-empty','☆');if(own)empty.setAttribute('aria-label','Choose favorite game '+(i+1));empty.append(el('span','',own?'Choose a game':'Not selected'));slot.append(empty);}$('#favorites-grid').append(slot);}
-            renderLists();await renderReviews(ticket);renderAccount();if(account.error)note(account.error);
+            renderLists();openRequestedListAction();await renderReviews(ticket);renderAccount();if(account.error)note(account.error);
         }catch(error){if(ticket===version)note(error.message);}
     }
-    function renderLists(){const container=$('#profile-lists');container.replaceChildren();if(!player.lists.length){container.append(el('p','social-empty',own?'Start a list for your next marathon, your favorite genre or the games you’ve completed.':'No public lists yet.'));return;}
-        for(const list of player.lists){const card=el('article','game-list-card');const url=ui.href('view/list.html?'+new URLSearchParams({profile:player.profile.id,id:list.id}));const covers=el('a','list-cover-stack');covers.href=url;covers.setAttribute('aria-label','Open '+list.name);for(const id of list.gameIds){const img=el('img');img.src='../imagens/capas/'+game(id).cover;img.alt=game(id).title;img.loading='lazy';covers.append(img);}if(!list.gameIds.length)covers.append(el('span','','+ Add your first game'));const heading=el('a','list-title-button',list.name);heading.href=url;const count=el('span','social-small',list.gameIds.length+' games'+(list.is_ranked?' · Ranked':'')+' · '+(list.is_public?'Public':'Private'));card.append(covers,heading,count,el('p','list-description',list.description));if(own){const actions=el('div','social-actions');actions.append(button('Edit',()=>openListEditor(list),'social-button social-button-quiet'),button('Delete',()=>{pendingDelete=list.id;$('#delete-list-name').textContent=list.name;$('#delete-list-feedback').textContent='';$('#delete-list-dialog').showModal();},'social-button social-button-quiet social-danger'));card.append(actions);}container.append(card);}
+    function confirmListDeletion(list){
+        pendingDelete=list.id;
+        $('#delete-list-name').textContent=list.name;
+        $('#delete-list-feedback').textContent='';
+        $('#delete-list-dialog').showModal();
+    }
+
+    function openRequestedListAction(){
+        if(!own||account.loading)return;
+        const editId=params.get('edit-list'),deleteId=params.get('delete-list');
+        if(!editId&&!deleteId)return;
+        params.delete('edit-list');
+        params.delete('delete-list');
+        const url=new URL(location.href);
+        url.searchParams.delete('edit-list');
+        url.searchParams.delete('delete-list');
+        history.replaceState(null,'',url);
+        const list=player.lists.find(item=>item.id===(editId||deleteId));
+        if(!list){note('List not found.');return;}
+        if(editId)openListEditor(list);
+        else confirmListDeletion(list);
+    }
+
+    function renderLists(){
+        const container=$('#profile-lists'),more=$('#more-profile-lists');
+        container.replaceChildren();
+        more.href=ui.href('view/profile-lists.html?'+new URLSearchParams({id:player.profile.id}));
+        more.hidden=!player.lists.length;
+        if(!player.lists.length){
+            container.append(el('p','social-empty',own?'No lists yet.':'No public lists yet.'));
+            return;
+        }
+        for(const list of player.lists.slice(0,2)){
+            const card=window.BacklogListCard(list,player.profile.id);
+            if(own){
+                const actions=el('div','social-actions');
+                actions.append(button('Edit',()=>openListEditor(list),'social-button social-button-quiet'),button('Delete',()=>confirmListDeletion(list),'social-button social-button-quiet social-danger'));
+                card.append(actions);
+            }
+            container.append(card);
+        }
     }
     async function renderReviews(ticket){
         const grid=$('#profile-reviews'),more=$('#more-profile-reviews'),feedback=$('#profile-reviews-feedback');

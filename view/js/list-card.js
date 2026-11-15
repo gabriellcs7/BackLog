@@ -8,7 +8,7 @@
         const covers=el('a','list-cover-stack');
         covers.href=url;
         covers.setAttribute('aria-label','Open '+list.name);
-        for(const id of list.gameIds){
+        for(const id of list.gameIds.slice(0,6)){
             const game=ui.game(id);
             if(!game)continue;
             const image=el('img');

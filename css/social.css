@@ -220,8 +220,8 @@
 
 .review-text-link { color:inherit; text-decoration:none; }
 .review-text-link:hover { text-decoration:underline; text-underline-offset:3px; }
-.single-review-page { max-width:1040px; }
-.single-review-layout { display:grid; grid-template-columns:clamp(92px,21vw,210px) minmax(0,1fr); align-items:start; gap:clamp(14px,3vw,32px); margin-top:24px; }
+.single-review-page { max-width:1120px; }
+.single-review-layout { display:grid; grid-template-columns:clamp(132px,26vw,285px) minmax(0,1fr); align-items:start; gap:clamp(14px,3vw,32px); margin-top:24px; }
 .single-review-cover { display:block; }
 .single-review-cover img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:9px; }
 .single-review-body { min-width:0; }
@@ -243,7 +243,7 @@
 .favorite-move:disabled { opacity:.3; cursor:default; }
 
 @media(max-width:560px){
-    .single-review-layout { grid-template-columns:85px minmax(0,1fr); gap:12px; }
+    .single-review-layout { grid-template-columns:clamp(100px,31vw,160px) minmax(0,1fr); gap:12px; }
     .single-review-body .community-review { padding:14px; }
     .single-review-body .community-review-header { flex-wrap:wrap; }
 }

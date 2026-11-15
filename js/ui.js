@@ -22,5 +22,13 @@
     function reviewHref(key,value){
         return href('view/review.html?'+new URLSearchParams({[key]:value}));
     }
-    window.BacklogUI={element,game,gameCard,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
+    function ratingStars(rating){
+        const stars=element('span','game-rating-stars','★★★★★');
+        stars.setAttribute('role','img');
+        stars.setAttribute('aria-label',rating+' out of 5 stars');
+        stars.title=rating+' / 5';
+        stars.style.setProperty('--rating-fill',Number(rating)*20+'%');
+        return stars;
+    }
+    window.BacklogUI={element,game,gameCard,ratingStars,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
 })();

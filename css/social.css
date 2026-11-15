@@ -188,8 +188,9 @@
 .logged-games-heading h1 { font-size:clamp(28px,4vw,48px); margin:0 0 10px; overflow-wrap:anywhere; }
 .logged-games-grid { margin-top:24px; }
 .logged-games-grid .social-empty { grid-column:1/-1; }
-.logged-game-rating {
+.game-rating-stars {
     display:inline-block;
+    width:max-content;
     font-size:14px;
     line-height:1.25;
     background:linear-gradient(to right,var(--yellow) var(--rating-fill),var(--muted) var(--rating-fill));
@@ -347,3 +348,6 @@
 .connection-row .community-avatar { flex:none; }
 .connection-name { flex:1; min-width:0; overflow-wrap:anywhere; }
 @media(prefers-reduced-motion:no-preference){.connection-stat,.connections-tab,.connection-row{transition:background 160ms,border-color 160ms}}
+
+.recent-game-meta { display:grid; justify-items:start; gap:3px; }
+.recent-game-meta .recent-game-label { margin:0; }

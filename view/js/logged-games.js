@@ -16,12 +16,7 @@
     function cardWithRating(game, rating) {
         const card = ui.gameCard(game.id);
         if (rating == null) return card;
-        const stars = ui.element('span', 'logged-game-rating', '★★★★★');
-        stars.setAttribute('role', 'img');
-        stars.setAttribute('aria-label', rating + ' out of 5 stars');
-        stars.title = rating + ' / 5';
-        stars.style.setProperty('--rating-fill', (Number(rating) * 20) + '%');
-        card.append(stars);
+        card.append(ui.ratingStars(rating));
         return card;
     }
 

@@ -17,6 +17,7 @@
         <script src="../js/community.js" defer></script>
         <script src="js/profile-social.js" defer></script>
         <script src="js/profile-activity.js" defer></script>
+        <script src="js/profile-ratings.js" defer></script>
         <script src="js/profile.js" defer></script>
         <title>Profile · BackLog</title>
     </head>
@@ -63,6 +64,11 @@
             <p class="social-feedback" id="follow-feedback" role="status"></p>
             <div class="profile-metrics" id="profile-metrics" aria-label="Gaming statistics"></div><p id="metrics-feedback" class="social-feedback" role="status"></p>
             <p id="profile-message" class="social-feedback" role="status" aria-live="polite"></p>
+            <section class="profile-ratings" aria-labelledby="profile-ratings-title">
+                <h2 id="profile-ratings-title">Ratings</h2>
+                <div id="profile-ratings-chart"></div>
+                <p id="profile-ratings-feedback" class="social-small" role="status"></p>
+            </section>
             <section class="profile-favorites" aria-labelledby="favorites-title">
                 <div class="social-section-heading"><div><span class="eyebrow">THE ALL-TIME GREATS</span><h2 id="favorites-title">Your favorite four<span>.</span></h2><p>Four games. A little piece of who you are.</p></div><button class="social-button" id="choose-favorites" type="button">Choose favorites ↗</button></div>
                 <div class="favorites-grid" id="favorites-grid"></div>

@@ -245,3 +245,14 @@
     .single-review-body .community-review { padding:14px; }
     .single-review-body .community-review-header,.single-review-body .comment-heading { flex-wrap:wrap; }
 }
+
+.profile-ratings { max-width:340px; margin-top:24px; }
+.profile-ratings h2 { margin:0 0 10px; font-size:14px; }
+.ratings-summary { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:4px; }
+.ratings-average { color:var(--text); font-size:20px; font-variant-numeric:tabular-nums; }
+.ratings-histogram { display:grid; grid-template-columns:repeat(var(--rating-bins,10),minmax(0,1fr)); align-items:end; gap:3px; height:56px; padding:0; margin:0; list-style:none; border-bottom:1px solid var(--line); }
+.ratings-bin { display:flex; align-items:end; height:100%; }
+.ratings-bar { display:block; width:100%; height:var(--bar-height); background:#566a79; border-radius:3px 3px 0 0; }
+.ratings-bin:hover .ratings-bar { background:var(--yellow); }
+.ratings-scale { display:flex; justify-content:space-between; color:var(--yellow); font-size:11px; margin-top:5px; }
+@media(prefers-reduced-motion:no-preference){.ratings-bar{transition:background-color 160ms ease;}}

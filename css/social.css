@@ -305,9 +305,9 @@
 }
 
 .list-cover-stack,.list-title-button { text-decoration:none; }
-.player-profile .list-cover-stack { height:88px; justify-content:flex-start; }
-.player-profile .list-cover-stack img { flex:0 0 auto; width:66px; }
-.player-profile .list-cover-stack span { margin:auto; }
+.list-cover-stack { height:96px; justify-content:flex-start; overflow-x:auto; overflow-y:hidden; scrollbar-width:thin; scrollbar-color:#666e59 #111410; }
+.list-cover-stack img { flex:0 0 60px; width:60px; height:80px; border-radius:3px; }
+.list-cover-stack span { margin:auto; }
 .list-page-description { white-space:pre-wrap; overflow-wrap:anywhere; }
 #list-page-games { list-style:none; padding:0; }
 #list-page-games li { position:relative; min-width:0; }

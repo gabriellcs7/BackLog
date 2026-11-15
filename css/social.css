@@ -84,7 +84,9 @@
 .review-discussion { margin-top:20px; padding-top:20px; border-top:1px solid var(--line); }
 .comment-list { display:grid; gap:14px; margin-bottom:16px; }
 .review-comment { padding:16px; border-left:2px solid #ffd21f44; background:#111410; border-radius:0 7px 7px 0; }
-.comment-heading { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+.comment-heading { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:8px; }
+.comment-heading .player-link { justify-self:start; overflow-wrap:anywhere; }
+@media(max-width:560px){.comment-heading { grid-template-columns:auto minmax(0,1fr); } .comment-heading .social-small { grid-column:2; }}
 .comment-text { margin:10px 0 0; font-size:12px; }
 .review-comment .social-button { min-height:32px; font-size:10px; padding:5px 0; }
 .comment-form { margin-top:20px; }
@@ -243,7 +245,7 @@
 @media(max-width:560px){
     .single-review-layout { grid-template-columns:85px minmax(0,1fr); gap:12px; }
     .single-review-body .community-review { padding:14px; }
-    .single-review-body .community-review-header,.single-review-body .comment-heading { flex-wrap:wrap; }
+    .single-review-body .community-review-header { flex-wrap:wrap; }
 }
 
 .profile-ratings { max-width:340px; margin-top:24px; }

@@ -40,7 +40,7 @@
             const player=await account.getProfile(profileId);
             if(!player.profile)throw new Error('Profile not found.');
             heading=player.profile.display_name+'\'s diary';
-            note='Public ratings, reviews and collection updates.';
+            note='Public game ratings.';
             result=[];
             for(let offset=0;;offset+=100){
                 const rows=await window.BacklogCommunity.publicDiary(profileId,year,offset);
@@ -54,8 +54,9 @@
                 if(entry.reviewId&&!reviews.has(entry.gameId))reviews.set(entry.gameId,entry);
                 if(entry.status&&!statuses.has(entry.gameId))statuses.set(entry.gameId,entry);
             }
-            result=[...reviews.values()].map(entry=>({...entry,status:statuses.get(entry.gameId)?.status}));
-            for(const entry of statuses.values())if(!reviews.has(entry.gameId))result.push(entry);
+            result=[...reviews.values()]
+                .map(entry=>({...entry,status:statuses.get(entry.gameId)?.status}))
+                .filter(entry=>entry.rating!=null&&entry.status!=='want-to-play');
         }else{
             result=await diary.currentEntries();
             await window.Backlog.statusReady;

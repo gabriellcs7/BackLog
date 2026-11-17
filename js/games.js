@@ -2646,5 +2646,31 @@ window.BacklogGames = [
             "Skate 2025",
             "Skate 4"
         ]
+    },
+    {
+        "id": "zelda-ocarina-of-time-switch-2",
+        "title": "The Legend of Zelda: Ocarina of Time",
+        "cover": "catalogo/zelda-ocarina-of-time-switch-2.webp",
+        "banner": "banners/zelda-ocarina-of-time-switch-2.webp",
+        "genre": "Adventure",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Puzzle"
+        ],
+        "studio": "Nintendo",
+        "year": 2026,
+        "caption": "Become the Hero of Time on Nintendo Switch 2.",
+        "description": "Travel between two eras as Link to protect Hyrule from Ganondorf in the Nintendo Switch 2 remake.",
+        "platforms": [
+            "Nintendo Switch 2"
+        ],
+        "franchise": "The Legend of Zelda",
+        "kind": "Remake",
+        "releaseState": "released",
+        "aliases": [
+            "Zelda Ocarina of Time Switch 2",
+            "Ocarina of Time 2026"
+        ]
     }
 ];

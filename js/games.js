@@ -2616,5 +2616,35 @@ window.BacklogGames = [
         "franchise": "Poppy Playtime",
         "kind": "Spin-off",
         "releaseState": "released"
+    },
+    {
+        "id": "skate",
+        "title": "skate.",
+        "cover": "catalogo/skate.webp",
+        "banner": "banners/skate.webp",
+        "genre": "Sports",
+        "tags": [
+            "Skateboarding",
+            "Open world",
+            "Multiplayer"
+        ],
+        "studio": "Full Circle",
+        "year": 2025,
+        "caption": "Find your next favorite spot in San Vansterdam.",
+        "description": "Explore San Vansterdam, discover skate spots and create challenges with other skaters in an online city.",
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S"
+        ],
+        "franchise": "Skate",
+        "kind": "Early access",
+        "releaseState": "released",
+        "aliases": [
+            "Skate 2025",
+            "Skate 4"
+        ]
     }
 ];

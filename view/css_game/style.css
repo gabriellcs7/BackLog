@@ -1098,8 +1098,3 @@ h1>span:not(.title-dot) {
     color: var(--muted);
     font-size: 13px;
 }
-
-.character-empty {
-    margin: 8px 0 0;
-    color: var(--muted);
-}

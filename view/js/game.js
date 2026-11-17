@@ -95,10 +95,9 @@
         item.append(image, copy);
         characterList.append(item);
     }
-    if (!characters.length) {
-        const note = document.querySelector('#character-empty');
-        note.textContent = 'No featured characters for this title.';
-        note.hidden = false;
+    if (characters.length) {
+        document.querySelector('#characters').hidden = false;
+        document.querySelector('.section-tabs a[href="#characters"]').hidden = false;
     }
 
     const tags = game.tags.map(tag => {

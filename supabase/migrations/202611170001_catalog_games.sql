@@ -12,7 +12,6 @@ insert into public.games(id) values
     ('project-playtime'),
     ('escape-from-playtime'),
     ('skate'),
-    ('zelda-ocarina-of-time-switch-2'),
     ('minecraft-dungeons'),
     ('dark-souls'),
     ('dark-souls-ii'),

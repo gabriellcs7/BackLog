@@ -2319,5 +2319,61 @@ window.BacklogGames = [
         ],
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center"
+    },
+    {
+        "id": "cuphead",
+        "title": "Cuphead",
+        "cover": "catalogo/cuphead.webp",
+        "banner": "banners/cuphead.webp",
+        "genre": "Action",
+        "tags": [
+            "Run and gun",
+            "Platformer",
+            "Co-op"
+        ],
+        "studio": "Studio MDHR",
+        "year": 2017,
+        "caption": "A deal with the Devil in the Inkwell Isles.",
+        "description": "Cuphead and Mugman battle through the Inkwell Isles to repay their debt to the Devil.",
+        "platforms": [
+            "PC",
+            "macOS",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "Xbox One"
+        ],
+        "franchise": "Cuphead",
+        "kind": "Main game",
+        "releaseState": "released"
+    },
+    {
+        "id": "cuphead-the-delicious-last-course",
+        "title": "Cuphead: The Delicious Last Course",
+        "cover": "catalogo/cuphead-the-delicious-last-course.webp",
+        "banner": "banners/cuphead-the-delicious-last-course.webp",
+        "genre": "Action",
+        "tags": [
+            "Run and gun",
+            "Platformer",
+            "Co-op"
+        ],
+        "studio": "Studio MDHR",
+        "year": 2022,
+        "caption": "A new island and a recipe for the Wondertart.",
+        "description": "Ms. Chalice joins Cuphead and Mugman on a new island where they must gather the ingredients for a magical Wondertart.",
+        "platforms": [
+            "PC",
+            "macOS",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "Xbox One"
+        ],
+        "franchise": "Cuphead",
+        "kind": "Expansion",
+        "releaseState": "released",
+        "aliases": [
+            "Cuphead DLC",
+            "Cuphead 2"
+        ]
     }
 ];

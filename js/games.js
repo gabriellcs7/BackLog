@@ -2700,5 +2700,87 @@ window.BacklogGames = [
         "aliases": [
             "Minecraft Dungeons 1"
         ]
+    },
+    {
+        "id": "dark-souls",
+        "title": "Dark Souls",
+        "cover": "catalogo/dark-souls.webp",
+        "banner": "banners/dark-souls.webp",
+        "genre": "Action RPG",
+        "tags": [
+            "Soulslike",
+            "Action RPG",
+            "Fantasy"
+        ],
+        "studio": "FromSoftware",
+        "year": 2011,
+        "caption": "Journey through the fading land of Lordran.",
+        "description": "The Chosen Undead journeys through Lordran, confronting the fading gods and deciding the fate of the First Flame.",
+        "platforms": [
+            "PlayStation 3",
+            "Xbox 360",
+            "PC"
+        ],
+        "franchise": "Dark Souls",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Dark Souls 1",
+            "Dark Souls Prepare to Die"
+        ]
+    },
+    {
+        "id": "dark-souls-ii",
+        "title": "Dark Souls II",
+        "cover": "catalogo/dark-souls-ii.webp",
+        "banner": "banners/dark-souls-ii.webp",
+        "genre": "Action RPG",
+        "tags": [
+            "Soulslike",
+            "Action RPG",
+            "Fantasy"
+        ],
+        "studio": "FromSoftware",
+        "year": 2014,
+        "caption": "Search for a cure in Drangleic.",
+        "description": "The Bearer of the Curse searches for a cure amid the ruined kingdom of Drangleic.",
+        "platforms": [
+            "PlayStation 3",
+            "Xbox 360",
+            "PC"
+        ],
+        "franchise": "Dark Souls",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Dark Souls 2"
+        ]
+    },
+    {
+        "id": "dark-souls-iii",
+        "title": "Dark Souls III",
+        "cover": "catalogo/dark-souls-iii.webp",
+        "banner": "banners/dark-souls-iii.webp",
+        "genre": "Action RPG",
+        "tags": [
+            "Soulslike",
+            "Action RPG",
+            "Fantasy"
+        ],
+        "studio": "FromSoftware",
+        "year": 2016,
+        "caption": "Return the Lords of Cinder to their thrones.",
+        "description": "The Ashen One travels through Lothric to return the Lords of Cinder to their thrones.",
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "Xbox One"
+        ],
+        "franchise": "Dark Souls",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Dark Souls 3"
+        ]
     }
 ];

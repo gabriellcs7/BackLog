@@ -75,7 +75,7 @@
 
     const characterList = document.querySelector('#character-list');
     const characters = window.BacklogGameCharacters[game.id] || [];
-    for (const [name, portrait] of characters) {
+    for (const [name, portrait, role] of characters) {
         const item = document.createElement('li');
         const image = document.createElement('img');
         image.src = '../imagens/personagens/' + portrait + '.webp';
@@ -83,9 +83,16 @@
         image.loading = 'lazy';
         image.width = 128;
         image.height = 128;
-        const label = document.createElement('span');
+        const copy = document.createElement('div');
+        const label = document.createElement('strong');
         label.textContent = name;
-        item.append(image, label);
+        copy.append(label);
+        if (role) {
+            const subtitle = document.createElement('span');
+            subtitle.textContent = role;
+            copy.append(subtitle);
+        }
+        item.append(image, copy);
         characterList.append(item);
     }
     if (!characters.length) {

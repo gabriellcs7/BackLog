@@ -5,7 +5,7 @@ window.BacklogGameCharacters = {
     "red-dead-redemption-2": [["Arthur Morgan","arthur","Van der Linde gang"],["John Marston","john","Van der Linde gang"]],
     "god-of-war-ragnarok": [["Kratos","kratos","Spartan warrior"],["Atreus","atreus","Son of Kratos"],["Freya","freya","Vanir goddess"],["Thor","thor","God of thunder"]],
     "the-last-of-us": [["Joel Miller","joel-miller","Ellie's escort"],["Ellie","ellie"],["Tess","tess","Joel's partner"]],
-    "minecraft": [["Steve","steve"],["Alex","alex"]],
+    "minecraft": [["Steve","steve"],["Alex","alex"],["Herobrine","herobrine","Community legend"],["Notch","notch","Original creator’s avatar"],["Creeper","creeper","Hostile mob"]],
     "spider-man": [["Peter Parker","peter","Spider-Man"]],
     "red-dead-redemption": [["John Marston","john","Former outlaw"]],
     "phantom-blade-zero": [["Soul","phantom-soul"]],

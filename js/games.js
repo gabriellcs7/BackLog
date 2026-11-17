@@ -2375,5 +2375,56 @@ window.BacklogGames = [
             "Cuphead DLC",
             "Cuphead 2"
         ]
+    },
+    {
+        "id": "marvel-rivals",
+        "title": "Marvel Rivals",
+        "cover": "catalogo/marvel-rivals.webp",
+        "banner": "banners/marvel-rivals.webp",
+        "genre": "Shooter",
+        "tags": [
+            "Hero shooter",
+            "Multiplayer",
+            "Free to play"
+        ],
+        "studio": "NetEase Games",
+        "year": 2024,
+        "caption": "Marvel heroes collide across the multiverse.",
+        "description": "Marvel heroes and villains form teams and battle across locations from the Marvel multiverse.",
+        "platforms": [
+            "PC",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox Series X|S"
+        ],
+        "franchise": "Marvel Rivals",
+        "kind": "Main game",
+        "releaseState": "released"
+    },
+    {
+        "id": "marvels-wolverine",
+        "title": "Marvel's Wolverine",
+        "cover": "catalogo/marvels-wolverine.webp",
+        "banner": "banners/marvels-wolverine.webp",
+        "genre": "Action",
+        "tags": [
+            "Action",
+            "Adventure",
+            "Single player"
+        ],
+        "studio": "Insomniac Games",
+        "year": 2026,
+        "caption": "Logan’s search for his past.",
+        "description": "Logan tracks down his past across locations including Madripoor and Japan, confronting enemies who know more than he does.",
+        "platforms": [
+            "PlayStation 5"
+        ],
+        "franchise": "Marvel's Wolverine",
+        "kind": "Main game",
+        "releaseState": "released",
+        "bannerPositionMobile": "74% center",
+        "aliases": [
+            "Wolverine"
+        ]
     }
 ];

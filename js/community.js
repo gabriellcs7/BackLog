@@ -31,7 +31,22 @@
             return check(await api.from('reviews').select('game_id,rating').eq('user_id',id).not('rating','is',null))||[];
         },
         async publicDiary(id,year,offset){return check(await(await client()).rpc('profile_public_diary',{profile_key:id,calendar_year:year,page_offset:offset}))||[];},
-        async recent(id){const api=await client(),params={profile_key:id};let result=await api.rpc('profile_recent_games_v2',params);if(result.error?.code==='PGRST202')result=await api.rpc('profile_recent_games',params);return check(result)||[];},
+        async recent(id){
+            const api=await client(),params={profile_key:id};
+            let result=await api.rpc('profile_recent_games_v3',params);
+            if(result.error?.code!=='PGRST202')return check(result)||[];
+
+            // Backward compatibility while the new RPC is being deployed.
+            result=await api.rpc('profile_recent_games_v2',params);
+            if(result.error?.code==='PGRST202')result=await api.rpc('profile_recent_games',params);
+            const hiddenStatuses=['want-to-play','playing'];
+            const entries=(check(result)||[]).filter(entry=>!hiddenStatuses.includes(entry.status));
+            if(!entries.length)return entries;
+            const statuses=check(await api.from('game_statuses').select('game_id')
+                .eq('user_id',id).in('status',hiddenStatuses).in('game_id',entries.map(entry=>entry.game_id)))||[];
+            const hiddenGames=new Set(statuses.map(row=>row.game_id));
+            return entries.filter(entry=>!hiddenGames.has(entry.game_id));
+        },
         async home(kind,offset=0){return check(await(await client(kind==='following')).rpc('home_review_feed',{feed_kind:kind,page_offset:offset}))||[];},
         async profileReviews(id,offset,limit){
             const api=await client();

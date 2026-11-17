@@ -2426,5 +2426,195 @@ window.BacklogGames = [
         "aliases": [
             "Wolverine"
         ]
+    },
+    {
+        "id": "poppy-playtime",
+        "title": "Poppy Playtime: Chapter 1 – A Tight Squeeze",
+        "cover": "catalogo/poppy-playtime.webp",
+        "banner": "banners/poppy-playtime.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Puzzle",
+            "First person"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2021,
+        "caption": "Explore the abandoned Playtime Co. factory.",
+        "description": "Return to the abandoned Playtime Co. toy factory and solve puzzles with the GrabPack as Huggy Wuggy stalks its halls.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "iOS",
+            "Android"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Main game",
+        "releaseState": "released",
+        "aliases": [
+            "Poppy Playtime 1"
+        ]
+    },
+    {
+        "id": "poppy-playtime-chapter-2",
+        "title": "Poppy Playtime: Chapter 2 – Fly in a Web",
+        "cover": "catalogo/poppy-playtime-chapter-2.webp",
+        "banner": "banners/poppy-playtime-chapter-2.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Puzzle",
+            "First person"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2022,
+        "caption": "Survive the games in the Game Station.",
+        "description": "Venture deeper into the toy factory and survive Mommy Long Legs' games to reach the train.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "iOS",
+            "Android"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Chapter",
+        "releaseState": "released"
+    },
+    {
+        "id": "poppy-playtime-chapter-3",
+        "title": "Poppy Playtime: Chapter 3 – Deep Sleep",
+        "cover": "catalogo/poppy-playtime-chapter-3.webp",
+        "banner": "banners/poppy-playtime-chapter-3.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Puzzle",
+            "First person"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2024,
+        "caption": "Enter Playcare beneath the toy factory.",
+        "description": "Explore Playcare, the orphanage beneath Playtime Co., and survive the red smoke and CatNap.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "iOS",
+            "Android"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Chapter",
+        "releaseState": "released"
+    },
+    {
+        "id": "poppy-playtime-chapter-4",
+        "title": "Poppy Playtime: Chapter 4 – Safe Haven",
+        "cover": "catalogo/poppy-playtime-chapter-4.webp",
+        "banner": "banners/poppy-playtime-chapter-4.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Puzzle",
+            "First person"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2025,
+        "caption": "Search for refuge deep beneath the factory.",
+        "description": "Descend into the factory's prison and discover what happens when its surviving toys begin to lose their refuge.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "PlayStation 5",
+            "Xbox One",
+            "Xbox Series X|S",
+            "iOS",
+            "Android"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Chapter",
+        "releaseState": "released"
+    },
+    {
+        "id": "poppy-playtime-chapter-5",
+        "title": "Poppy Playtime: Chapter 5 – Broken Things",
+        "cover": "catalogo/poppy-playtime-chapter-5.webp",
+        "banner": "banners/poppy-playtime-chapter-5.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Puzzle",
+            "First person"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2026,
+        "caption": "Venture into the Prototype’s domain.",
+        "description": "Enter the Prototype's domain, where the surviving toys and the factory's ruined experiments converge.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 5",
+            "Xbox Series X|S",
+            "iOS",
+            "Android"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Chapter",
+        "releaseState": "released"
+    },
+    {
+        "id": "project-playtime",
+        "title": "Project: Playtime",
+        "cover": "catalogo/project-playtime.webp",
+        "banner": "banners/project-playtime.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Multiplayer",
+            "Co-op"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2022,
+        "caption": "Survive the factory together.",
+        "description": "Six players assemble a giant toy while a seventh controls the monster hunting them inside the factory.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Spin-off",
+        "releaseState": "released"
+    },
+    {
+        "id": "escape-from-playtime",
+        "title": "Escape from Playtime",
+        "cover": "catalogo/escape-from-playtime.webp",
+        "banner": "banners/escape-from-playtime.webp",
+        "genre": "Horror",
+        "tags": [
+            "Survival horror",
+            "Multiplayer",
+            "Co-op"
+        ],
+        "studio": "Mob Entertainment",
+        "year": 2026,
+        "caption": "Escape as the Smiling Critters.",
+        "description": "Play as the Smiling Critters and work together to escape a dangerous facility.",
+        "platforms": [
+            "PC"
+        ],
+        "franchise": "Poppy Playtime",
+        "kind": "Spin-off",
+        "releaseState": "released"
     }
 ];

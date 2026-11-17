@@ -1037,3 +1037,47 @@ h1>span:not(.title-dot) {
 .rating-row { column-gap:16px; }
 .rating-star-choice:focus-within { outline-offset:0; }
 @media(max-width:380px) { .rating-star-choice { width:38px; } .rating-star-choice .rating-star-shape { font-size:36px; } }
+
+.game-characters {
+    margin: 28px 0;
+    padding: clamp(16px, 3vw, 24px);
+    background: #191c17;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.game-character-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 116px));
+    gap: clamp(8px, 2vw, 16px);
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+}
+
+.game-character-list:empty {
+    display: none;
+}
+
+.game-character-list li {
+    display: grid;
+    align-content: start;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.game-character-list img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #21251e;
+}
+
+.character-empty {
+    margin: 8px 0 0;
+    color: var(--muted);
+}

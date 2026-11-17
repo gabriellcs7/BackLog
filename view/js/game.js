@@ -73,6 +73,27 @@
         detail.querySelector('dd').textContent = values[index][1];
     });
 
+    const characterList = document.querySelector('#character-list');
+    const characters = window.BacklogGameCharacters[game.id] || [];
+    for (const [name, portrait] of characters) {
+        const item = document.createElement('li');
+        const image = document.createElement('img');
+        image.src = '../imagens/personagens/' + portrait + '.webp';
+        image.alt = '';
+        image.loading = 'lazy';
+        image.width = 128;
+        image.height = 128;
+        const label = document.createElement('span');
+        label.textContent = name;
+        item.append(image, label);
+        characterList.append(item);
+    }
+    if (!characters.length) {
+        const note = document.querySelector('#character-empty');
+        note.textContent = 'No featured characters for this title.';
+        note.hidden = false;
+    }
+
     const tags = game.tags.map(tag => {
         const span = document.createElement('span');
         span.textContent = tag;

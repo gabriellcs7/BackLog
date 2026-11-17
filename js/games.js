@@ -2672,5 +2672,33 @@ window.BacklogGames = [
             "Zelda Ocarina of Time Switch 2",
             "Ocarina of Time 2026"
         ]
+    },
+    {
+        "id": "minecraft-dungeons",
+        "title": "Minecraft Dungeons",
+        "cover": "catalogo/minecraft-dungeons.webp",
+        "banner": "banners/minecraft-dungeons.webp",
+        "genre": "Action RPG",
+        "tags": [
+            "Dungeon crawler",
+            "Action RPG",
+            "Co-op"
+        ],
+        "studio": "Mojang Studios and Double Eleven",
+        "year": 2020,
+        "caption": "Take on the Arch-Illager with friends.",
+        "description": "Explore blocky dungeons and collect gear to defeat the Arch-Illager in a solo or cooperative adventure.",
+        "platforms": [
+            "PC",
+            "Nintendo Switch",
+            "PlayStation 4",
+            "Xbox One"
+        ],
+        "franchise": "Minecraft",
+        "kind": "Spin-off",
+        "releaseState": "released",
+        "aliases": [
+            "Minecraft Dungeons 1"
+        ]
     }
 ];

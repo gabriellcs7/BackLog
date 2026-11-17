@@ -2564,6 +2564,7 @@ window.BacklogGames = [
         "platforms": [
             "PC",
             "Nintendo Switch",
+            "PlayStation 4",
             "PlayStation 5",
             "Xbox Series X|S",
             "iOS",

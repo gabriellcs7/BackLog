@@ -21,6 +21,7 @@
         <script src="js/profile-review-list.js" defer></script>
         <script src="js/list-card.js" defer></script>
         <script src="js/profile-wishlist.js" defer></script>
+        <script src="js/profile-playing.js" defer></script>
         <script src="js/profile.js" defer></script>
         <title>Profile · BackLog</title>
     </head>
@@ -105,6 +106,11 @@
                         <p class="social-small" id="wishlist-feedback" role="status"></p>
                     </section>
                 </div>
+                <section class="profile-playing" aria-labelledby="profile-playing-title">
+                    <div class="social-section-heading"><h2 id="profile-playing-title">Currently playing<span>.</span></h2></div>
+                    <div id="profile-playing" class="profile-playing-grid"></div>
+                    <p id="profile-playing-feedback" class="social-feedback" role="status"></p>
+                </section>
                 <section class="profile-reviews" aria-labelledby="profile-reviews-title"><div class="social-section-heading"><div><h2 id="profile-reviews-title">Reviews<span>.</span></h2></div></div><div id="profile-reviews" class="profile-review-grid"></div><p id="profile-reviews-feedback" class="social-feedback" role="status"></p><a class="social-button" id="more-profile-reviews" href="profile-reviews.html" hidden>See more reviews</a></section>
             </div>
             <section class="account-panel" id="account" aria-labelledby="account-title"><div><span class="eyebrow">SYNC AND BACKUP</span><h2 id="account-title">Your account</h2><p id="account-note">Your profile and lists are saved on this device.</p></div><a class="social-button social-button-primary" id="local-preview-link" href="http://localhost:8000/view/profile.html#account" hidden>Open local site ↗</a><div id="signed-in" hidden><p id="account-email"></p><div class="social-actions"><button type="button" class="social-button" id="import-device">Copy device profile &amp; lists to account</button><button type="button" class="social-button social-button-quiet" id="sign-out">Sign out</button></div><p class="social-small">Import keeps lists private and never publishes your saved reviews.</p></div><form id="auth-form" hidden><div class="social-form-grid"><label>Email<input id="auth-email" type="email" autocomplete="email" required maxlength="254"></label><label>Password<input id="auth-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label><label id="signup-name-wrap" hidden>Display name<input id="signup-name" type="text" autocomplete="nickname" minlength="2" maxlength="40"></label></div><div class="social-actions"><button class="social-button social-button-primary" id="auth-submit" type="submit">Sign in</button><button class="social-button social-button-quiet" id="auth-mode" type="button">Create an account</button></div></form><p id="auth-feedback" class="social-feedback" role="status" aria-live="polite"></p></section>

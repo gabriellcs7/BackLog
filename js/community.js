@@ -15,6 +15,16 @@
             const rows=check(await api.from('game_statuses').select('game_id').eq('user_id',id).eq('status','want-to-play').order('updated_at',{ascending:false}).order('game_id'))||[];
             return rows.map(row=>window.BacklogGames.find(game=>game.id===row.game_id)).filter(Boolean);
         },
+        async currentlyPlaying(id){
+            const games=window.BacklogGames;
+            if(id==='local')return games.filter(game=>window.Backlog.getStatus(game.id,null)?.id==='playing').slice(0,3);
+            const api=await client();
+            if(id===account.user?.id)await window.Backlog.statusReady;
+            const rows=check(await api.from('game_statuses').select('game_id')
+                .eq('user_id',id).eq('status','playing').in('game_id',games.map(game=>game.id))
+                .order('updated_at',{ascending:false}).order('game_id').limit(3))||[];
+            return rows.map(row=>games.find(game=>game.id===row.game_id)).filter(Boolean);
+        },
         async loggedGames(id){return check(await(await client()).rpc('profile_logged_games',{profile_key:id}))||[];},
         async gameRatings(id){
             const api=await client();

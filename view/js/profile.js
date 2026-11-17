@@ -17,6 +17,7 @@
             $('#profile-name').textContent=player.profile.display_name;$('#profile-bio').textContent=player.profile.bio||'Games you play, reviews, and custom lists.';$('#profile-avatar').replaceChildren(...ui.avatar(player.profile).childNodes);if(!$('#profile-avatar').textContent)$('#profile-avatar').prepend(player.profile.display_name.slice(0,1).toUpperCase());window.BacklogProfileSocial.render(player.profile,own);window.BacklogProfileActivity.render(player,own);document.title=player.profile.display_name+' · BackLog';
             renderProfileBanner();
             window.BacklogProfileWishlist.render(player.profile.id);
+            window.BacklogProfilePlaying.render(player.profile.id);
             window.BacklogProfileRatings.render(player.profile.id);
             renderProfileDetails();
             for(const id of ['choose-profile-banner','edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
@@ -75,11 +76,11 @@
         try{
             const profileId=player.profile.id;
             const api=window.BacklogProfileReviews;
-            const reviews=await api.get(profileId,0,5);
+            const reviews=await api.get(profileId,0,3);
             if(ticket!==version)return;
-            grid.append(...reviews.slice(0,4).map(api.card).filter(Boolean));
+            grid.append(...reviews.slice(0,2).map(api.card).filter(Boolean));
             more.href=ui.href('view/profile-reviews.html?id='+encodeURIComponent(profileId));
-            more.hidden=reviews.length<=4;
+            more.hidden=reviews.length<=2;
             if(!reviews.length)grid.append(el('p','social-empty',own?'Your reviews will appear here once you write one.':'No reviews yet.'));
         }catch(error){
             if(ticket===version)feedback.textContent=error.message||'Could not load reviews.';

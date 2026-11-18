@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/social.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/game-tunnel.css">
+        <link rel="stylesheet" href="css/cinematic-backlog.css">
         <script src="js/games.js" defer></script>
         <script src="js/config.js" defer></script>
         <script src="js/account.js" defer></script>
@@ -265,7 +266,64 @@
                     </a>
                 </div>
             </section>
-            <section class="collection-banner shell">
+            <!-- Apresentação cinematográfica da coleção -->
+            <section class="cinematic-backlog" id="backlog-story" aria-labelledby="cinematic-title">
+                <div class="cinematic-stage">
+                    <div class="cinematic-grid" aria-hidden="true"></div>
+                    <div class="cinematic-intro">
+                        <span class="eyebrow">EVERY SESSION COUNTS</span>
+                        <h2 id="cinematic-title"><span>Track the games.</span><br><span>Keep the stories.</span></h2>
+                        <p>Your next adventure deserves a place in your backlog.</p>
+                    </div>
+                    <div class="cinematic-panel">
+                        <div class="cinematic-sheen" aria-hidden="true"></div>
+                        <div class="cinematic-panel-content">
+                            <div class="cinematic-copy">
+                                <span class="eyebrow">PLAY. RATE. REMEMBER.</span>
+                                <h3>A home for<br>every game.</h3>
+                                <p>From the first session to the final credits. Keep your collection, ratings and memories together with BackLog.</p>
+                            </div>
+                            <div class="cinematic-device-wrap">
+                                <div class="cinematic-device-scene">
+                                    <div class="cinematic-phone" role="img" aria-label="BackLog preview showing game covers, ratings and the catalog">
+                                        <i class="cinematic-hardware" aria-hidden="true"></i>
+                                        <div class="cinematic-screen">
+                                            <div class="cinematic-island" aria-hidden="true"><i></i></div>
+                                            <div class="cinematic-app-header"><span>YOUR COLLECTION<strong>Back<span>Log</span></strong></span><span class="cinematic-app-icon" aria-hidden="true">✦</span></div>
+                                            <div class="cinematic-phone-feature">
+                                                <img src="imagens/capas/catalogo/red-dead-redemption-2.webp" alt="" width="400" height="600" loading="lazy">
+                                                <div><span>A WORLD TO REMEMBER</span><strong>Red Dead<br>Redemption 2</strong><span class="cinematic-stars">★★★★★</span></div>
+                                            </div>
+                                            <div class="cinematic-phone-metric cinematic-widget">
+                                                <svg viewBox="0 0 92 92" aria-hidden="true"><circle cx="46" cy="46" r="38" fill="none" stroke="#ffffff0c" stroke-width="5"/><circle class="cinematic-ring" cx="46" cy="46" r="38" fill="none" stroke="currentColor" stroke-width="5"/></svg>
+                                                <span><strong class="cinematic-counter">100</strong><small>GAMES TO EXPLORE</small></span>
+                                            </div>
+                                            <div class="cinematic-widget cinematic-phone-covers"><span>FIND YOUR NEXT FAVORITE</span><div>
+                                                <img src="imagens/capas/catalogo/hollow-knight.webp" alt="" width="400" height="600" loading="lazy">
+                                                <img src="imagens/capas/catalogo/cyberpunk-2077.webp" alt="" width="400" height="600" loading="lazy">
+                                                <img src="imagens/capas/catalogo/god-of-war-ragnarok.webp" alt="" width="400" height="600" loading="lazy">
+                                            </div></div>
+                                            <div class="cinematic-phone-home" aria-hidden="true"></div>
+                                        </div>
+                                    </div>
+                                    <div class="cinematic-badge cinematic-badge-rating"><span aria-hidden="true">★</span><div><strong>Every rating matters</strong><small>Make your mark.</small></div></div>
+                                    <div class="cinematic-badge cinematic-badge-list"><span aria-hidden="true">✓</span><div><strong>Your next adventure</strong><small>Keep it in your backlog.</small></div></div>
+                                </div>
+                            </div>
+                            <div class="cinematic-brand"><img src="imagens/logo_transparente.png" alt="BackLog" width="300" height="100" loading="lazy"><span>YOUR GAMES.<br>YOUR STORY.</span></div>
+                        </div>
+                    </div>
+                    <div class="cinematic-cta">
+                        <span class="eyebrow">THE NEXT CHAPTER IS YOURS</span>
+                        <h3>Great games.<br><span>Lasting memories.</span></h3>
+                        <p>Discover your next favorite, rate the games you love and build a collection that tells your story.</p>
+                        <div><a class="button cinematic-button-primary" href="view/pagina_jogos.html">Explore games <span aria-hidden="true">↗</span></a><a class="button cinematic-button-secondary" href="view/profile.html">Open your profile <span aria-hidden="true">↗</span></a></div>
+                    </div>
+                    <div class="cinematic-footer"><span>SCROLL TO DISCOVER <span aria-hidden="true">↓</span></span><a href="#backlog-collection">Skip presentation ↓</a></div>
+                    <div class="cinematic-progress" aria-hidden="true"><span></span></div>
+                </div>
+            </section>
+            <section class="collection-banner shell" id="backlog-collection">
                 <div>
                     <span class="eyebrow">YOUR BACKLOG</span>
                     <h2>Organize your backlog in one place.</h2>

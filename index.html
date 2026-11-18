@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/game-tunnel.css">
         <link rel="stylesheet" href="css/cinematic-backlog.css">
+        <link rel="stylesheet" href="css/gaming-news.css">
         <script src="js/games.js" defer></script>
         <script src="js/config.js" defer></script>
         <script src="js/account.js" defer></script>
@@ -199,6 +200,64 @@
                 <div class="page-section-heading"><div><span class="eyebrow muted">FOLLOWING FEED</span><h2 id="following-title">Recent reviews from players you follow<span>.</span></h2></div><p>The latest post from each person you follow.</p></div>
                 <div id="following-reviews" class="home-review-grid" aria-live="polite"><p class="social-empty">Loading your feed…</p></div>
                 <p id="following-feedback" class="social-feedback" role="status"></p><button id="more-following" class="social-button" type="button" hidden>More recent reviews</button>
+            </section>
+            <!-- Notícias selecionadas de fontes oficiais -->
+            <section class="home-section shell gaming-news" aria-labelledby="gaming-news-title">
+                <div class="page-section-heading">
+                    <div><span class="eyebrow muted">THE GAMING BRIEF</span><h2 id="gaming-news-title">Gaming news<span>.</span></h2><p class="gaming-news-intro">Announcements, releases and stories from across the industry.</p></div>
+                    <span class="gaming-news-edition"><span aria-hidden="true">✦</span> Selected <time datetime="2026-11-18">Nov 18, 2026</time></span>
+                </div>
+                <div class="gaming-news-grid">
+                    <article class="gaming-news-card gaming-news-featured">
+                        <a href="https://blog.playstation.com/2026/11/10/playstation-plus-game-catalog-for-november-death-stranding-2-on-the-beach-like-a-dragon-pirate-yakuza-in-hawaii-atomfall-dragon-quest-iii-hd-2d-remake-and-more/" target="_blank" rel="noopener noreferrer">
+                            <div class="gaming-news-image"><img src="imagens/noticias/playstation-plus-november-2026.webp" alt="" width="1200" height="675" loading="lazy"><span class="gaming-news-spotlight">IN THE SPOTLIGHT</span></div>
+                            <div class="gaming-news-copy">
+                                <div class="gaming-news-meta"><span class="gaming-news-category">PlayStation Plus</span><time datetime="2026-11-10">Nov 10, 2026</time></div>
+                                <h3>Death Stranding 2 leads November’s PlayStation Plus lineup</h3>
+                                <p>Sam’s next journey joins the Game Catalog alongside Atomfall, Dragon Quest III HD-2D Remake and more.</p>
+                                <div class="gaming-news-source"><span>PlayStation.Blog</span><span class="gaming-news-read">Read story <span aria-hidden="true">↗</span></span></div>
+                                <span class="visually-hidden">Opens in a new tab.</span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="gaming-news-card">
+                        <a href="https://news.xbox.com/en-us/2026/11/17/xbox-game-pass-november-2026-wave-2/" target="_blank" rel="noopener noreferrer">
+                            <div class="gaming-news-image"><img src="imagens/noticias/game-pass-november-2026.webp" alt="" width="640" height="360" loading="lazy"></div>
+                            <div class="gaming-news-copy">
+                                <div class="gaming-news-meta"><span class="gaming-news-category">Game Pass</span><time datetime="2026-11-17">Nov 17, 2026</time></div>
+                                <h3>Hela and The Outlast Trials headline the next Game Pass wave</h3>
+                                <p>Co-op magic, survival horror and more are on the way.</p>
+                                <div class="gaming-news-source"><span>Xbox Wire</span><span class="gaming-news-read">Read story <span aria-hidden="true">↗</span></span></div>
+                                <span class="visually-hidden">Opens in a new tab.</span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="gaming-news-card">
+                        <a href="https://news.xbox.com/en-us/2026/11/12/xbox-25th-anniversary-news-recap/" target="_blank" rel="noopener noreferrer">
+                            <div class="gaming-news-image"><img src="imagens/noticias/xbox-25-years.webp" alt="" width="640" height="360" loading="lazy"></div>
+                            <div class="gaming-news-copy">
+                                <div class="gaming-news-meta"><span class="gaming-news-category">Industry</span><time datetime="2026-11-12">Nov 12, 2026</time></div>
+                                <h3>Xbox celebrates 25 years with new gameplay and anniversary updates</h3>
+                                <p>A look at Fable, Halo Firefight and the anniversary announcements.</p>
+                                <div class="gaming-news-source"><span>Xbox Wire</span><span class="gaming-news-read">Read story <span aria-hidden="true">↗</span></span></div>
+                                <span class="visually-hidden">Opens in a new tab.</span>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="gaming-news-card">
+                        <a href="https://www.nintendo.com/us/whatsnew/nintendo-declares-november-1-pikmin-day-in-recognition-of-all-things-pikmin/" target="_blank" rel="noopener noreferrer">
+                            <div class="gaming-news-image"><img src="imagens/noticias/pikmin-day.webp" alt="" width="640" height="360" loading="lazy"></div>
+                            <div class="gaming-news-copy">
+                                <div class="gaming-news-meta"><span class="gaming-news-category">Nintendo</span><time datetime="2026-11-02">Nov 2, 2026</time></div>
+                                <h3>Pikmin gets its own day, new shorts and a fresh look at Pikmin 4</h3>
+                                <p>Nintendo’s showcase brings Dandori Academy and Pikmin Bloom news.</p>
+                                <div class="gaming-news-source"><span>Nintendo</span><span class="gaming-news-read">Read story <span aria-hidden="true">↗</span></span></div>
+                                <span class="visually-hidden">Opens in a new tab.</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <div class="gaming-news-bottom"><span>From the studios. To your next conversation.</span><span>4 selected stories <span aria-hidden="true">/</span> Official sources</span></div>
             </section>
             <!-- Mais jogos para descobrir -->
             <section class="home-section shell" aria-labelledby="radar-title">

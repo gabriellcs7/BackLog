@@ -75,7 +75,7 @@
         cta.style.opacity = finalReveal;
         cta.style.transform = `scale(${.8 + finalReveal * .2})`;
         cta.style.filter = `blur(${(1 - finalReveal) * 30}px)`;
-        cta.inert = finalReveal < .9;
+        cta.inert = finalReveal < .9 || leave < .8;
         bar.style.transform = `scaleX(${clamp(progress)})`;
     }
     function animate(time) {
@@ -111,7 +111,7 @@
         }
     }
     function introduce() {
-        if (introduced || reduced.matches || target > .02) return;
+        if (!visible || introduced || reduced.matches || target > .02) return;
         introduced = true;
         const lines = intro.querySelectorAll('h2>span');
         introAnimations = [...lines].map((line, index) => line.animate([

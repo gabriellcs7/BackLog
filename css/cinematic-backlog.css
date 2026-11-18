@@ -1,4 +1,4 @@
-/* Présentation de la collection. Les contenus restent visibles sans animation. */
+/* Apresentação da coleção, com conteúdo visível sem animações. */
 .cinematic-backlog { margin:64px 0 80px; background:#10120f; border-block:1px solid var(--line); }
 .cinematic-stage { position:relative; overflow:hidden; isolation:isolate; padding:80px 24px; --phone-scale:.85; --phone-height:493px; }
 .cinematic-grid { position:absolute; inset:0; z-index:-1; background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px); background-size:60px 60px; mask-image:radial-gradient(ellipse at center,#000,transparent 75%); }
@@ -112,3 +112,16 @@
 .cinematic-enabled .cinematic-panel { z-index:2; pointer-events:none; }
 .cinematic-enabled .cinematic-cta { z-index:1; }
 .cinematic-intro h2>span { display:inline-block; }
+
+/* Acabamento e proporções para telas menores. */
+.cinematic-cta .button { width:auto; min-width:190px; }
+.cinematic-stage:after { content:''; position:absolute; inset:0; pointer-events:none; z-index:15; opacity:.035; mix-blend-mode:overlay; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23n)' d='M0 0h200v200H0z'/%3E%3C/svg%3E"); }
+@media(max-height:650px) {
+ .cinematic-enabled .cinematic-intro h2 { font-size:clamp(30px,6vw,60px); margin:16px 0; }
+ .cinematic-enabled .cinematic-intro p { font-size:12px; }
+ .cinematic-enabled .cinematic-cta { padding:22px 20px 50px; }
+ .cinematic-cta h3 { font-size:clamp(28px,4.5vw,40px); margin:14px 0; }
+ .cinematic-cta p { font-size:12px; line-height:1.5; margin:0 auto 18px; }
+ .cinematic-cta .button { padding:12px 18px; min-height:40px; }
+ .cinematic-cta>div { gap:10px; }
+}

@@ -189,6 +189,26 @@ Abra o endereço `http://localhost:8000` no seu navegador.
 
 > O script `servidor.py` desativa o cache de arquivos `.html`, `.css` e `.js` durante o desenvolvimento, garantindo que qualquer alteração no código apareça imediatamente ao recarregar a página.
 
+### Animações da página inicial
+
+As apresentações em 3D usam os arquivos locais do projeto e não precisam de React, instalação de pacotes ou acesso a um serviço externo para animar.
+
+Acima do túnel de capas há o controle **Presentation animations**:
+
+- **Use device setting** respeita a preferência de movimento do sistema/navegador. Se ela pedir movimento reduzido, as apresentações aparecem sem o efeito 3D e a página explica o motivo.
+- **Full animations** ativa as duas apresentações, mesmo quando o dispositivo pede movimento reduzido. É uma escolha explícita do visitante e fica salva neste navegador.
+- **Reduced motion** mostra o conteúdo sem a sequência de animação.
+
+Se outra pessoa já clonou o projeto, ela precisa atualizar a cópia antes de testar uma correção:
+
+~~~sh
+git pull --ff-only
+python servidor.py
+~~~
+
+Depois, abra **http://localhost:8000**, recarregue a página e escolha **Full animations** para conferir as apresentações. Se houver alterações locais impedindo a atualização, preserve essas alterações antes de continuar. Não é necessário desativar os Shields do Brave para os efeitos locais do projeto.
+
+
 ---
 
 ## Configuração do Supabase (Opcional)

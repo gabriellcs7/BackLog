@@ -2159,7 +2159,8 @@ window.BacklogGames = [
         "studio": "Double Helix Games",
         "year": 2008,
         "caption": "Alex Shepherd returns to Shepherd's Glen.",
-        "description": "Discharged soldier Alex Shepherd investigates the sudden disappearance of his younger brother Joshua and the mystery behind the town founders.",
+        "description": "Alex Shepherd returns to Shepherd's Glen and learns his brother Joshua is missing. The search exposes connections between local families, disappearances and Silent Hill, while his own memories become increasingly uncertain.",
+        "gameplay": "Explore streets and interiors through puzzles and close-range encounters. Dodges and targeted attacks make combat active, but supplies remain limited. Clues and conversations gradually undermine the story Alex initially believes about his return.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -2185,7 +2186,8 @@ window.BacklogGames = [
         "studio": "Climax Studios",
         "year": 2009,
         "caption": "Psychological reimagining with frozen chases.",
-        "description": "A reimagining of Harry Mason's search where therapy sessions alter character personalities and icy nightmares replace combat with escape routes.",
+        "description": "Harry Mason searches for Cheryl after a crash, while sessions with a therapist frame his account. This reimagining changes familiar people and places, using the player's responses to reshape details of the journey.",
+        "gameplay": "Explore with a flashlight and phone, examine objects and solve environmental puzzles. When the world freezes, escape pursuers through routes and hiding places. Psychological profiling influences the presentation, making observation and interpretation central to the experience.",
         "platforms": [
             "Wii",
             "PlayStation 2",
@@ -2211,7 +2213,8 @@ window.BacklogGames = [
         "studio": "Vatra Games",
         "year": 2012,
         "caption": "Murphy Pendleton in southeastern Silent Hill.",
-        "description": "Convict Murphy Pendleton survives a prison bus crash and explores rainfall-soaked districts of Silent Hill while wrestling with past decisions.",
+        "description": "Prisoner Murphy Pendleton escapes a transport crash and enters a town reflecting the choices and violence in his past. His search for an exit intersects with a pursuing officer and residents whose stories blur help and accusation.",
+        "gameplay": "Explore rain-soaked streets, investigate side stories and solve puzzles. Improvised weapons can break, encouraging careful decisions about fighting. Weather and Otherworld sequences change the pace, while optional areas reveal more about the town's inhabitants.",
         "platforms": [
             "PlayStation 3",
             "Xbox 360"
@@ -2236,7 +2239,8 @@ window.BacklogGames = [
         "studio": "NeoBards Entertainment",
         "year": 2025,
         "caption": "1960s rural Japan psychological horror.",
-        "description": "Set in 1960s Japan, following high schooler Hinako Shimizu as a town is consumed by parasitic crimson flora.",
+        "description": "In 1960s Japan, Hinako Shimizu watches Ebisugaoka become engulfed by fog and grotesque flowering growths. Relationships and social expectations become entangled with a nightmare forcing her to question who she is allowed to become.",
+        "gameplay": "Explore a distinctly Japanese setting, interpret puzzles and survive distorted creatures. Close-range danger and restricted resources create tension between progress and retreat. The story combines personal conflict with imagery that presents beauty and decay together.",
         "platforms": [
             "PC",
             "PlayStation 5",
@@ -2263,7 +2267,8 @@ window.BacklogGames = [
         "studio": "Naughty Dog",
         "year": 2007,
         "caption": "Nathan Drake hunts for El Dorado.",
-        "description": "Nathan Drake, Elena Fisher, and Victor Sullivan follow Sir Francis Drake's coordinates to an uncharted Pacific island guarded by mercenaries.",
+        "description": "Nathan Drake follows clues left by Sir Francis Drake to search for El Dorado with Elena Fisher and Victor Sullivan. Their expedition reaches an island where treasure hunters and a dangerous historical secret stand between them and escape.",
+        "gameplay": "Combine climbing, environmental puzzles and cover-based firefights in a cinematic adventure. Hidden treasures reward searching beyond the main path. Exploration and companion conversations establish the relationships anchoring the series.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -2292,7 +2297,8 @@ window.BacklogGames = [
         "studio": "Naughty Dog",
         "year": 2009,
         "caption": "The expedition for the Cintamani Stone and Shambhala.",
-        "description": "Nathan Drake follows Marco Polo's lost fleet across Istanbul, Borneo, and war-torn Nepal in a race against war criminal Zoran Lazarevic.",
+        "description": "An artifact from Marco Polo's lost fleet draws Nathan Drake into a race toward Shambhala. Rival treasure hunters, a warlord's army and old relationships complicate a journey through locations from Istanbul to the Himalayas.",
+        "gameplay": "Climb, solve ruins-based puzzles and fight across set pieces that change as you move. Stealth openings can thin enemy groups before firefights. Companion banter connects quiet discoveries with elaborate action sequences.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -2321,7 +2327,8 @@ window.BacklogGames = [
         "studio": "Naughty Dog",
         "year": 2011,
         "caption": "Searching for the Atlantis of the Sands.",
-        "description": "Nathan Drake and Sully travel to the Rub' al Khali desert to uncover the lost city of Ubar before an occult British order finds it.",
+        "description": "Nathan Drake and Sully pursue a mystery linking Sir Francis Drake to the lost city of Ubar. A secretive organization challenges their partnership as the search leads across historic sites toward the Arabian Peninsula's deserts.",
+        "gameplay": "Climbing, puzzle solving, melee and cover shooting carry the cinematic campaign. Buildings, vehicles and shifting terrain become moving obstacles. The story emphasizes Nathan and Sully's history and the personal cost of chasing another discovery.",
         "platforms": [
             "PlayStation 3",
             "PlayStation 4"
@@ -2350,7 +2357,8 @@ window.BacklogGames = [
         "studio": "Naughty Dog",
         "year": 2016,
         "caption": "Henry Avery's pirate colony in Libertalia.",
-        "description": "Nathan Drake comes out of retirement when his presumed-dead brother Sam resurfaces needing help finding pirate captain Henry Avery's treasure.",
+        "description": "A quieter life ends when Nathan Drake's brother Sam returns with a desperate request. Searching for Henry Avery's fortune tests Nathan's commitments to family and leads the brothers toward the legendary pirate settlement of Libertalia.",
+        "gameplay": "Wider encounters support climbing, stealth, rope swinging and gunfire. Vehicles and explorable sections provide room to investigate, while puzzles connect historical clues. Conversations and domestic moments give the action a more reflective personal context.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5",
@@ -2380,7 +2388,8 @@ window.BacklogGames = [
         "studio": "Naughty Dog",
         "year": 2017,
         "caption": "Chloe Frazer and Nadine Ross in India's Western Ghats.",
-        "description": "Treasure hunter Chloe Frazer partners with mercenary Nadine Ross in the mountains of India to locate the golden Tusk of Ganesh before an insurgent leader.",
+        "description": "Chloe Frazer recruits mercenary Nadine Ross to find the Tusk of Ganesh in India's Western Ghats. Insurgent leader Asav pursues the same prize, and an initially practical partnership develops under pressure from competing loyalties.",
+        "gameplay": "Explore ruins and a vehicle-accessible region with optional discoveries before entering focused story chapters. Climbing, puzzles, stealth and cover shooting follow the series' cinematic approach. Chloe and Nadine's cooperation gives the treasure hunt its own perspective.",
         "platforms": [
             "PlayStation 4",
             "PlayStation 5",
@@ -2409,7 +2418,8 @@ window.BacklogGames = [
         "studio": "Studio MDHR",
         "year": 2017,
         "caption": "A deal with the Devil in the Inkwell Isles.",
-        "description": "Cuphead and Mugman battle through the Inkwell Isles to repay their debt to the Devil.",
+        "description": "Cuphead and Mugman make a disastrous wager at the Devil's casino and must collect contracts across the Inkwell Isles to repay their debt. Their journey uses hand-drawn characters and settings inspired by early animated cartoons.",
+        "gameplay": "Take on bosses, run-and-gun stages and aerial encounters alone or with a second player. Learn patterns, parry marked objects and select weapons and charms. Short attempts and precise controls make improvement depend on understanding each fight.",
         "platforms": [
             "PC",
             "macOS",
@@ -2435,7 +2445,8 @@ window.BacklogGames = [
         "studio": "Studio MDHR",
         "year": 2022,
         "caption": "A new island and a recipe for the Wondertart.",
-        "description": "Ms. Chalice joins Cuphead and Mugman on a new island where they must gather the ingredients for a magical Wondertart.",
+        "description": "Ms. Chalice joins the brothers on a new island, where Chef Saltbaker proposes a recipe that could solve her unusual predicament. Finding its ingredients sends the trio into confrontations with the island's extravagant inhabitants.",
+        "gameplay": "The expansion adds bosses, weapons and charms to Cuphead's foundation. Ms. Chalice brings a different movement set that changes how attacks can be avoided. Challenges reward experimenting with equipment and learning new patterns.",
         "platforms": [
             "PC",
             "macOS",
@@ -2465,7 +2476,8 @@ window.BacklogGames = [
         "studio": "NetEase Games",
         "year": 2024,
         "caption": "Marvel heroes collide across the multiverse.",
-        "description": "Marvel heroes and villains form teams and battle across locations from the Marvel multiverse.",
+        "description": "A conflict involving Doctor Doom and alternate timelines brings Marvel heroes and villains into the same battles. The multiverse provides context for unlikely alliances, while play centers on repeatable team matches across recognizable locations.",
+        "gameplay": "Build a team from heroes with distinct roles, movement and combat styles. Combine abilities and team-up interactions to contest objectives and support allies. Character choices and cooperation shape each match as much as individual aim.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -2490,7 +2502,8 @@ window.BacklogGames = [
         "studio": "Insomniac Games",
         "year": 2026,
         "caption": "Logan’s search for his past.",
-        "description": "Logan tracks down his past across locations including Madripoor and Japan, confronting enemies who know more than he does.",
+        "description": "Logan follows fragments of a troubled past through places including Madripoor and Japan. Mystique, Sabretooth and others complicate the search, exposing connections between the people hunting him and the secrets he is trying to recover.",
+        "gameplay": "Close-range combat centers on claws, regeneration and aggressive movement. Pursuit and exploration connect confrontations shaped by Wolverine's unusual strengths. Relationships and changing locations ground the action in a personal mystery.",
         "platforms": [
             "PlayStation 5"
         ],
@@ -2516,7 +2529,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2021,
         "caption": "Explore the abandoned Playtime Co. factory.",
-        "description": "Return to the abandoned Playtime Co. toy factory and solve puzzles with the GrabPack as Huggy Wuggy stalks its halls.",
+        "description": "A former Playtime Co. employee returns after a message suggests the missing workers may still be in the abandoned factory. Cheerful exhibits conceal experiments and toys whose behavior makes the building feel far from deserted.",
+        "gameplay": "Solve first-person puzzles with the GrabPack to reach, connect and manipulate objects. Explore production areas, watch recordings and survive pursuits. Huggy Wuggy's presence turns curiosity into a tense search for a way out.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2548,7 +2562,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2022,
         "caption": "Survive the games in the Game Station.",
-        "description": "Venture deeper into the toy factory and survive Mommy Long Legs' games to reach the train.",
+        "description": "The escape route passes through the Game Station and Mommy Long Legs' challenges. Reaching the train requires learning what happened to the toys and deciding how much to trust the help offered inside the factory.",
+        "gameplay": "An expanded GrabPack supports electrical and movement puzzles, followed by games that turn attractions into traps. Recordings and chases develop the continuing story. New tasks change how the environment can be used to progress.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2577,7 +2592,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2024,
         "caption": "Enter Playcare beneath the toy factory.",
-        "description": "Explore Playcare, the orphanage beneath Playtime Co., and survive the red smoke and CatNap.",
+        "description": "Beneath Playtime Co., Playcare's past connects the experiments to the children who lived in its orphanage. CatNap and dangerous red smoke make this stage of the journey both a physical threat and a disturbing investigation.",
+        "gameplay": "Explore connected spaces, solve GrabPack puzzles and handle environmental hazards with new tools. Pursuits demand attention to routes and enemy behavior. Recordings and discoveries reveal the orphanage's place in the factory's history.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2606,7 +2622,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2025,
         "caption": "Search for refuge deep beneath the factory.",
-        "description": "Descend into the factory's prison and discover what happens when its surviving toys begin to lose their refuge.",
+        "description": "The descent reaches a prison where surviving toys have built a refuge under constant threat. Meeting Doey and the forces hunting them turns the search for escape into a struggle over trust within Safe Haven.",
+        "gameplay": "Navigate industrial spaces through puzzles and escape sequences. The GrabPack remains central to manipulating machinery and opening paths. Allies, enemy encounters and recordings push the story toward those controlling the factory from below.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2635,7 +2652,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2026,
         "caption": "Venture into the Prototype’s domain.",
-        "description": "Enter the Prototype's domain, where the surviving toys and the factory's ruined experiments converge.",
+        "description": "The journey reaches the Prototype's domain, where ruined experiments and surviving toys bring the factory's history into focus. Poppy's plans and its hidden ruler's intentions become central as the search moves into Playtime Co.'s most dangerous spaces.",
+        "gameplay": "Manipulate the environment with the GrabPack and solve puzzles under pressure from hostile toys. New threats and tools change how paths and hazards are handled. Recordings and discoveries develop the continuing story.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2663,7 +2681,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2022,
         "caption": "Survive the factory together.",
-        "description": "Six players assemble a giant toy while a seventh controls the monster hunting them inside the factory.",
+        "description": "Playtime Co.'s factory becomes the setting for an asymmetric struggle between toy-recovery workers and a monster. Six specialists attempt to complete their assignment while another player controls the creature pursuing them through the facility.",
+        "gameplay": "Solve puzzle stations, assemble a large toy and coordinate escape. The monster uses distinctive abilities to interrupt progress and isolate workers. Rescues, teamwork and route knowledge shape matches built around pursuit and survival.",
         "platforms": [
             "PC"
         ],
@@ -2685,7 +2704,8 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2026,
         "caption": "Escape as the Smiling Critters.",
-        "description": "Play as the Smiling Critters and work together to escape a dangerous facility.",
+        "description": "The Smiling Critters become survivors in a cooperative horror adventure within the Poppy Playtime universe. A mysterious voice sends them into a dangerous factory to retrieve resources, while rejected creations stalk the spaces between their objectives.",
+        "gameplay": "Work with friends to search classrooms, warehouses and laboratories. Collect supplies, use available tools and return safely while coordinating tasks and escape routes. Threats can force the group to split or regroup, making communication central to each run.",
         "platforms": [
             "PC"
         ],
@@ -2707,7 +2727,8 @@ window.BacklogGames = [
         "studio": "Full Circle",
         "year": 2025,
         "caption": "Find your next favorite spot in San Vansterdam.",
-        "description": "Explore San Vansterdam, discover skate spots and create challenges with other skaters in an online city.",
+        "description": "Create a skater and make San Vansterdam your own through sessions, challenges and encounters with other players. Discovering spots, developing a style and sharing moments provides progression in the city's social skateboarding world.",
+        "gameplay": "Use Flick-It controls to combine tricks, grinds and movement. Explore off the board, establish sessions and repeat attempts to refine a line. Multiplayer activities and the Replay Editor support friendly competition and creative experimentation.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -2737,7 +2758,8 @@ window.BacklogGames = [
         "studio": "Mojang Studios and Double Eleven",
         "year": 2020,
         "caption": "Take on the Arch-Illager with friends.",
-        "description": "Explore blocky dungeons and collect gear to defeat the Arch-Illager in a solo or cooperative adventure.",
+        "description": "The Arch-Illager turns a powerful artifact against the villages that rejected him, sending armies across the Overworld. A group of heroes attempts to stop the invasion and discover the influence behind his growing power.",
+        "gameplay": "Explore from an elevated perspective, collecting weapons, armor and artifacts. Equipment defines your build, allowing roles to change with loot. Solo and cooperative encounters combine accessible combat, enemy combinations, secrets and adjustable difficulty.",
         "platforms": [
             "PC",
             "Nintendo Switch",
@@ -2765,7 +2787,8 @@ window.BacklogGames = [
         "studio": "FromSoftware",
         "year": 2011,
         "caption": "Journey through the fading land of Lordran.",
-        "description": "The Chosen Undead journeys through Lordran, confronting the fading gods and deciding the fate of the First Flame.",
+        "description": "An Undead pilgrim reaches Lordran seeking an answer to a curse as the age of fire fades. Fragmented histories and the agendas of gods, knights and travelers complicate the apparent duty to preserve the First Flame.",
+        "gameplay": "Explore a tightly interconnected world, manage stamina and learn enemy timing. Bonfires restore you and most foes, while death risks the souls needed for growth. Weapons, armor and magic support different builds through demanding bosses and careful exploration.",
         "platforms": [
             "PlayStation 3",
             "Xbox 360",
@@ -2793,7 +2816,8 @@ window.BacklogGames = [
         "studio": "FromSoftware",
         "year": 2014,
         "caption": "Search for a cure in Drangleic.",
-        "description": "The Bearer of the Curse searches for a cure amid the ruined kingdom of Drangleic.",
+        "description": "The Bearer of the Curse travels to Drangleic hoping to escape the loss of memory and identity caused by undeath. Its ruined monarchy and ancient powers suggest the kingdom's tragedy belongs to a much older cycle.",
+        "gameplay": "Develop weapons, magic and defensive choices along routes branching from Majula. Patient enemy reading and stamina remain essential, while healing and equipment decisions influence exploration. Death, recovery and understanding make each region a test of preparation.",
         "platforms": [
             "PlayStation 3",
             "Xbox 360",
@@ -2820,7 +2844,8 @@ window.BacklogGames = [
         "studio": "FromSoftware",
         "year": 2016,
         "caption": "Return the Lords of Cinder to their thrones.",
-        "description": "The Ashen One travels through Lothric to return the Lords of Cinder to their thrones.",
+        "description": "The Ashen One rises to return the Lords of Cinder to their thrones as the fire fades again. Kingdoms and people shaped by repeated sacrifice raise the question of whether the age they sustain can continue.",
+        "gameplay": "Fight through interconnected regions with deliberate stamina management, weapon skills and varied builds. Bonfires anchor exploration, and shortcuts reward attention to the layout. Fast enemies and bosses test defensive timing, spacing and learning from failed attempts.",
         "platforms": [
             "PC",
             "PlayStation 4",

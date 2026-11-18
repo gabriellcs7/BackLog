@@ -66,3 +66,7 @@
  .gaming-news-source { font-size:10px; }
  .gaming-news-bottom { font-size:9px; }
 }
+/* Preserva os títulos e logotipos das artes oficiais nos cards menores. */
+.gaming-news-card:not(.gaming-news-featured) .gaming-news-image { background:#10150f; }
+.gaming-news-card:not(.gaming-news-featured) .gaming-news-image img { object-fit:contain; }
+.gaming-news-meta,.gaming-news-source { font-size:10px; }

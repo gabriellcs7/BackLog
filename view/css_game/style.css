@@ -1114,3 +1114,29 @@ h1>span:not(.title-dot) {
     .write-review-game h1 { align-self:end; font-size:22px; margin:0; }
     .write-review-game p { align-self:start; margin-top:8px; }
 }
+
+/* The title artwork keeps its original proportions above the backdrop. */
+#game-title.has-game-logo {
+    display: flex;
+    align-items: center;
+    width: min(100%, 520px);
+    height: 156px;
+    margin: 16px 0 12px;
+    line-height: 1;
+}
+
+.game-title-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(100%, 460px);
+    max-height: 156px;
+    object-fit: contain;
+    object-position: left center;
+    filter: drop-shadow(0 3px 8px #000a);
+}
+
+@media(max-width:560px) {
+    #game-title.has-game-logo { height: 112px; }
+    .game-title-logo { max-width: min(100%, 320px); max-height: 112px; }
+}

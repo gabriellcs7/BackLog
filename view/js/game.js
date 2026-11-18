@@ -50,6 +50,19 @@
     document.querySelector('.about-section > p').textContent = game.description;
     document.querySelector('.about-section > p + p').textContent = game.gameplay;
 
+    const title = document.querySelector('#game-title');
+    const logo = document.createElement('img');
+    logo.className = 'game-title-logo';
+    logo.src = '../imagens/logos/' + game.id + '.png';
+    logo.alt = game.title;
+    logo.fetchPriority = 'high';
+    title.classList.add('has-game-logo');
+    logo.addEventListener('error', () => {
+        title.classList.remove('has-game-logo');
+        title.textContent = game.title;
+    }, { once: true });
+    title.replaceChildren(logo);
+
     const platforms = document.querySelector('.platforms');
     const platformItems = (game.platforms || []).map(platform => {
         const item = document.createElement('span');

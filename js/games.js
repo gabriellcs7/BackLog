@@ -1443,7 +1443,8 @@ window.BacklogGames = [
         "studio": "Valve",
         "year": 2000,
         "caption": "The original 1.6 tactical shooter.",
-        "description": "The classic mod-turned-phenomenon pitting Terrorists against Counter-Terrorists with recoil control, corner angles, and team buys.",
+        "description": "Terrorist and Counter-Terrorist teams compete in short rounds around bomb sites or hostage rescue. The original release establishes a tactical contest where information, discipline and limited resources shape each match's developing narrative.",
+        "gameplay": "Buy equipment, hold angles and coordinate routes with teammates. Recoil, movement accuracy and sound shape firefights. Death usually means waiting for the next round, so preserving weapons and reading the opposing team's economy become part of the strategy.",
         "platforms": [
             "PC",
             "macOS",
@@ -1473,7 +1474,8 @@ window.BacklogGames = [
         "studio": "Valve / Turtle Rock Studios",
         "year": 2004,
         "caption": "Single-player tour of duty and classic multiplayer.",
-        "description": "Features offline bot challenges with specific weapon objectives alongside standard Counter-Strike multiplayer matches.",
+        "description": "Condition Zero combines Counter-Strike's opposing factions with an offline tour of duty against AI teams. Specific objectives give structure to tactical rounds, while the separate Deleted Scenes campaign offers scripted single-player operations.",
+        "gameplay": "Choose equipment, recruit teammates and complete challenges tied to weapons and objectives. Multiplayer retains bomb defusal and hostage rescue. Bot difficulty and mission requirements provide a structured way to practice map knowledge, recoil control and tactical movement.",
         "platforms": [
             "PC",
             "macOS",
@@ -1499,7 +1501,8 @@ window.BacklogGames = [
         "studio": "Valve",
         "year": 2004,
         "caption": "Source engine remake of classic maps.",
-        "description": "Rebuilt classic maps including Dust II, Aztec, and Office with updated physics, textures, and grenade dynamics.",
+        "description": "Counter-Strike: Source rebuilds the tactical shooter with the Source engine while preserving its opposing teams and objective-based rounds. Familiar locations gain updated lighting, physical props and presentation within the established competitive structure.",
+        "gameplay": "Manage the economy, buy weapons and coordinate bomb attacks, defenses or hostage rescue. Careful movement and recoil control remain essential. Physics and grenade interactions change details of how firefights and routes play out across classic maps.",
         "platforms": [
             "PC",
             "macOS",
@@ -1525,7 +1528,8 @@ window.BacklogGames = [
         "studio": "Valve / Hidden Path Entertainment",
         "year": 2012,
         "caption": "The competitive tactical shooter that defined an era.",
-        "description": "Introduced official matchmaking ranks, weapon skins, and major esports championships over a decade of competitive play.",
+        "description": "Global Offensive developed Counter-Strike's tactical matches into a long-running competitive platform. Terrorists and Counter-Terrorists fought over objectives on familiar and new maps, with ranked play and community competition central to its identity.",
+        "gameplay": "Round-based shooting rewards accurate movement, recoil control and coordinated utility. Match economy determines when a team saves or invests. This entry represents Global Offensive's original era, providing a place to log the experience that preceded Counter-Strike 2.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -1555,7 +1559,8 @@ window.BacklogGames = [
         "studio": "Valve",
         "year": 2023,
         "caption": "Source 2 tactical gameplay with dynamic smoke.",
-        "description": "Built on Source 2 with sub-tick server response, volumetric smoke grenades that react to bullets, and the Premier rating mode.",
+        "description": "Counter-Strike 2 continues bomb-defusal and hostage-rescue matches on the Source 2 engine. A match develops through information, economy and momentum, as both teams adapt to the opportunities and mistakes of successive rounds.",
+        "gameplay": "Coordinate smoke grenades, flashes and pushes while managing equipment between rounds. Movement and recoil control remain fundamental, and volumetric smoke changes how visibility is contested. Competitive modes reward consistency and cooperation across an entire match.",
         "platforms": [
             "PC",
             "Linux"
@@ -1582,7 +1587,8 @@ window.BacklogGames = [
         "studio": "Red Barrels",
         "year": 2013,
         "caption": "Found-footage horror in Mount Massive Asylum.",
-        "description": "Journalist Miles Upshur explores a remote psychiatric hospital in Colorado armed only with a battery-powered night-vision camcorder.",
+        "description": "Journalist Miles Upshur follows a tip about abuse at Mount Massive Asylum, a psychiatric institution controlled by Murkoff. Inside, escaping and documenting the truth are both threatened by experiments that have overtaken the facility.",
+        "gameplay": "Explore in first person with a camcorder whose night vision consumes batteries. Hiding, listening and finding escape routes are essential because Miles cannot rely on conventional combat. Documents and recordings connect the encounters to the wider investigation.",
         "platforms": [
             "PC",
             "macOS",
@@ -1611,7 +1617,8 @@ window.BacklogGames = [
         "studio": "Red Barrels",
         "year": 2017,
         "caption": "Rural horror in the Supai region of Arizona.",
-        "description": "Cameraman Blake Langermann searches for his missing wife in the desert while evading a fanatical cult and remembering childhood trauma.",
+        "description": "Cameraman Blake Langermann and his wife Lynn investigate a suspicious death in rural Arizona. A crash separates them near Temple Gate, where Blake's search becomes entangled with a violent religious community and memories of his childhood.",
+        "gameplay": "Navigate dark outdoor spaces and confined buildings with a camcorder. Hiding, crawling and running replace direct combat; sound recording and night vision reveal danger. Pursuits and disorienting transitions make learning routes under pressure part of survival.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -1638,7 +1645,8 @@ window.BacklogGames = [
         "studio": "Red Barrels",
         "year": 2024,
         "caption": "Cooperative psychological horror therapy.",
-        "description": "Teams of test subjects complete sadistic rehabilitation trials designed by the Murkoff Corporation during the Cold War.",
+        "description": "During the Cold War, Murkoff subjects unwilling participants to experiments disguised as rehabilitation. As a Reagent, you face staged environments and conditioning intended to reshape behavior, with escape promised through the very system controlling you.",
+        "gameplay": "Complete objectives alone or in cooperative teams while avoiding pursuers. Tools, upgrades and specialized rigs help distract enemies or support partners. Replaying trials develops equipment and route knowledge, but noisy mistakes can turn a plan into a chase.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -1666,7 +1674,8 @@ window.BacklogGames = [
         "studio": "Kinetic Games",
         "year": 2020,
         "caption": "Cooperative 4-player ghost hunting.",
-        "description": "Gather evidence using EMF readers, spirit boxes, and thermometers inside haunted houses and prisons to identify ghost types before hunts begin.",
+        "description": "A paranormal team enters haunted locations to identify a ghost and gather evidence for a contract. Each investigation develops through clues and escalating activity, with hunts capable of turning careful research into a search for safety.",
+        "gameplay": "Use thermometers, EMF readers and spirit boxes to narrow down the ghost type. Communication, sanity and hiding places matter as activity increases. Optional objectives and difficulty settings change the balance between collecting evidence and exposing yourself to danger.",
         "platforms": [
             "PC",
             "PlayStation 5",
@@ -1692,7 +1701,8 @@ window.BacklogGames = [
         "studio": "SUPERHOT Team",
         "year": 2016,
         "caption": "Time moves only when you move.",
-        "description": "A minimalist first-person puzzle shooter where bullets and enemies crawl in slow motion until the player moves or fires.",
+        "description": "A mysterious program draws the player into stark combat simulations. Messages outside the fights gradually question who controls the experience and why continuing to play feels increasingly compulsory, turning the interface into part of the story.",
+        "gameplay": "Time advances mainly when you move, making combat a puzzle about timing and positioning. Dodge visible bullets, throw objects and seize weapons from enemies. Fragile weapons and lethal impacts encourage planning an action sequence before committing to movement.",
         "platforms": [
             "PC",
             "macOS",
@@ -1721,7 +1731,8 @@ window.BacklogGames = [
         "studio": "SUPERHOT Team",
         "year": 2020,
         "caption": "Roguelike expansion with customizable hacks.",
-        "description": "Adds procedural arena progression, persistent perks, and distinct core loadouts to the slow-motion combat formula.",
+        "description": "Mind Control Delete expands SUPERHOT's unsettling digital world into a looping pursuit of more power and more encounters. Interface messages and repeated choices connect the player's appetite for progress to the system holding them.",
+        "gameplay": "Fight through chains of arenas using slow-motion movement, scavenged weapons and unlockable abilities. Hacks and different cores alter a run, adding build choices to the combat puzzle. Progress depends on adapting across encounters rather than solving one fixed sequence.",
         "platforms": [
             "PC",
             "macOS",
@@ -1750,7 +1761,8 @@ window.BacklogGames = [
         "studio": "CD Projekt Red",
         "year": 2020,
         "caption": "Open-world mercenary RPG in Night City.",
-        "description": "Mercenary V takes on jobs across the six districts of Night City while coping with a dying mind linked to rockerboy Johnny Silverhand.",
+        "description": "Mercenary V takes a dangerous job in Night City and becomes linked to rockerboy Johnny Silverhand's digital consciousness. Surviving the consequences brings V into conflict with corporations, fixers and personal loyalties in a city where bodies and memories are commodities.",
+        "gameplay": "Develop hacking, firearms, blades, cyberware or stealth. Main quests and side stories combine dialogue choices with missions supporting different approaches. Driving, exploration and equipment progression connect the districts of an open-world role-playing game.",
         "platforms": [
             "PC",
             "macOS",
@@ -1780,7 +1792,8 @@ window.BacklogGames = [
         "studio": "CD Projekt Red",
         "year": 2023,
         "caption": "Spy-thriller expansion in Dogtown.",
-        "description": "V enters the walled combat zone of Dogtown to rescue the NUSA President alongside sleeper agent Solomon Reed.",
+        "description": "A message from netrunner Songbird offers V a possible answer to a life-threatening problem. Rescuing the NUSA president in Dogtown draws V into a spy story involving Solomon Reed, competing loyalties and people bargaining with secrets.",
+        "gameplay": "Explore a dense district and undertake missions blending infiltration, combat and consequential conversations. Equipment and build options accompany the branching storyline. Dogtown's gigs and encounters ground the espionage plot in local conflicts and support different approaches.",
         "platforms": [
             "PC",
             "macOS",
@@ -1808,7 +1821,8 @@ window.BacklogGames = [
         "studio": "Endnight Games",
         "year": 2018,
         "caption": "Survival crafting against cannibal tribes.",
-        "description": "A plane crash survivor builds shelters, cuts down timber, and crafts weapons to fend off mutant cannibals while searching for his kidnapped son.",
+        "description": "A crash leaves Eric LeBlanc stranded in a forest, where he witnesses his son Timmy being taken by a mysterious figure. Searching reveals a hostile island, underground caves and experiments connecting its threats to the missing child.",
+        "gameplay": "Gather food, cut timber and build shelters while balancing survival with exploration. Craft weapons and traps, defend against attacks and descend into caves for tools and clues. Cooperation and construction establish a foothold before you pursue the deeper mysteries.",
         "platforms": [
             "PC",
             "PlayStation 4"
@@ -1835,7 +1849,8 @@ window.BacklogGames = [
         "studio": "Endnight Games",
         "year": 2024,
         "caption": "Island survival with AI companions.",
-        "description": "Sent to locate a missing billionaire on a remote island, you gather resources, build compound defenses, and explore underground bunkers.",
+        "description": "A mission to find a missing billionaire family goes wrong on an island occupied by hostile inhabitants and mutations. Caves and concealed facilities gradually connect the rescue assignment to an extraordinary discovery beneath the surface.",
+        "gameplay": "Gather resources, craft equipment and construct detailed shelters. Companions such as Kelvin and Virginia help you explore or defend camp. Seasons, underground hazards and cooperative play shape the balance between establishing a home and pursuing the investigation.",
         "platforms": [
             "PC"
         ],
@@ -1862,7 +1877,8 @@ window.BacklogGames = [
         "studio": "CD Projekt Red",
         "year": 2007,
         "caption": "Geralt of Rivia returns to Temeria.",
-        "description": "An amnesiac Geralt of Rivia tracks stolen witcher secrets and investigates the Salamandra criminal syndicate around Vizima.",
+        "description": "An amnesiac Geralt returns just as an attack on Kaer Morhen exposes witcher secrets to criminals. Following the stolen knowledge brings him to Vizima, where discrimination, political unrest and personal loyalties complicate every alliance.",
+        "gameplay": "Investigate through conversations, preparation and choices with delayed consequences. Combat uses timed attack chains, styles, signs and alchemy. Studying monsters supports a professional approach to contracts, while branching decisions shape Geralt's role in the conflict.",
         "platforms": [
             "PC",
             "macOS"
@@ -1889,7 +1905,8 @@ window.BacklogGames = [
         "studio": "CD Projekt Red",
         "year": 2011,
         "caption": "Framed for regicide in the Northern Kingdoms.",
-        "description": "Geralt hunts the Kingslayer Letho of Gulet in an adventure featuring diverging chapter paths between Iorveth and Vernon Roche.",
+        "description": "Geralt is drawn into a political crisis after an assassination places him under suspicion. Pursuing the killer leads through the Northern Kingdoms, where the choice of an ally opens substantially different chapters and reveals competing factions' motives.",
+        "gameplay": "Combine swords, signs, bombs and potions in encounters that reward preparation. Conversations determine alliances and quest outcomes. Paying attention to politics matters because decisions can change both your route and the events you witness.",
         "platforms": [
             "PC",
             "macOS",
@@ -1918,7 +1935,8 @@ window.BacklogGames = [
         "studio": "CD Projekt Red",
         "year": 2015,
         "caption": "Geralt searches for Ciri across Velen and Skellige.",
-        "description": "Geralt tracks his adopted daughter Ciri across war-torn Velen, Novigrad, and the Skellige Isles while pursued by the otherworldly Wild Hunt.",
+        "description": "Geralt searches for Ciri as war unsettles the Northern Kingdoms and the spectral Wild Hunt pursues her. The journey reconnects him with friends and rivals, while local conflicts reveal what ordinary people endure amid struggles for power.",
+        "gameplay": "Explore through contracts, investigations and substantial side quests. Study monsters, prepare oils and potions, and combine swordplay with signs. Dialogue choices often have consequences beyond the immediate reward, while builds and equipment shape combat.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -1949,7 +1967,8 @@ window.BacklogGames = [
         "studio": "NetherRealm Studios",
         "year": 2013,
         "caption": "Fighting game set in a regime-ruled DC world.",
-        "description": "Batman leads an insurgency against a totalitarian Superman who took power following the destruction of Metropolis.",
+        "description": "A devastating tragedy turns Superman into an authoritarian ruler. When heroes from another reality enter his divided world, Batman's resistance gains allies in a struggle over how extraordinary power should be used and who should control it.",
+        "gameplay": "Fight one-on-one using DC characters with distinctive traits and powers. Combos, meter management and interactive environments create offensive options; stage transitions turn positioning into spectacle. Cinematic story chapters follow different fighters through the conflict.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -1978,7 +1997,8 @@ window.BacklogGames = [
         "studio": "NetherRealm Studios",
         "year": 2017,
         "caption": "DC fighting roster against Brainiac's invasion.",
-        "description": "Batman and Superman's opposing factions clash over how to handle alien invader Brainiac as he targets Earth's cities.",
+        "description": "Batman attempts to rebuild society after Superman's regime falls, but Brainiac's invasion threatens the recovery. Former allies must decide whether to cooperate, while newer heroes inherit a conflict their mentors have never resolved.",
+        "gameplay": "Use distinctive abilities, combos and defensive tools in one-on-one fights. Gear develops customized loadouts, and additional modes extend play beyond the campaign. Story chapters follow different fighters and sometimes offer a choice of who confronts an opponent.",
         "platforms": [
             "PC",
             "PlayStation 4",
@@ -2004,7 +2024,8 @@ window.BacklogGames = [
         "studio": "Konami Team Silent",
         "year": 1999,
         "caption": "Harry Mason searches for Cheryl in the fog.",
-        "description": "Harry Mason's daughter vanishes after a car accident outside Silent Hill, leading him into the town's shifting Fog and Otherworld states.",
+        "description": "Harry Mason survives a crash near Silent Hill and discovers Cheryl has disappeared. Searching brings him into contact with residents, a concealed religious history and a nightmare connected to a girl named Alessa.",
+        "gameplay": "Explore in third person with limited ammunition, healing and visibility. A radio warns of monsters, while maps and clues guide puzzles. Combat encourages caution as the town shifts between familiar spaces and the Otherworld.",
         "platforms": [
             "PlayStation"
         ],
@@ -2030,7 +2051,8 @@ window.BacklogGames = [
         "studio": "Konami Team Silent",
         "year": 2001,
         "caption": "James Sunderland's letter from his late wife.",
-        "description": "James Sunderland travels to Silent Hill after receiving a letter signed by his wife Mary, who died three years earlier.",
+        "description": "James Sunderland receives a letter apparently written by his wife Mary, who died years earlier. He travels to Silent Hill seeking an explanation and meets people whose reasons for being there seem inseparable from the town's disturbing transformations.",
+        "gameplay": "Search streets and interiors with a flashlight, collect clues and solve puzzles while rationing supplies. Encounters emphasize vulnerability and atmosphere. Details and conversations deepen a psychological mystery about grief, memory and personal responsibility.",
         "platforms": [
             "PlayStation 2",
             "Xbox",
@@ -2058,7 +2080,8 @@ window.BacklogGames = [
         "studio": "Konami Team Silent",
         "year": 2003,
         "caption": "Heather Mason confronts an emerging cult.",
-        "description": "Heather Mason's normal shopping trip shifts into an Otherworld nightmare tied directly to the cult events of the first game.",
+        "description": "Heather Mason's ordinary day becomes an encounter with grotesque creatures and people who know more about her past than she does. Searching for answers leads back to Silent Hill and the religious conflict at the heart of the first game.",
+        "gameplay": "Navigate oppressive interiors, interpret clues and conserve ammunition across melee and ranged encounters. Careful exploration reveals new paths through distorted environments. Connections to earlier events give the immediate threats a developing personal history.",
         "platforms": [
             "PlayStation 2",
             "PC"
@@ -2083,7 +2106,8 @@ window.BacklogGames = [
         "studio": "Konami Team Silent",
         "year": 2004,
         "caption": "Henry Townshend trapped in Room 302.",
-        "description": "Henry Townshend finds himself chained inside his South Ashfield apartment, with only a fleshy hole in the bathroom wall leading to surreal victim worlds.",
+        "description": "Henry Townshend finds his apartment sealed from the inside, with a message warning against leaving. A bathroom hole leads to strange connected worlds where a sequence of deaths points toward a ritual and the history of Room 302.",
+        "gameplay": "Explore the apartment in first person and the worlds beyond in third person. Inventory limits and persistent threats require preparation. Returning home changes meaning as the refuge becomes part of the mystery and increasingly difficult to trust.",
         "platforms": [
             "PlayStation 2",
             "Xbox",
@@ -2109,7 +2133,8 @@ window.BacklogGames = [
         "studio": "Climax Studios",
         "year": 2007,
         "caption": "Travis Grady uncovers the town's origins.",
-        "description": "Truck driver Travis Grady rescues a girl from a burning house and becomes trapped in Silent Hill, shifting between dimensions through mirrors.",
+        "description": "Truck driver Travis Grady rescues a girl from a burning house and becomes trapped in Silent Hill. The investigation draws him into events preceding the original game and forces him to confront fragments of his own family history.",
+        "gameplay": "Use mirrors to move between versions of locations, carrying clues across dimensions to solve obstacles. Combat includes guns, improvised weapons and unarmed attacks. Breakable equipment and limited supplies keep exploration tied to survival.",
         "platforms": [
             "PSP",
             "PlayStation 2"

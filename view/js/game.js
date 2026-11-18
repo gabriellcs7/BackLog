@@ -45,9 +45,10 @@
             document.querySelector('.rating-preview strong').textContent = 'Historical game';
             document.querySelector('.rating-preview div>span').textContent = 'Classic title';
         }
-        document.querySelector('.about-section>p').textContent = game.description;
-        document.querySelector('.about-section>p + p').textContent = 'Add this game to your backlog or log it in your diary when you play.';
     }
+
+    document.querySelector('.about-section > p').textContent = game.description;
+    document.querySelector('.about-section > p + p').textContent = game.gameplay;
 
     const platforms = document.querySelector('.platforms');
     const platformItems = (game.platforms || []).map(platform => {

@@ -1,0 +1,49 @@
+/* A galeria continua acessível como uma grade sem animações ou JavaScript. */
+.game-tunnel { margin-block:40px 72px; border-block:1px solid var(--line); background:#111310; }
+.tunnel-stage { position:relative; isolation:isolate; overflow:hidden; padding:70px 24px; }
+.tunnel-grid { position:absolute; inset:0; z-index:-2; background:radial-gradient(ellipse at center,#ffd21f10,transparent 70%),radial-gradient(#969c6b30 1px,transparent 1px); background-size:auto,28px 28px; mask-image:radial-gradient(ellipse at center,#000 30%,transparent 78%); }
+.tunnel-heading { text-align:center; position:relative; z-index:1; }
+.tunnel-heading .eyebrow { color:var(--yellow); letter-spacing:.3em; font-size:11px; }
+.tunnel-heading h2 { margin:22px 0; font-size:clamp(48px,7vw,100px); line-height:.92; letter-spacing:-.065em; font-weight:850; }
+.tunnel-heading h2 span { background:linear-gradient(#fffce4,var(--yellow)); background-clip:text; -webkit-text-fill-color:transparent; }
+.tunnel-heading p { color:var(--muted); font-size:15px; line-height:1.7; margin:0 0 20px; }
+.tunnel-heading .text-link { color:var(--yellow); }
+.tunnel-cards { display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:14px; max-width:1240px; margin:40px auto; }
+.tunnel-card { display:block; min-width:0; border-radius:14px; }
+.tunnel-card-art { display:block; height:100%; position:relative; overflow:hidden; border-radius:inherit; background:var(--surface); box-shadow:0 12px 40px #0009; border:1px solid #ffffff25; }
+.tunnel-card img { width:100%; height:100%; aspect-ratio:2/3; object-fit:cover; transition:transform .6s ease; }
+.tunnel-card-art>span { position:absolute; inset:auto 0 0; padding:30px 14px 15px; color:#fff; background:linear-gradient(transparent,#000e); font-size:12px; font-weight:650; line-height:1.4; }
+.tunnel-card:hover img { transform:scale(1.06); }
+.tunnel-card:hover .tunnel-card-art,.tunnel-card:focus-visible .tunnel-card-art { border-color:var(--yellow); box-shadow:0 12px 45px #ffd21f20; }
+.tunnel-footer { display:flex; align-items:center; justify-content:center; gap:32px; font-size:11px; color:var(--muted); }
+.tunnel-footer a:hover { color:var(--yellow); }
+.tunnel-prompt { display:none; letter-spacing:.15em; text-transform:uppercase; }
+.tunnel-ring,.tunnel-progress { display:none; }
+/* A rolagem natural controla a profundidade, sem prender o visitante na seção. */
+.tunnel-enabled { height:280svh; }
+.tunnel-enabled .tunnel-stage { position:sticky; top:80px; height:calc(100svh - 80px); min-height:300px; padding:0; perspective:1200px; }
+.tunnel-enabled .tunnel-heading { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; pointer-events:none; z-index:0; will-change:transform,opacity; }
+.tunnel-enabled .tunnel-heading .text-link { pointer-events:auto; }
+.tunnel-enabled .tunnel-cards { position:absolute; inset:0; margin:0; max-width:none; display:block; pointer-events:none; transform-style:preserve-3d; }
+.tunnel-enabled .tunnel-card { position:absolute; top:50%; left:50%; width:clamp(180px,18vw,270px); aspect-ratio:2/3; pointer-events:auto; will-change:transform,opacity; }
+.tunnel-enabled .tunnel-card:focus-visible { transform:translate3d(-50%,-50%,100px)!important; opacity:1!important; z-index:30!important; }
+.tunnel-enabled .tunnel-cards:has(:focus-visible) .tunnel-card:not(:focus-visible) { opacity:.12!important; }
+.tunnel-enabled .tunnel-ring { display:block; position:absolute; top:50%; left:50%; translate:-50% -50%; border:1px solid #ffd21f18; border-radius:50%; pointer-events:none; z-index:-1; }
+.tunnel-ring-inner { width:48vmin; height:48vmin; }
+.tunnel-enabled .tunnel-ring-outer { width:76vmin; height:76vmin; border:1px dashed #ffffff15; }
+.tunnel-enabled .tunnel-footer { position:absolute; bottom:30px; left:24px; right:24px; z-index:40; justify-content:space-between; }
+.tunnel-enabled .tunnel-prompt { display:inline-flex; gap:16px; }
+.tunnel-prompt>span { color:var(--yellow); }
+.tunnel-enabled .tunnel-progress { display:block; height:2px; position:absolute; inset:auto 0 0; background:var(--line); }
+.tunnel-progress>span { display:block; height:100%; background:var(--yellow); transform:scaleX(0); transform-origin:left; }
+@media(max-width:767px) {
+ .tunnel-cards { grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+ .tunnel-card-art>span { font-size:10px; padding:24px 9px 10px; }
+ .tunnel-enabled .tunnel-stage { perspective:900px; top:72px; height:calc(100svh - 72px); }
+ .tunnel-enabled .tunnel-card { width:clamp(130px,38vw,180px); }
+ .tunnel-heading h2 { font-size:clamp(48px,12vw,78px); }
+ .tunnel-heading .eyebrow { font-size:9px; letter-spacing:.22em; }
+ .tunnel-heading p { font-size:13px; }
+ .tunnel-enabled .tunnel-footer { bottom:22px; left:18px; right:18px; font-size:9px; gap:12px; }
+}
+@media(prefers-reduced-motion:reduce) { .tunnel-card img { transition:none; } }

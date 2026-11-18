@@ -39,8 +39,9 @@
     function updateSummary() {
         const review = reviews.get(game.id);
         const preview = document.querySelector('.rating-preview');
+        if (!preview) return;
         preview.querySelector('strong').textContent = review?.rating != null ? `${review.rating} / 5` : 'Not rated yet';
-        preview.querySelector('div > span').textContent = review?.rating != null ? 'Your rating' : 'Add your rating below';
+        preview.querySelector('div > span').textContent = review?.rating != null ? 'Your rating' : 'Rate or review this game';
         preview.querySelector('.rating-star').textContent = review?.rating > 0 ? '★' : '☆';
     }
     function render() {

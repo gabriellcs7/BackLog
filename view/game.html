@@ -17,7 +17,7 @@
         <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js" defer></script>
         <script src="../js/ui.js" defer></script>
-        <script src="js/review.js" defer></script>
+        <script src="js/game-review-link.js" defer></script>
         <script src="../js/community.js" defer></script>
         <script src="js/review-card.js" defer></script>
         <script src="js/community.js" defer></script>
@@ -90,6 +90,7 @@
                         <img class="game-cover" src="../imagens/capas/catalogo/grand-theft-auto-vi.webp" alt="Grand Theft Auto VI cover">
                         <span class="cover-label">COMING SOON</span>
                     </div>
+                    <a class="button button-primary game-write-review" id="write-review-link" href="write-review.html">Rate or review <span aria-hidden="true">↗</span></a>
                     <!-- Cada botão define o status atual do jogo na coleção. -->
                     <section class="collection-panel" lang="en" aria-labelledby="collection-title">
                         <h2 id="collection-title">In your collection</h2>
@@ -147,7 +148,7 @@
                         <a class="selected" href="#about">Overview</a>
                         <a href="#details">Game details</a>
                         <a href="#characters" hidden>Characters</a>
-                        <a href="#your-review">Your review</a>
+                        <a id="review-tab" href="write-review.html">Write a review</a>
                         <a href="#community">Community</a>
                         <a href="#more-games">More games <span aria-hidden="true">↗</span></a>
                     </nav>
@@ -191,35 +192,6 @@
                     <section class="game-characters" id="characters" aria-labelledby="characters-title" hidden>
                         <div class="section-heading"><h3 id="characters-title">Main characters</h3></div>
                         <ul class="game-character-list" id="character-list" role="list"></ul>
-                    </section>
-                    <section class="personal-review" id="your-review" aria-labelledby="review-title">
-                        <div class="section-heading"><span class="section-number">03 /</span><h3 id="review-title">Your review</h3><span class="review-private">ONLY YOU</span></div>
-                        <p class="review-intro">Rate this game or write your review below.</p>
-                        <div id="review-saved" class="review-saved" hidden>
-                            <div class="review-saved-header"><strong id="review-saved-rating"></strong><time id="review-date"></time></div>
-                            <p id="review-saved-text"></p>
-                            <a id="open-saved-review" class="review-secondary" href="review.html">Read review ↗</a>
-                            <div class="review-actions"><button class="review-secondary" id="edit-review" type="button">Edit review</button><button class="review-delete" id="delete-review" type="button">Delete review</button></div>
-                            <div id="review-delete-confirm" class="review-delete-confirm" hidden><p>Delete your rating and review for this game?</p><div class="review-actions"><button class="review-delete" id="confirm-delete-review" type="button">Yes, delete</button><button class="review-secondary" id="keep-review" type="button">Keep review</button></div></div>
-                        </div>
-                        <button class="review-secondary" id="use-device-review" type="button" hidden>Use my device review as a draft</button>
-                        <form id="review-form" class="review-editor">
-                            <fieldset class="review-rating" aria-describedby="rating-help"><legend>Your rating</legend><div class="rating-row"><div class="rating-choices">
-                                    <span class="rating-star-choice" data-star="1"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="0.5 stars"><input type="radio" name="review-rating" value="0.5" aria-label="0.5 stars"></label><label class="rating-half rating-half-right" title="1 star"><input type="radio" name="review-rating" value="1" aria-label="1 star"></label></span>
-                                    <span class="rating-star-choice" data-star="2"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="1.5 stars"><input type="radio" name="review-rating" value="1.5" aria-label="1.5 stars"></label><label class="rating-half rating-half-right" title="2 stars"><input type="radio" name="review-rating" value="2" aria-label="2 stars"></label></span>
-                                    <span class="rating-star-choice" data-star="3"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="2.5 stars"><input type="radio" name="review-rating" value="2.5" aria-label="2.5 stars"></label><label class="rating-half rating-half-right" title="3 stars"><input type="radio" name="review-rating" value="3" aria-label="3 stars"></label></span>
-                                    <span class="rating-star-choice" data-star="4"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="3.5 stars"><input type="radio" name="review-rating" value="3.5" aria-label="3.5 stars"></label><label class="rating-half rating-half-right" title="4 stars"><input type="radio" name="review-rating" value="4" aria-label="4 stars"></label></span>
-                                    <span class="rating-star-choice" data-star="5"><span class="rating-star-shape" aria-hidden="true">★</span><label class="rating-half rating-half-left" title="4.5 stars"><input type="radio" name="review-rating" value="4.5" aria-label="4.5 stars"></label><label class="rating-half rating-half-right" title="5 stars"><input type="radio" name="review-rating" value="5" aria-label="5 stars"></label></span>
-                                </div><output id="review-rating-value" aria-live="polite">Not rated</output><button class="review-clear-rating" id="clear-rating" type="button" hidden>Clear rating</button></div><p id="rating-help" class="rating-help">Choose the left half for a half-star, or the right half for a full star. Use arrow keys to adjust.</p></fieldset>
-                            <label class="review-text-label" for="review-played-date">Diary date</label>
-                            <input class="review-date-input" id="review-played-date" name="reviewedOn" type="date" min="1900-01-01" required aria-describedby="review-date-help">
-                            <p id="review-date-help" class="review-date-help">Each save adds an entry to your diary. Choose the day you want to log.</p>
-                            <label class="review-text-label" for="review-text">Write your review <span>(optional)</span></label>
-                            <textarea id="review-text" name="review" rows="5" maxlength="3000" placeholder="Notes on gameplay, story, or performance..." aria-describedby="review-counter review-note"></textarea>
-                            <div class="review-text-footer"><span id="review-note">Saved only in this browser.</span><span id="review-counter">0 / 3,000</span></div>
-                            <div class="review-actions"><button class="button button-primary" type="submit">Save review <span aria-hidden="true">↗</span></button><button class="review-secondary" id="cancel-review" type="button" hidden>Cancel</button></div>
-                        </form>
-                        <p class="review-feedback" id="review-feedback" role="status" aria-live="polite"></p>
                     </section>
                     <section id="community" class="community-section" aria-labelledby="community-title"><div class="section-heading"><span class="section-number">04 /</span><h3 id="community-title">Community reviews</h3></div><p class="community-intro">Reviews and discussion from other players.</p><div class="social-actions"><a class="social-button social-button-quiet" id="community-signin" href="profile.html#account">Sign in to like and comment ↗</a><button class="social-button social-button-quiet" id="refresh-community" type="button">Refresh reviews</button></div><p id="community-feedback" class="social-feedback" role="status" aria-live="polite"></p><div id="community-feed" class="community-feed"></div><button id="more-reviews" class="social-button" type="button" hidden>Load more reviews</button></section>
                 </div>

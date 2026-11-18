@@ -52,8 +52,8 @@
             if (id) {
                 content.append(window.BacklogReviewCard(review, true));
                 if (review.user_id === account.user?.id) {
-                    const edit = ui.element('a', 'social-button', 'Edit on game page');
-                    edit.href = gameUrl + '#your-review';
+                    const edit = ui.element('a', 'social-button', 'Edit review');
+                    edit.href = 'write-review.html?id=' + encodeURIComponent(item.id);
                     content.append(edit);
                 }
             } else {

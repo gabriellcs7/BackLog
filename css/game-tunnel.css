@@ -47,3 +47,5 @@
  .tunnel-enabled .tunnel-footer { bottom:22px; left:18px; right:18px; font-size:9px; gap:12px; }
 }
 @media(prefers-reduced-motion:reduce) { .tunnel-card img { transition:none; } }
+/* A capa focada também aceita cliques mesmo fora do ponto atual do túnel. */
+.tunnel-enabled .tunnel-card:focus-visible { pointer-events:auto!important; }

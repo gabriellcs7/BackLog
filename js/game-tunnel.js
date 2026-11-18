@@ -43,7 +43,7 @@
             const dy = y * height * radiusY - pointerY.value * pan;
             card.style.transform = `translate3d(calc(-50% + ${dx}px), calc(-50% + ${dy}px), ${z}px) rotateZ(${rotation}deg)`;
             card.style.opacity = opacity;
-            // Les cartes proches passent devant celles du fond, quel que soit leur index.
+            // As capas próximas ficam à frente das distantes, independentemente do índice.
             card.style.zIndex = Math.round(local * 100);
             card.style.pointerEvents = opacity > .2 ? 'auto' : 'none';
         });

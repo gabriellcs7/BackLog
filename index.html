@@ -17,6 +17,7 @@
         <script src="js/ui.js" defer></script>
         <script src="js/community.js" defer></script>
         <script src="js/home.js" defer></script>
+        <script src="js/presentation-motion.js" defer></script>
         <script src="js/game-tunnel.js" defer></script>
         <script src="js/cinematic-backlog.js" defer></script>
         <title>BackLog · Track and log your games</title>
@@ -70,6 +71,14 @@
                     <a class="featured-caption" href="view/game.html"><span class="eyebrow">FEATURED GAME</span><strong>Grand Theft Auto VI <span>↗</span></strong><span>Rockstar Games · Open world</span></a>
                 </div>
             </section>
+            <div class="presentation-motion-controls shell" hidden>
+                <div><label for="presentation-motion">Presentation animations</label><p id="presentation-motion-status" role="status"></p></div>
+                <select id="presentation-motion" aria-describedby="presentation-motion-status">
+                    <option value="auto">Use device setting</option>
+                    <option value="full">Full animations</option>
+                    <option value="reduced">Reduced motion</option>
+                </select>
+            </div>
             <!-- Galeria em perspectiva com as capas do catálogo -->
             <section class="game-tunnel" aria-labelledby="tunnel-title" id="discover-games">
                 <div class="tunnel-stage">

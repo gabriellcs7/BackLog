@@ -7,7 +7,7 @@
     const heading = section.querySelector('.tunnel-heading');
     const progressBar = section.querySelector('.tunnel-progress > span');
     const cards = [...section.querySelectorAll('.tunnel-card')];
-    const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    const reduce = window.BacklogMotion || matchMedia('(prefers-reduced-motion: reduce)');
     const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
     const clamp = value => Math.max(0, Math.min(1, value));
     const travel = { value: 0, target: 0, speed: 0 };

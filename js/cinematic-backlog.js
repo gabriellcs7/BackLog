@@ -17,7 +17,7 @@
     const counter = section.querySelector('.cinematic-counter');
     const ring = section.querySelector('.cinematic-ring');
     const bar = section.querySelector('.cinematic-progress > span');
-    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const reduced = window.BacklogMotion || matchMedia('(prefers-reduced-motion: reduce)');
     const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
     const total = window.BacklogGames?.length || 100;
     counter.textContent = total;

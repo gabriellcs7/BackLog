@@ -49,3 +49,12 @@
 @media(prefers-reduced-motion:reduce) { .tunnel-card img { transition:none; } }
 /* A capa focada também aceita cliques mesmo fora do ponto atual do túnel. */
 .tunnel-enabled .tunnel-card:focus-visible { pointer-events:auto!important; }
+
+/* A escolha fica disponível mesmo quando o dispositivo reduz as animações. */
+.presentation-motion-controls { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-top:28px; }
+.presentation-motion-controls label { font-size:12px; font-weight:650; color:var(--text); }
+.presentation-motion-controls p { color:var(--muted); font-size:11px; line-height:1.6; margin:6px 0 0; }
+.presentation-motion-controls select { font:inherit; font-size:12px; color:var(--text); background:var(--surface); border:1px solid var(--line); padding:11px 32px 11px 12px; border-radius:9px; max-width:100%; }
+.presentation-motion-controls select:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; }
+html[data-presentation-motion='reduced'] .tunnel-card img,html[data-presentation-motion='reduced'] .cinematic-cta .button { transition:none; }
+@media(max-width:560px) { .presentation-motion-controls { align-items:flex-start; flex-direction:column; gap:12px; } }

@@ -387,3 +387,10 @@
 .ratings-summary { gap:12px; }
 .ratings-average { white-space:nowrap; }
 @media(max-width:850px) { .player-profile .profile-overview { grid-template-columns:1fr; gap:14px; } }
+/* A capa mantém a proporção original, mesmo quando os comentários ficam longos. */
+.single-review-cover img { height:auto; aspect-ratio:auto; object-fit:contain; }
+@media(min-width:801px) {
+ .single-review-layout { align-items:start; }
+ .single-review-cover { min-height:0; position:sticky; top:112px; align-self:start; }
+ .single-review-cover img { position:static; height:auto; }
+}

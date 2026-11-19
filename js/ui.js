@@ -30,5 +30,19 @@
         stars.style.setProperty('--rating-fill',Number(rating)*20+'%');
         return stars;
     }
+
+    // A navegação usa sempre a identidade da conta local, nunca a do perfil visitado.
+    const navProfile=document.querySelector('#navigation a[href$="profile.html"]');
+    const account=window.BacklogAccount;
+    function updateNavAvatar(){
+        if(!navProfile||!account)return;
+        navProfile.querySelector('.nav-profile-avatar')?.remove();
+        navProfile.classList.add('nav-profile-link');
+        navProfile.prepend(avatar(account.getState().profile,'nav-profile-avatar'));
+    }
+    updateNavAvatar();
+    account?.ready.then(updateNavAvatar);
+    window.addEventListener('backlog-account-change',updateNavAvatar);
+
     window.BacklogUI={element,game,gameCard,ratingStars,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
 })();

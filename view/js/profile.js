@@ -200,7 +200,7 @@
             : 'No games match your search.';
     }
 
-    function moveFavorite(id,position,focusDirection){
+    function moveFavorite(id,position,restoreFocus=false){
         const index=favoriteDraft.indexOf(id);
         if(index<0)return;
         const destination=Math.min(favoriteDraft.length-1,Math.max(0,position));
@@ -218,10 +218,9 @@
                 node.animate([{transform:`translate(${previous.x-current.x}px,${previous.y-current.y}px)`},{transform:'none'}],{duration:210,easing:'ease-out'});
             }
         }
-        if(focusDirection){
+        if(restoreFocus){
             const moved=[...selected.children].find(node=>node.dataset.game===id);
-            const arrow=moved.querySelector('[data-direction="'+focusDirection+'"]');
-            (arrow.disabled?moved.querySelector('.favorite-pick'):arrow).focus({preventScroll:true});
+            moved?.querySelector('.favorite-pick')?.focus({preventScroll:true});
         }
     }
 
@@ -282,15 +281,14 @@
                 selected.querySelectorAll('.is-drop-target').forEach(target=>target.classList.remove('is-drop-target'));
             });
             favoriteDropTarget(slot,index);
-            const arrows=el('div','favorite-order-arrows');
-            for(const [direction,delta,icon] of [['left',-1,'←'],['right',1,'→']]){
-                const arrow=button(icon,()=>moveFavorite(item.id,index+delta,direction),'favorite-move');
-                arrow.dataset.direction=direction;
-                arrow.setAttribute('aria-label','Move '+item.title+' '+direction);
-                arrow.disabled=index+delta<0||index+delta>=favoriteDraft.length;
-                arrows.append(arrow);
-            }
-            slot.append(remove,arrows);
+            remove.setAttribute('aria-keyshortcuts','Alt+ArrowLeft Alt+ArrowRight');
+            remove.setAttribute('aria-describedby','favorite-reorder-help');
+            remove.addEventListener('keydown',event=>{
+                if(!event.altKey||!['ArrowLeft','ArrowRight'].includes(event.key))return;
+                event.preventDefault();
+                moveFavorite(item.id,index+(event.key==='ArrowLeft'?-1:1),true);
+            });
+            slot.append(remove);
             selected.append(slot);
         }
         renderFavoriteResults();

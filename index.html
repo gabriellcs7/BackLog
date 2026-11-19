@@ -11,12 +11,14 @@
         <link rel="stylesheet" href="css/game-tunnel.css">
         <link rel="stylesheet" href="css/cinematic-backlog.css">
         <link rel="stylesheet" href="css/gaming-news.css">
+        <link rel="stylesheet" href="css/review-wall.css">
         <script src="js/games.js" defer></script>
         <script src="js/config.js" defer></script>
         <script src="js/account.js" defer></script>
         <script src="js/site.js" defer></script>
         <script src="js/ui.js" defer></script>
         <script src="js/community.js" defer></script>
+        <script src="js/review-wall.js" defer></script>
         <script src="js/home.js" defer></script>
         <script src="js/presentation-motion.js" defer></script>
         <script src="js/game-tunnel.js" defer></script>
@@ -190,9 +192,9 @@
                     </a>
                 </div>
             </section>
-            <section class="home-section shell community-home" aria-labelledby="reviews-title">
-                <div class="page-section-heading"><div><span class="eyebrow muted">POPULAR REVIEWS</span><h2 id="reviews-title">Most liked reviews<span>.</span></h2></div><p>Three of the most appreciated reviews from other players.</p></div>
-                <div id="popular-reviews" class="home-review-grid" aria-live="polite"><p class="social-empty">Loading popular reviews…</p></div>
+            <section class="home-section shell community-home popular-review-section" aria-labelledby="reviews-title">
+                <div class="review-wall-heading"><span class="review-wall-badge">COMMUNITY FAVORITES</span><h2 id="reviews-title">What players are saying<span>.</span></h2><p>The most-liked reviews from the BackLog community.</p><button id="pause-review-wall" class="social-button social-button-quiet" type="button" aria-pressed="false" hidden>Pause animation</button></div>
+                <div id="popular-reviews" class="popular-review-wall"><p class="social-empty">Loading popular reviews…</p></div>
                 <p id="popular-feedback" class="social-feedback" role="status"></p><button id="more-popular" class="social-button" type="button" hidden>More popular reviews</button>
             </section>
             <section class="home-section shell community-home" aria-labelledby="following-title">

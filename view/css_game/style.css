@@ -1150,3 +1150,12 @@ h1>span:not(.title-dot) {
 .game-community-ratings .ratings-bin { border-radius:3px; }
 #game-ratings-feedback:empty { display:none; }
 @media(max-width:560px) { .game-community-ratings { padding:16px; } .game-ratings-heading .social-small { font-size:10px; } }
+/* Distribuição compacta sob os controles de coleção. */
+.game-sidebar .game-community-ratings { margin:20px 0 0; padding:14px; }
+.game-sidebar .game-ratings-heading { display:block; margin-bottom:12px; }
+.game-sidebar .game-ratings-heading .social-small { display:block; font-size:9px; margin-top:5px; }
+.game-sidebar .ratings-histogram { height:42px; gap:3px; }
+.game-sidebar .ratings-average { font-size:17px; }
+.game-sidebar .ratings-summary .social-small { font-size:10px; }
+.game-sidebar #game-ratings-feedback { font-size:10px; line-height:1.5; }
+@media(max-width:560px) { .game-sidebar .game-community-ratings { grid-column:1/-1; grid-row:5; width:100%; margin-top:6px; } }

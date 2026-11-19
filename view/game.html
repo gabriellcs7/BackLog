@@ -129,6 +129,12 @@
                         <span id="collection-status-label"></span>
                         <button id="remove-game" type="button">Remove</button>
                     </div>
+                    <section class="game-community-ratings" aria-labelledby="game-ratings-title">
+                        <div class="game-ratings-heading"><h3 id="game-ratings-title">Ratings</h3><span class="social-small">From the BackLog community</span></div>
+                        <div id="game-ratings-chart" aria-busy="true"></div>
+                        <p id="game-ratings-feedback" class="social-small" role="status">Loading community ratings…</p>
+                        <button id="retry-game-ratings" class="social-button" type="button" hidden>Try again</button>
+                    </section>
                 </aside>
                 <div class="game-main">
                     <div class="game-summary">
@@ -144,12 +150,6 @@
                             </div>
                         </div>
                     </div>
-                    <section class="game-community-ratings" aria-labelledby="game-ratings-title">
-                        <div class="game-ratings-heading"><h3 id="game-ratings-title">Ratings</h3><span class="social-small">From the BackLog community</span></div>
-                        <div id="game-ratings-chart" aria-busy="true"></div>
-                        <p id="game-ratings-feedback" class="social-small" role="status">Loading community ratings…</p>
-                        <button id="retry-game-ratings" class="social-button" type="button" hidden>Try again</button>
-                    </section>
                     <nav class="section-tabs" aria-label="Game sections">
                         <a class="selected" href="#about">Overview</a>
                         <a href="#details">Game details</a>

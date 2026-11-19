@@ -43,7 +43,12 @@
             current = index;
             panel.querySelectorAll('[role="option"]').forEach(node => node.classList.toggle('is-active',Number(node.dataset.index)===index));
             const option = panel.querySelector('[data-index="'+index+'"]');
-            if(option) { trigger.setAttribute('aria-activedescendant',option.id); option.scrollIntoView({block:'nearest'}); }
+            if(option) {
+                trigger.setAttribute('aria-activedescendant',option.id);
+                const bottom=option.offsetTop+option.offsetHeight;
+                if(option.offsetTop<panel.scrollTop)panel.scrollTop=option.offsetTop;
+                else if(bottom>panel.scrollTop+panel.clientHeight)panel.scrollTop=bottom-panel.clientHeight;
+            }
         }
         function position() {
             const box = trigger.getBoundingClientRect(), padding = 12;
@@ -104,7 +109,7 @@
         panel.addEventListener('toggle',event=>{if(event.newState==='closed')close();});
         select.addEventListener('change',sync); select.addEventListener('focus',()=>trigger.focus());
         select.addEventListener('invalid',event=>{event.preventDefault();trigger.setAttribute('aria-invalid','true');trigger.focus();});
-        const control={panel,sync,close};controls.add(control);sync();
+        const control={panel,sync,close,position};controls.add(control);sync();
     }
     function scan(root=document){if(root instanceof HTMLSelectElement)enhance(root);root.querySelectorAll?.('select').forEach(enhance);}
     scan();
@@ -112,7 +117,6 @@
     document.addEventListener('click',scheduleSync); document.addEventListener('reset',scheduleSync); document.addEventListener('toggle',scheduleSync,true);
     document.addEventListener('focusin',event=>{if(active&&!active.panel.parentElement.contains(event.target))active.close();});
     window.addEventListener('resize',()=>active?.close());
-    window.addEventListener('scroll',event=>{if(active&&!active.panel.contains(event.target))active.close();},true);
+    window.addEventListener('scroll',event=>{if(active&&!active.panel.contains(event.target))active.position();},true);
     window.addEventListener('pageshow',syncAll);
 })();
-

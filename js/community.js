@@ -5,6 +5,26 @@
     async function client(required=false){await account.ready;if(!account.client)throw new Error('Community reviews are not connected yet.');if(required&&!account.user)throw new Error('Sign in to join the conversation.');return account.client;}
     window.BacklogCommunity=Object.freeze({
         async feed(gameId,offset=0){const api=await client();let result=await api.rpc('review_feed_v2',{game_key:gameId,page_offset:offset});if(result.error?.code==='PGRST202')result=await api.rpc('review_feed',{game_key:gameId,page_offset:offset});return check(result)||[];},
+
+        async ratingDistribution(gameId){
+            const api=await client(),counts=Array(10).fill(0);
+            let total=0,sum=0,offset=0;
+            const size=1000;
+            // Uma avaliação por conta/jogo; paginação evita o limite padrão do banco.
+            while(true){
+                const rows=check(await api.from('reviews').select('rating,user_id')
+                    .eq('game_id',gameId).not('rating','is',null)
+                    .order('user_id').range(offset,offset+size-1))||[];
+                for(const row of rows){
+                    const value=Number(row.rating);
+                    if(row.rating==null||value<.5||value>5||!Number.isInteger(value*2))continue;
+                    counts[value*2-1]++;total++;sum+=value;
+                }
+                if(rows.length<size)break;
+                offset+=rows.length;
+            }
+            return {counts,total,average:total?sum/total:null};
+        },
         async searchPlayers(query,offset=0){return check(await(await client()).rpc('search_players',{search_term:query,page_offset:offset}))||[];},
         async activity(offset=0,filter='all'){const api=await client(true),params={page_offset:offset,feed_filter:filter};let result=await api.rpc('activity_feed_v2',params);if(result.error?.code==='PGRST202')result=await api.rpc('activity_feed',params);return check(result)||[];},
         async metrics(id,year){return (check(await(await client()).rpc('profile_metrics',{profile_key:id,calendar_year:year}))||[])[0];},

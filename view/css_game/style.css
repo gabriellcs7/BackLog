@@ -1140,3 +1140,13 @@ h1>span:not(.title-dot) {
     #game-title.has-game-logo { height: 112px; }
     .game-title-logo { max-width: min(100%, 320px); max-height: 112px; }
 }
+/* Notas da comunidade em todos os jogos. */
+.game-community-ratings { padding:20px; margin:24px 0; background:#191c17; border:1px solid var(--line); border-radius:12px; min-width:0; }
+.game-ratings-heading { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
+.game-ratings-heading h3 { margin:0; font-size:15px; }
+.game-community-ratings .ratings-histogram { height:64px; gap:5px; }
+.game-community-ratings .ratings-bar { background:#748263; }
+.game-community-ratings .ratings-bin:hover .ratings-bar,.game-community-ratings .ratings-bin:focus-visible .ratings-bar { background:var(--yellow); }
+.game-community-ratings .ratings-bin { border-radius:3px; }
+#game-ratings-feedback:empty { display:none; }
+@media(max-width:560px) { .game-community-ratings { padding:16px; } .game-ratings-heading .social-small { font-size:10px; } }

@@ -1,12 +1,15 @@
 (() => {
     'use strict';
     const account=window.BacklogAccount,api=window.BacklogCommunity,ui=window.BacklogUI,{element:el}=ui;
-    function card(review){
+    function card(review,wall=false){
         const game=ui.game(review.game_id);if(!game)return null;
         const article=el('article','home-review-card');article.dataset.review=review.id;
         const url=ui.reviewHref('id',review.id);
         const link=el('a','home-review-game');link.href=url;const cover=el('img');cover.src=ui.href('imagens/capas/'+game.cover);cover.alt='';cover.loading='lazy';
-        const title=el('div');title.append(el('h3','',game.title),el('p','social-rating',review.rating===null?'Written review':review.rating+' / 5 ★'));link.append(cover,title);
+        const title=el('div'),score=el('p','social-rating');
+        if(wall&&review.rating!==null)score.append(ui.ratingStars(Number(review.rating)));
+        else score.textContent=review.rating===null?'Written review':review.rating+' / 5 ★';
+        title.append(el('h3','',game.title),score);link.append(cover,title);
         const author=el('div','home-review-author'),profile={id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path};author.append(ui.avatar(profile),ui.profileLink(profile));
         const date=el('time','social-small',ui.date(review.created_at));date.dateTime=review.created_at;
         const actions=el('div','home-review-actions'),message=el('p','social-feedback');message.setAttribute('role','status');
@@ -22,12 +25,17 @@
         let offset=0,generation=0,busy=false,seen=new Set();
         async function load(reset=false){
             if(busy&&!reset)return;const ticket=++generation;busy=true;more.disabled=true;feedback.textContent='';
-            if(reset){offset=0;seen=new Set();feed.replaceChildren(el('p','social-empty','Loading reviews…'));}
+            if(reset){if(kind==='popular')window.BacklogReviewWall.clear();offset=0;seen=new Set();feed.replaceChildren(el('p','social-empty','Loading reviews…'));}
             try{
                 if(!account.configured){feed.replaceChildren(el('p','social-empty','Connect online accounts to discover community reviews.'));more.hidden=true;return;}
                 if(kind==='following'&&!account.user){const empty=el('p','social-empty','Sign in to see the latest reviews from players you follow. '),login=el('a','player-link','Sign in ↗');login.href=ui.href('view/profile.html#account');empty.append(login);feed.replaceChildren(empty);more.hidden=true;return;}
                 const items=await api.home(kind,offset);if(ticket!==generation)return;if(reset)feed.replaceChildren();
-                for(const item of items){if(!seen.has(item.id)){seen.add(item.id);const node=card(item);if(node)feed.append(node);}}offset+=items.length;more.hidden=kind==='popular'||items.length<6;
+                if(kind==='popular'){
+                    const unique=new Map(items.filter(item=>Number(item.like_count)>0&&ui.game(item.game_id)).map(item=>[item.id,item]));
+                    const popular=[...unique.values()].sort((a,b)=>Number(b.like_count)-Number(a.like_count)).slice(0,3);
+                    if(popular.length)window.BacklogReviewWall.render(popular,review=>card(review,true));
+                }else for(const item of items){if(!seen.has(item.id)){seen.add(item.id);const node=card(item);if(node)feed.append(node);}}
+                offset+=items.length;more.hidden=kind==='popular'||items.length<6;
                 if(!feed.children.length)feed.append(el('p','social-empty',kind==='popular'?'No popular reviews yet. Reviews with likes will appear here.':'No reviews here yet. Follow players from their profiles to see their latest reviews.'));
             }catch(error){if(ticket===generation){if(reset)feed.replaceChildren();more.hidden=true;feedback.textContent='Could not load reviews. '+error.message;const retry=el('button','social-button','Try again');retry.type='button';retry.addEventListener('click',()=>load(true));feed.append(retry);}}
             finally{if(ticket===generation){busy=false;more.disabled=false;}}

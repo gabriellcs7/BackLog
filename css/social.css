@@ -376,3 +376,14 @@
 .wishlist-covers { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; }
 .wishlist-covers img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:5px; }
 #wishlist-feedback:empty { display:none; }
+/* Alinha o resumo às mesmas colunas das estantes do perfil. */
+.player-profile .profile-overview { grid-template-columns:minmax(0,1.45fr) minmax(0,1fr); gap:22px; width:100%; }
+.player-profile .profile-totals { min-height:148px; display:flex; flex-direction:column; justify-content:center; }
+.profile-overview .profile-metrics { height:auto; min-height:92px; align-content:center; }
+.profile-overview .profile-stat { min-height:92px; padding:9px 8px; }
+.profile-overview .profile-stat strong { font-size:clamp(22px,2.4vw,28px); }
+.profile-overview .profile-ratings { width:100%; max-width:100%; }
+#profile-ratings-chart { min-width:0; width:100%; }
+.ratings-summary { gap:12px; }
+.ratings-average { white-space:nowrap; }
+@media(max-width:850px) { .player-profile .profile-overview { grid-template-columns:1fr; gap:14px; } }

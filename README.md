@@ -1,12 +1,12 @@
 # 🎮 BackLog
 
-BackLog é uma aplicação web para catalogar jogos, registrar datas de jogatina em um diário cronológico e organizar listas pessoais. Funciona direto no navegador sem login (com armazenamento no `localStorage`), com suporte a sincronização na nuvem e recursos de comunidade através do Supabase.
+BackLog é uma aplicação web feita para catalogar jogos, registrar sessões de jogatina em um diário cronológico, organizar listas personalizadas e compartilhar avaliações com a comunidade. Funciona direto no navegador sem login (com armazenamento no `localStorage`), com suporte a sincronização na nuvem e recursos sociais via Supabase.
 
 [![GitHub](https://img.shields.io/badge/GitHub-gabriellcs7%2FBackLog-181717?logo=github&logoColor=white)](https://github.com/gabriellcs7/BackLog)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20ES6%2B-yellow?logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-Custom%20Properties-blue?logo=css3&logoColor=white)
 ![Armazenamento](https://img.shields.io/badge/Armazenamento-LocalStorage%20%7C%20Supabase-3ECF8E?logo=supabase&logoColor=white)
-![Catálogo](https://img.shields.io/badge/Cat%C3%A1logo-84%20Jogos-purple)
+![Catálogo](https://img.shields.io/badge/Cat%C3%A1logo-100%20Jogos-purple)
 ![Dependências](https://img.shields.io/badge/Depend%C3%AAncias-Zero-brightgreen)
 
 <p align="center">
@@ -19,299 +19,304 @@ BackLog é uma aplicação web para catalogar jogos, registrar datas de jogatina
 
 O projeto opera em dois modos:
 
-1. **Modo local (offline por padrão):** Você abre a aplicação e usa imediatamente. Seu perfil, Top 4 de favoritos, listas personalizadas, avaliações e o diário de jogatina ficam salvos no `localStorage` do seu navegador. Nenhum dado sai do seu computador e não é necessário criar conta.
-2. **Modo conectado (com Supabase):** Ao vincular um projeto Supabase, você pode criar uma conta com e-mail e senha. Seus dados passam a sincronizar na nuvem, seu perfil ganha uma página pública com seguidores, suas listas podem ser compartilhadas e você pode curtir e comentar nas avaliações de outros jogadores.
+1. **Modo local (offline por padrão):** Abra a aplicação no navegador e use imediatamente. Perfil, Top 4 de favoritos, listas ranqueadas ou livres, avaliações e diário cronológico ficam salvos no `localStorage`. Nenhum dado sai da sua máquina e nenhuma conta é exigida.
+2. **Modo conectado (com Supabase):** Ao preencher as chaves do Supabase no arquivo `js/config.js`, a aplicação ativa autenticação por e-mail, sincronização em tempo real na nuvem, upload de fotos e banners de perfil, distribuição comunitária de notas, feed social de seguidos, central de atividades e busca de jogadores.
+
+---
+
+## Novidades e Destaques Recentes
+
+- **Catálogo Expandido (100 Jogos):** 100 títulos com capas em alta definição, banners panorâmicos, logos transparentes e metadados completos de franquia, estúdio, plataformas e ambientação.
+- **Túnel 3D em Perspectiva (`js/game-tunnel.js`):** Navegação imersiva em perspectiva tridimensional pelos jogos em destaque, acionada pela rolagem suave da página, com inclinação interativa pelo cursor e atalhos de teclado.
+- **Vitrine Cinematográfica (`js/cinematic-backlog.js`):** Seção interativa com mockup de smartphone, iluminação dinâmica ao rolar a tela e linha do tempo de coleção.
+- **Galeria de Personagens do Catálogo (`js/game-characters.js`):** Mais de 440 biografias curadas em 90 jogos, com 371 retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers.
+- **Notícias Editoriais de Games (`css/gaming-news.css`):** Painel estático com as principais novidades oficiais da indústria (PlayStation.Blog, Xbox Wire, etc.) sem bibliotecas externas.
+- **Controle de Movimento (`js/presentation-motion.js`):** Alternador de acessibilidade para animações (`auto`, `full`, `reduced`), respeitando as configurações do sistema sem desativar efeitos para quem deseja visualizá-los.
+- **Distribuição Gráfica de Avaliações (`view/js/game-ratings.js`):** Histograma de notas comunitárias de 0.5 a 5.0 estrelas na página de cada jogo e no perfil, acompanhado de estatísticas compactas.
+- **Listas Ranqueadas (`docs/ranked-lists.md`):** Crie listas numeradas (Top 5, Top 10, até 100 jogos) com reordenação de posições por teclado, setas ou arrastar e soltar.
+- **Perfil Aprimorado com Banner Personalizado:** Defina um banner exclusivo no perfil vinculado a qualquer jogo do catálogo, selecione sua plataforma principal (PC, PlayStation, Xbox, Nintendo, etc.), informe localização e website.
+- **Reordenação dos Favoritos (Top 4):** Capas destacadas com suporte a arrastar e soltar ou reordenação rápida via teclado.
+- **Busca Unificada de Jogos e Jogadores:** Barra de busca global com atalho `/` que localiza tanto títulos e franquias quanto perfis de usuários com foto redonda.
 
 ---
 
 ## Funcionalidades
 
-### Catálogo e Coleção
-- **84 jogos canônicos:** Títulos de 23 franquias consagradas (Uncharted, Silent Hill, Resident Evil, Counter-Strike, Grand Theft Auto, God of War, The Witcher, Watch Dogs, Spider-Man, Outlast, entre outras), cadastrados em `js/games.js` com capas 3:4 (600×800) e artes horizontais.
-- **Seis status de progresso:** Cada jogo pode ser marcado como *Played*, *Playing*, *Completed*, *Platinum*, *Dropped* ou *Want to play*.
-- **Backlog organizado por seções:** Na página de jogos (`view/pagina_jogos.html`), a aba da sua coleção divide os títulos em três áreas com contadores próprios: **Played** (que reúne títulos jogados, zerados, platinados e dropados), **Playing** e **Want to play**.
-- **Busca unificada (jogos e jogadores):** Atalho global com a tecla <kbd>/</kbd> para focar a pesquisa de qualquer página. O mecanismo ignora acentos (`normalize('NFD')`), localiza jogos por título, franquia ou siglas conhecidas e pesquisa perfis de outros jogadores da comunidade.
-- **Filtros por 10 gêneros:** Filtre por Action, Adventure, Fighting, Horror, MOBA, RPG, Sandbox, Shooter, Sports ou Survival, com ordenação por destaques, A–Z ou Z–A.
-- **URLs sincronizadas:** Parâmetros de pesquisa, gênero, status e ordenação são refletidos na URL (`?q=...&saved=1&genre=...`) via `history.replaceState`.
+### 1. Catálogo e Coleções (`view/pagina_jogos.html`)
+- **Filtros Combinados:** Status da coleção, ordenação (Destaques, A-Z, Z-A) e 10 gêneros (`Action`, `Adventure`, `Fighting`, `Horror`, `MOBA`, `RPG`, `Sandbox`, `Shooter`, `Sports`, `Survival`).
+- **6 Status de Coleção:** `Played` (Jogado), `Playing` (Jogando), `Completed` (Zerado), `Platinum` (Platinado), `Dropped` (Dropado) e `Want to play` (Quero jogar).
+- **Cartões com Efeito Parallax:** Profundidade de camada ao rolar a página e acesso rápido à marcação de status sem sair do catálogo.
 
-### Diário de Jogos (`view/diary.html`)
-- **Linha do tempo cronológica:** O diário exibe uma entrada por jogo. Ao editar uma avaliação, a entrada atual recebe a nota, o texto e a data escolhida. Datas futuras são bloqueadas.
-- **Métricas no topo:** Contadores de total de entradas (**Entries**), jogos distintos registrados (**Games**) e dias de jogatina anotados (**Days Logged**).
-- **Filtros dedicados:** Busca por título, seleção de mês específico e separação entre entradas com resenha escrita ou apenas nota numérica.
-- **Edição segura:** Você pode alterar a data de um registro ou removê-lo do diário sem apagar a avaliação principal do jogo nem perder seu status na coleção.
-- **Auto-status:** Ao registrar uma entrada no diário para um jogo que ainda não possui status, ele é automaticamente classificado como *Played*. Status prévios (como *Playing* ou *Want to play*) nunca são sobrescritos.
+### 2. Página do Jogo (`view/game.html`)
+- **Banner Panorâmico & Logo Oficial:** Cabeçalho cinematográfico contextual com posição customizada para mobile e desktop.
+- **Distribuição de Notas Comunitárias:** Gráfico de frequência por estrelas (degraus de 0.5 em 0.5) e cálculo da nota média.
+- **Elenco e Personagens:** Carrossel de personagens com retratos e descrições dos papéis na história.
+- **Avaliações com Meio Ponto:** Editor de resenhas com notas de 0.5 a 5.0 estrelas (notas zero foram eliminadas para manter apenas resenhas qualificadas).
+- **Diário Integrado:** Opção de registrar a data exata da jogatina diretamente ao postar uma avaliação.
 
-### Perfil, Conexões e Listas (`view/profile.html`)
-- **Identidade do jogador:** Nome de exibição, biografia curta, localização, um link social, banner do catálogo e upload de foto de perfil personalizada (JPG, PNG ou WebP de até 5 MB, com corte quadrado automático).
-- **The Favorite Four (Top 4):** Escolha quatro jogos favoritos para ficarem fixados em destaque conjunto no topo do seu perfil, sem ordem ou hierarquia. O diálogo inclui busca em tempo real com visualização gráfica das capas.
-- **Rede social e seguidores:** Sistema de seguir (*Follow/Unfollow*) outros jogadores, com contadores de seguidores e seguindo e modal de conexões.
-- **Atividade recente e estatísticas:** Linha do tempo com as últimas avaliações e atualizações de coleção do perfil, além de métricas anuais de jogatina.
-- **Diário público:** Visitantes podem consultar o histórico cronológico de jogos de qualquer perfil público por ano.
-- **Listas personalizadas com ranking opcional:** Crie coleções temáticas públicas ou privadas. A opção **Rank this list** permite ordenar itens numericamente para criar Top 5, Top 10 ou rankings de preferência com reordenação de posições.
-- **Importação do dispositivo:** Um botão no perfil transfere favoritos e listas salvos no navegador para a nuvem. Listas importadas iniciam privadas por padrão.
+### 3. Diário de Jogos (`view/diary.html`)
+- **Linha do Tempo Cronológica:** Registro das sessões por data, ordenadas do mais recente para o mais antigo.
+- **Filtro por Ano:** Navegação rápida pelos anos em que você jogou.
+- **Metadados:** Exibe capa, nota concedida, texto de resenha e plataforma utilizada.
 
-### Avaliações e Comunidade
-- **Notas de meia estrela (0.0 a 5.0):** Seletor interativo que aceita frações de 0.5. Clique no lado esquerdo da estrela para meia nota, no lado direito para nota inteira, ou use as setas do teclado.
-- **Resenhas de até 3.000 caracteres:** Contador de caracteres dinâmico com suporte a edição e cancelamento sem perda acidental do rascunho.
-- **Feed comunitário por jogo:** Veja análises publicadas por outros jogadores na página de cada jogo.
-- **Curtidas com regra de unicidade:** Cada pessoa pode curtir uma review uma única vez. As regras de banco impedem que o autor curta a própria publicação.
-- **Comentários de até 1.000 caracteres:** Discussões paginadas com opção de exclusão pelo próprio autor do comentário.
-- **Feeds sociais na página inicial (`index.html`):**
-  - *Popular Reviews:* As avaliações mais curtidas da comunidade.
-  - *Following Feed:* Feed com as resenhas recentes publicadas pelos jogadores que você segue.
+### 4. Perfil e Recursos Sociais (`view/profile.html`)
+- **Estatísticas Automáticas:** Métricas de *Games logged*, *Played in [ano]* e número de listas públicas/privadas.
+- **Top 4 Favoritos:** Vitrine de 4 jogos favoritos com suporte a busca de capas e reordenação por arrastar e soltar ou teclado.
+- **Banner Customizado:** Vincule qualquer jogo do acervo como cabeçalho do seu perfil.
+- **Rede de Conexões:** Sistema de seguir/deixar de seguir com contadores de seguidores e seguindo, com modais paginados de 20 em 20 usuários.
+- **Atividade Recente:** Grade com os últimos 8 jogos marcados, avaliados ou concluídos (excluindo itens pendentes da wishlist).
+- **Upload de Foto de Perfil:** Seletor de imagem (JPG, PNG ou WebP de até 5 MB) com recorte central em 384×384 px.
+
+### 5. Central de Atividades (`view/activity.html`)
+- Feed social em tempo real com filtros *All activity*, *For you* e *Following*.
+- Notificações de novos seguidores, curtidas, comentários em resenhas e mudanças de status de quem você segue.
+
+### 6. Página Inicial (`index.html`)
+- **Túnel 3D de Destaques:** Apresentação dinâmica da coleção central.
+- **Every game tells a story:** Destaque para as resenhas comunitárias mais curtidas (mínimo de 1 like).
+- **From your people:** Feed com a última resenha escrita de cada perfil que você segue.
+- **Notícias Editoriais:** Resumos com fontes oficiais da indústria.
+- **Vitrine Mobile Cinematográfica:** Demonstração da experiência responsiva da aplicação.
 
 ---
 
-## Catálogo de Franquias (84 Jogos)
+## Catálogo de Jogos (100 Títulos em 30 Coleções)
 
-| Franquia | Jogos no Catálogo | Exemplos de Títulos |
+O acervo reúne 100 jogos detalhados em `js/games.js`, todos com capas em `imagens/capas/catalogo/`, banners em `imagens/banners/` e logos em `imagens/logos/`:
+
+| Franquia / Coleção | Qtd | Títulos Incluídos |
 | :--- | :---: | :--- |
-| **Resident Evil** | 11 | RE 1996, RE2 1998, Nemesis, Code: Veronica, Zero, RE4, RE5, RE6, Biohazard, Village, Requiem |
-| **Silent Hill** | 9 | Silent Hill 1999, SH2, SH3, The Room, Origins, Homecoming, Shattered Memories, Downpour, Townfall, f |
-| **Grand Theft Auto** | 8 | GTA, GTA 2, GTA III, Vice City, San Andreas, GTA IV, GTA V, GTA VI |
-| **God of War** | 6 | GoW 2005, GoW II, GoW III, Ascension, GoW 2018, Ragnarök |
-| **Counter-Strike** | 5 | Counter-Strike 1.6, Condition Zero, Source, Global Offensive, Counter-Strike 2 |
-| **Uncharted** | 5 | Drake's Fortune, Among Thieves, Drake's Deception, A Thief's End, The Lost Legacy |
-| **Marvel's Spider-Man** | 3 | Marvel's Spider-Man, Miles Morales, Spider-Man 2 |
-| **Watch Dogs** | 3 | Watch Dogs, Watch Dogs 2, Watch Dogs: Legion |
-| **Outlast** | 3 | Outlast, Outlast 2, The Outlast Trials |
-| **The Witcher** | 3 | The Witcher, The Witcher 2: Assassins of Kings, The Witcher 3: Wild Hunt |
-| **The Last of Us** | 2 | The Last of Us, The Last of Us Part II |
-| **Overwatch** | 2 | Overwatch (2016), Overwatch 2 |
-| **Hollow Knight** | 2 | Hollow Knight, Hollow Knight: Silksong |
 | **Alan Wake** | 2 | Alan Wake, Alan Wake 2 |
-| **EA Sports FC** | 2 | EA Sports FC 24, EA Sports FC 27 |
-| **SUPERHOT** | 2 | SUPERHOT, SUPERHOT: MIND CONTROL DELETE |
-| **Cyberpunk** | 2 | Cyberpunk 2077, Cyberpunk: Orion |
-| **The Forest** | 2 | The Forest, Sons of the Forest |
+| **Counter-Strike** | 5 | Counter-Strike, Condition Zero, Source, Global Offensive, Counter-Strike 2 |
+| **Cuphead** | 2 | Cuphead, The Delicious Last Course |
+| **Cyberpunk** | 2 | Cyberpunk 2077, Phantom Liberty |
+| **Dark Souls** | 3 | Dark Souls, Dark Souls II, Dark Souls III |
+| **EA Sports FC** | 2 | EA Sports FC 26, EA Sports FC 27 |
+| **God of War** | 6 | God of War (2005), God of War II, God of War III, Ascension, God of War (2018), Ragnarök |
+| **Grand Theft Auto** | 8 | GTA, GTA 2, GTA III, Vice City, San Andreas, GTA IV, GTA V, GTA VI |
+| **Hollow Knight** | 2 | Hollow Knight, Hollow Knight: Silksong |
 | **Injustice** | 2 | Injustice: Gods Among Us, Injustice 2 |
 | **League of Legends** | 1 | League of Legends |
-| **Roblox** | 1 | Roblox |
+| **Marvel Rivals** | 1 | Marvel Rivals |
+| **Marvel's Spider-Man** | 3 | Marvel's Spider-Man, Miles Morales, Marvel's Spider-Man 2 |
+| **Marvel's Wolverine** | 1 | Marvel's Wolverine |
+| **Minecraft** | 1 | Minecraft Dungeons |
+| **Outlast** | 3 | Outlast, Outlast 2, The Outlast Trials |
+| **Overwatch** | 2 | Overwatch (2016), Overwatch 2 |
 | **Phasmophobia** | 1 | Phasmophobia |
-| **Independentes & Outros** | 7 | Minecraft, Fortnite, Red Dead Redemption, Red Dead Redemption 2, Phantom Blade Zero, Minecraft Dungeons II |
+| **Poppy Playtime** | 7 | Chapter 1 – A Tight Squeeze, Chapter 2, Chapter 3, Chapter 4, Chapter 5, Project: Playtime, Escape from Playtime |
+| **Resident Evil** | 11 | Resident Evil (1996), RE 2 (1998), RE 3 Nemesis, Code: Veronica, RE Zero, RE 4 (2005), RE 5, RE 6, RE 7 Biohazard, Village, Requiem |
+| **Roblox** | 1 | Roblox |
+| **SUPERHOT** | 2 | SUPERHOT, SUPERHOT: Mind Control Delete |
+| **Silent Hill** | 9 | Silent Hill, Silent Hill 2, Silent Hill 3, The Room, Origins, Homecoming, Shattered Memories, Downpour, Silent Hill f |
+| **Skate** | 1 | skate. |
+| **The Forest** | 2 | The Forest, Sons of the Forest |
+| **The Last of Us** | 2 | The Last of Us, The Last of Us Part II |
+| **The Witcher** | 3 | The Witcher, The Witcher 2: Assassins of Kings, The Witcher 3: Wild Hunt |
+| **Uncharted** | 5 | Drake's Fortune, Among Thieves, Drake's Deception, A Thief's End, The Lost Legacy |
+| **Watch Dogs** | 3 | Watch Dogs, Watch Dogs 2, Watch Dogs: Legion |
+| **Títulos Individuais** | 7 | Red Dead Redemption, Red Dead Redemption 2, Minecraft, Fortnite, Phantom Blade Zero, Silent Hill: Townfall, Minecraft Dungeons II |
 
 ---
 
-## Estrutura de arquivos
+## Estrutura de Arquivos
 
 ```text
 BackLog/
-├── index.html                   # Página inicial: hero, destaques, popular reviews e feed de seguidos
-├── README.md                    # Documentação oficial do projeto
-├── servidor.py                  # Servidor HTTP local dedicado com cabeçalhos anti-cache
-│
 ├── css/
-│   ├── site.css                 # Tokens de design (cores, tipografia, espaçamento), reset e navegação
-│   ├── style.css                # Estilos específicos da página inicial
-│   ├── social.css               # Estilos para perfis, seguidores, listas, modais e feed social
-│   └── diary.css                # Estilos do diário de jogos e linha do tempo
-│
-├── js/
-│   ├── games.js                 # Catálogo canônico dos 84 jogos
-│   ├── config.js                # Chaves públicas de conexão com o Supabase
-│   ├── account.js               # Estado da sessão, login, cadastro e importação
-│   ├── site.js                  # Navegação, status, bordas das capas e movimento compartilhado
-│   ├── catalog.js               # Filtros e paginação de 42 jogos
-│   ├── player-search.js         # Resultados de perfis na busca
-│   ├── home.js                  # Feeds de reviews da home
-│   ├── reviews.js               # Validação de notas fracionadas e salvamento de reviews
-│   ├── diary.js                 # Manipulação das entradas temporais do diário
-│   ├── community.js             # Requisições de feed social, conexões, likes e comentários
-│   ├── ui.js                    # Componentes de capas, perfis e links
-│   └── vendor/
-│       ├── supabase.js          # Biblioteca oficial @supabase/supabase-js v2.119.0
-│       └── SUPABASE-LICENSE.txt # Licença MIT do cliente Supabase
-│
-├── view/
-│   ├── pagina_jogos.html        # Catálogo geral, busca de jogadores e visualização da coleção
-│   ├── game.html                # Página do jogo: metadados, avaliação pessoal e feed comunitário
-│   ├── profile.html             # Perfil do jogador, seguidores, Top 4, listas ranqueadas e conta
-│   ├── diary.html               # Diário com filtros
-│   ├── activity.html            # Atividade social
-│   ├── logged-games.html        # Coleção de jogos registrados de um perfil
-│   ├── review.html              # Review individual e comentários
-│   ├── css_game/style.css       # Estilos da página de detalhes do jogo
-│   ├── css_paginaJogos/style.css# Estilos do grid e da barra de filtros do catálogo
-│   └── js/                      # Scripts controladores de cada página
-│       ├── game.js              # Carregamento dinâmico do jogo via parâmetro ?id=
-│       ├── review.js            # Formulário de avaliação e estrelas fracionadas
-│       ├── community.js         # Feed de reviews de um jogo
-│       ├── review-card.js       # Review pública, likes e discussão
-│       ├── single-review.js     # Página de uma review pública ou pessoal
-│       ├── profile.js           # Gerenciamento de perfil, foto, Top 4 e criador de listas
-│       ├── profile-social.js    # Foto, seguidores e conexões
-│       ├── profile-activity.js  # Estatísticas e jogos recentes no perfil
-│       ├── logged-games.js      # Coleção registrada do jogador
-│       ├── activity.js          # Eventos da comunidade
-│       └── diary.js             # Filtros e paginação do diário
-│
-├── supabase/
-│   ├── setup.sql                # Criação completa do banco para novas instalações
-│   └── migrations/              # Histórico das migrações SQL com políticas RLS
-│
+│   ├── cinematic-backlog.css  # Estilos da vitrine cinematográfica mobile
+│   ├── diary.css              # Estilos da página de diário
+│   ├── game-tunnel.css        # Efeito de túnel 3D com rolagem
+│   ├── gaming-news.css        # Seção editorial de notícias
+│   ├── site.css               # Variáveis globais, tema e navegação
+│   ├── social.css             # Feeds comunitários, comentários e perfis
+│   └── style.css              # Estilos base da home e vitrines
+├── docs/
+│   ├── atividade.md           # Guia da central de atividades
+│   ├── catalogo/              # Documentações de cada franquia (24 arquivos)
+│   ├── diary.md               # Guia do diário de jogatina
+│   ├── local-preview.md       # Procedimentos de teste local
+│   ├── noticias.md            # Fontes e diretrizes editoriais de notícias
+│   ├── perfis-comunidade.md   # Fotos de perfil, seguidores e feeds
+│   ├── pesquisa-feeds.md      # Busca unificada e regras de feeds
+│   ├── ranked-lists.md        # Documentação técnica de listas ranqueadas
+│   ├── reviews.md             # Sistema de avaliações e comentários
+│   └── supabase.md            # Guia completo de configuração do banco
 ├── imagens/
-│   ├── backlog-showcase-banner.png # Imagem de capa do README (1600x900)
-│   ├── banner_builder.html      # Template HTML usado para renderizar o banner oficial
-│   ├── banners/                 # Banners horizontais em alta definição (WebP)
-│   ├── capas/catalogo/          # Capas padronizadas 600x800 com proporção 3:4
-│   ├── destaques/               # Imagens responsivas do radar com múltiplos tamanhos
-│   └── logo_transparente.png    # Logotipo oficial
-│
-└── docs/
-    ├── supabase.md              # Passo a passo de configuração do projeto no Supabase
-    ├── reviews.md               # Detalhes de implementação do sistema de avaliações
-    ├── diary.md                 # Regras de negócio e comportamento do diário
-    └── catalogo/                # Documentação das 23 franquias, capas e fontes
+│   ├── backlog-showcase-banner.png
+│   ├── banners/               # 100 banners panorâmicos dos jogos
+│   ├── capas/catalogo/        # 100 capas verticais em alta definição
+│   ├── logos/                 # 100 logos transparentes oficiais
+│   ├── noticias/              # Artes das matérias editoriais
+│   └── personagens/           # 371 retratos curados dos personagens
+├── js/
+│   ├── account.js             # Sessão, login e sincronização de dados
+│   ├── catalog.js             # Busca, filtros e paginação do catálogo
+│   ├── cinematic-backlog.js   # Animação interativa do smartphone e iluminação
+│   ├── community.js           # Funções de social, seguir, likes e comentários
+│   ├── config.js              # Credenciais do Supabase (URL e anon key)
+│   ├── diary.js               # Lógica de registro cronológico do diário
+│   ├── game-characters.js     # Base de mais de 440 biografias de personagens
+│   ├── game-tunnel.js         # Mecânica matemática e render do túnel 3D
+│   ├── games.js               # Catálogo completo com os 100 jogos cadastrados
+│   ├── home.js                # Lógica da vitrine e feeds da página inicial
+│   ├── player-search.js       # Busca instantânea de usuários
+│   ├── presentation-motion.js # Gerenciador de acessibilidade de movimento
+│   ├── reviews.js             # Criação e listagem de reviews com meio ponto
+│   ├── select-controls.js     # Menus dropdown com tema escuro e teclado
+│   ├── site.js                # Cabeçalho, avatar da conta e atalho de busca
+│   ├── ui.js                  # Modais, toasts e renderização de notas
+│   └── vendor/
+│       └── supabase.js        # Biblioteca cliente oficial do Supabase
+├── servidor.py                # Servidor local Python com cabeçalhos anti-cache
+├── supabase/
+│   ├── setup.sql              # Schema inicial para novos bancos
+│   └── migrations/            # 18 migrações SQL incrementais
+├── view/
+│   ├── activity.html          # Linha do tempo de atividades sociais
+│   ├── diary.html             # Diário cronológico de jogos
+│   ├── game.html              # Página do jogo com personagens e notas
+│   ├── list.html              # Visualização de lista pública ou privada
+│   ├── logged-games.html      # Jogos registrados pelo jogador
+│   ├── pagina_jogos.html      # Catálogo com filtros de status e gênero
+│   ├── profile-lists.html     # Listas do usuário
+│   ├── profile-reviews.html   # Todas as reviews do perfil
+│   ├── profile.html           # Perfil com Top 4, banner, plataforma e métricas
+│   ├── review.html            # Resenha individual com discussão e likes
+│   ├── want-to-play.html      # Lista de desejos (Wishlist)
+│   ├── write-review.html      # Formulário dedicado para escrever resenhas
+│   └── js/                    # 23 módulos específicos das páginas view
+├── index.html                 # Página inicial da plataforma
+└── README.md
 ```
 
 ---
 
-## Como executar localmente
+## Como Executar Localmente
+
+Como a aplicação é construída com JavaScript e CSS puros, não requer `node_modules`, `npm install` ou processos de compilação.
 
 ### Pré-requisitos
-- Um navegador moderno (Chrome, Firefox, Edge ou Safari).
-- Python 3 instalado.
+- Python 3.8 ou superior instalado.
+- Navegador moderno (Chrome, Edge, Firefox, Brave, Safari).
 
-### Passo a passo
+### Passo a Passo
 
-```bash
-# 1. Clone o repositório
-git clone https://github.com/gabriellcs7/BackLog.git
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/gabriellcs7/BackLog.git
+   ```
 
-# 2. Entre na pasta do projeto
-cd BackLog
+2. **Acesse a pasta do projeto:**
+   ```bash
+   cd BackLog
+   ```
 
-# 3. Inicie o servidor local anti-cache
-python servidor.py
-```
+3. **Inicie o servidor local anti-cache:**
+   ```bash
+   python servidor.py
+   ```
+   > **Por que usar o `servidor.py`?** Ele envia cabeçalhos `Cache-Control: no-store, no-cache` para garantir que alterações em arquivos `.js`, `.css` e `.html` apareçam imediatamente na tela após salvar, sem travar no cache do navegador.
 
-Abra o endereço `http://localhost:8000` no seu navegador.
-
-> O script `servidor.py` desativa o cache de arquivos `.html`, `.css` e `.js` durante o desenvolvimento, garantindo que qualquer alteração no código apareça imediatamente ao recarregar a página.
-
-### Animações da página inicial
-
-As apresentações em 3D usam os arquivos locais do projeto e não precisam de React, instalação de pacotes ou acesso a um serviço externo para animar.
-
-Acima do túnel de capas há o controle **Presentation animations**:
-
-- **Use device setting** respeita a preferência de movimento do sistema/navegador. Se ela pedir movimento reduzido, as apresentações aparecem sem o efeito 3D e a página explica o motivo.
-- **Full animations** ativa as duas apresentações, mesmo quando o dispositivo pede movimento reduzido. É uma escolha explícita do visitante e fica salva neste navegador.
-- **Reduced motion** mostra o conteúdo sem a sequência de animação.
-
-Se outra pessoa já clonou o projeto, ela precisa atualizar a cópia antes de testar uma correção:
-
-~~~sh
-git pull --ff-only
-python servidor.py
-~~~
-
-Depois, abra **http://localhost:8000**, recarregue a página e escolha **Full animations** para conferir as apresentações. Se houver alterações locais impedindo a atualização, preserve essas alterações antes de continuar. Não é necessário desativar os Shields do Brave para os efeitos locais do projeto.
-
+4. **Acesse pelo navegador:**
+   - Página inicial: [http://localhost:8000](http://localhost:8000)
+   - Catálogo de jogos: [http://localhost:8000/view/pagina_jogos.html](http://localhost:8000/view/pagina_jogos.html)
+   - Perfil: [http://localhost:8000/view/profile.html](http://localhost:8000/view/profile.html)
 
 ---
 
 ## Configuração do Supabase (Opcional)
 
-Para ativar cadastro de contas, perfis públicos, seguidores, sincronização de listas e comentários comunitários:
+Para habilitar login, sincronização em múltiplos aparelhos, upload de foto, reviews públicas e central de atividades:
 
-### 1. Criar o banco de dados
-Acesse [supabase.com](https://supabase.com), crie um projeto gratuito e abra o **SQL Editor**:
-- Para um projeto novo: execute o conteúdo consolidado de `supabase/setup.sql`.
-- Para projetos já existentes: aplique somente as migrações pendentes em `supabase/migrations/`, na ordem dos nomes dos arquivos.
+### 1. Criar o Projeto no Supabase
+1. Crie uma conta gratuita em [supabase.com](https://supabase.com).
+2. Crie um novo projeto.
+3. No menu **SQL Editor**, se for um banco virgem, execute o conteúdo de `supabase/setup.sql`.
+4. Em seguida, aplique as migrações da pasta `supabase/migrations/` em ordem para garantir todas as funções mais recentes (`profile_recent_games_v3`, `save_game_list_v2`, `save_review_log`, suporte a banners de perfil e plataformas).
 
-Todas as tabelas contam com políticas de **Row Level Security (RLS)** ativas. Visitantes anônimos só leem dados públicos, e operações de escrita exigem autenticação do próprio autor.
+### 2. Configurar Autenticação e URLs
+No painel do Supabase, vá em **Authentication** → **URL Configuration**:
+- **Site URL:** `http://localhost:8000/`
+- **Redirect URLs:** Adicione:
+  - `http://localhost:8000/index.html`
+  - `http://localhost:8000/view/profile.html`
+  - `http://localhost:8000/view/pagina_jogos.html`
 
-### 2. Configurar URLs de autenticação
-No painel do Supabase, acesse **Authentication** > **URL Configuration**:
-- **Site URL:** defina como `http://localhost:8000` (ou o domínio final quando publicar o site).
-- **Redirect URLs:** adicione `http://localhost:8000/view/profile.html` (e a URL equivalente do seu domínio público).
-
-### 3. Conectar o frontend
-No Supabase, vá em **Project Settings** > **API**, copie a **Project URL** e a **Publishable Key** (chave `anon` pública) e informe no arquivo `js/config.js`:
+### 3. Conectar o Frontend
+Abra o arquivo `js/config.js` e preencha suas chaves:
 
 ```javascript
-window.BacklogConfig = Object.freeze({
-    supabaseUrl: 'https://SEU-PROJETO.supabase.co',
-    supabasePublishableKey: 'sb_publishable_SUA_CHAVE_PUBLICA'
-});
+window.BACKLOG_CONFIG = {
+    SUPABASE_URL: 'https://seu-projeto.supabase.co',
+    SUPABASE_ANON_KEY: 'sua-chave-anon-publica-aqui'
+};
 ```
 
-### Tabela de variáveis
+---
 
-| Configuração | Arquivo | Obrigatório | Descrição |
-|---|---|:---:|---|
-| `supabaseUrl` | `js/config.js` | Não | URL do seu projeto no Supabase (`https://<id>.supabase.co`). |
-| `supabasePublishableKey` | `js/config.js` | Não | Chave pública do tipo `anon` ou `sb_publishable_...`. Nunca utilize chaves secretas ou de `service_role`. |
+## Atalhos de Teclado e Acessibilidade
+
+| Atalho / Tecla | Contexto | Ação |
+| :--- | :--- | :--- |
+| `/` | Qualquer página | Foca instantaneamente na barra de pesquisa superior |
+| `Esc` | Qualquer página | Fecha modais, limpa a busca ou encerra menus abertos |
+| `Enter` | Na busca | Executa a busca filtrada no catálogo |
+| `Home` / `End` | No Túnel 3D | Avança ou retorna aos extremos da sequência de jogos |
+| `Espaço` / `Enter` | Menus Dropdown | Abre o menu e confirma o item selecionado |
+| `Setas Cima / Baixo` | Menus Dropdown | Navega entre as opções sem perder o foco na rolagem |
+| `Arrastar / Soltar` | Top 4 Favoritos | Reordena a posição das capas no perfil |
+| `Setas` / `Arrastar` | Editor de Listas | Reordena posições em listas ranqueadas |
 
 ---
 
-## Atalhos de teclado
+## Como Cadastrar Novos Jogos
 
-| Tecla | Contexto | Ação |
-|:---:|---|---|
-| <kbd>/</kbd> | Em qualquer tela | Foca diretamente no campo de pesquisa da barra de navegação. |
-| <kbd>Esc</kbd> | Diálogos e mobile | Fecha modais abertos (diário, listas, seguidores, login, compartilhamento) ou recolhe o menu no celular. |
-| <kbd>Enter</kbd> | Campo de busca | Submete a consulta e abre a página de jogos com os resultados filtrados. |
-| <kbd>←</kbd> / <kbd>→</kbd> | Avaliação do jogo | Altera a nota pessoal em passos de 0.5 estrelas. |
-| <kbd>Tab</kbd> | Navegação geral | Percorre os elementos focáveis respeitando o link de salto inicial (*Skip to content*). |
-
----
-
-## Como cadastrar novos jogos
-
-Para incluir jogos no catálogo local, adicione um novo objeto ao array `window.BacklogGames` no arquivo `js/games.js`:
+Para incluir novos títulos no acervo, insira o objeto no array em `js/games.js`:
 
 ```javascript
 {
-    "id": "slug-do-jogo",                   // Obrigatório: identificador único em minúsculas com hífen
-    "title": "Nome do Jogo",               // Obrigatório: título oficial completo
-    "cover": "catalogo/slug-do-jogo.webp", // Obrigatório: caminho relativo dentro de imagens/capas/
-    "genre": "Action",                     // Obrigatório: Action, Adventure, Fighting, Horror, MOBA, RPG, Sandbox, Shooter, Sports ou Survival
-    "tags": ["Action", "Adventure"],       // Obrigatório: categorias exibidas nos cartões
-    "studio": "Estúdio Desenvolvedor",     // Obrigatório: estúdio ou publicadora
-    "caption": "Subtítulo de destaque",    // Obrigatório: frase de efeito usada nas visualizações
-    "description": "Texto descritivo...",  // Obrigatório: sinopse exibida na página de detalhes
-    "banner": "banners/slug-banner.webp",  // Obrigatório: arte horizontal dentro de imagens/
-    "bannerPosition": "center center",     // Obrigatório: alinhamento CSS do banner no desktop
-    "bannerPositionMobile": "50% center",  // Obrigatório: alinhamento CSS do banner no mobile
-    
-    // Campos opcionais
-    "franchise": "Nome da Franquia",       // Agrupa títulos relacionados e alimenta recomendações
-    "year": 2024,                          // Ano de lançamento original
-    "platforms": ["PC", "PS5", "Xbox"],    // Lista de plataformas suportadas
-    "aliases": ["Sigla", "Outro Nome"],    // Termos extras aceitos pela pesquisa
-    "releaseState": "upcoming"             // Use 'upcoming' para lançamentos ou 'retired' para jogos históricos
+    id: "titulo-do-jogo",
+    title: "Nome do Jogo",
+    cover: "imagens/capas/catalogo/titulo-do-jogo.webp",
+    genre: "Action", // Action, Adventure, Fighting, Horror, MOBA, RPG, Sandbox, Shooter, Sports, Survival
+    tags: ["Ação", "Mundo aberto", "História rica"],
+    studio: "Nome do Estúdio",
+    caption: "Frase curta marcante sobre o jogo.",
+    description: "Descrição completa do jogo e ambientação.",
+    gameplay: "Destaques das mecânicas principais de jogabilidade.",
+    platforms: ["PC", "PlayStation 5", "Xbox Series X/S"],
+    setting: "Mundo / Época / Cenário onde a trama se passa",
+    banner: "imagens/banners/titulo-do-jogo.webp",
+    bannerPosition: "center 30%",
+    bannerPositionMobile: "center center",
+    franchise: "Nome da Franquia", // ou null para jogos individuais
+    year: 2026,
+    releaseState: "released" // ou "upcoming"
 }
 ```
 
-Para que contas online possam interagir com títulos novos no feed e nas listas, o mesmo `id` precisa ser inserido na tabela `games` do banco de dados Supabase.
+Opcionalmente, adicione os personagens correspondentes em `js/game-characters.js`:
+```javascript
+"titulo-do-jogo": [
+    ["Nome do Personagem", "identificador-do-retrato", "Descrição neutra sem spoilers da trama."]
+]
+```
 
 ---
 
 ## Design System
 
-As variáveis globais de estilo estão centralizadas no arquivo `css/site.css`:
+A interface adota tema escuro nativo focado em legibilidade e contraste, usando CSS Custom Properties:
 
-```css
-:root {
-    color-scheme: dark;
-    --bg: #131414;        /* Fundo escuro principal */
-    --surface: #1a1b1b;   /* Fundo de cards, painéis e modais */
-    --line: #2c2d2c;      /* Linhas divisórias e contornos */
-    --text: #f5f5ef;      /* Texto de alto contraste */
-    --muted: #a1a39b;     /* Texto secundário e legendas */
-    --yellow: #ffd21f;    /* Cor de destaque âmbar/dourada */
-    --radius: 12px;       /* Raio padrão de arredondamento */
-}
-```
+- **Fundo Principal:** `#0d0e0d` (Dark Onyx)
+- **Superfícies de Cartão:** `#131413` com bordas sutis `#202220`
+- **Destaque Primário:** `#f3b72c` (Amarelo Dourado para foco, ratings e seleções ativas)
+- **Tipografia:** Família do sistema operacional (`-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`)
+- **Estilização de Elementos Nativos:** Menus `<select>` customizados com aparência consistente e foco estável durante a rolagem.
 
 ---
 
 ## Autor
 
-Projeto desenvolvido por **Gabriel** ([@gabriellcs7](https://github.com/gabriellcs7)).
-
-Repositório: [https://github.com/gabriellcs7/BackLog](https://github.com/gabriellcs7/BackLog)
-
-*As imagens de capas, capturas de tela e marcas registradas citadas pertencem aos seus respectivos proprietários legais (Sony Interactive Entertainment, Rockstar Games, Capcom, Konami, Valve, CD Projekt RED, Ubisoft, Red Barrels, Epic Games, Naughty Dog, Mojang Studios, Riot Games, Blizzard Entertainment, entre outros).*
+Desenvolvido por **Gabriel** ([@gabriellcs7](https://github.com/gabriellcs7)).

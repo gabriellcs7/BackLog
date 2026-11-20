@@ -1159,3 +1159,18 @@ h1>span:not(.title-dot) {
 .game-sidebar .ratings-summary .social-small { font-size:10px; }
 .game-sidebar #game-ratings-feedback { font-size:10px; line-height:1.5; }
 @media(max-width:560px) { .game-sidebar .game-community-ratings { grid-column:1/-1; grid-row:5; width:100%; margin-top:6px; } }
+
+/* Trailer e avaliação juntos sob a capa, com links diretos para o YouTube. */
+.game-primary-actions { display:grid; gap:9px; margin:14px 0 20px; }
+.game-primary-actions .game-write-review { margin:0; }
+.game-trailer-link { gap:10px; min-height:46px; color:var(--text); }
+.game-trailer-link:hover { color:var(--yellow); border-color:var(--yellow); }
+.game-trailer-link>svg { flex-shrink:0; color:var(--yellow); }
+@media(max-width:560px) {
+ .game-sidebar .game-primary-actions { grid-column:1/-1; grid-row:2; margin:0; grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .game-primary-actions .button { font-size:10px; min-height:44px; padding:8px; }
+ .game-sidebar > #share-game { grid-row:3; }
+ .game-sidebar > .save-hint { grid-row:4; }
+ .game-sidebar > .collection-status { grid-row:5; }
+ .game-sidebar .game-community-ratings { grid-row:6; }
+}

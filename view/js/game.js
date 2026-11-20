@@ -5,6 +5,16 @@
     const requestedId = new URLSearchParams(window.location.search).get('id');
     const games = window.BacklogGames;
     const game = games.find(item => item.id === requestedId) || games[0];
+    const trailer=window.BacklogGameTrailers?.[game.id];
+    const trailerLink=document.querySelector('#game-trailer-link');
+    if(trailer&&/^[A-Za-z0-9_-]{11}$/.test(trailer.videoId)){
+        trailerLink.href='https://www.youtube.com/watch?v='+trailer.videoId;
+        trailerLink.title=trailer.title+' · '+trailer.channel;
+        trailerLink.setAttribute('aria-label','Watch '+game.title+' '+(trailer.kind||'trailer')+' on YouTube (opens in a new tab)');
+        if(trailer.kind==='gameplay')trailerLink.querySelector('span').textContent='Watch gameplay';
+        else if(trailer.kind==='intro')trailerLink.querySelector('span').textContent='Watch intro';
+    }else trailerLink.hidden=true;
+
     const statusButtons = document.querySelectorAll('.game-status-button');
     const collectionStatus = document.querySelector('#collection-status');
     const toast = document.querySelector('#toast');

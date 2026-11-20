@@ -13,6 +13,7 @@
         <script src="../js/account.js" defer></script>
         <script src="../js/site.js" defer></script>
         <script src="../js/game-characters.js" defer></script>
+        <script src="../js/game-trailers.js" defer></script>
         <script src="js/game.js" defer></script>
         <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js" defer></script>
@@ -90,7 +91,10 @@
                         <img class="game-cover" src="../imagens/capas/catalogo/grand-theft-auto-vi.webp" alt="Grand Theft Auto VI cover">
                         <span class="cover-label">COMING SOON</span>
                     </div>
-                    <a class="button button-primary game-write-review" id="write-review-link" href="write-review.html">Rate or review <span aria-hidden="true">↗</span></a>
+                    <div class="game-primary-actions">
+                        <a class="button button-secondary game-trailer-link" id="game-trailer-link" href="https://www.youtube.com/watch?v=VQRLujxTm3c" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="m10 9 6 3-6 3V9Z" fill="currentColor"/></svg><span>Watch trailer</span><span aria-hidden="true">↗</span></a>
+                        <a class="button button-primary game-write-review" id="write-review-link" href="write-review.html">Rate or review <span aria-hidden="true">↗</span></a>
+                    </div>
                     <!-- Cada botão define o status atual do jogo na coleção. -->
                     <section class="collection-panel" lang="en" aria-labelledby="collection-title">
                         <h2 id="collection-title">In your collection</h2>

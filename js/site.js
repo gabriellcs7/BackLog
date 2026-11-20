@@ -186,7 +186,7 @@
         const editing = event.target.closest('input, textarea, select, [contenteditable="true"]');
         if (event.key === '/' && !editing && !document.querySelector('dialog[open]')) {
             event.preventDefault();
-            searchInput.focus();
+            if(window.BacklogQuickSearch)window.BacklogQuickSearch.open();else searchInput.focus();
         }
         if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
             closeMenu();

@@ -10,3 +10,24 @@
 .backlog-animated-tabs .selected { color:var(--yellow); }
 .backlog-tabs-underline .backlog-tab-marker { border:0; border-bottom:2px solid var(--yellow); border-radius:0; background:#ffd21f05; }
 @media(prefers-reduced-motion:no-preference){.backlog-tab-marker{transition:transform 240ms cubic-bezier(.2,.7,.2,1),width 240ms ease,height 180ms ease}}
+.quick-search-dialog { width:min(660px,calc(100% - 28px)); padding:0; border-radius:18px; overflow:hidden; }
+.quick-search-header { display:flex; align-items:center; gap:12px; padding:15px 18px; border-bottom:1px solid var(--line); }
+.quick-search-dialog .quick-search-header input { margin:0; border:0; outline:none; padding:9px 0; background:none; font-size:16px; box-shadow:none; }
+.quick-search-close { flex:none; width:30px; height:30px; padding:0; border:1px solid var(--line); border-radius:7px; background:#ffffff06; color:var(--muted); font-size:23px; }
+.command-search-tabs { display:flex; width:fit-content; margin:12px 18px; gap:4px; }
+.command-search-tabs button { font:inherit; font-size:11px; border:0; border-radius:7px; padding:8px 12px; color:var(--muted); background:none; }
+.command-search-tabs button[aria-pressed=true] { color:var(--yellow); }
+.quick-search-results { position:relative; max-height:min(56svh,480px); overflow:auto; overscroll-behavior:contain; padding:0 10px 8px; }
+.quick-search-group-title { font-size:10px; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; margin:12px 10px 7px; }
+.quick-search-result { display:flex; align-items:center; gap:13px; padding:10px; margin:3px 0; border:1px solid transparent; border-radius:10px; color:var(--text); }
+.quick-search-result.is-active { background:#ffd21f0a; border-color:#ffd21f30; }
+.quick-search-cover { width:32px; height:44px; object-fit:cover; border-radius:4px; flex:none; }
+.quick-search-result-copy { flex:1; min-width:0; }
+.quick-search-result-copy strong { font-size:13px; font-weight:600; display:block; overflow-wrap:anywhere; }
+.quick-search-result-copy small { display:block; margin-top:4px; color:var(--muted); font-size:10px; }
+.quick-search-result-arrow { color:var(--yellow); font-size:13px; }
+.quick-search-status { font-size:11px; line-height:1.6; color:var(--muted); margin:0; padding:0 20px 10px; }
+.quick-search-status:empty { padding:0; }
+.quick-search-footer { display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; border-top:1px solid var(--line); padding:13px 18px; font-size:10px; color:var(--muted); }
+.quick-search-footer a { color:var(--yellow); }
+@media(max-width:480px){.quick-search-footer{font-size:9px}.quick-search-dialog{max-height:90svh}.quick-search-results{max-height:52svh}}

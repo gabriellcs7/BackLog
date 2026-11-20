@@ -37,3 +37,10 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Adaptação própria em `js/background-beams.js` e `css/background-beams.css`, aplicada atrás de Popular in the catalog.
 - Linhas douradas em SVG, sem React, bibliotecas ou pedidos externos. O fundo é decorativo e não captura cliques.
 - Pausa fora da tela e com a aba oculta; respeita Presentation animations e a preferência de movimento reduzido do dispositivo.
+
+## Aurora Background em todas as páginas
+
+- Referência aprovada: https://21st.dev/@manuarora700/components/aurora-background
+- Adaptação própria em `css/aurora-background.css` e `js/aurora-background.js`, com luzes douradas sutis e movimento lento.
+- Estilo carregado pela base compartilhada e fundo decorativo nas 13 páginas principais. Não captura cliques nem substitui banners ou cards.
+- Usa a preferência compartilhada de Presentation animations, respeita movimento reduzido e pausa quando a aba fica oculta. Sem dependências ou requisições externas.

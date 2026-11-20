@@ -49,3 +49,13 @@
 .activity-details-panel p { margin:5px 0 10px; }
 @media(prefers-reduced-motion:no-preference){.activity-day-events::before{animation:timeline-line-arrival 600ms ease-out}@keyframes timeline-line-arrival{from{transform:scaleY(0)}to{transform:scaleY(1)}}}
 @media(max-width:560px){.activity-day-events::before{left:17px}.activity-page .activity-event{gap:12px;padding-right:0}.activity-page .activity-event-copy{padding:12px}.activity-kind-badge{left:20px;top:40px}.activity-page .activity-game-cover{width:32px}.activity-page .activity-event-copy p{font-size:12px}}
+.backlog-rich-tooltip { position:fixed; inset:auto; display:flex; gap:12px; align-items:center; width:max-content; max-width:min(285px,calc(100vw - 24px)); margin:0; padding:13px 15px; color:var(--text); background:linear-gradient(145deg,#292e20,#191e16); border:1px solid #ffffff27; border-radius:12px; box-shadow:0 14px 40px #0008; pointer-events:none; z-index:2000; }
+.backlog-rich-tooltip[hidden] { display:none!important; }
+.backlog-rich-tooltip::backdrop { background:transparent; pointer-events:none; }
+.tooltip-game-cover { width:40px; height:54px; object-fit:cover; border-radius:4px; flex:none; }
+.tooltip-copy { display:flex; flex-direction:column; gap:5px; min-width:0; }
+.tooltip-copy strong { font-size:12px; line-height:1.45; }
+.tooltip-copy>span:not(.game-rating-stars) { font-size:10px; line-height:1.5; color:var(--muted); }
+.tooltip-copy small { font-size:10px; color:var(--yellow); }
+.tooltip-copy .game-rating-stars { font-size:12px; }
+@media(prefers-reduced-motion:no-preference){.backlog-rich-tooltip:popover-open{animation:tooltip-arrival 180ms cubic-bezier(.2,.8,.3,1)}@keyframes tooltip-arrival{from{opacity:0;translate:0 6px;scale:.96}to{opacity:1;translate:0;scale:1}}}

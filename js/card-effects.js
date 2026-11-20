@@ -1,6 +1,6 @@
 /* Luz suave nos cards, sem alterar os realces de status das capas. */
 (() => {
-    const selector='.home-review-card,.game-list-card,.community-review,.player-search-card';
+    const selector='.home-review-card,.game-list-card,.community-review,.player-search-card,.gaming-news-card';
     function scan(root=document){if(root.matches?.(selector))root.classList.add('backlog-spotlight');root.querySelectorAll?.(selector).forEach(node=>node.classList.add('backlog-spotlight'));}
     scan();new MutationObserver(records=>{for(const record of records)for(const node of record.addedNodes)if(node instanceof Element)scan(node);}).observe(document.body,{childList:true,subtree:true});
     const pointer=matchMedia('(hover:hover) and (pointer:fine)'),reduce=matchMedia('(prefers-reduced-motion:reduce)');let frame=0,pending;

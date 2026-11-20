@@ -6,10 +6,10 @@ A seção da home usa `js/review-wall.js` e `css/review-wall.css`. Os dados cont
 
 As colunas usam cópias visuais para preencher a sequência contínua. Apenas o primeiro grupo da primeira coluna participa da navegação por teclado e da leitura assistiva. Os links e likes das cópias continuam funcionando com mouse; as curtidas recarregam o feed como antes.
 
-- Computador: três colunas sincronizadas, com reviews distintas na mesma linha.
+- Computador: três colunas, com velocidades diferentes.
 - Telas intermediárias: duas colunas.
 - Celular: uma coluna com as três reviews.
-- Passar o mouse: reduz a velocidade do mural pela metade, mantendo as colunas alinhadas.
+- Passar o mouse: reduz a velocidade da coluna pela metade.
 - Pause animation: mostra os três cards sem repetição ou movimento; Resume animation retoma o mural.
 - Foco pelo teclado: pausa e mostra os cards estáticos para permitir a leitura e o uso dos links.
 - Movimento reduzido: respeita a preferência do dispositivo ou a escolha em Presentation animations e mostra os cards estáticos.

@@ -1174,3 +1174,5 @@ h1>span:not(.title-dot) {
  .game-sidebar > .collection-status { grid-row:5; }
  .game-sidebar .game-community-ratings { grid-row:6; }
 }
+/* Ambos os atalhos usam o mesmo alinhamento, sem a margem legada de botões secundários. */
+.game-primary-actions > .button { margin:0; align-self:stretch; }

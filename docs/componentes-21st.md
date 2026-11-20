@@ -31,17 +31,10 @@ Integrações visuais adaptadas à estrutura HTML/CSS/JavaScript existente do Ba
 
 Não há migração SQL adicional nem mudança de políticas de acesso.
 
-## Background Beams na Home
-
-- Referência aprovada: https://21st.dev/@manuarora700/components/background-beams
-- Adaptação própria em `js/background-beams.js` e `css/background-beams.css`, aplicada atrás de Popular in the catalog.
-- Linhas douradas em SVG, sem React, bibliotecas ou pedidos externos. O fundo é decorativo e não captura cliques.
-- Pausa fora da tela e com a aba oculta; respeita Presentation animations e a preferência de movimento reduzido do dispositivo.
-
 ## Background Paths em todas as páginas
 
 - Referência aprovada: https://21st.dev/@kokonutd/components/background-paths
 - Adaptação própria em `css/background-paths.css` e `js/background-paths.js`: duas famílias de curvas finas em cinza, com poucos detalhes amarelos e fluxo lento.
-- Substitui a aurora anterior nas 13 páginas. O Background Beams de Popular in the catalog permanece.
+- Substitui a aurora anterior nas 13 páginas. Popular in the catalog usa apenas este mesmo fundo global.
 - Fundo SVG fixo e decorativo, sem capturar cliques ou mudar as capas e banners.
 - Respeita Presentation animations e movimento reduzido; pausa quando a aba está oculta. Sem dependências ou requisições externas.

@@ -30,3 +30,10 @@ Integrações visuais adaptadas à estrutura HTML/CSS/JavaScript existente do Ba
 - Efeitos respeitam `prefers-reduced-motion`. Navegadores sem popover mantêm os seletores nativos; sem JavaScript, os links e a busca tradicional permanecem no HTML.
 
 Não há migração SQL adicional nem mudança de políticas de acesso.
+
+## Background Beams na Home
+
+- Referência aprovada: https://21st.dev/@manuarora700/components/background-beams
+- Adaptação própria em `js/background-beams.js` e `css/background-beams.css`, aplicada atrás de Popular in the catalog.
+- Linhas douradas em SVG, sem React, bibliotecas ou pedidos externos. O fundo é decorativo e não captura cliques.
+- Pausa fora da tela e com a aba oculta; respeita Presentation animations e a preferência de movimento reduzido do dispositivo.

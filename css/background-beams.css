@@ -9,4 +9,4 @@
 @keyframes backlog-beam-travel { to { stroke-dashoffset:-900; } }
 html[data-presentation-motion=reduced] .background-beams-light { animation:none; opacity:.25; }
 @media(prefers-reduced-motion:reduce) { html:not([data-presentation-motion=full]) .background-beams-light { animation:none; opacity:.25; } }
-@media(max-width:600px) { .background-beams { opacity:.55; } .background-beams-track:nth-of-type(n+13),.background-beams-light:nth-of-type(n+13) { display:none; } }
+@media(max-width:600px) { .background-beams { opacity:.6; } }

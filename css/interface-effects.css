@@ -2,3 +2,11 @@
 .backlog-spotlight { position:relative; isolation:isolate; }
 .backlog-spotlight::before { content:''; position:absolute; inset:0; z-index:-1; border-radius:inherit; background:radial-gradient(420px circle at var(--spot-x,50%) var(--spot-y,50%),#ffd21f16,transparent 68%); opacity:0; pointer-events:none; }
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.backlog-spotlight:hover::before{opacity:1;transition:opacity 220ms ease}}
+.backlog-animated-tabs { position:relative; isolation:isolate; }
+.backlog-animated-tabs:not(.backlog-tabs-underline) { padding:5px; gap:5px; border:1px solid var(--line); border-radius:12px; background:#151912; }
+.backlog-tab-marker { position:absolute; top:0; left:0; z-index:-1; pointer-events:none; background:#ffd21f15; border:1px solid #ffd21f44; border-radius:8px; }
+.backlog-animated-tabs:not(.backlog-tabs-underline)>:is(button,a) { background:transparent; border-color:transparent; }
+.backlog-animated-tabs:not(.backlog-tabs-underline)>:is(button,a)[aria-pressed=true] { background:transparent; color:var(--yellow); }
+.backlog-animated-tabs .selected { color:var(--yellow); }
+.backlog-tabs-underline .backlog-tab-marker { border:0; border-bottom:2px solid var(--yellow); border-radius:0; background:#ffd21f05; }
+@media(prefers-reduced-motion:no-preference){.backlog-tab-marker{transition:transform 240ms cubic-bezier(.2,.7,.2,1),width 240ms ease,height 180ms ease}}

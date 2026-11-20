@@ -75,3 +75,6 @@
 .trailer-dialog-footer a { color:var(--yellow); }
 @media(max-width:480px){.trailer-dialog{padding:13px}.trailer-dialog-footer{font-size:10px}.trailer-dialog-footer .social-button{padding:9px 12px;font-size:11px}}
 @media(prefers-reduced-motion:no-preference){.trailer-dialog[open]{animation:trailer-dialog-arrival 220ms cubic-bezier(.2,.8,.3,1)}@keyframes trailer-dialog-arrival{from{opacity:0;scale:.94;translate:0 12px}to{opacity:1;scale:1;translate:0}}}
+/* Mantém o conector atrás dos avatares e simplifica o campo de busca. */
+.activity-page .activity-event>.community-avatar { background:#292e1d; }
+.quick-search-header input::-webkit-search-cancel-button { -webkit-appearance:none; }

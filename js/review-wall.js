@@ -5,23 +5,33 @@
     const button=document.querySelector('#pause-review-wall');
     if(!root||!button)return;
     const device=matchMedia('(prefers-reduced-motion: reduce)');
-    let columns=[],resize=null,frame=0,previous=0,visible=false,paused=false;
+    let columns=[],resize=null,frame=0,previous=0,visible=false,paused=false,offset=0,speed=30;
     const reduced=()=>window.BacklogMotion?.matches ?? device.matches;
     function cancel(){cancelAnimationFrame(frame);frame=0;previous=0;}
     function schedule(){if(!frame&&visible&&!document.hidden&&!paused&&!reduced()&&columns.length)frame=requestAnimationFrame(animate);}
     function animate(time){
         frame=0;const dt=Math.min((time-(previous||time-16))/1000,.06);previous=time;
+        const target=columns.some(state=>state.hover&&state.column.getClientRects().length)?15:30;
+        speed+=(target-speed)*(1-Math.exp(-dt*8));
+        const distance=columns.find(state=>state.distance>0)?.distance;
+        if(distance)offset=(offset+speed*dt)%distance;
         for(const state of columns){
             if(!state.distance||!state.column.getClientRects().length)continue;
-            const target=state.hover?state.speed/2:state.speed;
-            state.current+=(target-state.current)*(1-Math.exp(-dt*8));
-            state.offset=(state.offset+state.current*dt)%state.distance;
-            state.track.style.transform='translateY(-'+state.offset+'px)';
+            state.track.style.transform='translateY(-'+offset+'px)';
         }
         schedule();
     }
     function measure(){
-        for(const state of columns){state.distance=state.group.offsetHeight+20;if(state.distance)state.offset%=state.distance;}
+        // Mesma altura e mesma fase: reviews diferentes permanecem lado a lado.
+        root.style.removeProperty('--review-wall-card-height');
+        if(!paused&&!reduced()){
+            const cards=[...root.querySelectorAll('.home-review-card')].filter(card=>card.getClientRects().length);
+            const height=Math.max(0,...cards.map(card=>card.offsetHeight));
+            if(height)root.style.setProperty('--review-wall-card-height',height+'px');
+        }
+        for(const state of columns)state.distance=state.group.offsetHeight+20;
+        const distance=columns.find(state=>state.distance>0)?.distance;
+        if(distance)offset%=distance;
         schedule();
     }
     function configure(){
@@ -33,7 +43,7 @@
         button.setAttribute('aria-pressed',String(paused));
         measure();schedule();
     }
-    function clear(){cancel();resize?.disconnect();resize=null;columns=[];button.hidden=true;root.classList.remove('is-static','is-animated');}
+    function clear(){cancel();resize?.disconnect();resize=null;columns=[];offset=0;speed=30;root.style.removeProperty('--review-wall-card-height');button.hidden=true;root.classList.remove('is-static','is-animated');}
     function render(reviews,createCard){
         clear();root.replaceChildren();
         for(let index=0;index<3;index++){

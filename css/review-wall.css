@@ -43,3 +43,6 @@
  .review-wall-heading { margin-bottom:25px; }
 }
 @media(prefers-reduced-motion:no-preference) { .popular-review-wall .home-review-card { transition:border-color 180ms ease; } .popular-review-wall .home-review-card:hover { border-color:#ffd21f55; } }
+
+/* Mantém cada linha sincronizada para não repetir a mesma review ao lado. */
+.popular-review-wall.is-animated .home-review-card { height:var(--review-wall-card-height,auto); }

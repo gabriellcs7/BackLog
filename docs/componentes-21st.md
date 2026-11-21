@@ -68,3 +68,14 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - `js/card-effects.js` usa a área da pasta para posicionar a luz dourada sobre o vidro sem bloquear os links. Inclinação e transições respeitam movimento reduzido.
 - O perfil mostra somente uma lista; Game lists continua abrindo a página com todas. Rankings, privacidade, descrição e ações de editar/excluir usam os dados e fluxos existentes. Sem SQL adicional.
 - Verificação em navegador isolado: lista com oito jogos e seis capas, ranking, lista vazia, navegação real da seta sem diálogo, brilho e cliques, limite de uma lista no perfil, edição, teclado, movimento reduzido e layout mobile. Não houve alterações em contas reais.
+
+## Filtros múltiplos e progresso pessoal nas listas
+
+- Multi Select: https://21st.dev/@kuratlielia/components/multi-select — `js/multi-select.js` e `css/catalog-multi-select.css`. Genres e Statuses aceitam várias opções, com busca interna, etiquetas removíveis, Clear all, Done e teclado. O select nativo continua guardando os valores e é a alternativa quando JavaScript não está disponível.
+- `js/catalog.js` combina opções do mesmo filtro com OU e filtros distintos com E; preserva pesquisa/ordenação, parâmetros repetidos de URL, links antigos com valor único e navegação de páginas/histórico. Sem seleção significa todas as opções.
+- Circular Progress: https://21st.dev/@diceui/components/circular-progress — `js/list-progress.js` e `css/list-progress.css`. As pastas mostram um círculo compacto com o progresso de quem visita a lista, usando os status da própria conta/dispositivo, sem consultar nem inferir os status do autor.
+- Na página completa da lista, o progresso é pequeno: ícone de controle de videogame ao lado da porcentagem, acima das capas. Clique alterna entre 50% e 5 of 10, e outro clique volta à porcentagem. O visual circular do perfil foi mantido.
+- Contam Played, Playing, Completed, Platinum e Dropped; Want to play fica fora. Uma avaliação sem status também conta como jogada. O cálculo considera todos os jogos válidos da lista, incluindo os que não aparecem nas seis capas da pasta. Listas vazias usam 0% / 0 of 0.
+- Aguarda a sincronização da conta; erros mostram progresso indisponível em vez de uma contagem falsa. Não grava avaliações, status ou dados da lista. Sem SQL adicional.
+- Testado em navegador isolado com filtros combinados, remoção/reset/busca, URL e histórico/paginação, alternância e atualização por status/avaliação, progresso do visitante em lista alheia, listas vazias e layout mobile. Nenhuma conta real foi alterada.
+- Notificações (opção 1) e galeria (opção 3) foram feitas somente como prévias separadas fora do repositório, sem integrar ao site.

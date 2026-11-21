@@ -14,6 +14,7 @@
 .multi-filter-footer { display:flex; justify-content:space-between; gap:12px; border-top:1px solid var(--line); margin-top:10px; padding-top:10px; }
 .multi-filter-footer button { min-height:36px; padding:7px 12px; border:0; border-radius:7px; background:#ffd21f0b; color:var(--yellow); font:inherit; font-size:11px; }
 .multi-filter-footer button:disabled { opacity:.4; }
-.catalog-toolbar .catalog-filters { align-items:flex-start; }
+.catalog-toolbar,.catalog-selects { align-items:flex-start; }
+.catalog-selects>label:not(.visually-hidden) { padding-top:15px; }
 @media(max-width:560px){.multi-filter{max-width:none;width:100%;min-width:0}.multi-filter-chip{font-size:10px}.multi-filter-panel .multi-filter-option{min-height:44px}}
 @media(prefers-reduced-motion:no-preference){.multi-filter-panel:not([hidden]){animation:multi-filter-enter 140ms ease-out}@keyframes multi-filter-enter{from{opacity:0;translate:0 -4px}to{opacity:1;translate:0 0}}}

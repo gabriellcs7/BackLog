@@ -2,3 +2,13 @@
 .photo-crop-canvas { display:block; width:min(100%,320px); height:auto; aspect-ratio:1; border-radius:50%; margin:22px auto; background:#0c0f0b; border:2px solid #ffd21f77; touch-action:none; cursor:grab; }
 .photo-crop-canvas.is-dragging { cursor:grabbing; }
 .photo-crop-dialog input[type=range] { width:100%; accent-color:var(--yellow); }
+
+.like-burst-control { display:inline-flex; align-items:center; gap:7px; }
+.like-burst-heart { display:inline-grid; place-items:center; position:relative; font-size:18px; line-height:1; }
+.like-burst-control[aria-pressed=true] .like-burst-heart { color:var(--yellow); }
+.like-burst-heart.is-bursting { animation:like-heart-pop 420ms cubic-bezier(.2,.8,.3,1); }
+.like-burst-heart i { position:absolute; left:50%; top:50%; width:3px; height:3px; border-radius:50%; background:var(--yellow); animation:like-heart-spark 420ms ease-out both; pointer-events:none; }
+@keyframes like-heart-pop { 0%{scale:.7} 55%{scale:1.3} 100%{scale:1} }
+@keyframes like-heart-spark { from{transform:rotate(var(--spark-angle)) translateX(5px);opacity:1}to{transform:rotate(var(--spark-angle)) translateX(22px);opacity:0} }
+@media(prefers-reduced-motion:reduce){.like-burst-heart,.like-burst-heart i{animation:none!important}}
+html[data-presentation-motion=reduced] .like-burst-heart,html[data-presentation-motion=reduced] .like-burst-heart i{animation:none!important}

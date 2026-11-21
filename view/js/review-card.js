@@ -18,7 +18,7 @@
         }
         const actions=el('div','social-actions'),message=el('p','social-feedback');message.setAttribute('role','status');
         const likes=makeButton('',()=>action(likes,message,async()=>{const next=!review.liked;review.like_count=await api.like(review.id,next);review.liked=next;renderLikes();}),'social-button review-like');
-        function renderLikes(){likes.textContent=(review.liked?'♥ Liked':'♡ Like')+' · '+review.like_count;likes.setAttribute('aria-pressed',String(review.liked));likes.disabled=!account.user||review.user_id===account.user.id;likes.title=!account.user?'Sign in to like a review':review.user_id===account.user.id?'This is your review':review.liked?'Remove your like':'Like this review';}
+        function renderLikes(){likes.textContent=(review.liked?'♥ Liked':'♡ Like')+' · '+review.like_count;likes.setAttribute('aria-pressed',String(review.liked));window.BacklogLikeEffects.render(likes,review.liked,review.like_count,'review by '+review.display_name);likes.disabled=!account.user||review.user_id===account.user.id;likes.title=!account.user?'Sign in to like a review':review.user_id===account.user.id?'This is your review':review.liked?'Remove your like':'Like this review';}
         renderLikes();
         const comments=el('div','review-discussion');comments.hidden=true;comments.id='comments-'+review.id;
         const toggle=makeButton('Comments · '+review.comment_count,async()=>{comments.hidden=!comments.hidden;toggle.setAttribute('aria-expanded',String(!comments.hidden));if(!comments.hidden&&!loaded)await loadComments();});toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',comments.id);

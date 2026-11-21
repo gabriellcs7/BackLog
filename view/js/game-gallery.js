@@ -15,12 +15,14 @@
     image.decoding='async';feedback.setAttribute('role','status');figure.append(image,feedback);
     const footer=el('div','game-gallery-controls'),previous=el('button','game-gallery-step','← Previous'),next=el('button','game-gallery-step','Next →'),counter=el('span');
     previous.type=next.type='button';counter.setAttribute('aria-live','polite');footer.append(previous,counter,next);
-    dialog.append(header,figure,footer);document.body.append(dialog);
+    const credit=el('a','game-gallery-credit','Image source ↗');credit.target='_blank';credit.rel='noopener noreferrer';
+    dialog.append(header,figure,footer,credit);document.body.append(dialog);
     let index=0,opener=null,oldOverflow='';
     function show(value){
         index=(value+gallery.images.length)%gallery.images.length;
         image.alt=game.title+' — screenshot '+(index+1)+' of '+gallery.images.length;
         image.hidden=false;feedback.textContent='Loading screenshot…';image.src=ui.href('imagens/'+gallery.images[index].full);
+        credit.href=gallery.images[index].source||gallery.source;credit.textContent=(gallery.images[index].credit||gallery.edition)+' ↗';
         counter.textContent=(index+1)+' / '+gallery.images.length;previous.disabled=next.disabled=gallery.images.length<2;
     }
     image.addEventListener('load',()=>{feedback.textContent='';});

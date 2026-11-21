@@ -22,8 +22,9 @@
     }
     host.append(svg);document.body.prepend(host);
     const motion=window.BacklogMotion||matchMedia('(prefers-reduced-motion:reduce)');
-    function sync(){host.classList.toggle('is-running',!document.hidden&&!motion.matches);}
+    function sync(){host.classList.toggle('is-running',!document.hidden&&!motion.matches&&(window.BacklogPreferences?.get().background??true));}
     motion.addEventListener?.('change',sync);
     document.addEventListener('visibilitychange',sync);
+    window.addEventListener('backlog-preferences-change',sync);
     sync();
 })();

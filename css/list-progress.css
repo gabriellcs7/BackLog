@@ -19,3 +19,13 @@
 @media(max-width:560px){.list-progress-panel{flex-wrap:wrap;gap:14px;padding:16px}.list-progress-panel>.list-progress{width:100%;justify-content:center}.list-progress-panel p{font-size:11px}}
 @media(prefers-reduced-motion:no-preference){.list-progress-range{transition:stroke-dasharray 400ms ease}}
 html[data-presentation-motion=reduced] .list-progress-range{transition:none}
+
+/* Dentro da lista: controle de videogame e valor, sem card grande. */
+.list-page-tools { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+.list-page-tools #share-list { margin-bottom:0; }
+.list-page-tools .list-progress-panel { margin:0; padding:0; border:0; border-radius:0; background:none; }
+.list-progress.list-progress-minimal { min-height:44px; padding:7px 3px; gap:9px; border:0; border-radius:5px; background:none; color:var(--yellow); }
+.list-progress-minimal svg { width:25px; height:25px; transform:none; }
+.list-progress-minimal svg path,.list-progress-minimal svg circle { fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.list-progress-minimal .list-progress-copy strong { font-size:17px; font-weight:500; }
+.list-progress-minimal .list-progress-copy small { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }

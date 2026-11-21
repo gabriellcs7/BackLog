@@ -53,7 +53,7 @@
                 slot.append(card);
                 grid.append(slot);
             }
-            progressPanel.append(window.BacklogListProgress.create(list.gameIds));progressPanel.hidden=false;
+            progressPanel.append(window.BacklogListProgress.create(list.gameIds,{minimal:true}));progressPanel.hidden=false;
             share.disabled=false;
             feedback.textContent=grid.children.length?'':'No games in this list yet.';
         }catch(error){

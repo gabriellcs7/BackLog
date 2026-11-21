@@ -33,5 +33,4 @@
 @keyframes game-reviews-drift { to { transform:translateX(calc(-50% - 8px)); } }
 @media(hover:hover) and (prefers-reduced-motion:no-preference) { .game-review-marquee-card.community-review { transition:border-color .2s,box-shadow .2s; } .game-review-marquee-card.community-review:hover { border-color:#ffd21f55; box-shadow:0 6px 25px #ffd21f0a; } }
 @media(max-width:560px) { .game-review-marquee-card.community-review { width:280px; flex-basis:280px; padding:18px; } .game-review-marquee { gap:12px; } #pause-game-reviews { margin-left:0; } }
-@media(prefers-reduced-motion:reduce) { .game-review-marquee-track { animation:none; } }
 html[data-presentation-motion=reduced] .game-review-marquee-track { animation:none; }

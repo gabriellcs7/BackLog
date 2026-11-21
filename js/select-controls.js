@@ -11,7 +11,7 @@
         requestAnimationFrame(() => { scheduled = false; syncAll(); });
     }
     function enhance(select) {
-        if (select.multiple || select.size > 1 || select.dataset.enhancedSelect) return;
+        if (select.multiple || select.size > 1 || select.dataset.enhancedSelect || select.hasAttribute('data-native-select')) return;
         select.dataset.enhancedSelect = 'true';
         const wrapper = document.createElement('span'); wrapper.className = 'site-select';
         const trigger = document.createElement('button'); trigger.type = 'button'; trigger.className = 'site-select-trigger';

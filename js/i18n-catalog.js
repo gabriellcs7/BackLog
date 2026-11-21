@@ -645,4 +645,59 @@ Sign in to use this feature.|Entre para usar este recurso.
 Online profiles are not connected yet.|Os perfis online ainda não estão conectados.
 Online accounts are not connected yet.|As contas online ainda não estão conectadas.
 Something went wrong. Please try again.|Algo deu errado. Tente novamente.
+Choose a date|Escolha uma data
+Open calendar|Abrir calendário
+Previous month|Mês anterior
+Next month|Próximo mês
+Choose or drop a profile photo|Escolher ou arrastar uma foto de perfil
+Drop your photo here|Arraste sua foto aqui
+or choose a file|ou escolha um arquivo
+Choose one profile photo at a time.|Escolha uma foto de perfil por vez.
+Preparing photo…|Preparando foto…
+Choose a JPG, PNG or WebP photo smaller than 5 MB.|Escolha uma foto JPG, PNG ou WebP de até 5 MB.
+Photo adjustment cancelled.|Ajuste da foto cancelado.
+Photo ready. Save your profile to apply it.|Foto pronta. Salve o perfil para aplicá-la.
+Photo removed. Save your profile to apply it.|Foto removida. Salve o perfil para aplicar a alteração.
+Wait for your photo to finish preparing.|Aguarde a preparação da foto.
+Adjust your photo|Ajuste sua foto
+Drag to position your photo. Use the slider to zoom, or arrow keys to move the image.|Arraste para posicionar sua foto. Use a barra para ajustar o zoom ou as setas para mover a imagem.
+Photo position; use arrow keys to adjust|Posição da foto; use as setas para ajustar
+Use photo|Usar foto
+Center|Centralizar
+View followers|Ver seguidores
+Follower preview|Prévia dos seguidores
+Could not load follower preview.|Não foi possível carregar a prévia dos seguidores.
+Your year in games|Seu ano em jogos
+Rated games by diary date.|Jogos avaliados por data no diário.
+Activity calendar|Calendário de atividade
+Less|Menos
+More|Mais
+active days|dias ativos
+active day|dia ativo
+ratings|avaliações
+rating|avaliação
+Scroll to see the full year.|Deslize para ver o ano completo.
+No ratings in this year yet.|Ainda não há avaliações neste ano.
+Could not load this activity calendar.|Não foi possível carregar este calendário de atividade.
+Open diary|Abrir diário
+Profile milestones|Conquistas do perfil
+Based on this profile's current visible records.|Com base nos registros atuais visíveis deste perfil.
+Unlocked|Conquistado
+Locked|Pendente
+First rating|Primeira avaliação
+Rate your first game.|Avalie seu primeiro jogo.
+First words|Primeiras palavras
+Write your first review.|Escreva sua primeira review.
+Critic|Crítico
+Write reviews for 10 games.|Escreva reviews de 10 jogos.
+Game finisher|Até os créditos
+Complete or platinum 5 games.|Zere ou platine 5 jogos.
+Explorer|Explorador
+Log 25 different games.|Registre 25 jogos diferentes.
+Public curator|Curador público
+Create 3 public game lists.|Crie 3 listas públicas de jogos.
+Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
+View this day in the diary|Ver este dia no diário
+Day filter|Filtro por dia
+Clear day filter|Limpar filtro por dia
 `.trim().split('\n').map(line=>line.split('|')));

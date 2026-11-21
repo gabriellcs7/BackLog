@@ -1,5 +1,7 @@
 @import url("notifications.css");
 @import url("preferences.css");
+@import url("calendar-controls.css");
+
 @import url("game-gallery.css");
 @import url("game-review-marquee.css");
 @import url("interaction-upgrades.css");
@@ -84,3 +86,4 @@
 /* Mantém o conector atrás dos avatares e simplifica o campo de busca. */
 .activity-page .activity-event>.community-avatar { background:#292e1d; }
 .quick-search-header input::-webkit-search-cancel-button { -webkit-appearance:none; }
+

@@ -7,6 +7,6 @@
     document.addEventListener('pointermove',event=>{
         if(!pointer.matches||(window.BacklogMotion?.matches??reduce.matches))return;
         const card=event.target.closest(selector);if(!card)return;pending={card,x:event.clientX,y:event.clientY};if(frame)return;
-        frame=requestAnimationFrame(()=>{frame=0;const {card,x,y}=pending;if(!card.isConnected)return;const rect=card.getBoundingClientRect();card.style.setProperty('--spot-x',x-rect.left+'px');card.style.setProperty('--spot-y',y-rect.top+'px');});
+        frame=requestAnimationFrame(()=>{frame=0;const {card,x,y}=pending;if(!card.isConnected)return;const surface=card.matches('.glass-folder-card')?card.querySelector('.glass-folder-stage'):card;const rect=surface.getBoundingClientRect();card.style.setProperty('--spot-x',x-rect.left+'px');card.style.setProperty('--spot-y',y-rect.top+'px');});
     },{passive:true});
 })();

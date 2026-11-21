@@ -29,3 +29,10 @@
 html[data-presentation-motion=reduced] .glass-folder-stage { transform:none; }
 html[data-presentation-motion=reduced] .glass-folder-card * { transition:none; }
 @media(prefers-reduced-motion:reduce){html:not([data-presentation-motion=full]) .glass-folder-stage{transform:none}html:not([data-presentation-motion=full]) .glass-folder-card *{transition:none}}
+
+/* A luz compartilhada aparece sobre o vidro, sem interferir nos links. */
+.glass-folder-card.backlog-spotlight::before { display:none; }
+.glass-folder-front::after { content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(420px circle at var(--spot-x,50%) var(--spot-y,50%),#ffd21f23,transparent 68%); opacity:0; transition:opacity 220ms ease; }
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.glass-folder-card:hover .glass-folder-front::after{opacity:1}}
+html[data-presentation-motion=reduced] .glass-folder-front::after { opacity:0; transition:none; }
+@supports not (backdrop-filter:blur(1px)){.glass-folder-front{background:linear-gradient(145deg,#4a5140e8,#1c231ef5)}}

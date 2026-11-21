@@ -38,6 +38,8 @@
         if (event.key === key || event.key === null) { mode = storedMode(); apply(); }
     });
     window.BacklogMotion = motion;
+    Object.defineProperty(motion,'mode',{get:()=>mode});
+    motion.setMode=next=>{if(!modes.has(next))return false;mode=next;let saved=true;try{if(next==='auto')localStorage.removeItem(key);else localStorage.setItem(key,next);}catch{saved=false;}apply();return saved;};
     apply();
     document.querySelector('.presentation-motion-controls')?.removeAttribute('hidden');
 })();

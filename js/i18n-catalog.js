@@ -1,0 +1,427 @@
+/* Textos da interface. Conteúdo escrito pelos jogadores permanece como foi publicado. */
+window.BacklogPortuguese=Object.fromEntries(String.raw`
+Settings|Configurações
+SETTINGS|CONFIGURAÇÕES
+Your preferences|Suas preferências
+Make BackLog yours.|Deixe o BackLog do seu jeito.
+Small details. Your way to play.|Pequenos detalhes. Seu jeito de jogar.
+Preferences are saved on this browser.|As preferências ficam salvas neste navegador.
+Saved automatically|Salvo automaticamente
+General|Geral
+Appearance|Aparência
+Notifications|Notificações
+Privacy|Privacidade
+Account|Conta
+Your data|Seus dados
+Language|Idioma
+Choose the language for menus and controls.|Escolha o idioma dos menus e controles.
+Interface language|Idioma da interface
+English|Inglês
+Portuguese|Português
+Animation preferences|Preferências de animação
+Keep the movement you enjoy. Make it calmer whenever you like.|Mantenha as animações que você gosta. Deixe tudo mais tranquilo quando quiser.
+Animation mode|Modo de animação
+Follow device|Seguir dispositivo
+Full animations|Todas as animações
+Reduced motion|Movimento reduzido
+Animated background|Fundo animado
+Show the golden paths behind the pages.|Mostrar as linhas douradas no fundo das páginas.
+Card glow|Brilho dos cards
+Let a soft light follow your pointer over cards.|Uma luz suave acompanha o cursor sobre os cards.
+Your notification center|Sua central de notificações
+Choose what appears in the bell. Your Activity feed stays available.|Escolha o que aparece no sino. Seu feed de atividade continua disponível.
+Likes on your reviews|Curtidas nas suas reviews
+Comments on your reviews|Comentários nas suas reviews
+New followers|Novos seguidores
+These preferences control the in-site bell on this browser.|Estas preferências controlam o sino do site neste navegador.
+New list visibility|Visibilidade das novas listas
+Make new lists public|Criar novas listas públicas
+Applies only to new lists. You can change each list when editing it.|Vale apenas para novas listas. Você pode alterar cada lista ao editá-la.
+Private by default|Privadas por padrão
+Public by default|Públicas por padrão
+Profile & account|Perfil e conta
+Your next personal touch is one click away.|Seu próximo toque pessoal está a um clique.
+Edit profile & photo|Editar perfil e foto
+Change banner|Alterar banner
+Choose your favorite four|Escolher seus quatro favoritos
+Connected account|Conta conectada
+Device profile|Perfil deste dispositivo
+Account connection unavailable|Conexão da conta indisponível
+Your profile is stored on this device. Sign in to sync it with your account.|Seu perfil está neste dispositivo. Entre para sincronizá-lo com sua conta.
+Connected to your BackLog account.|Conectado à sua conta BackLog.
+Access your lists|Acessar suas listas
+Download your data|Baixar seus dados
+Keep a personal copy of your profile, lists, diary, ratings and game statuses.|Guarde uma cópia do seu perfil, listas, diário, avaliações e status dos jogos.
+Export my data|Exportar meus dados
+Preparing your backup…|Preparando sua cópia…
+Backup downloaded.|Cópia de segurança baixada.
+Could not export your data. Please try again.|Não foi possível exportar seus dados. Tente novamente.
+Your account changed. Please try again.|Sua conta mudou. Tente novamente.
+Your game statuses could not be synchronized. Please try again.|Não foi possível sincronizar os status dos jogos. Tente novamente.
+Restore default settings|Restaurar configurações padrão
+Reset language, appearance and notification preferences.|Restaure o idioma e as preferências de aparência e notificações.
+Your games, reviews and lists stay saved.|Seus jogos, reviews e listas continuam salvos.
+Default settings restored.|Configurações padrão restauradas.
+Changes saved.|Alterações salvas.
+Storage is unavailable. These settings apply to this page only.|O armazenamento está indisponível. Estas configurações valem apenas nesta página.
+Keyboard shortcuts|Atalhos do teclado
+Open search|Abrir pesquisa
+Close dialogs|Fechar janelas
+Browse screenshots|Navegar pelas imagens
+Made for your next game.|Feito para o seu próximo jogo.
+Home|Início
+Profile|Perfil
+Activity|Atividade
+Games|Jogos
+My backlog|Minha coleção
+Diary|Diário
+Main navigation|Navegação principal
+BackLog home|Início do BackLog
+Skip to content|Pular para o conteúdo
+Open menu|Abrir menu
+Close menu|Fechar menu
+Search games or players|Pesquisar jogos ou pessoas
+Search games or players...|Pesquisar jogos ou pessoas...
+Search games or players…|Pesquisar jogos ou pessoas…
+Search games|Pesquisar jogos
+Search players|Pesquisar pessoas
+Players|Pessoas
+All|Todos
+Unread|Não lidas
+Search|Pesquisar
+Clear search|Limpar pesquisa
+No results found.|Nenhum resultado encontrado.
+Your profile|Seu perfil
+Your lists|Suas listas
+Your diary|Seu diário
+Your account|Sua conta
+Your BackLog account|Sua conta BackLog
+Account shortcuts|Atalhos da conta
+Open account menu|Abrir menu da conta
+Account settings|Configurações da conta
+Sign in|Entrar
+Sign in ↗|Entrar ↗
+Sign out|Sair
+Create account|Criar conta
+Sign up|Criar conta
+Email|E-mail
+Password|Senha
+Display name|Nome de exibição
+Welcome back.|Bem-vindo de volta.
+Create your account.|Crie sua conta.
+Already have an account? Sign in|Já tem uma conta? Entrar
+New here? Create an account|Novo por aqui? Criar conta
+Save|Salvar
+Cancel|Cancelar
+Close|Fechar
+Delete|Excluir
+Edit|Editar
+Refresh|Atualizar
+Try again|Tentar novamente
+Loading…|Carregando…
+Loading...|Carregando...
+Back to top ↑|Voltar ao topo ↑
+QUICK LINKS|LINKS RÁPIDOS
+Browse all games|Ver todos os jogos
+Browse all games ↗|Ver todos os jogos ↗
+Browse the catalog ↗|Explorar o catálogo ↗
+Track your games, write reviews,|Acompanhe seus jogos, escreva reviews
+and keep your backlog organized.|e mantenha sua coleção organizada.
+Track played games, ongoing runs, and your wishlist.|Acompanhe jogos jogados, partidas em andamento e sua lista de desejos.
+© 2026 BackLog. All rights reserved.|© 2026 BackLog. Todos os direitos reservados.
+Played|Jogado
+Playing|Jogando
+Completed|Zerado
+Platinum|Platinado
+Dropped|Abandonado
+Want to play|Quero jogar
+You have played this game.|Você já jogou este jogo.
+You are currently playing this game.|Você está jogando este jogo.
+You completed the game.|Você completou o jogo.
+You completed all missions.|Você completou todas as missões.
+You played this game but stopped before completing it.|Você jogou este jogo, mas parou antes de completá-lo.
+You want to play this game.|Você quer jogar este jogo.
+Collection status|Status na coleção
+All statuses|Todos os status
+All genres|Todos os gêneros
+All years|Todos os anos
+All platforms|Todas as plataformas
+Filters|Filtros
+Clear filters|Limpar filtros
+Reset filters|Limpar filtros
+Sort by|Ordenar por
+Genre|Gênero
+Year|Ano
+Platform|Plataforma
+Platforms|Plataformas
+Release year|Ano de lançamento
+Release date|Data de lançamento
+Action|Ação
+Adventure|Aventura
+Fighting|Luta
+Horror|Terror
+Sandbox|Mundo livre
+Shooter|Tiro
+Sports|Esportes
+Survival|Sobrevivência
+Open world|Mundo aberto
+Story rich|Foco na história
+Stealth|Furtividade
+Puzzle|Quebra-cabeça
+Racing|Corrida
+Strategy|Estratégia
+Simulation|Simulação
+PC|Computador
+Mobile|Celular
+Other|Outro
+Not selected|Não selecionado
+GAME OVERVIEW|VISÃO GERAL DO JOGO
+Game overview|Visão geral do jogo
+Overview|Visão geral
+Game details|Detalhes do jogo
+Game sections|Seções do jogo
+Screenshots|Imagens
+Characters|Personagens
+Main characters|Personagens principais
+Community|Comunidade
+Community reviews|Reviews da comunidade
+Reviews and discussion from other players.|Reviews e conversas de outros jogadores.
+Write a review|Escrever uma review
+Write a review ↗|Escrever uma review ↗
+Edit review|Editar review
+Read review|Ler review
+Read review ↗|Ler review ↗
+Reviews|Reviews
+Reviews.|Reviews.
+Review|Review
+Written review|Review escrita
+Rated this game.|Avaliou este jogo.
+Your rating|Sua avaliação
+Your review|Sua review
+Your comment|Seu comentário
+Write a comment...|Escreva um comentário...
+Post comment|Publicar comentário
+Comments|Comentários
+No comments yet.|Ainda não há comentários.
+Load more comments|Carregar mais comentários
+Comment posted.|Comentário publicado.
+Comment deleted.|Comentário excluído.
+Delete your comment|Excluir seu comentário
+Sign in to comment ↗|Entre para comentar ↗
+Sign in to like and comment ↗|Entre para curtir e comentar ↗
+Like|Curtir
+Liked|Curtido
+Remove your like|Remover curtida
+Like this review|Curtir esta review
+This is your review|Esta é sua review
+Sign in to like a review|Entre para curtir uma review
+Refresh reviews|Atualizar reviews
+Load more reviews|Carregar mais reviews
+Loading reviews…|Carregando reviews…
+Loading community reviews…|Carregando reviews da comunidade…
+No public reviews yet. Be the first to share your take.|Ainda não há reviews públicas. Seja o primeiro a compartilhar sua opinião.
+Community reviews are not connected yet. Your personal review is still saved on this device.|As reviews da comunidade ainda não estão conectadas. Sua review continua salva neste dispositivo.
+Could not load reviews. Try refreshing.|Não foi possível carregar as reviews. Tente atualizar.
+Could not update your like. Try again.|Não foi possível atualizar sua curtida. Tente novamente.
+Pause animation|Pausar animação
+Resume animation|Retomar animação
+In your collection|Na sua coleção
+Choose a status to add this game.|Escolha um status para adicionar este jogo.
+Your collection is saved in this browser.|Sua coleção fica salva neste navegador.
+Share game|Compartilhar jogo
+Share|Compartilhar
+Copy link|Copiar link
+Link copied!|Link copiado!
+Link copied.|Link copiado.
+Open game ↗|Abrir jogo ↗
+Open review ↗|Abrir review ↗
+← Game page|← Página do jogo
+Game page|Página do jogo
+Ratings|Avaliações
+Not rated yet|Ainda sem avaliações
+Unreleased game|Jogo ainda não lançado
+Not announced|Não anunciado
+To be announced|A anunciar
+Studio|Estúdio
+Publisher|Distribuidora
+Developer|Desenvolvedora
+Watch trailer|Ver trailer
+Watch gameplay|Ver gameplay
+Watch intro|Ver introdução
+Inside the game.|Por dentro do jogo.
+Inside the game|Por dentro do jogo
+A closer look. Select a screenshot to explore.|Veja de perto. Selecione uma imagem para ampliar.
+Official screenshots ↗|Imagens oficiais ↗
+Image source ↗|Fonte da imagem ↗
+← Previous|← Anterior
+Next →|Próxima →
+Close screenshots|Fechar imagens
+Loading screenshot…|Carregando imagem…
+This screenshot could not be loaded. Try the next image.|Não foi possível carregar esta imagem. Tente a próxima.
+MORE GAMES|MAIS JOGOS
+Similar titles in the catalog|Jogos semelhantes no catálogo
+More games|Mais jogos
+EXPLORE GAME ↗|EXPLORAR JOGO ↗
+GAME LIBRARY|BIBLIOTECA DE JOGOS
+THE CATALOG|O CATÁLOGO
+Find your next game.|Encontre seu próximo jogo.
+Popular in the catalog|Populares no catálogo
+Popular in the catalog.|Populares no catálogo.
+Upcoming and anticipated games.|Próximos lançamentos e jogos aguardados.
+Upcoming and anticipated games|Próximos lançamentos e jogos aguardados
+Every game tells a story.|Todo jogo conta uma história.
+Most liked reviews.|Reviews mais curtidas.
+Most liked reviews|Reviews mais curtidas
+From your people|De quem você segue
+From your people.|De quem você segue.
+Recent reviews from players you follow.|Reviews recentes de pessoas que você segue.
+Explore games|Explorar jogos
+Open your profile|Abrir seu perfil
+SCROLL TO DISCOVER|ROLE PARA DESCOBRIR
+Skip presentation ↓|Pular apresentação ↓
+YOUR NEXT CHAPTER|SEU PRÓXIMO CAPÍTULO
+GAMING NEWS|NOTÍCIAS DOS GAMES
+Latest in gaming.|Últimas dos games.
+Read article ↗|Ler notícia ↗
+Read more ↗|Ler mais ↗
+Latest news|Últimas notícias
+PLAYER PROFILE|PERFIL DO JOGADOR
+Games you play, reviews, and custom lists.|Seus jogos, reviews e listas personalizadas.
+Edit profile|Editar perfil
+Save profile|Salvar perfil
+Profile saved.|Perfil salvo.
+Bio|Descrição
+Location|Localização
+Social link|Link social
+Gaming platform|Plataforma de jogo
+City or region|Cidade ou região
+Short bio, favorite genres, or platforms you play on.|Uma breve descrição, gêneros favoritos ou plataformas em que você joga.
+Followers|Seguidores
+Following|Seguindo
+Follow|Seguir
+Follow back|Seguir de volta
+Following ✓|Seguindo ✓
+Unfollow|Deixar de seguir
+Favorite four.|Quatro favoritos.
+Your favorite four.|Seus quatro favoritos.
+Your favorite four|Seus quatro favoritos
+Choose favorites|Escolher favoritos
+Choose a game|Escolher um jogo
+Find a game|Encontrar um jogo
+Search for a game|Pesquisar um jogo
+Save favorites|Salvar favoritos
+Drag the covers to change their order.|Arraste as capas para alterar a ordem.
+Recent activity|Atividade recente
+Recent activity.|Atividade recente.
+Game lists|Listas de jogos
+Game lists.|Listas de jogos.
+Public lists|Listas públicas
+Games logged|Jogos registrados
+See more reviews|Ver mais reviews
+See all games|Ver todos os jogos
+New list|Nova lista
+Create a list|Criar uma lista
+Create a list.|Crie uma lista.
+Edit your list.|Edite sua lista.
+Save list|Salvar lista
+List saved.|Lista salva.
+List name|Nome da lista
+Description|Descrição
+Public|Pública
+Private|Privada
+Ranked|Com ranking
+Ranked list|Lista com ranking
+Make this a ranked list|Criar uma lista com ranking
+Your progress|Seu progresso
+No games yet.|Ainda não há jogos.
+No lists yet.|Ainda não há listas.
+No reviews yet.|Ainda não há reviews.
+Lists on this device are private. Sign in when online accounts are connected to share lists.|As listas deste dispositivo são privadas. Entre na sua conta para compartilhá-las.
+Private lists are only visible to you. Public lists appear on your profile.|Somente você vê as listas privadas. As listas públicas aparecem no seu perfil.
+Copy device profile & lists to account|Copiar perfil e listas do dispositivo para a conta
+Device profile copied|Perfil do dispositivo copiado
+Your profile, lists and favorites are connected to your account.|Seu perfil, listas e favoritos estão conectados à sua conta.
+Sign in to sync your profile across devices. Your local profile stays separate.|Entre para sincronizar seu perfil entre dispositivos. Seu perfil local fica separado.
+Today|Hoje
+Yesterday|Ontem
+All activity|Toda a atividade
+Following activity|Atividade de quem você segue
+Your activity|Sua atividade
+View details|Ver detalhes
+Load more activity|Carregar mais atividade
+Refresh activity|Atualizar atividade
+Loading activity…|Carregando atividade…
+started following you|começou a seguir você
+liked your review|curtiu sua review
+commented on your review|comentou na sua review
+started following|começou a seguir
+liked a review of|curtiu uma review de
+commented on a review of|comentou em uma review de
+rated|avaliou
+marked|marcou
+added|adicionou
+to Want to play.|a Quero jogar.
+as Played.|como Jogado.
+as Playing.|como Jogando.
+as Completed.|como Zerado.
+as Platinum.|como Platinado.
+as Dropped.|como Abandonado.
+Just now|Agora mesmo
+Mark as read|Marcar como lida
+✓ Mark all as read|✓ Marcar todas como lidas
+View all activity →|Ver toda a atividade →
+Notification filter|Filtro de notificações
+Your community, closer.|Sua comunidade, mais perto.
+Sign in to see likes, comments and new followers.|Entre para ver curtidas, comentários e novos seguidores.
+You’re all caught up.|Você está em dia.
+No notifications yet.|Ainda não há notificações.
+Likes, comments and new followers will appear here.|Curtidas, comentários e novos seguidores aparecerão aqui.
+Loading notifications…|Carregando notificações…
+Could not load notifications. Please try again.|Não foi possível carregar as notificações. Tente novamente.
+Read status is saved on this browser.|A leitura fica salva neste navegador.
+Read status is temporary on this page.|A leitura é temporária nesta página.
+Latest 100 interactions.|Últimas 100 interações.
+Notifications are paused.|As notificações estão pausadas.
+Choose what you want to receive in Settings.|Escolha o que deseja receber nas Configurações.
+Log a game|Registrar um jogo
+Logged games|Jogos registrados
+Edit date|Alterar data
+Remove entry|Remover registro
+Preview review|Prévia da review
+Date|Data
+Review date|Data da review
+Save review|Salvar review
+Save rating|Salvar avaliação
+Save changes|Salvar alterações
+Review saved.|Review salva.
+Rating saved.|Avaliação salva.
+Load more entries|Carregar mais registros
+All entries|Todos os registros
+Ratings only|Somente avaliações
+Reviews only|Somente reviews
+Search your diary|Pesquisar no seu diário
+January|Janeiro
+February|Fevereiro
+March|Março
+April|Abril
+May|Maio
+June|Junho
+July|Julho
+August|Agosto
+September|Setembro
+October|Outubro
+November|Novembro
+December|Dezembro
+Mon|Seg
+Tue|Ter
+Wed|Qua
+Thu|Qui
+Fri|Sex
+Sat|Sáb
+Sun|Dom
+Your device requests reduced motion. Choose Full animations to enable the 3D presentations.|Seu dispositivo pede movimento reduzido. Escolha Todas as animações para ativar as apresentações em 3D.
+Using your device setting. Animations are on.|Seguindo seu dispositivo. As animações estão ativadas.
+Reduced motion is on.|O movimento reduzido está ativado.
+Full animations are on.|Todas as animações estão ativadas.
+This choice applies to this page only.|Esta escolha vale apenas nesta página.
+`.trim().split('\n').map(line=>line.split('|')));

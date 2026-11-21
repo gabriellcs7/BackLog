@@ -58,3 +58,13 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Share Button: https://21st.dev/@reuno-ui/components/share-button — `js/share-controls.js`. Painel expansível em jogos, reviews públicas e páginas de listas. Copiar link tem seleção manual como alternativa; compartilhamento nativo só abre após clique. Links de redes sociais aparecem apenas para endereços externos, e localhost continua com copiar/compartilhamento do dispositivo. O painel acompanha o botão durante a rolagem.
 - São adaptações locais para o site existente, com estilos em `css/interaction-upgrades.css`, sem novas dependências ou SQL.
 - Verificação em navegador isolado: cancelar/ajustar foto sem gravar conta, falha/sucesso de curtidas com API simulada, páginas 42/42/16 e voltar/avançar, ranking por teclado/mouse/toque e salvamento em armazenamento local isolado, compartilhamento com cópia/serviço nativo simulados e layouts mobile. As 13 páginas também foram abertas sem erros de JavaScript.
+
+## Listas como pastas de vidro
+
+- Referência aprovada: https://21st.dev/@kedhareswer/components/glass-folder-cards
+- Adaptação em `view/js/list-card.js` e `css/glass-folder-lists.css`, nas listas do perfil e na página de todas as listas.
+- A frente abre para revelar até seis capas; os jogos são links para suas páginas. Escape fecha a pasta e devolve o foco ao botão. O teclado só alcança as capas quando a pasta está aberta.
+- A seta é um link normal para `view/list.html?profile=...&id=...`, sem pop-up, preservando o proprietário e o identificador da lista. A página completa mantém todos os jogos, mesmo quando há mais de seis.
+- `js/card-effects.js` usa a área da pasta para posicionar a luz dourada sobre o vidro sem bloquear os links. Inclinação e transições respeitam movimento reduzido.
+- O perfil mostra somente uma lista; Game lists continua abrindo a página com todas. Rankings, privacidade, descrição e ações de editar/excluir usam os dados e fluxos existentes. Sem SQL adicional.
+- Verificação em navegador isolado: lista com oito jogos e seis capas, ranking, lista vazia, navegação real da seta sem diálogo, brilho e cliques, limite de uma lista no perfil, edição, teclado, movimento reduzido e layout mobile. Não houve alterações em contas reais.

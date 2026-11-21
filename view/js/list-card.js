@@ -18,7 +18,7 @@
         const url=ui.href('view/list.html?'+new URLSearchParams({profile:profileId,id:list.id}));
         const games=list.gameIds.map(ui.game).filter(Boolean).slice(0,6),count=list.gameIds.length;
         const stage=el('div','glass-folder-stage'),back=el('div','glass-folder-back'),files=el('div','glass-folder-files');
-        files.id='folder-files-'+(++serial);
+        files.id='folder-files-'+(++serial);files.setAttribute('aria-hidden','true');
         if(games[0]?.banner){const art=el('img');art.src=ui.href('imagens/'+games[0].banner);art.alt='';art.loading='lazy';back.append(art);}
         for(const [index,game] of games.entries()){
             const link=el('a','glass-folder-file');link.href=ui.href('view/game.html?id='+encodeURIComponent(game.id));link.tabIndex=-1;link.setAttribute('aria-label',game.title);link.style.setProperty('--i',index);link.style.setProperty('--n',games.length);
@@ -30,8 +30,8 @@
         const toggle=el('button','glass-folder-toggle');toggle.type='button';toggle.setAttribute('aria-controls',files.id);toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Show games in '+list.name);toggle.disabled=!games.length;
         const copy=el('span','glass-folder-copy');copy.append(el('strong','',list.name),el('small','',count+(count===1?' game':' games')+(list.is_ranked?' · Ranked':'')+(list.is_public?' · Public':' · Private')));toggle.append(copy);
         const open=el('a','glass-folder-open','↗');open.href=url;open.setAttribute('aria-label','Open full list: '+list.name);open.title='Open full list';
-        toggle.addEventListener('click',()=>{const expanded=card.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(expanded));toggle.setAttribute('aria-label',(expanded?'Hide':'Show')+' games in '+list.name);files.querySelectorAll('a').forEach(link=>link.tabIndex=expanded?0:-1);});
-        card.addEventListener('keydown',event=>{if(event.key==='Escape'&&card.classList.contains('is-open')){event.preventDefault();card.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Show games in '+list.name);files.querySelectorAll('a').forEach(link=>link.tabIndex=-1);toggle.focus();}});
+        toggle.addEventListener('click',()=>{const expanded=card.classList.toggle('is-open');toggle.setAttribute('aria-expanded',String(expanded));files.setAttribute('aria-hidden',String(!expanded));toggle.setAttribute('aria-label',(expanded?'Hide':'Show')+' games in '+list.name);files.querySelectorAll('a').forEach(link=>link.tabIndex=expanded?0:-1);});
+        card.addEventListener('keydown',event=>{if(event.key==='Escape'&&card.classList.contains('is-open')){event.preventDefault();card.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');files.setAttribute('aria-hidden','true');toggle.setAttribute('aria-label','Show games in '+list.name);files.querySelectorAll('a').forEach(link=>link.tabIndex=-1);toggle.focus();}});
         stage.append(back,files,front,edge,toggle,open);card.append(stage);
         if(list.description)card.append(el('p','glass-folder-description',list.description));
         let frame=0;

@@ -36,3 +36,6 @@ html[data-presentation-motion=reduced] .glass-folder-card * { transition:none; }
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){.glass-folder-card:hover .glass-folder-front::after{opacity:1}}
 html[data-presentation-motion=reduced] .glass-folder-front::after { opacity:0; transition:none; }
 @supports not (backdrop-filter:blur(1px)){.glass-folder-front{background:linear-gradient(145deg,#4a5140e8,#1c231ef5)}}
+
+.glass-folder-toggle:disabled { opacity:1; }
+.glass-folder-card:focus-within .glass-folder-edge { stroke:var(--yellow); stroke-width:1.6; }

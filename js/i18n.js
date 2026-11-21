@@ -24,6 +24,10 @@
             else if((m=source.match(/^(\d+) hours ago$/)))result='há '+m[1]+' h';
             else if((m=source.match(/^Notifications, (\d+) unread$/)))result='Notificações, '+m[1]+' não lidas';
             else if((m=source.match(/^(\d+) unread notifications$/)))result=m[1]+' notificações não lidas';
+            else if((m=source.match(/^followed (.+)\.$/)))result='começou a seguir '+m[1]+'.';
+            else if((m=source.match(/^(liked|commented on) (.+)'s review of$/)))result=(m[1]==='liked'?'curtiu':'comentou na')+' review de '+m[2]+' sobre';
+            else if((m=source.match(/^(.+)'s (reviews|game lists|diary)$/))){const label={reviews:'Reviews de','game lists':'Listas de jogos de',diary:'Diário de'};result=label[m[2]]+' '+m[1];}
+            else if((m=source.match(/^(Show games in|Hide games in|Open full list:) (.+)$/))){const label={'Show games in':'Mostrar jogos em','Hide games in':'Ocultar jogos em','Open full list:':'Abrir lista completa:'};result=label[m[1]]+' '+m[2];}
             else if((m=source.match(/^(\d+(?:\.\d+)?) out of 5 stars$/)))result=m[1].replace('.',',')+' de 5 estrelas';
             else if((m=source.match(/^(\d+)(?:st|nd|rd|th) review$/)))result=m[1]+'ª review';
             else if((m=source.match(/^(January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})$/)))result=catalog[m[1]]+' de '+m[2];
@@ -32,7 +36,7 @@
         }
         return leading+(result??source)+trailing;
     }
-    function skip(node){return Boolean(node.parentElement?.closest(excluded+',.review-text-link,.home-review-copy,.glass-folder-copy strong,.glass-folder-description,#list-page-title,#list-page-description,#delete-list-name,.home-review-game h3'))||(node.parentElement?.matches('title')&&/\/(profile|list)\.html$/.test(location.pathname));}
+    function skip(node){return Boolean(node.parentElement?.closest(excluded+',.review-text-link,.home-review-copy,.glass-folder-copy strong,.glass-folder-description,#list-page-title,#list-page-description,#delete-list-name,.home-review-game h3,.quick-search-result-copy strong,.tooltip-copy strong,.player-search-card h3'))||(node.parentElement?.matches('title')&&/\/(profile|list)\.html$/.test(location.pathname));}
     function text(node){if(skip(node)||!node.nodeValue.trim())return;let record=originals.get(node);if(!record||node.nodeValue!==record.last)record={source:node.nodeValue,last:null};const next=translate(record.source);record.last=next;originals.set(node,record);if(node.nodeValue!==next)node.nodeValue=next;}
     function scan(){scheduled=false;if(!document.body)return;observer.disconnect();
         for(const option of document.querySelectorAll('option:not([value])'))option.setAttribute('value',option.textContent);

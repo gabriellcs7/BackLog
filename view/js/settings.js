@@ -14,7 +14,7 @@
     $('#settings-reset').addEventListener('click',()=>{const saved=preferences.reset(),movement=motion.setMode('auto');render();status(saved&&movement,'Default settings restored.');});
     function renderAccount(){
         const profile=account.getState().profile,signedIn=Boolean(account.user);
-        $('#settings-avatar').replaceChildren(ui.avatar(profile));$('#settings-player').textContent=profile.display_name||t('Device profile');$('#settings-email').textContent=account.user?.email||'';
+        $('#settings-avatar').replaceChildren(ui.avatar(profile));$('#settings-player').textContent=profile.id==='local'&&profile.display_name==='Your profile'?t('Your profile'):(profile.display_name||t('Device profile'));$('#settings-email').textContent=account.user?.email||'';
         $('#settings-account-status').textContent=t(signedIn?'Connected account':'Device profile');$('#settings-account-description').textContent=t(signedIn?'Connected to your BackLog account.':'Your profile is stored on this device. Sign in to sync it with your account.');
         $('#settings-signin').hidden=signedIn;$('#settings-signout').hidden=!signedIn;$('#settings-signout').disabled=account.loading;$('#settings-export').disabled=account.loading;
         if(account.error)$('#settings-account-feedback').textContent=account.error;

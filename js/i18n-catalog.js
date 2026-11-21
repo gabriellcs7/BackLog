@@ -601,4 +601,48 @@ Choose the diary date for this review. Saving changes updates the existing entry
 Write your review|Escreva sua review
 Saved only in this browser.|Salvo somente neste navegador.
 Could not sign out. Try again.|Não foi possível sair. Tente novamente.
+Player|Jogador
+Loading lists…|Carregando listas…
+Loading games…|Carregando jogos…
+Loading ratings…|Carregando avaliações…
+Your game lists|Suas listas de jogos
+Your games|Seus jogos
+Unranked|Sem ranking
+Public profile|Perfil público
+Search lists|Pesquisar listas
+No games on this wishlist yet.|Ainda não há jogos nesta lista de desejos.
+Could not load this wishlist.|Não foi possível carregar esta lista de desejos.
+Could not load lists.|Não foi possível carregar as listas.
+Could not load this list.|Não foi possível carregar esta lista.
+No games in this list yet.|Ainda não há jogos nesta lista.
+followed you.|começou a seguir você.
+liked your review of|curtiu sua review de
+commented on your review of|comentou na sua review de
+reviewed|escreveu uma review de
+updated|atualizou
+Your status: Played|Seu status: Jogado
+Your status: Playing|Seu status: Jogando
+Your status: Completed|Seu status: Zerado
+Your status: Platinum|Seu status: Platinado
+Your status: Dropped|Seu status: Abandonado
+Your status: Want to play|Seu status: Quero jogar
+No rating yet|Ainda sem avaliação
+Open full list|Abrir lista completa
+Select all|Selecionar tudo
+Clear all|Limpar tudo
+No players found.|Nenhuma pessoa encontrada.
+Find players|Encontrar pessoas
+Search for players|Pesquisar pessoas
+No matches found.|Nenhum resultado encontrado.
+Nothing here yet.|Ainda não há nada aqui.
+Show more|Mostrar mais
+Profile not found.|Perfil não encontrado.
+List not found.|Lista não encontrada.
+Review not found.|Review não encontrada.
+Your account changed. Please reload.|Sua conta mudou. Recarregue a página.
+Choose today or an earlier date.|Escolha hoje ou uma data anterior.
+Sign in to use this feature.|Entre para usar este recurso.
+Online profiles are not connected yet.|Os perfis online ainda não estão conectados.
+Online accounts are not connected yet.|As contas online ainda não estão conectadas.
+Something went wrong. Please try again.|Algo deu errado. Tente novamente.
 `.trim().split('\n').map(line=>line.split('|')));

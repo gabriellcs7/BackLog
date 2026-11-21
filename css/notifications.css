@@ -39,3 +39,19 @@
 @media(max-width:800px){.navbar>.notification-bell{margin-left:auto}.navbar>.menu-toggle{margin-left:0}.notification-bell{width:36px;height:36px}.notifications-heading{padding:16px}.notifications-tabs{margin-inline:16px}.notification-mark-read{width:28px;min-height:36px}}
 @media(prefers-reduced-motion:no-preference){.notifications-panel:not([hidden]){animation:notifications-arrival 160ms ease-out}@keyframes notifications-arrival{from{opacity:0;translate:0 -5px}to{opacity:1;translate:0 0}}}
 html[data-presentation-motion=reduced] .notifications-panel { animation:none; }
+.notification-row { border:1px solid transparent; }
+.notification-row:hover,.notification-row:focus-within { border-color:#ffd21f25; background-color:#ffd21f09; }
+.notification-bell:focus-visible,.notifications-panel button:focus-visible,.notification-copy:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; }
+html[data-presentation-motion=full] .notification-bell { transition:transform 180ms ease,box-shadow 220ms ease,border-color 220ms ease,background 220ms ease; }
+html[data-presentation-motion=full] .notification-bell:hover { transform:translateY(-2px); box-shadow:0 0 22px #ffd21f1c; }
+html[data-presentation-motion=full] .notification-bell:active { transform:translateY(0) scale(.95); }
+html[data-presentation-motion=full] .notification-bell:hover svg { animation:notification-ring 650ms ease-in-out; transform-origin:50% 20%; }
+html[data-presentation-motion=full] .notification-bell.has-new-notification svg { animation:notification-ring 800ms ease-in-out; transform-origin:50% 20%; }
+html[data-presentation-motion=full] .notification-bell.has-new-notification .notification-unread-badge { animation:notification-pop 400ms cubic-bezier(.2,.9,.3,1.4); }
+html[data-presentation-motion=full] .notifications-panel:not([hidden]) .notification-row { animation:notification-row-arrival 230ms ease-out both; animation-delay:var(--notification-delay,0ms); transition:background-color 180ms ease,border-color 180ms ease; }
+html[data-presentation-motion=full] .notifications-tabs .backlog-tab-marker { transition:transform 260ms cubic-bezier(.2,.7,.2,1),width 240ms ease; }
+html[data-presentation-motion=full] .notifications-tabs button { transition:color 180ms ease; }
+html[data-presentation-motion=reduced] .notifications-panel *,html[data-presentation-motion=reduced] .notification-bell,html[data-presentation-motion=reduced] .notification-bell * { animation:none!important; transition:none!important; }
+@keyframes notification-ring { 0%,100% { transform:rotate(0); } 20% { transform:rotate(14deg); } 40% { transform:rotate(-12deg); } 60% { transform:rotate(8deg); } 80% { transform:rotate(-4deg); } }
+@keyframes notification-pop { from { opacity:0; transform:scale(.45); } to { opacity:1; transform:scale(1); } }
+@keyframes notification-row-arrival { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }

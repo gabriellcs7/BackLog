@@ -1,6 +1,6 @@
 /* Indicador deslizante para os filtros existentes, preservando suas ações. */
 (() => {
-    const groups=new Set(),selector='.filter-tabs,.activity-tabs,.connections-tabs,.command-search-tabs,.section-tabs';
+    const groups=new Set(),selector='.filter-tabs,.activity-tabs,.connections-tabs,.command-search-tabs,.section-tabs,.notifications-tabs';
     function enhance(group){
         if(group.dataset.animatedTabs)return;group.dataset.animatedTabs='true';group.classList.add('backlog-animated-tabs');
         if(group.matches('.section-tabs'))group.classList.add('backlog-tabs-underline');

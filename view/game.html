@@ -8,6 +8,7 @@
         <link rel="icon" href="../imagens/favicon_2-32x32.png">
         <link rel="stylesheet" href="../css/social.css">
         <link rel="stylesheet" href="css_game/style.css">
+        <script src="../js/share-controls.js" defer></script>
         <script src="../js/games.js" defer></script>
         <script src="../js/config.js" defer></script>
         <script src="../js/account.js" defer></script>
@@ -277,17 +278,7 @@
         <!-- Notificações e janela de compartilhamento -->
         <div class="toast" id="toast" role="status" aria-live="polite">
         </div>
-        <dialog id="share-dialog">
-            <form method="dialog">
-                <button class="dialog-close" aria-label="Close" value="close">×</button>
-                <h2>Share this game</h2>
-                <p>Copy the address below to share this game page.</p>
-                <label for="share-url">Game address</label>
-                <input id="share-url" type="url" readonly>
-                <button class="button button-primary" id="copy-link" type="button">Copy link</button>
-                <p id="copy-status" role="status"></p>
-            </form>
-        </dialog>
+
         <script src="../js/select-controls.js" defer></script>
         <script src="../js/card-effects.js" defer></script>
         <script src="../js/animated-tabs.js" defer></script>

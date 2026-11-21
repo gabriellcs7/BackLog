@@ -11,10 +11,11 @@
     const grid=document.querySelector('#list-page-games');
     const feedback=document.querySelector('#list-page-feedback');
     const back=document.querySelector('#list-profile-link');
+    const share=document.querySelector('#share-list');window.BacklogShare.mount(share,{url:()=>location.href,title:()=>document.title});
     let generation=0;
 
     async function render(){
-        const ticket=++generation;
+        const ticket=++generation;share.disabled=true;
         grid.replaceChildren();
         title.textContent='Game list';
         document.title='Game list · BackLog';
@@ -51,6 +52,7 @@
                 slot.append(card);
                 grid.append(slot);
             }
+            share.disabled=false;
             feedback.textContent=grid.children.length?'':'No games in this list yet.';
         }catch(error){
             if(ticket===generation)feedback.textContent=error.message||'Could not load this list.';

@@ -22,7 +22,7 @@
         renderLikes();
         const comments=el('div','review-discussion');comments.hidden=true;comments.id='comments-'+review.id;
         const toggle=makeButton('Comments · '+review.comment_count,async()=>{comments.hidden=!comments.hidden;toggle.setAttribute('aria-expanded',String(!comments.hidden));if(!comments.hidden&&!loaded)await loadComments();});toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',comments.id);
-        actions.append(likes,toggle);article.append(header,score,text,actions,message,comments);
+        actions.append(likes,toggle,window.BacklogShare.button({url:ui.reviewHref('id',review.id),title:'Review of '+ui.game(review.game_id)?.title+' by '+review.display_name}));article.append(header,score,text,actions,message,comments);
         let loaded=false,commentOffset=0;
         const seenComments=new Set(),pagedComments=new Set();
         const commentList=el('div','comment-list'),commentFeedback=el('p','social-feedback');commentFeedback.setAttribute('role','status');

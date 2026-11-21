@@ -16,7 +16,7 @@
         const like=el('button','social-button social-button-quiet');like.type='button';
         function refresh(){like.textContent=(review.liked?'♥':'♡')+' '+review.like_count;like.setAttribute('aria-label',(review.liked?'Unlike':'Like')+' review by '+review.display_name);like.setAttribute('aria-pressed',String(review.liked));window.BacklogLikeEffects.render(like,review.liked,review.like_count,'review by '+review.display_name);like.disabled=!account.user||account.user.id===review.user_id;like.title=!account.user?'Sign in to like a review':account.user.id===review.user_id?'This is your review':'';}
         refresh();like.addEventListener('click',()=>ui.action(like,message,async()=>{const next=!review.liked;review.like_count=await api.like(review.id,next);review.liked=next;refresh();window.dispatchEvent(new Event('backlog-likes-change'));}));
-        const read=el('a','','Read review · '+review.comment_count+' comments ↗');read.href=url;actions.append(like,read);
+        const read=el('a','','Read review · '+review.comment_count+' comments ↗');read.href=url;actions.append(like,read,window.BacklogShare.button({url,title:'Review of '+game.title+' by '+review.display_name}));
         const excerpt=el('a','home-review-copy review-text-link',review.text);excerpt.href=url;
         article.append(link,author,excerpt,date,actions,message);return article;
     }

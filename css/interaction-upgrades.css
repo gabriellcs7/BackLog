@@ -27,3 +27,17 @@ html[data-presentation-motion=reduced] .pagination-pill-marker{transition:none}
 .selected-game.sort-drop-before { box-shadow:0 -3px var(--yellow); }
 .selected-game.sort-drop-after { box-shadow:0 3px var(--yellow); }
 @media(max-width:560px){.selected-game.is-ranked{flex-wrap:wrap}.sort-game-handle{width:24px}.selected-game.is-ranked .selected-game-controls{margin-left:auto}}
+
+/* O puxador adiciona uma coluna à grade já existente. */
+.selected-game.is-ranked { grid-template-columns:30px 50px 34px minmax(0,1fr) auto; }
+@media(max-width:560px){.selected-game.is-ranked{grid-template-columns:24px 44px 32px minmax(0,1fr)}.selected-game.is-ranked .selected-game-controls{grid-column:2/-1;justify-content:flex-end}}
+.share-options { position:fixed; z-index:110; width:300px; max-width:calc(100vw - 24px); max-height:calc(100svh - 24px); overflow:auto; padding:16px; border:1px solid #ffffff28; border-radius:14px; background:linear-gradient(145deg,#292d21,#171c14); color:var(--text); box-shadow:0 14px 50px #0009; }
+.share-options>strong { display:block; margin-bottom:13px; font-size:13px; }
+.share-options input { width:100%; padding:10px; margin:0 0 12px; border:1px solid var(--line); border-radius:7px; background:#11150e; color:var(--muted); font-size:11px; }
+.share-option-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.share-options .social-button { padding:9px 12px; min-height:40px; font-size:11px; }
+.share-options p:empty { display:none; }
+.share-local-note { display:block; margin-top:12px; color:var(--muted); font-size:10px; }
+.home-review-actions { flex-wrap:wrap; }
+#share-list { margin-bottom:20px; }
+@media(prefers-reduced-motion:no-preference){.share-options:not([hidden]){animation:share-options-enter 160ms ease-out}@keyframes share-options-enter{from{opacity:0;translate:0 4px}to{opacity:1;translate:0 0}}}

@@ -194,24 +194,5 @@
     window.addEventListener('pageshow', renderCollectionState);
     renderCollectionState();
 
-    const shareDialog = document.querySelector('#share-dialog');
-    const shareUrl = document.querySelector('#share-url');
-    document.querySelector('#share-game').addEventListener('click', () => {
-        shareUrl.value = window.location.href.split('#')[0];
-        document.querySelector('#copy-status').textContent = window.location.protocol === 'file:'
-            ? 'This is a local preview. Publish the page to get a public address.' : '';
-        shareDialog.showModal();
-        shareUrl.focus();
-        shareUrl.select();
-    });
-    document.querySelector('#copy-link').addEventListener('click', async () => {
-        try {
-            await navigator.clipboard.writeText(shareUrl.value);
-            document.querySelector('#copy-status').textContent = 'Link copied!';
-        } catch {
-            shareUrl.focus();
-            shareUrl.select();
-            document.querySelector('#copy-status').textContent = 'Select the address and copy it with Ctrl+C or your device\'s copy menu.';
-        }
-    });
+    window.BacklogShare.mount(document.querySelector('#share-game'),{url:()=>location.href.split('#')[0],title:()=>document.title});
 })();

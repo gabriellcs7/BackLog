@@ -16,10 +16,12 @@
         <script src="../js/reviews.js" defer></script>
         <script src="../js/ui.js" defer></script>
         <script src="../js/like-burst.js" defer></script>
+        <script src="../js/list-progress.js" defer></script>
         <script src="../js/community.js" defer></script>
         <title>Game list · BackLog</title>
         <script src="js/list-page.js" defer></script>
         <link rel="stylesheet" href="../css/interface-effects.css">
+        <link rel="stylesheet" href="../css/list-progress.css">
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
     </head>
@@ -64,6 +66,9 @@
                 </div>
             </header>
             <button id="share-list" class="social-button" type="button" disabled>↗ Share list</button>
+            <section id="list-progress-panel" class="list-progress-panel" aria-labelledby="list-progress-title" hidden>
+                <div><h2 id="list-progress-title">Your progress</h2><p>Your played games in this list. Click the indicator to switch between percentage and game count.</p></div>
+            </section>
             <ol class="catalog-grid" id="list-page-games"></ol>
             <p id="list-page-feedback" class="social-feedback" role="status">Loading list…</p>
         </main>

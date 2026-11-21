@@ -75,8 +75,9 @@
     for(const tab of tabs)tab.addEventListener('click',()=>selectConnections(tab.dataset.connections));
     dialog.addEventListener('close',()=>{if(!dialog.open)connectionsVersion++;});
     more.addEventListener('click',()=>loadConnections());
-    $('profile-photo').addEventListener('change',async()=>{
-        const file=$('profile-photo').files[0];if(!file)return;const ticket=++photoVersion;processing=true;$('edit-profile-feedback').textContent='Preparing photo…';
+    const photoStage=detail=>window.dispatchEvent(new CustomEvent('backlog-photo-stage',{detail}));
+    async function acceptPhoto(file){
+        if(!file)return false;const ticket=++photoVersion;processing=true;$('edit-profile-feedback').textContent='Preparing photo…';
         try{
             if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024)throw new Error('Choose a JPG, PNG or WebP photo smaller than 5 MB.');
             const image=await createImageBitmap(file);if(ticket!==photoVersion){image.close();return;}
@@ -85,10 +86,12 @@
             if(!blob){$('edit-profile-feedback').textContent='Photo adjustment cancelled.';return;}
             stagedPhoto=blob;const reader=new FileReader();reader.onload=()=>{if(ticket===photoVersion)preview({id:'local',display_name:profile.display_name,avatar_local:reader.result});};reader.readAsDataURL(blob);
             $('edit-profile-feedback').textContent='Photo ready. Save your profile to apply it.';
+            photoStage({status:'ready',name:file.name,size:file.size});return true;
         }catch(error){if(ticket===photoVersion)$('edit-profile-feedback').textContent=error.message;}
         finally{if(ticket===photoVersion)processing=false;$('profile-photo').value='';}
-    });
-    $('remove-photo').addEventListener('click',()=>{++photoVersion;processing=false;stagedPhoto=null;preview({display_name:profile.display_name});$('edit-profile-feedback').textContent='Photo removed. Save your profile to apply it.';});
+    }
+    $('profile-photo').addEventListener('change',()=>acceptPhoto($('profile-photo').files[0]));
+    $('remove-photo').addEventListener('click',()=>{++photoVersion;processing=false;stagedPhoto=null;preview({display_name:profile.display_name});$('edit-profile-feedback').textContent='Photo removed. Save your profile to apply it.';photoStage({status:'reset'});});
     $('profile-dialog').addEventListener('close',()=>{++photoVersion;processing=false;stagedPhoto=undefined;document.querySelector('.photo-crop-dialog')?.close();});
-    window.BacklogProfileSocial={render,edit(value){++photoVersion;processing=false;stagedPhoto=undefined;$('profile-photo').value='';preview(value);},photo(){if(processing)throw new Error('Wait for your photo to finish preparing.');return stagedPhoto;}};
+    window.BacklogProfileSocial={render,acceptPhoto,edit(value){++photoVersion;processing=false;stagedPhoto=undefined;$('profile-photo').value='';preview(value);photoStage({status:'reset'});},photo(){if(processing)throw new Error('Wait for your photo to finish preparing.');return stagedPhoto;}};
 })();

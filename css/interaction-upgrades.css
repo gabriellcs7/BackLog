@@ -19,3 +19,11 @@ html[data-presentation-motion=reduced] .like-burst-heart,html[data-presentation-
 .pagination-pill-marker { position:absolute; top:0; left:0; border-radius:999px; background:var(--yellow); z-index:-1; pointer-events:none; }
 @media(prefers-reduced-motion:no-preference){.pagination-pill-marker{transition:transform 280ms cubic-bezier(.2,.8,.2,1),width 220ms ease}}
 html[data-presentation-motion=reduced] .pagination-pill-marker{transition:none}
+
+.selected-game.is-ranked { position:relative; }
+.sort-game-handle { flex:none; width:30px; min-height:44px; padding:0; border:0; border-radius:6px; background:none; color:var(--muted); font-size:25px; cursor:grab; touch-action:none; }
+.sort-game-handle:hover,.sort-game-handle:focus-visible { color:var(--yellow); background:#ffd21f0a; }
+.selected-game.is-sorting { position:relative; z-index:3; background:#2a2e20; box-shadow:0 8px 24px #0008; opacity:.85; pointer-events:none; }
+.selected-game.sort-drop-before { box-shadow:0 -3px var(--yellow); }
+.selected-game.sort-drop-after { box-shadow:0 3px var(--yellow); }
+@media(max-width:560px){.selected-game.is-ranked{flex-wrap:wrap}.sort-game-handle{width:24px}.selected-game.is-ranked .selected-game-controls{margin-left:auto}}

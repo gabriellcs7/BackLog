@@ -330,7 +330,7 @@
         const ranked=$('#list-ranked').checked,ids=[...selected],container=$('#list-order');
         $('#list-order-panel').hidden=ids.length===0;
         $('#list-order-title').textContent=ranked?'Your ranking':'Selected games';
-        $('#list-order-help').textContent=ranked?'Number 1 is your top pick. Use the arrows or enter a position to reorder games.':'These games have no preference order. Turn on ranking to number and reorder them.';
+        $('#list-order-help').textContent=ranked?'Number 1 is your top pick. Drag the handle, use its arrow keys, or enter a position to reorder games.':'These games have no preference order. Turn on ranking to number and reorder them.';
         container.replaceChildren();
         ids.forEach((id,index)=>{
             const item=game(id),row=el('li','selected-game'+(ranked?' is-ranked':''));row.dataset.game=id;
@@ -341,9 +341,11 @@
             const title=el('span','selected-game-title',item.title),controls=el('div','selected-game-controls');
             if(ranked){const up=button('↑',()=>moveGame(id,index-1,'up'),'social-button'),down=button('↓',()=>moveGame(id,index+1,'down'),'social-button');up.dataset.move='up';down.dataset.move='down';up.disabled=index===0;down.disabled=index===ids.length-1;up.setAttribute('aria-label','Move '+item.title+' up');down.setAttribute('aria-label','Move '+item.title+' down');controls.append(up,down);}
             const remove=button('×',()=>{selected.delete(id);renderPicker();$('#list-order-feedback').textContent=item.title+' removed from the list.';$('#list-search').focus();},'social-button social-danger');remove.setAttribute('aria-label','Remove '+item.title+' from list');controls.append(remove);
+            if(ranked){const handle=button('⠿',()=>{},'sort-game-handle');handle.dataset.move='handle';handle.setAttribute('aria-label','Reorder '+item.title);handle.setAttribute('aria-describedby','list-order-help');row.append(handle);}
             row.append(position,image,title,controls);container.append(row);
         });
     }
+    window.BacklogSortable.attach($('#list-order'),(id,to)=>moveGame(id,to,'handle'));
     function moveGame(id,to,focus){
         const ids=[...selected],from=ids.indexOf(id);if(from<0||to<0||to>=ids.length)return;
         ids.splice(from,1);ids.splice(to,0,id);selected=new Set(ids);renderSelection();

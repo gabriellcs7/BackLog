@@ -424,4 +424,181 @@ Using your device setting. Animations are on.|Seguindo seu dispositivo. As anima
 Reduced motion is on.|O movimento reduzido está ativado.
 Full animations are on.|Todas as animações estão ativadas.
 This choice applies to this page only.|Esta escolha vale apenas nesta página.
+YOUR PREFERENCES|SUAS PREFERÊNCIAS
+Make BackLog yours|Deixe o BackLog do seu jeito
+Settings sections|Seções das configurações
+BackLog · Track and log your games|BackLog · Acompanhe e registre seus jogos
+TRACK YOUR COLLECTION|ACOMPANHE SUA COLEÇÃO
+Track what you play.|Acompanhe o que você joga.
+Plan what|Planeje o que
+comes next.|vem a seguir.
+Log finished games, rate what you've played, and organize your backlog in one place.|Registre os jogos que terminou, avalie o que jogou e organize sua coleção em um só lugar.
+Browse games|Explorar jogos
+Open my backlog →|Abrir minha coleção →
+FEATURED GAME|JOGO EM DESTAQUE
+Presentation animations|Animações das apresentações
+Use device setting|Usar configuração do dispositivo
+YOUR NEXT ADVENTURE|SUA PRÓXIMA AVENTURA
+ONE MORE|MAIS UM
+WORLD.|MUNDO.
+New stories. Familiar favorites.|Novas histórias. Favoritos de sempre.
+Find the next game for your backlog.|Encontre o próximo jogo para sua coleção.
+Explore the catalog ↗|Explorar o catálogo ↗
+Scroll to explore|Role para explorar
+Skip to catalog ↓|Pular para o catálogo ↓
+POPULAR TITLES|JOGOS POPULARES
+View all games ↗|Ver todos os jogos ↗
+Multiplayer|Multijogador
+FOLLOWING FEED|DE QUEM VOCÊ SEGUE
+Recent reviews from players you follow|Reviews recentes de pessoas que você segue
+The latest post from each person you follow.|A publicação mais recente de cada pessoa que você segue.
+Loading your feed…|Carregando seu feed…
+More recent reviews|Mais reviews recentes
+COMMUNITY FAVORITES|FAVORITOS DA COMUNIDADE
+What players are saying|O que os jogadores estão dizendo
+The most-liked reviews from the BackLog community.|As reviews mais curtidas da comunidade BackLog.
+Loading popular reviews…|Carregando reviews populares…
+More popular reviews|Mais reviews populares
+THE GAMING BRIEF|O RESUMO DOS GAMES
+Gaming news|Notícias dos games
+Announcements, releases and stories from across the industry.|Anúncios, lançamentos e histórias de todo o mundo dos games.
+Selected|Selecionado
+IN THE SPOTLIGHT|EM DESTAQUE
+Death Stranding 2 leads November’s PlayStation Plus lineup|Death Stranding 2 lidera os jogos de novembro do PlayStation Plus
+Sam’s next journey joins the Game Catalog alongside Atomfall, Dragon Quest III HD-2D Remake and more.|A próxima jornada de Sam chega ao catálogo ao lado de Atomfall, Dragon Quest III HD-2D Remake e outros jogos.
+Read story|Ler notícia
+Opens in a new tab.|Abre em uma nova aba.
+Hela and The Outlast Trials headline the next Game Pass wave|Hela e The Outlast Trials são destaques da próxima leva do Game Pass
+Co-op magic, survival horror and more are on the way.|Magia em cooperação, terror de sobrevivência e mais novidades estão chegando.
+Industry|Indústria
+Xbox celebrates 25 years with new gameplay and anniversary updates|Xbox comemora 25 anos com novos gameplays e novidades de aniversário
+A look at Fable, Halo Firefight and the anniversary announcements.|Novidades de Fable, Halo Firefight e os anúncios de aniversário.
+Pikmin gets its own day, new shorts and a fresh look at Pikmin 4|Pikmin ganha seu próprio dia, novos curtas e novidades de Pikmin 4
+Nintendo’s showcase brings Dandori Academy and Pikmin Bloom news.|A apresentação da Nintendo traz novidades de Dandori Academy e Pikmin Bloom.
+From the studios. To your next conversation.|Dos estúdios para sua próxima conversa.
+Official sources|Fontes oficiais
+UPCOMING TITLES|PRÓXIMOS LANÇAMENTOS
+Martial arts|Artes marciais
+EVERY SESSION COUNTS|CADA PARTIDA CONTA
+Track the games.|Registre os jogos.
+Keep the stories.|Guarde as histórias.
+Your next adventure deserves a place in your backlog.|Sua próxima aventura merece um lugar na sua coleção.
+PLAY. RATE. REMEMBER.|JOGUE. AVALIE. RELEMBRE.
+A home for|Um lugar para
+every game.|cada jogo.
+From the first session to the final credits. Keep your collection, ratings and memories together with BackLog.|Da primeira partida aos créditos finais. Reúna sua coleção, avaliações e memórias no BackLog.
+YOUR COLLECTION|SUA COLEÇÃO
+A WORLD TO REMEMBER|UM MUNDO PARA RELEMBRAR
+GAMES TO EXPLORE|JOGOS PARA EXPLORAR
+FIND YOUR NEXT FAVORITE|ENCONTRE SEU PRÓXIMO FAVORITO
+Every rating matters|Cada avaliação importa
+Make your mark.|Deixe sua marca.
+Your next adventure|Sua próxima aventura
+Keep it in your backlog.|Guarde na sua coleção.
+YOUR GAMES.|SEUS JOGOS.
+YOUR STORY.|SUA HISTÓRIA.
+THE NEXT CHAPTER IS YOURS|O PRÓXIMO CAPÍTULO É SEU
+Great games.|Grandes jogos.
+Lasting memories.|Memórias duradouras.
+Discover your next favorite, rate the games you love and build a collection that tells your story.|Descubra seu próximo favorito, avalie os jogos que ama e crie uma coleção que conte sua história.
+FEED|FEED
+Recent reviews, ratings, and follows from players you follow.|Reviews, avaliações e novas conexões de quem você segue.
+For you|Para você
+PLAY LOG|REGISTRO DE JOGOS
+Gaming|Diário de
+diary.|jogos.
+A chronological record of games you rated, reviewed, or played.|Um registro cronológico dos jogos que você avaliou ou sobre os quais escreveu.
+ENTRIES|REGISTROS
+GAMES|JOGOS
+DAYS LOGGED|DIAS REGISTRADOS
+Month|Mês
+Entries|Registros
+Written reviews|Reviews escritas
+Change diary date|Alterar data no diário
+Save date|Salvar data
+Remove this entry?|Remover este registro?
+Only this diary entry is removed. Your review and collection status stay unchanged.|Somente este registro do diário será removido. Sua review e seu status na coleção continuam salvos.
+Keep entry|Manter registro
+Welcome back to Vice City.|Bem-vindo de volta a Vice City.
+OVERVIEW|VISÃO GERAL
+COMING SOON|EM BREVE
+Rate or review|Avaliar ou escrever review
+Remove|Remover
+From the BackLog community|Da comunidade BackLog
+Loading community ratings…|Carregando avaliações da comunidade…
+Game overview and discussion|Visão geral e conversas sobre o jogo
+About the game|Sobre o jogo
+PLAY IT ON|JOGUE EM
+The details|Os detalhes
+Setting|Ambientação
+← Profile lists|← Listas do perfil
+Game list|Lista de jogos
+↗ Share list|↗ Compartilhar lista
+Loading list…|Carregando lista…
+← Profile|← Perfil
+GAMES CATALOG|CATÁLOGO DE JOGOS
+Explore games and|Explore jogos e
+organize your backlog.|organize sua coleção.
+Browse titles by genre, check details, and track what you want to play.|Explore jogos por gênero, confira os detalhes e acompanhe o que deseja jogar.
+CATALOG|CATÁLOGO
+All games|Todos os jogos
+Status|Status
+Sort games|Ordenar jogos
+Featured first|Destaques primeiro
+Name: A-Z|Nome: A-Z
+Name: Z-A|Nome: Z-A
+More players|Mais pessoas
+Catalog|Catálogo
+No games found.|Nenhum jogo encontrado.
+Try another search or choose a different genre.|Tente outra pesquisa ou escolha um gênero diferente.
+Show all games|Mostrar todos os jogos
+Enable JavaScript to search and filter the collection. You can still|Ative o JavaScript para pesquisar e filtrar a coleção. Você ainda pode
+view Grand Theft Auto VI|ver Grand Theft Auto VI
+End of catalog results.|Fim dos resultados do catálogo.
++ Create a list|+ Criar uma lista
+Currently playing|Jogando atualmente
+SYNC AND BACKUP|SINCRONIZAÇÃO E CÓPIA DE SEGURANÇA
+Your profile and lists are saved on this device.|Seu perfil e suas listas estão salvos neste dispositivo.
+Open local site ↗|Abrir site local ↗
+Import keeps lists private and never publishes your saved reviews.|A importação mantém as listas privadas e não publica suas reviews salvas.
+Create an account|Criar uma conta
+Profile photo|Foto de perfil
+JPG, PNG or WebP · up to 5 MB. Adjust the crop and zoom before saving.|JPG, PNG ou WebP · até 5 MB. Ajuste o enquadramento e o zoom antes de salvar.
+Remove photo|Remover foto
+Profile banner|Banner do perfil
+Game artwork|Arte de um jogo
+No banner|Sem banner
+Save banner|Salvar banner
+Drag the covers to rearrange them. Keyboard: Alt + Left or Right.|Arraste as capas para reorganizá-las. Teclado: Alt + seta esquerda ou direita.
+(optional)|(opcional)
+Rank this list|Criar ranking nesta lista
+Turn on rankings for a top 10, top 5 or any list with a preference order.|Ative o ranking para criar um top 10, top 5 ou outra lista ordenada por preferência.
+Show this list on my public profile|Mostrar esta lista no meu perfil público
+Lists on this device are private.|As listas deste dispositivo são privadas.
+Find games|Encontrar jogos
+Only games I've played|Somente jogos que já joguei
+Add visible games|Adicionar jogos visíveis
+Selected games|Jogos selecionados
+Delete this list?|Excluir esta lista?
+Your games and reviews will stay in your collection.|Seus jogos e reviews continuarão na coleção.
+Delete list|Excluir lista
+Keep list|Manter lista
+Load more|Carregar mais
+← Home|← Início
+Loading review…|Carregando review…
+ONLY YOU|SOMENTE VOCÊ
+Choose your rating, add your thoughts, and set the date for your diary.|Escolha sua nota, escreva sua opinião e defina a data no diário.
+Delete review|Excluir review
+Delete your rating and review for this game?|Excluir sua avaliação e review deste jogo?
+Yes, delete|Sim, excluir
+Keep review|Manter review
+Use my device review as a draft|Usar minha review do dispositivo como rascunho
+Not rated|Sem avaliação
+Clear rating|Limpar avaliação
+Choose the left half for a half-star, or the right half for a full star. Use arrow keys to adjust.|Escolha a metade esquerda para meia estrela ou a direita para uma estrela inteira. Use as setas do teclado para ajustar.
+Diary date|Data no diário
+Choose the diary date for this review. Saving changes updates the existing entry.|Escolha a data desta review no diário. Salvar as alterações atualiza o registro existente.
+Write your review|Escreva sua review
+Saved only in this browser.|Salvo somente neste navegador.
+Could not sign out. Try again.|Não foi possível sair. Tente novamente.
 `.trim().split('\n').map(line=>line.split('|')));

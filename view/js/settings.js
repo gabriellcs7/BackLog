@@ -7,7 +7,7 @@
         const node=$('#settings-save-state');node.classList.toggle('is-temporary',!saved);node.querySelector('span').textContent=t(saved?message:'Storage is unavailable. These settings apply to this page only.');
         if(saved&&!motion.matches)node.animate([{opacity:.4,transform:'translateY(3px)'},{opacity:1,transform:'none'}],{duration:220,easing:'ease-out'});
     }
-    function render(){const value=preferences.get();for(const button of document.querySelectorAll('[data-language]'))button.setAttribute('aria-pressed',String(button.dataset.language===value.language));for(const button of document.querySelectorAll('[data-preference]'))button.setAttribute('aria-checked',String(value[button.dataset.preference]));$('#presentation-motion').value=motion.mode;}
+    function render(){const value=preferences.get();for(const button of document.querySelectorAll('[data-language]'))button.setAttribute('aria-pressed',String(button.dataset.language===value.language));for(const button of document.querySelectorAll('[data-preference]'))button.setAttribute('aria-checked',String(value[button.dataset.preference]));$('#presentation-motion').value=motion.mode;$('#settings-privacy .settings-section-heading p').textContent=t(value.publicLists?'Public by default':'Private by default');}
     document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>status(preferences.set('language',button.dataset.language))));
     document.querySelectorAll('[data-preference]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.preference;status(preferences.set(key,!preferences.get()[key]));}));
     $('#presentation-motion').addEventListener('change',event=>status(motion.setMode(event.target.value)));

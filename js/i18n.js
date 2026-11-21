@@ -32,7 +32,7 @@
         }
         return leading+(result??source)+trailing;
     }
-    function skip(node){return Boolean(node.parentElement?.closest(excluded));}
+    function skip(node){return Boolean(node.parentElement?.closest(excluded+',.review-text-link,.home-review-copy,.glass-folder-copy strong,.glass-folder-description,#list-page-title,#list-page-description,#delete-list-name,.home-review-game h3'))||(node.parentElement?.matches('title')&&/\/(profile|list)\.html$/.test(location.pathname));}
     function text(node){if(skip(node)||!node.nodeValue.trim())return;let record=originals.get(node);if(!record||node.nodeValue!==record.last)record={source:node.nodeValue,last:null};const next=translate(record.source);record.last=next;originals.set(node,record);if(node.nodeValue!==next)node.nodeValue=next;}
     function scan(){scheduled=false;if(!document.body)return;observer.disconnect();
         for(const option of document.querySelectorAll('option:not([value])'))option.setAttribute('value',option.textContent);

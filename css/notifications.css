@@ -36,7 +36,8 @@
 .notifications-empty strong { display:block; color:var(--text); }
 .notifications-empty p { font-size:11px; }
 .notifications-empty-icon { display:block; color:var(--yellow); font-size:26px; margin-bottom:9px; }
-@media(max-width:800px){.navbar>.notification-bell{margin-left:auto}.navbar>.menu-toggle{margin-left:0}.notification-bell{width:36px;height:36px}.notifications-heading{padding:16px}.notifications-tabs{margin-inline:16px}.notification-mark-read{width:28px;min-height:36px}}
+@media(min-width:801px) and (max-width:900px){.navbar:has(>.notification-bell){gap:16px}}
+@media(max-width:800px){.navbar>.notification-bell{order:2;margin-left:auto}.navbar>.menu-toggle{margin-left:0}.notification-bell{width:36px;height:36px}.notifications-heading{padding:16px}.notifications-tabs{margin-inline:16px}.notification-mark-read{width:28px;min-height:36px}}
 @media(prefers-reduced-motion:no-preference){.notifications-panel:not([hidden]){animation:notifications-arrival 160ms ease-out}@keyframes notifications-arrival{from{opacity:0;translate:0 -5px}to{opacity:1;translate:0 0}}}
 html[data-presentation-motion=reduced] .notifications-panel { animation:none; }
 .notification-row { border:1px solid transparent; }

@@ -78,4 +78,4 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Contam Played, Playing, Completed, Platinum e Dropped; Want to play fica fora. Uma avaliação sem status também conta como jogada. O cálculo considera todos os jogos válidos da lista, incluindo os que não aparecem nas seis capas da pasta. Listas vazias usam 0% / 0 of 0.
 - Aguarda a sincronização da conta; erros mostram progresso indisponível em vez de uma contagem falsa. Não grava avaliações, status ou dados da lista. Sem SQL adicional.
 - Testado em navegador isolado com filtros combinados, remoção/reset/busca, URL e histórico/paginação, alternância e atualização por status/avaliação, progresso do visitante em lista alheia, listas vazias e layout mobile. Nenhuma conta real foi alterada.
-- Notificações (opção 1) e galeria (opção 3) foram feitas somente como prévias separadas fora do repositório, sem integrar ao site.
+- Notificações (opção 1) e galeria (opção 3) foram inicialmente apresentadas como prévias e depois integradas com autorização. Detalhes em `notificacoes-galeria.md`.

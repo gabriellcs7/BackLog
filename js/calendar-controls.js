@@ -9,7 +9,7 @@
     function enhance(input){
         if(input.dataset.calendarEnhanced)return;input.dataset.calendarEnhanced='true';
         const wrap=el('span','calendar-field'),trigger=el('button','calendar-trigger','▦');trigger.type='button';trigger.setAttribute('aria-haspopup','dialog');trigger.setAttribute('aria-expanded','false');
-        input.before(wrap);wrap.append(input,trigger);
+        if(!input.hasAttribute('aria-label')&&input.labels?.[0])input.setAttribute('aria-label',input.labels[0].textContent.trim());input.before(wrap);wrap.append(input,trigger);
         const panel=el('div','date-calendar');panel.id='date-calendar-'+instances.length;panel.hidden=true;panel.setAttribute('role','dialog');panel.dataset.noTranslate='';trigger.setAttribute('aria-controls',panel.id);
         const native=typeof panel.showPopover==='function';if(native)panel.setAttribute('popover','auto');(input.closest('dialog')||document.body).append(panel);
         let month=new Date(),opened=false,focusDate=null;

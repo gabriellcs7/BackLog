@@ -48,3 +48,13 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Estilos em `css/community-polish.css`. São adaptações locais para o HTML/CSS/JavaScript existente, sem adicionar React ou dependências.
 - Bento Grid foi solicitado apenas como prévia e não foi aplicado à Home.
 - Verificação em navegador isolado com dados simulados: menu e teclado, skeletons de reviews/listas, estados vazios, números finais e tamanho, movimento reduzido e layout mobile. Sem alterações em contas reais e sem SQL adicional.
+
+## Foto, curtidas, paginação, ranking e compartilhamento
+
+- Image Crop: https://21st.dev/@originui/components/image-crop — `js/photo-crop.js`. Enquadramento com arrasto por mouse/toque, zoom, centralização e setas do teclado. Exporta WebP 384 × 384; cancelar preserva a foto anterior e Use photo apenas prepara o rascunho. Só Save profile aplica a mudança. Fechar a edição cancela o rascunho e tarefas pendentes.
+- Like Burst: https://21st.dev/@ddoemonn/components/like-burst — `js/like-burst.js`. Efeito amarelo após a API confirmar a curtida; falhas mantêm o estado anterior e exibem a mensagem existente. Respeita movimento reduzido.
+- Floating Pill Pagination: https://21st.dev/@shadcnspace/components/pagination-01 — `js/pill-pagination.js` com `js/catalog.js`. Mantém 42 jogos por página, links reais para abrir em outra aba, indicador deslizante e navegação pelo histórico do navegador.
+- Sortable List: https://21st.dev/@ebnsina/components/sortable — `js/sortable-list.js`. Puxador em listas ranqueadas com mouse, toque e teclado (setas, Home/End), marcação do destino, rolagem no diálogo e Escape para cancelar o arrasto. Reordena o rascunho; Save list usa a persistência existente. Setas e posição numérica continuam disponíveis.
+- Share Button: https://21st.dev/@reuno-ui/components/share-button — `js/share-controls.js`. Painel expansível em jogos, reviews públicas e páginas de listas. Copiar link tem seleção manual como alternativa; compartilhamento nativo só abre após clique. Links de redes sociais aparecem apenas para endereços externos, e localhost continua com copiar/compartilhamento do dispositivo. O painel acompanha o botão durante a rolagem.
+- São adaptações locais para o site existente, com estilos em `css/interaction-upgrades.css`, sem novas dependências ou SQL.
+- Verificação em navegador isolado: cancelar/ajustar foto sem gravar conta, falha/sucesso de curtidas com API simulada, páginas 42/42/16 e voltar/avançar, ranking por teclado/mouse/toque e salvamento em armazenamento local isolado, compartilhamento com cópia/serviço nativo simulados e layouts mobile. As 13 páginas também foram abertas sem erros de JavaScript.

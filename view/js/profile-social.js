@@ -89,5 +89,6 @@
         finally{if(ticket===photoVersion)processing=false;$('profile-photo').value='';}
     });
     $('remove-photo').addEventListener('click',()=>{++photoVersion;processing=false;stagedPhoto=null;preview({display_name:profile.display_name});$('edit-profile-feedback').textContent='Photo removed. Save your profile to apply it.';});
+    $('profile-dialog').addEventListener('close',()=>{++photoVersion;processing=false;stagedPhoto=undefined;document.querySelector('.photo-crop-dialog')?.close();});
     window.BacklogProfileSocial={render,edit(value){++photoVersion;processing=false;stagedPhoto=undefined;$('profile-photo').value='';preview(value);},photo(){if(processing)throw new Error('Wait for your photo to finish preparing.');return stagedPhoto;}};
 })();

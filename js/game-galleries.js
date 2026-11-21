@@ -53,6 +53,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/red-dead-redemption-2/5.webp",
         "thumb": "galeria/red-dead-redemption-2/5-thumb.webp"
+      },
+      {
+        "full": "galeria/red-dead-redemption-2/6.webp",
+        "thumb": "galeria/red-dead-redemption-2/6-thumb.webp",
+        "source": "https://www.ireddead.com/rdr2/images/mount-hagen-riding-in-the-snow-1509",
+        "credit": "Rockstar Games / iRedDead archive"
       }
     ]
   },
@@ -859,6 +865,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/watch-dogs-2/5.webp",
         "thumb": "galeria/watch-dogs-2/5-thumb.webp"
+      },
+      {
+        "full": "galeria/watch-dogs-2/6.webp",
+        "thumb": "galeria/watch-dogs-2/6-thumb.webp",
+        "source": "https://www.ubisoft.com/en-us/game/watch-dogs/watch-dogs-2",
+        "credit": "Ubisoft"
       }
     ]
   },
@@ -915,6 +927,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/watch-dogs-legion/5.webp",
         "thumb": "galeria/watch-dogs-legion/5-thumb.webp"
+      },
+      {
+        "full": "galeria/watch-dogs-legion/6.webp",
+        "thumb": "galeria/watch-dogs-legion/6-thumb.webp",
+        "source": "https://www.ubisoft.com/en-us/game/watch-dogs/legion",
+        "credit": "Ubisoft"
       }
     ]
   },
@@ -1061,6 +1079,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/counter-strike-source/5.webp",
         "thumb": "galeria/counter-strike-source/5-thumb.webp"
+      },
+      {
+        "full": "galeria/counter-strike-source/6.webp",
+        "thumb": "galeria/counter-strike-source/6-thumb.webp",
+        "source": "https://hookedgamers.com/pc/counter-strike_source/screenshots.html",
+        "credit": "Valve / Hooked Gamers archive"
       }
     ]
   },
@@ -1567,6 +1591,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/silent-hill-homecoming/5.webp",
         "thumb": "galeria/silent-hill-homecoming/5-thumb.webp"
+      },
+      {
+        "full": "galeria/silent-hill-homecoming/6.webp",
+        "thumb": "galeria/silent-hill-homecoming/6-thumb.webp",
+        "source": "https://www.silenthillmemories.net/sh5/screens_en.htm",
+        "credit": "Konami / Silent Hill Memories archive"
       }
     ]
   },
@@ -1713,6 +1743,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/poppy-playtime/5.webp",
         "thumb": "galeria/poppy-playtime/5-thumb.webp"
+      },
+      {
+        "full": "galeria/poppy-playtime/6.webp",
+        "thumb": "galeria/poppy-playtime/6-thumb.webp",
+        "source": "https://apps.apple.com/us/app/poppy-playtime-chapter-1/id1610947489",
+        "credit": "Mob Entertainment · iPad version"
       }
     ]
   },
@@ -1919,6 +1955,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/skate/5.webp",
         "thumb": "galeria/skate/5-thumb.webp"
+      },
+      {
+        "full": "galeria/skate/6.webp",
+        "thumb": "galeria/skate/6-thumb.webp",
+        "source": "https://www.ea.com/games/skate/skate",
+        "credit": "Electronic Arts"
       }
     ]
   },
@@ -1945,6 +1987,12 @@ window.BacklogGameGalleries = {
       {
         "full": "galeria/minecraft-dungeons/5.webp",
         "thumb": "galeria/minecraft-dungeons/5-thumb.webp"
+      },
+      {
+        "full": "galeria/minecraft-dungeons/6.webp",
+        "thumb": "galeria/minecraft-dungeons/6-thumb.webp",
+        "source": "https://www.xbox.com/en-us/games/store/minecraft-dungeons/9n8nj74fztg9",
+        "credit": "Mojang / Microsoft"
       }
     ]
   },

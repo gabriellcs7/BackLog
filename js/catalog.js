@@ -17,13 +17,10 @@
     let collection = params.get('saved') === '1' ? 'saved' : 'all';
 
     searchInput.value = (params.get('q') || '').slice(0, 120);
-    if ([...genreSelect.options].some(option => option.value === params.get('genre'))) {
-        genreSelect.value = params.get('genre');
-    }
+    function selectedValues(select){return [...select.selectedOptions].map(option=>option.value).filter(value=>value!=='all');}
+    function readSelection(select,key,address){const values=new Set(address.getAll(key).flatMap(value=>value.split(',')));for(const option of select.options)option.selected=option.value!=='all'&&values.has(option.value);}
+    readSelection(genreSelect,'genre',params);readSelection(statusSelect,'status',params);
     if (['az', 'za'].includes(params.get('sort'))) sortSelect.value = params.get('sort');
-    if (window.Backlog.statusOptions.some(option => option.id === params.get('status'))) {
-        statusSelect.value = params.get('status');
-    }
 
     function normalize(text) {
         return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -73,9 +70,9 @@
         const query = searchInput.value.trim();
         if (query) url.searchParams.set('q', query);
         if (collection === 'saved') url.searchParams.set('saved', '1');
-        if (genreSelect.value !== 'all') url.searchParams.set('genre', genreSelect.value);
+        for(const value of selectedValues(genreSelect))url.searchParams.append('genre',value);
         if (sortSelect.value !== 'featured') url.searchParams.set('sort', sortSelect.value);
-        if (statusSelect.value !== 'all') url.searchParams.set('status', statusSelect.value);
+        for(const value of selectedValues(statusSelect))url.searchParams.append('status',value);
         if (collection === 'all' && pageNumber > 1) url.searchParams.set('page', String(pageNumber));
         return url;
     }
@@ -139,12 +136,13 @@
 
     function render() {
         const query = normalize(searchInput.value.trim());
+        const genres=selectedValues(genreSelect),statuses=selectedValues(statusSelect);
         let matches = games.filter(game => {
             const searchableText = [game.title, game.franchise || '', ...(game.aliases || [])].join(' ');
             const matchesQuery = normalize(searchableText).includes(query);
-            const matchesGenre = genreSelect.value === 'all' || game.genre === genreSelect.value;
+            const matchesGenre = !genres.length || genres.includes(game.genre);
             const matchesCollection = collection === 'all' || window.Backlog.isSaved(game.id);
-            const matchesStatus = statusSelect.value === 'all' || window.Backlog.getStatus(game.id)?.id === statusSelect.value;
+            const matchesStatus = !statuses.length || statuses.includes(window.Backlog.getStatus(game.id)?.id);
             return matchesQuery && matchesGenre && matchesCollection && matchesStatus;
         });
 
@@ -182,7 +180,7 @@
         const noSavedGames = collection === 'saved' && !games.some(game => window.Backlog.isSaved(game.id));
         document.querySelector('#empty-title').textContent = noSavedGames
             ? 'No saved games yet.'
-            : statusSelect.value !== 'all' ? 'No games with this status.' : 'No games found.';
+            : statuses.length ? 'No games with these statuses.' : 'No games found.';
         document.querySelector('#empty-description').textContent = noSavedGames
             ? 'Open any game page to add it to your backlog.'
             : 'Try another search, status or genre.';
@@ -191,6 +189,7 @@
             tab.classList.toggle('selected', selected);
             tab.setAttribute('aria-pressed', String(selected));
         });
+        window.BacklogMultiSelect?.sync();
         updateAddress();
     }
 
@@ -208,7 +207,8 @@
         const address=new URLSearchParams(location.search);
         page=Math.max(1,Number.parseInt(address.get('page'),10)||1);collection=address.get('saved')==='1'?'saved':'all';
         searchInput.value=(address.get('q')||'').slice(0,120);
-        for(const [control,key,fallback] of [[genreSelect,'genre','all'],[statusSelect,'status','all'],[sortSelect,'sort','featured']]){const value=address.get(key);control.value=[...control.options].some(option=>option.value===value)?value:fallback;}
+        readSelection(genreSelect,'genre',address);readSelection(statusSelect,'status',address);
+        sortSelect.value=['az','za'].includes(address.get('sort'))?address.get('sort'):'featured';
         render();
     });
 
@@ -231,8 +231,7 @@
 
     document.querySelector('#reset-filters').addEventListener('click', () => {
         searchInput.value = '';
-        genreSelect.value = 'all';
-        statusSelect.value = 'all';
+        for(const select of [genreSelect,statusSelect])for(const option of select.options)option.selected=false;
         sortSelect.value = 'featured';
         collection = 'all';
         resetPage();

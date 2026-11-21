@@ -13,6 +13,7 @@
         <script src="../js/config.js" defer></script>
         <script src="../js/account.js" defer></script>
         <script src="../js/site.js" defer></script>
+        <script src="../js/multi-select.js" defer></script>
         <script src="../js/catalog.js" defer></script>
         <script src="../js/ui.js" defer></script>
         <script src="../js/like-burst.js" defer></script>
@@ -20,6 +21,7 @@
         <script src="../js/player-search.js" defer></script>
         <title>Games · BackLog</title>
         <link rel="stylesheet" href="../css/interface-effects.css">
+        <link rel="stylesheet" href="../css/catalog-multi-select.css">
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
     </head>
@@ -83,7 +85,7 @@
                     </div>
                     <div class="catalog-selects">
                         <label for="status-filter">Status</label>
-                        <select id="status-filter" lang="en">
+                        <select id="status-filter" lang="en" multiple data-multi-filter="Statuses">
                             <option value="all">All statuses</option>
                             <option value="played">Played</option>
                             <option value="playing">Playing</option>
@@ -93,7 +95,7 @@
                             <option value="want-to-play">Want to play</option>
                         </select>
                         <label for="genre-filter">Genre</label>
-                        <select id="genre-filter">
+                        <select id="genre-filter" multiple data-multi-filter="Genres">
                             <option value="all">
                                 All genres
                             </option>

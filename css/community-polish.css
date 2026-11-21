@@ -1,0 +1,17 @@
+.nav-account-control { display:inline-flex; align-items:center; gap:8px; }
+.nav-account-control>.nav-profile-link>.nav-profile-avatar { display:none; }
+.nav-account-toggle { display:grid; place-items:center; flex:none; padding:0; width:32px; height:32px; background:none; border:0; border-radius:50%; }
+.nav-account-toggle .nav-profile-avatar { width:30px; height:30px; transition:border-color 180ms ease; }
+.nav-account-toggle:hover .nav-profile-avatar,.nav-account-toggle[aria-expanded=true] .nav-profile-avatar { border-color:var(--yellow); }
+.account-dropdown { position:fixed; width:264px; max-width:calc(100vw - 24px); max-height:calc(100svh - 24px); overflow:auto; z-index:100; padding:10px; border:1px solid #ffffff24; border-radius:15px; background:linear-gradient(145deg,#25291f,#191d16); color:var(--text); box-shadow:0 16px 50px #0009; }
+.account-dropdown-identity { display:grid; grid-template-columns:40px 1fr; column-gap:12px; padding:10px 8px 17px; margin-bottom:5px; border-bottom:1px solid var(--line); }
+.account-dropdown-identity .community-avatar { grid-row:span 2; }
+.account-dropdown-identity strong { font-size:13px; align-self:end; overflow-wrap:anywhere; }
+.account-dropdown-identity small { font-size:10px; color:var(--muted); margin-top:4px; }
+.account-dropdown nav { display:grid; gap:2px; }
+.account-dropdown a,.account-dropdown>button { display:block; width:100%; text-align:left; padding:11px 12px; border:0; border-radius:8px; font:inherit; font-size:12px; color:var(--text); background:none; }
+.account-dropdown a:hover,.account-dropdown>button:hover { background:#ffd21f0d; color:var(--yellow); }
+.account-dropdown>.account-dropdown-login,.account-dropdown>button { margin-top:8px; border-top:1px solid var(--line); color:var(--yellow); }
+.account-dropdown-feedback { font-size:11px; color:#f0ad9a; line-height:1.6; margin:8px; }
+.account-dropdown-feedback:empty { display:none; }
+@media(prefers-reduced-motion:no-preference){.account-dropdown:not([hidden]){animation:account-menu-enter 160ms ease-out}@keyframes account-menu-enter{from{opacity:0;translate:0 -5px}to{opacity:1;translate:0 0}}}

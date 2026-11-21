@@ -1,3 +1,4 @@
+@import url("community-polish.css");
 /* Componentes adaptados das referências autorizadas do 21st.dev. */
 .backlog-spotlight { position:relative; isolation:isolate; }
 .backlog-spotlight::before { content:''; position:absolute; inset:0; z-index:-1; border-radius:inherit; background:radial-gradient(420px circle at var(--spot-x,50%) var(--spot-y,50%),#ffd21f16,transparent 68%); opacity:0; pointer-events:none; }

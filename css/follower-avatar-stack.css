@@ -1,0 +1,17 @@
+.follower-stack-host { margin-left:auto; }
+.follower-stack { display:flex; align-items:center; gap:13px; padding:7px 10px 7px 4px; border:1px solid transparent; border-radius:12px; color:var(--text); background:none; font:inherit; text-align:left; }
+.follower-stack:hover { border-color:#ffffff15; background:#ffffff02; }
+.follower-stack-avatars { display:flex; align-items:center; padding-left:8px; }
+.follower-stack-person { position:relative; display:block; margin-left:-8px; z-index:calc(10 - var(--avatar-index)); }
+.follower-stack-person .community-avatar { width:36px; height:36px; border:3px solid #171d14; border-radius:50%; box-shadow:0 3px 9px #0005; font-size:11px; }
+.follower-stack-person:hover { z-index:12; }
+.follower-stack-tooltip { position:absolute; left:50%; bottom:calc(100% + 9px); padding:6px 9px; border:1px solid #ffffff25; border-radius:7px; background:#20281b; color:var(--text); font-size:10px; max-width:150px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transform:translateX(-50%); opacity:0; pointer-events:none; }
+.follower-stack-person:hover .follower-stack-tooltip { opacity:1; }
+.follower-stack-more { position:relative; display:grid; place-items:center; width:36px; height:36px; margin-left:-8px; border:3px solid #171d14; border-radius:50%; background:#343e22; color:var(--yellow); font-size:10px; }
+.follower-stack-copy small { display:block; margin-bottom:4px; color:var(--muted); font-size:9px; }
+.follower-stack-copy strong { font-size:10px; font-weight:500; color:#d9dfcd; }
+.follower-stack:focus-visible { outline:2px solid var(--yellow); outline-offset:3px; }
+html[data-presentation-motion=full] .follower-stack-person { transition:transform .22s cubic-bezier(.2,.8,.2,1); }
+html[data-presentation-motion=full] .follower-stack-person:hover { transform:translateY(-5px) rotate(-4deg); }
+html[data-presentation-motion=full] .follower-stack-tooltip { transition:opacity .15s; }
+@media(max-width:600px) { .follower-stack-host { margin-left:0; width:100%; } .follower-stack { padding-left:0; } .follower-stack-person .community-avatar,.follower-stack-more { width:34px; height:34px; } }

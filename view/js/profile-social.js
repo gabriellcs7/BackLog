@@ -5,7 +5,7 @@
     const feedback=$('follow-feedback');
     function preview(value){$('photo-preview').replaceChildren(...ui.avatar(value).childNodes);}
     async function render(value,own){
-        profile=value;const ticket=++version;$('profile-counts').hidden=true;$('follow-player').hidden=true;feedback.textContent='';
+        profile=value;const ticket=++version;$('profile-counts').hidden=true;$('follow-player').hidden=true;feedback.textContent='';window.BacklogFollowerStack?.clear();
         if(value.id==='local'||!account.configured)return;
         try{const next=await api.social(value.id);if(ticket!==version)return;stats=next;
             for(const [kind,count] of [['followers',stats.follower_count],['following',stats.following_count]]){
@@ -15,6 +15,7 @@
             }
             $('profile-counts').hidden=false;
             const follow=$('follow-player');follow.hidden=own;follow.disabled=account.loading;follow.textContent=!account.user?'Sign in to follow':stats.is_following?'Following ✓':'Follow';follow.setAttribute('aria-pressed',String(stats.is_following));
+            if(Number(stats.follower_count)>0){try{const followers=await api.connections(value.id,'followers',0);if(ticket===version)window.BacklogFollowerStack?.render(followers,Number(stats.follower_count));}catch{if(ticket===version)window.BacklogFollowerStack?.error();}}
         }catch(error){if(ticket===version)feedback.textContent='Followers are unavailable. '+error.message;}
     }
     $('follow-player').addEventListener('click',event=>{

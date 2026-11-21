@@ -667,18 +667,10 @@ Center|Centralizar
 View followers|Ver seguidores
 Follower preview|Prévia dos seguidores
 Could not load follower preview.|Não foi possível carregar a prévia dos seguidores.
-Your year in games|Seu ano em jogos
-Rated games by diary date.|Jogos avaliados por data no diário.
-Activity calendar|Calendário de atividade
 Less|Menos
 More|Mais
-active days|dias ativos
-active day|dia ativo
 ratings|avaliações
 rating|avaliação
-Scroll to see the full year.|Deslize para ver o ano completo.
-No ratings in this year yet.|Ainda não há avaliações neste ano.
-Could not load this activity calendar.|Não foi possível carregar este calendário de atividade.
 Open diary|Abrir diário
 Profile milestones|Conquistas do perfil
 Based on this profile's current visible records.|Com base nos registros atuais visíveis deste perfil.
@@ -697,7 +689,4 @@ Log 25 different games.|Registre 25 jogos diferentes.
 Public curator|Curador público
 Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
-View this day in the diary|Ver este dia no diário
-Day filter|Filtro por dia
-Clear day filter|Limpar filtro por dia
 `.trim().split('\n').map(line=>line.split('|')));

@@ -1,0 +1,37 @@
+/* Duas faixas horizontais inspiradas no Marquee 01 enviado pelo usuário. */
+.game-review-marquee { display:flex; flex-direction:column; gap:16px; min-width:0; overflow:hidden; padding:8px 0; margin:20px 0; }
+.game-review-marquee-lane { overflow:hidden; padding:2px 0; mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent); }
+.game-review-marquee-track { display:flex; gap:16px; width:max-content; animation:game-reviews-drift var(--marquee-duration,32s) linear infinite; will-change:transform; }
+.game-review-marquee-lane.reverse .game-review-marquee-track { animation-direction:reverse; }
+.game-review-marquee-group { display:flex; gap:16px; flex-shrink:0; }
+.game-review-marquee-card.community-review { position:relative; width:320px; flex:0 0 320px; min-height:218px; padding:20px; border:1px solid #ffffff20; border-radius:15px; background:linear-gradient(145deg,#20261c,#171c15); box-shadow:0 5px 18px #00000012; display:flex; flex-direction:column; gap:11px; }
+.game-review-marquee-author { display:flex; align-items:center; gap:10px; min-width:0; }
+.game-review-marquee-author .community-avatar { width:36px; height:36px; border-radius:50%; }
+.game-review-marquee-identity { display:grid; gap:3px; min-width:0; }
+.game-review-marquee-identity .player-link { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:12px; }
+.game-review-marquee-identity time { font-size:9px; color:#9da790; }
+.game-review-marquee-rating { color:var(--yellow); font-size:10px; min-height:16px; }
+.game-review-marquee-rating .game-rating-stars { font-size:15px; letter-spacing:2px; }
+.game-review-marquee-body { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:4; overflow:hidden; color:#d5d8cc; font-size:12px; line-height:1.8; overflow-wrap:anywhere; white-space:pre-wrap; margin-bottom:6px; }
+.game-review-marquee-body:hover { color:var(--text); }
+.game-review-marquee-actions { display:flex; align-items:center; gap:13px; margin-top:auto; padding-top:11px; border-top:1px solid #ffffff12; font-size:10px; }
+.game-review-marquee-like { background:none; color:var(--muted); border:0; border-radius:5px; padding:4px 0; font:inherit; min-height:26px; }
+.game-review-marquee-like[aria-pressed=true] { color:var(--yellow); background:none; }
+.game-review-marquee-like:disabled { cursor:default; }
+.game-review-marquee-comments { color:var(--muted); padding:4px 0; }
+.game-review-marquee-open { margin-left:auto; color:var(--yellow); font-size:10px; padding:4px 0; }
+.game-review-marquee-feedback { margin:0; color:#ffb9a8; font-size:10px; line-height:1.6; }
+.game-review-marquee-feedback:empty { display:none; }
+.game-review-marquee a:focus-visible,.game-review-marquee button:focus-visible { outline:2px solid var(--yellow); outline-offset:4px; }
+.game-review-marquee.is-paused .game-review-marquee-track { animation-play-state:paused; }
+.game-review-marquee.is-static .game-review-marquee-lane { overflow:visible; mask-image:none; }
+.game-review-marquee.is-static .game-review-marquee-track { display:block; width:auto; animation:none; transform:none; will-change:auto; }
+.game-review-marquee.is-static .game-review-marquee-group { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:16px; }
+.game-review-marquee.is-static .game-review-marquee-group[aria-hidden=true] { display:none; }
+.game-review-marquee.is-static .game-review-marquee-card { width:100%; min-width:0; }
+#pause-game-reviews { margin-left:auto; }
+@keyframes game-reviews-drift { to { transform:translateX(calc(-50% - 8px)); } }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) { .game-review-marquee-card.community-review { transition:border-color .2s,box-shadow .2s; } .game-review-marquee-card.community-review:hover { border-color:#ffd21f55; box-shadow:0 6px 25px #ffd21f0a; } }
+@media(max-width:560px) { .game-review-marquee-card.community-review { width:280px; flex-basis:280px; padding:18px; } .game-review-marquee { gap:12px; } #pause-game-reviews { margin-left:0; } }
+@media(prefers-reduced-motion:reduce) { .game-review-marquee-track { animation:none; } }
+html[data-presentation-motion=reduced] .game-review-marquee-track { animation:none; }

@@ -58,7 +58,7 @@
             container.append(el('p','social-empty',own?'No lists yet.':'No public lists yet.'));
             return;
         }
-        for(const list of player.lists.slice(0,2)){
+        for(const list of player.lists.slice(0,1)){
             const card=window.BacklogListCard(list,player.profile.id);
             if(own){
                 const actions=el('div','social-actions');

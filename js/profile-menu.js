@@ -16,7 +16,7 @@
         toggle.replaceChildren(ui.avatar(profile,'nav-profile-avatar'));
         const identity=el('div','account-dropdown-identity');identity.append(ui.avatar(profile),el('strong','',profile.display_name||'Player'),el('small','',account.user?'Your BackLog account':'Device profile'));
         const nav=el('nav');nav.setAttribute('aria-label','Account shortcuts');
-        for(const [label,path] of [['Your profile','view/profile.html'],['Your lists','view/profile-lists.html'],['Your diary','view/diary.html'],['Want to play','view/want-to-play.html'],['Account settings','view/profile.html#account']]){const a=el('a','',label);a.href=ui.href(path);nav.append(a);}
+        for(const [label,path] of [['Your profile','view/profile.html'],['Your lists','view/profile-lists.html'],['Your diary','view/diary.html'],['Want to play','view/want-to-play.html'],['Settings','view/settings.html']]){const a=el('a','',label);a.href=ui.href(path);if(path==='view/settings.html')a.classList.add('account-settings-link');nav.append(a);}
         const feedback=el('p','account-dropdown-feedback');feedback.setAttribute('role','alert');
         panel.replaceChildren(identity,nav);
         if(account.user){const out=el('button','','Sign out');out.type='button';out.disabled=account.loading;out.addEventListener('click',async()=>{out.disabled=true;feedback.textContent='';try{await account.signOut();close(true);}catch(error){feedback.textContent=error.message||'Could not sign out. Try again.';out.disabled=false;}});panel.append(out);}

@@ -38,3 +38,13 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Substitui a aurora anterior nas 13 páginas. Popular in the catalog usa apenas este mesmo fundo global.
 - Fundo SVG fixo e decorativo, sem capturar cliques ou mudar as capas e banners.
 - Respeita Presentation animations e movimento reduzido; pausa quando a aba está oculta. Sem dependências ou requisições externas.
+
+## Conta, carregamento, estados vazios e estatísticas
+
+- Profile Dropdown: https://21st.dev/@kokonutd/components/profile-dropdown — `js/profile-menu.js`. Clique na foto da navegação para os atalhos da própria conta; o link Profile continua abrindo o perfil. Setas navegam, Escape fecha. Sair da conta é uma ação explícita do botão Sign out.
+- Skeleton: https://21st.dev/@shadcn/components/skeleton — `BacklogUI.loadingCards`, usado nos feeds e nas reviews/listas do perfil. Os placeholders saem ao concluir ou falhar a consulta; erros permanecem visíveis.
+- Empty: https://21st.dev/@shadcn/components/empty — `js/empty-states.js`. Decora mensagens de coleções e feeds vazios preservando seus textos e links; não transforma avisos de carregamento ou erro em estados vazios.
+- Number Ticker: https://21st.dev/@dillionverma/components/number-ticker — `js/number-ticker.js`. Anima somente as estatísticas visíveis do perfil por 700 ms; mantém o valor final acessível e respeita movimento reduzido. Números maiores que as legendas, com tipografia herdada corretamente.
+- Estilos em `css/community-polish.css`. São adaptações locais para o HTML/CSS/JavaScript existente, sem adicionar React ou dependências.
+- Bento Grid foi solicitado apenas como prévia e não foi aplicado à Home.
+- Verificação em navegador isolado com dados simulados: menu e teclado, skeletons de reviews/listas, estados vazios, números finais e tamanho, movimento reduzido e layout mobile. Sem alterações em contas reais e sem SQL adicional.

@@ -32,3 +32,5 @@ p.backlog-empty-state { display:flex; align-items:center; gap:16px; grid-column:
 .empty-state-copy { max-width:58ch; }
 .empty-state-copy a { color:var(--yellow); text-decoration:underline; text-underline-offset:4px; }
 @media(max-width:480px){p.backlog-empty-state{padding:18px;gap:12px}.empty-state-icon{width:36px;height:36px}}
+
+.number-ticker { font-variant-numeric:tabular-nums; }

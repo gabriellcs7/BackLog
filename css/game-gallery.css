@@ -1,0 +1,28 @@
+.game-gallery { margin:30px 0; padding:24px; border:1px solid var(--line); border-radius:16px; background:linear-gradient(145deg,#20251a88,#15191288); scroll-margin-top:110px; }
+.game-gallery-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:17px; }
+.game-gallery-heading h3 { margin:0; font-size:19px; letter-spacing:-.5px; }
+.game-gallery-heading h3 span { color:var(--yellow); }
+.game-gallery-heading p { margin:5px 0 0; color:var(--muted); font-size:11px; }
+.game-gallery-source { flex:none; color:var(--muted); font-size:10px; }
+.game-gallery-source:hover { color:var(--yellow); }
+.game-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.game-gallery-shot { position:relative; display:block; width:100%; aspect-ratio:16/10; padding:0; overflow:hidden; border:1px solid #ffffff20; border-radius:10px; background:#090b08; cursor:zoom-in; }
+.game-gallery-shot img { width:100%; height:100%; object-fit:contain; }
+.game-gallery-zoom,.game-gallery-number { position:absolute; bottom:8px; display:grid; place-items:center; padding:3px 7px; border:1px solid #ffffff25; border-radius:5px; background:#11160edb; color:#f6f5eb; font-size:11px; }
+.game-gallery-zoom { right:8px; color:var(--yellow); }
+.game-gallery-number { left:8px; font-size:9px; }
+.game-gallery-shot:hover,.game-gallery-shot:focus-visible { border-color:var(--yellow); box-shadow:0 0 18px #ffd21f15; outline:2px solid transparent; }
+.game-gallery-dialog { width:min(1100px,94vw); max-width:none; max-height:94dvh; padding:18px; border:1px solid #ffffff30; border-radius:18px; background:#13180f; color:var(--text); box-shadow:0 30px 100px #000b; overflow:auto; }
+.game-gallery-dialog::backdrop { background:#040704e8; backdrop-filter:blur(8px); }
+.game-gallery-dialog-header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:12px; }
+.game-gallery-dialog-header h2 { margin:0; font-size:17px; }
+.game-gallery-close { flex:none; width:36px; height:36px; padding:0; border:1px solid #ffffff25; border-radius:50%; background:#ffffff08; color:var(--text); font-size:24px; }
+.game-gallery-stage { position:relative; margin:0; min-height:130px; background:#080b06; border-radius:10px; overflow:hidden; }
+.game-gallery-stage img { display:block; width:100%; height:min(65dvh,620px); object-fit:contain; }
+.game-gallery-feedback { position:absolute; inset:auto 10px 10px; margin:0; padding:5px; background:#13180fe6; color:var(--muted); font-size:12px; text-align:center; }
+.game-gallery-feedback:empty { display:none; }
+.game-gallery-controls { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:14px; font-size:12px; color:var(--muted); }
+.game-gallery-step { padding:9px 14px; border:1px solid #ffffff26; border-radius:8px; background:#ffffff06; color:var(--text); }
+.game-gallery-step:hover,.game-gallery-close:hover { border-color:var(--yellow); color:var(--yellow); }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) { .game-gallery-shot { transition:border-color .2s,box-shadow .2s,transform .2s; } .game-gallery-shot:hover { transform:translateY(-2px); } .game-gallery-dialog[open] { animation:gallery-reveal .2s ease-out; } @keyframes gallery-reveal { from { opacity:0; transform:translateY(8px) scale(.985); } to { opacity:1; transform:none; } } }
+@media(max-width:600px) { .game-gallery { padding:16px; } .game-gallery-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; } .game-gallery-heading { align-items:start; } .game-gallery-source { font-size:9px; } .game-gallery-dialog { padding:12px; } .game-gallery-dialog-header h2 { font-size:14px; } .game-gallery-step { padding:9px 10px; font-size:11px; } }

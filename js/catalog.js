@@ -194,6 +194,24 @@
         updateAddress();
     }
 
+    pagination.addEventListener('click',event=>{
+        const link=event.target.closest('a');
+        if(!link||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+        const url=new URL(link.href),next=Number(url.searchParams.get('page')||1);
+        if(!Number.isInteger(next)||next<1)return;
+        try{history.pushState(null,'',url.href);}catch{return;}
+        event.preventDefault();page=next;render();
+        pagination.querySelector('[aria-current="page"]')?.focus({preventScroll:true});
+        document.querySelector('#results-heading').scrollIntoView({block:'start',behavior:window.BacklogMotion?.matches?'instant':'smooth'});
+    });
+    window.addEventListener('popstate',()=>{
+        const address=new URLSearchParams(location.search);
+        page=Math.max(1,Number.parseInt(address.get('page'),10)||1);collection=address.get('saved')==='1'?'saved':'all';
+        searchInput.value=(address.get('q')||'').slice(0,120);
+        for(const [control,key,fallback] of [[genreSelect,'genre','all'],[statusSelect,'status','all'],[sortSelect,'sort','featured']]){const value=address.get(key);control.value=[...control.options].some(option=>option.value===value)?value:fallback;}
+        render();
+    });
+
     function resetPage() {
         page = 1;
         render();

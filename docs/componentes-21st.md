@@ -79,3 +79,12 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - Aguarda a sincronização da conta; erros mostram progresso indisponível em vez de uma contagem falsa. Não grava avaliações, status ou dados da lista. Sem SQL adicional.
 - Testado em navegador isolado com filtros combinados, remoção/reset/busca, URL e histórico/paginação, alternância e atualização por status/avaliação, progresso do visitante em lista alheia, listas vazias e layout mobile. Nenhuma conta real foi alterada.
 - Notificações (opção 1) e galeria (opção 3) foram inicialmente apresentadas como prévias e depois integradas com autorização. Detalhes em `notificacoes-galeria.md`.
+
+## Marquee de reviews nas páginas dos jogos
+
+- Referência: componente Marquee 01 enviado pelo usuário em 21/11/2026. Adaptado ao HTML/CSS/JavaScript existente, sem migrar o projeto para React ou instalar dependências.
+- `view/js/game-review-marquee.js` e `css/game-review-marquee.css` mostram somente as reviews reais do jogo aberto. A partir de seis reviews, dividem-se em duas faixas horizontais em sentidos opostos; com três a cinco, há uma faixa. Com uma ou duas, os cards ficam parados, sem cópias de preenchimento.
+- Pausa ao passar o mouse, receber foco, sair da tela ou ocultar a aba. O botão Pause animation permite parar manualmente; a navegação por teclado e movimento reduzido exibem os cards originais em uma grade estática.
+- As cópias usadas para fechar a animação não repetem identificadores nem entram na navegação por teclado/leitores de tela. As curtidas são sincronizadas entre as representações da mesma review; falhas preservam a contagem anterior e permitem nova tentativa.
+- Nome e foto levam ao perfil; texto, comentários e Read review abrem a página completa da review. As estrelas aceitam meias notas. Paginação, atualizar reviews, acesso de visitante e ausência de reviews continuam funcionando, sem dados de exemplo em produção.
+- Verificado em navegador isolado: duas direções, pausa, curtidas com sucesso/falha, links reais, zero/uma/duas/três reviews, paginação, ausência de IDs repetidos, desktop/mobile e movimento reduzido. Todas as 69 galerias possuem seis arquivos distintos, totalizando 414 imagens, incluindo os oito complementos revisados visualmente.

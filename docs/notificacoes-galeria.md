@@ -16,9 +16,9 @@ O sino aparece nas 13 páginas do site. Mostra curtidas, comentários nas própr
 
 `view/game.html` tem uma seção entre Game details e Main characters com até seis screenshots. Clique abre a imagem completa em uma janela ampliada com anterior/próxima, setas do teclado, Escape e retorno do foco à miniatura. Imagens usam `object-fit: contain`, sem recortes.
 
-Nesta atualização foram incluídas 406 screenshots oficiais para **69 jogos**. Os arquivos WebP e suas miniaturas ficam em `imagens/galeria/`, dentro do repositório. As miniaturas carregam sob demanda; a imagem maior só é solicitada ao abrir. Não dependem de bibliotecas ou imagens hospedadas em terceiros durante o uso.
+São **414 imagens para 69 jogos, com seis imagens por galeria**. Os arquivos WebP e suas miniaturas ficam em `imagens/galeria/`, dentro do repositório. As miniaturas carregam sob demanda; a imagem maior só é solicitada ao abrir. Não dependem de bibliotecas ou imagens hospedadas em terceiros durante o uso.
 
-O manifesto de exibição é `js/game-galleries.js`. As fontes, URLs originais e nomes das edições estão em `docs/catalogo/galerias.json`; cada galeria também tem um link para sua fonte oficial. As imagens são promocionais das páginas oficiais de distribuição. Algumas páginas distribuem edições Remastered/Enhanced, identificadas no manifesto.
+O manifesto de exibição é `js/game-galleries.js`. As fontes, URLs originais e nomes das edições estão em `docs/catalogo/galerias.json`. As galerias usam páginas oficiais de distribuição e dos desenvolvedores; os complementos de Rockstar, Valve e Konami incluem arquivos de imprensa preservados em iRedDead, Hooked Gamers e Silent Hill Memories. Cada imagem ampliada mostra sua fonte; a imagem adicional de Poppy Playtime é da versão para iPad, identificada no crédito. Algumas páginas distribuem edições Remastered/Enhanced, identificadas no manifesto.
 
 Os 31 jogos sem uma fonte incluída nesta revisão não exibem uma galeria vazia. Não foram usadas imagens de remakes para substituir os originais de Resident Evil/Silent Hill nem screenshots de Counter-Strike 2 para Global Offensive.
 

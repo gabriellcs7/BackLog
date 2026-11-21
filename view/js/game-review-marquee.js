@@ -5,12 +5,12 @@
     const root=document.querySelector('#community-feed'),controls=document.querySelector('#refresh-community')?.parentElement;
     if(!root||!controls)return;
     const pause=el('button','social-button social-button-quiet','Pause animation');pause.id='pause-game-reviews';pause.type='button';pause.hidden=true;controls.append(pause);
-    let rows=[],paused=false,hovered=false,focused=false;
+    let rows=[],paused=false,hovered=false,focused=false,visible=true;
     const device=matchMedia('(prefers-reduced-motion:reduce)'),pending=new Set();
     const reduced=()=>window.BacklogMotion?.matches??device.matches;
     function configure(){
         const still=paused||reduced()||rows.length<3;
-        root.classList.toggle('is-static',still);root.classList.toggle('is-paused',hovered||focused||document.hidden);
+        root.classList.toggle('is-static',still);root.classList.toggle('is-paused',hovered||focused||document.hidden||!visible);
         pause.hidden=rows.length<3||reduced();pause.textContent=paused?'Resume animation':'Pause animation';pause.setAttribute('aria-pressed',String(paused));
     }
     function card(review,duplicate=false){
@@ -19,7 +19,8 @@
         const header=el('div','game-review-marquee-author'),identity=el('div','game-review-marquee-identity');
         const profile={id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path};
         identity.append(ui.profileLink(profile),el('time','social-small',ui.date(review.updated_at)));
-        identity.querySelector('time').dateTime=review.updated_at;header.append(ui.avatar(profile),identity);
+        identity.querySelector('time').dateTime=review.updated_at;
+        const portrait=el('a','game-review-marquee-avatar');portrait.href=ui.href('view/profile.html?id='+encodeURIComponent(review.user_id));portrait.setAttribute('aria-label','View profile of '+review.display_name);portrait.append(ui.avatar(profile));header.append(portrait,identity);
         const destination=ui.reviewHref('id',review.id),body=el('a','game-review-marquee-body',review.text||'A rating shared by this player.');body.href=destination;
         const score=el('div','game-review-marquee-rating');if(review.rating!=null)score.append(ui.ratingStars(Number(review.rating)));else score.textContent='Written review';
         const actions=el('div','game-review-marquee-actions'),likes=el('button','game-review-marquee-like review-like'),comments=el('a','game-review-marquee-comments','↳ '+(review.comment_count||0));
@@ -27,6 +28,7 @@
         const open=el('a','game-review-marquee-open','Read review ↗');open.href=destination;
         const feedback=el('p','game-review-marquee-feedback');feedback.setAttribute('role','status');
         function sync(){
+            if(!article.isConnected)return;
             root.querySelectorAll('[data-marquee-like]').forEach(button=>{if(button.dataset.marqueeLike!==review.id)return;
                 button.textContent=(review.liked?'♥':'♡')+' '+(review.like_count||0);button.setAttribute('aria-pressed',String(Boolean(review.liked)));
                 button.disabled=pending.has(review.id)||!account.user||account.user.id===review.user_id;
@@ -70,6 +72,7 @@
     root.addEventListener('focusin',event=>{focused=true;if(event.target.matches(':focus-visible')){paused=true;}configure();});
     root.addEventListener('focusout',()=>{queueMicrotask(()=>{focused=root.contains(document.activeElement);configure();});});
     device.addEventListener('change',configure);document.addEventListener('visibilitychange',configure);
+    if('IntersectionObserver' in window)new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;configure();}).observe(root);
     document.addEventListener('DOMContentLoaded',()=>{window.BacklogMotion?.addEventListener('change',configure);configure();});
     window.BacklogGameReviewMarquee={render,clear};
 })();

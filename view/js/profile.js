@@ -70,7 +70,7 @@
     }
     async function renderReviews(ticket){
         const grid=$('#profile-reviews'),more=$('#more-profile-reviews'),feedback=$('#profile-reviews-feedback');
-        grid.replaceChildren();
+        grid.replaceChildren(ui.loadingCards('Loading reviews…',2));
         more.hidden=true;
         feedback.textContent='';
         try{
@@ -78,12 +78,12 @@
             const api=window.BacklogProfileReviews;
             const reviews=await api.get(profileId,0,3);
             if(ticket!==version)return;
-            grid.append(...reviews.slice(0,2).map(api.card).filter(Boolean));
+            grid.replaceChildren(...reviews.slice(0,2).map(api.card).filter(Boolean));
             more.href=ui.href('view/profile-reviews.html?id='+encodeURIComponent(profileId));
             more.hidden=reviews.length<=2;
             if(!reviews.length)grid.append(el('p','social-empty',own?'Your reviews will appear here once you write one.':'No reviews yet.'));
         }catch(error){
-            if(ticket===version)feedback.textContent=error.message||'Could not load reviews.';
+            if(ticket===version){grid.replaceChildren();feedback.textContent=error.message||'Could not load reviews.';}
         }
     }
     function renderAccount(){if(!own)return;$('#signed-in').hidden=!account.user;const filePreview=location.protocol==='file:'&&account.configured;$('#auth-form').hidden=Boolean(account.user)||!account.configured||filePreview;$('#local-preview-link').hidden=!filePreview||Boolean(account.user);

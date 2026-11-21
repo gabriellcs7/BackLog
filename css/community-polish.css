@@ -15,3 +15,14 @@
 .account-dropdown-feedback { font-size:11px; color:#f0ad9a; line-height:1.6; margin:8px; }
 .account-dropdown-feedback:empty { display:none; }
 @media(prefers-reduced-motion:no-preference){.account-dropdown:not([hidden]){animation:account-menu-enter 160ms ease-out}@keyframes account-menu-enter{from{opacity:0;translate:0 -5px}to{opacity:1;translate:0 0}}}
+
+.loading-card-group { display:grid; grid-column:1/-1; gap:12px; width:100%; }
+.loading-card { display:flex; align-items:center; gap:16px; padding:18px; border:1px solid #ffffff12; border-radius:10px; min-height:116px; }
+.loading-card-art,.loading-card-line { display:block; background:#ffffff08; border-radius:5px; }
+.loading-card-art { width:60px; height:80px; flex:none; }
+.loading-card-copy { display:grid; gap:12px; flex:1; }
+.loading-card-line { height:10px; width:80%; }
+.loading-card-line:first-child { width:50%; height:13px; }
+.loading-card-line-short { width:30%; }
+@media(prefers-reduced-motion:no-preference){.loading-card-art,.loading-card-line{animation:loading-card-pulse 1.7s ease-in-out infinite alternate}@keyframes loading-card-pulse{to{background-color:#ffffff13}}}
+html[data-presentation-motion=reduced] .loading-card-art,html[data-presentation-motion=reduced] .loading-card-line { animation:none; }

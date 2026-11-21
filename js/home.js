@@ -25,7 +25,7 @@
         let offset=0,generation=0,busy=false,seen=new Set();
         async function load(reset=false){
             if(busy&&!reset)return;const ticket=++generation;busy=true;more.disabled=true;feedback.textContent='';
-            if(reset){if(kind==='popular')window.BacklogReviewWall.clear();offset=0;seen=new Set();feed.replaceChildren(el('p','social-empty','Loading reviews…'));}
+            if(reset){if(kind==='popular')window.BacklogReviewWall.clear();offset=0;seen=new Set();feed.replaceChildren(ui.loadingCards('Loading reviews…',3));}
             try{
                 if(!account.configured){feed.replaceChildren(el('p','social-empty','Connect online accounts to discover community reviews.'));more.hidden=true;return;}
                 if(kind==='following'&&!account.user){const empty=el('p','social-empty','Sign in to see the latest reviews from players you follow. '),login=el('a','player-link','Sign in ↗');login.href=ui.href('view/profile.html#account');empty.append(login);feed.replaceChildren(empty);more.hidden=true;return;}

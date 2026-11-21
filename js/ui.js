@@ -14,6 +14,17 @@
         if(src){const img=element('img');img.src=src;img.alt='';img.loading='lazy';img.addEventListener('error',()=>img.remove(),{once:true});node.append(img);}
         return node;
     }
+    function loadingCards(label='Loading…',count=3){
+        const group=element('div','loading-card-group');group.setAttribute('role','status');group.setAttribute('aria-label',label);
+        group.append(element('span','visually-hidden',label));
+        for(let i=0;i<count;i++){
+            const card=element('div','loading-card');card.setAttribute('aria-hidden','true');
+            const art=element('span','loading-card-art'),copy=element('span','loading-card-copy');
+            copy.append(element('span','loading-card-line'),element('span','loading-card-line loading-card-line-short'),element('span','loading-card-line'));
+            card.append(art,copy);group.append(card);
+        }
+        return group;
+    }
     async function action(button,feedback,task){button.disabled=true;feedback.textContent='';try{return await task();}catch(error){feedback.textContent=error.message||'Something went wrong. Please try again.';}finally{button.disabled=false;}}
     function reviewOrdinal(number){
         const suffix=new Intl.PluralRules('en',{type:'ordinal'}).select(Number(number));
@@ -44,5 +55,5 @@
     account?.ready.then(updateNavAvatar);
     window.addEventListener('backlog-account-change',updateNavAvatar);
 
-    window.BacklogUI={element,game,gameCard,ratingStars,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
+    window.BacklogUI={loadingCards,element,game,gameCard,ratingStars,profileLink,avatar,href,reviewHref,action,reviewOrdinal,date:value=>new Intl.DateTimeFormat('en',{dateStyle:'medium'}).format(new Date(value))};
 })();

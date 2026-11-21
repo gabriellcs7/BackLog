@@ -12,7 +12,7 @@
         const ticket=++generation;
         const profileId=target||account.user?.id||'local';
         const own=profileId===(account.user?.id||'local');
-        grid.replaceChildren();
+        grid.replaceChildren(ui.loadingCards('Loading lists…',2));
         title.textContent='Game lists';
         document.title='Game lists · BackLog';
         feedback.textContent='Loading lists…';
@@ -27,6 +27,7 @@
             back.href=profileUrl.href;
             title.textContent=own?'Your game lists':player.profile.display_name+'\'s game lists';
             document.title=title.textContent+' · BackLog';
+            grid.replaceChildren();
             for(const list of player.lists){
                 const card=window.BacklogListCard(list,profileId);
                 if(own){
@@ -46,7 +47,7 @@
             feedback.textContent='';
             if(!grid.children.length)grid.append(el('p','social-empty',own?'No lists yet.':'No public lists yet.'));
         }catch(error){
-            if(ticket===generation)feedback.textContent=error.message||'Could not load lists.';
+            if(ticket===generation){grid.replaceChildren();feedback.textContent=error.message||'Could not load lists.';}
         }
     }
 

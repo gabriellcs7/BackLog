@@ -19,7 +19,7 @@
         feedback.textContent='Loading reviews…';
         if(reset){
             offset=0;
-            grid.replaceChildren();
+            grid.replaceChildren(ui.loadingCards('Loading reviews…',3));
             more.hidden=true;
             title.textContent='Reviews';
         }
@@ -36,6 +36,7 @@
             }
             const reviews=await api.get(profileId,offset,pageSize+1);
             if(ticket!==generation)return;
+            if(reset)grid.replaceChildren();
             const page=reviews.slice(0,pageSize);
             grid.append(...page.map(api.card).filter(Boolean));
             if(!offset&&!page.length)grid.append(ui.element('p','social-empty','No reviews yet.'));
@@ -43,7 +44,7 @@
             more.hidden=reviews.length<=pageSize;
             feedback.textContent='';
         }catch(error){
-            if(ticket===generation)feedback.textContent=error.message||'Could not load reviews.';
+            if(ticket===generation){if(reset)grid.replaceChildren();feedback.textContent=error.message||'Could not load reviews.';}
         }finally{
             if(ticket===generation){busy=false;more.disabled=false;}
         }

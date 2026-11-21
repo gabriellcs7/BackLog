@@ -1,0 +1,4 @@
+.photo-crop-dialog { max-width:480px; }
+.photo-crop-canvas { display:block; width:min(100%,320px); height:auto; aspect-ratio:1; border-radius:50%; margin:22px auto; background:#0c0f0b; border:2px solid #ffd21f77; touch-action:none; cursor:grab; }
+.photo-crop-canvas.is-dragging { cursor:grabbing; }
+.photo-crop-dialog input[type=range] { width:100%; accent-color:var(--yellow); }

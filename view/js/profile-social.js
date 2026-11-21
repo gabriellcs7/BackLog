@@ -80,10 +80,9 @@
         try{
             if(!['image/jpeg','image/png','image/webp'].includes(file.type)||file.size>5*1024*1024)throw new Error('Choose a JPG, PNG or WebP photo smaller than 5 MB.');
             const image=await createImageBitmap(file);if(ticket!==photoVersion){image.close();return;}
-            const canvas=document.createElement('canvas');canvas.width=384;canvas.height=384;const context=canvas.getContext('2d'),side=Math.min(image.width,image.height);
-            context.drawImage(image,(image.width-side)/2,(image.height-side)/2,side,side,0,0,384,384);image.close();
-            const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/webp',.86));if(ticket!==photoVersion)return;
-            if(!blob||blob.type!=='image/webp'||blob.size>524288)throw new Error('Could not prepare this photo. Try another image.');
+            let blob;try{blob=await window.BacklogPhotoCrop.open(image);}finally{image.close();}
+            if(ticket!==photoVersion)return;
+            if(!blob){$('edit-profile-feedback').textContent='Photo adjustment cancelled.';return;}
             stagedPhoto=blob;const reader=new FileReader();reader.onload=()=>{if(ticket===photoVersion)preview({id:'local',display_name:profile.display_name,avatar_local:reader.result});};reader.readAsDataURL(blob);
             $('edit-profile-feedback').textContent='Photo ready. Save your profile to apply it.';
         }catch(error){if(ticket===photoVersion)$('edit-profile-feedback').textContent=error.message;}

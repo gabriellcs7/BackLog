@@ -9,6 +9,7 @@
     function hide(){clearTimeout(timer);if(active){const value=(active.getAttribute('aria-describedby')||'').split(' ').filter(id=>id&&id!==tip.id).join(' ');if(value)active.setAttribute('aria-describedby',value);else active.removeAttribute('aria-describedby');}if(popover&&tip.matches(':popover-open'))tip.hidePopover();tip.hidden=true;active=null;}
     function position(){if(!active)return;const rect=active.getBoundingClientRect(),width=tip.offsetWidth,height=tip.offsetHeight;tip.style.left=Math.max(10,Math.min(innerWidth-width-10,rect.left+(rect.width-width)/2))+'px';tip.style.top=(rect.top-height-12>8?rect.top-height-12:Math.min(innerHeight-height-8,rect.bottom+12))+'px';}
     function show(node){
+        if(node.closest('.nav-account-toggle,.account-dropdown'))return;
         hide();active=node;timer=setTimeout(()=>{
             if(!node.isConnected||active!==node)return;tip.replaceChildren();tip.style.transform='';
             const img=node.querySelector('img'),game=img?coverGames.get(new URL(img.src,document.baseURI).pathname):null;

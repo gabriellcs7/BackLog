@@ -34,3 +34,7 @@ p.backlog-empty-state { display:flex; align-items:center; gap:16px; grid-column:
 @media(max-width:480px){p.backlog-empty-state{padding:18px;gap:12px}.empty-state-icon{width:36px;height:36px}}
 
 .number-ticker { font-variant-numeric:tabular-nums; }
+
+/* Os dígitos animados herdam a tipografia do número, não a da legenda. */
+.profile-overview .profile-stat strong { font-size:clamp(28px,3.2vw,38px); }
+.profile-stat strong .number-ticker-visual { font:inherit; line-height:inherit; letter-spacing:inherit; color:inherit; }

@@ -21,3 +21,11 @@
 html[data-presentation-motion=full] .profile-overview .profile-stat { transition:border-color .2s,transform .2s,box-shadow .2s; }
 html[data-presentation-motion=full] .profile-overview .profile-stat:hover { transform:translateY(-3px); }
 @media(max-width:560px) { .player-profile .profile-overview .profile-totals { padding:13px; border-radius:17px; } .profile-stats-heading h2 { font-size:12px; } .player-profile .profile-overview .profile-metrics { gap:7px; } .player-profile .profile-overview .profile-stat { padding:10px 9px; border-radius:10px; } .player-profile .profile-overview .profile-stat strong { font-size:28px; } .profile-stat .profile-stat-icon { width:24px; height:24px; } .profile-stat .profile-stat-arrow { font-size:14px; } .player-profile .profile-stat .profile-stat-caption { font-size:10px; min-height:28px; line-height:1.4; } .player-profile .profile-stat .profile-stat-kicker { display:none; } .profile-stat-icon svg { width:16px; height:16px; } }
+
+/* O histograma ocupa a altura livre ao lado do resumo de jogos. */
+.player-profile .profile-overview .profile-ratings { display:flex; flex-direction:column; padding:17px; }
+.player-profile #profile-ratings-chart { display:flex; flex-direction:column; flex:1; min-height:0; }
+.player-profile #profile-ratings-chart .ratings-summary { flex:none; margin-bottom:8px; }
+.player-profile #profile-ratings-chart .ratings-histogram { flex:1; height:auto; min-height:96px; }
+.player-profile #profile-ratings-chart .ratings-scale { flex:none; }
+@media(max-width:560px) { .player-profile .profile-overview .profile-ratings { padding:13px; } }

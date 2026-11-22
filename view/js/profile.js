@@ -21,7 +21,7 @@
             window.BacklogProfileRatings.render(player.profile.id);
             renderProfileDetails();
             for(const id of ['choose-favorites','new-list'])$('#'+id).disabled=account.loading;
-            $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
+            $('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();
             for(let i=0;i<4;i++){const id=player.favorites[i],slot=el('div','favorite-slot');if(id){slot.append(gameCard(id));}else{const empty=own?button('+',openFavorites,'favorite-empty'):el('div','favorite-empty','☆');if(own)empty.setAttribute('aria-label','Choose favorite game '+(i+1));empty.append(el('span','',own?'Choose a game':'Not selected'));slot.append(empty);}$('#favorites-grid').append(slot);}
             renderLists();openRequestedListAction();await renderReviews(ticket);renderAccount();openSettingsShortcut();if(account.error)note(account.error);
@@ -92,7 +92,7 @@
         }
     }
     function renderAccount(){if(!own)return;$('#signed-in').hidden=!account.user;const filePreview=location.protocol==='file:'&&account.configured;$('#auth-form').hidden=Boolean(account.user)||!account.configured||filePreview;$('#local-preview-link').hidden=!filePreview||Boolean(account.user);
-        $('#account-link').textContent=account.user?'Your account ↗':'Sign in ↗';$('#account-note').textContent=account.user?'Your profile, lists and favorites are connected to your account.':account.configured?'Sign in to sync your profile across devices. Your local profile stays separate.':'Online accounts are not connected yet. You can still save your profile, top four and lists on this device.';
+        $('#account-note').textContent=account.user?'Your profile, lists and favorites are connected to your account.':account.configured?'Sign in to sync your profile across devices. Your local profile stays separate.':'Online accounts are not connected yet. You can still save your profile, top four and lists on this device.';
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';
         if(account.user){$('#account-email').textContent=account.user.email;let imported=false;try{imported=localStorage.getItem('backlog:imported:'+account.user.id)==='yes';}catch{}$('#import-device').disabled=imported;$('#import-device').textContent=imported?'Device profile copied':'Copy device profile & lists to account';}
     }
@@ -138,7 +138,7 @@
         const item=game(player.profile.banner_game_id);
         const banner=$('#profile-banner'),credit=$('#profile-banner-credit');
         setBannerImage(banner,item);
-        banner.parentElement.classList.toggle('has-profile-banner',!banner.hidden);
+        banner.closest('.profile-header').classList.toggle('has-profile-banner',!banner.hidden);
         credit.hidden=banner.hidden;
         if(!credit.hidden){
             credit.href=ui.href('view/game.html?id='+encodeURIComponent(item.id));

@@ -73,23 +73,22 @@
             </nav>
         </header>
         <main id="main" class="profile-page player-profile shell">
-            <header class="profile-header">
-                <img id="profile-banner" class="profile-banner" alt="" hidden>
-                <div class="profile-identity"><div id="profile-avatar" class="player-avatar" aria-hidden="true">P</div><div><span class="eyebrow">PLAYER PROFILE</span><h1 id="profile-name">Your profile</h1><p id="profile-bio">Games you play, reviews, and custom lists.</p><div class="profile-details" id="profile-details" hidden><span id="profile-location" hidden></span><span id="profile-platform" hidden></span><a id="profile-website" target="_blank" rel="noopener noreferrer" hidden></a></div></div></div>
-                <div class="social-actions" id="profile-owner-actions"><a class="social-button social-button-quiet" href="#account" id="account-link">Sign in ↗</a></div>
-                <a class="profile-banner-credit" id="profile-banner-credit" hidden></a>
-            </header>
-            <div class="profile-social-bar">
-                <div id="profile-counts" class="profile-connection-counts" hidden>
-                    <button class="connection-stat" id="show-followers" type="button" aria-haspopup="dialog">
-                        <strong id="followers-count">0</strong><span>Followers</span><span class="connection-chevron" aria-hidden="true">›</span>
-                    </button>
-                    <button class="connection-stat" id="show-following" type="button" aria-haspopup="dialog">
-                        <strong id="following-count">0</strong><span>Following</span><span class="connection-chevron" aria-hidden="true">›</span>
-                    </button>
+            <header class="profile-header profile-banner-v2">
+                <div class="profile-banner-art">
+                    <img id="profile-banner" class="profile-banner" alt="" hidden>
+                    <div id="profile-counts" class="profile-connection-counts" hidden>
+                        <button class="connection-stat" id="show-followers" type="button" aria-haspopup="dialog"><strong id="followers-count">0</strong><span>Followers</span><span class="connection-chevron" aria-hidden="true">›</span></button>
+                        <button class="connection-stat" id="show-following" type="button" aria-haspopup="dialog"><strong id="following-count">0</strong><span>Following</span><span class="connection-chevron" aria-hidden="true">›</span></button>
+                    </div>
+                    <a class="profile-banner-credit" id="profile-banner-credit" hidden></a>
                 </div>
-                <button class="social-button social-button-primary" id="follow-player" type="button" hidden>Follow</button>
-            </div>
+                <div class="profile-identity profile-banner-info">
+                    <div id="profile-avatar" class="player-avatar" aria-hidden="true">P</div>
+                    <div class="profile-banner-copy"><span class="eyebrow">PLAYER PROFILE</span><h1 id="profile-name">Your profile</h1><p id="profile-bio">Games you play, reviews, and custom lists.</p></div>
+                    <div class="profile-details" id="profile-details" hidden><span id="profile-location" hidden></span><span id="profile-platform" hidden></span><a id="profile-website" target="_blank" rel="noopener noreferrer" hidden></a></div>
+                </div>
+            </header>
+            <div class="profile-social-bar"><button class="social-button social-button-primary" id="follow-player" type="button" hidden>Follow</button></div>
             <p class="social-feedback" id="follow-feedback" role="status"></p>
             <div class="profile-overview">
                 <div class="profile-totals">

@@ -60,7 +60,7 @@
         title.textContent = game.title;
         const tags = document.createElement('p');
         tags.textContent = game.tags.join(' · ');
-        link.append(art, title, tags);
+        link.append(art, title, tags, window.BacklogPrices.create(game.id));
         return link;
     }
 

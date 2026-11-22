@@ -691,6 +691,23 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Price|Preço
+Price not confirmed|Preço não confirmado
+Free to play|Grátis para jogar
+Bundle|Coletânea
+Price for the collection, not an individual game.|Preço da coletânea, não de um jogo individual.
+Price refers to the edition shown above.|O preço se refere à edição indicada acima.
+Chapter 1 is free. Other chapters are sold separately.|O capítulo 1 é grátis. Os outros capítulos são vendidos separadamente.
+Checked on|Verificado em
+Prices may change. Confirm the price in the store.|Os preços podem mudar. Confira o valor na loja.
+A reliable price for this edition could not be confirmed.|Não foi possível confirmar um preço confiável para esta edição.
+Visit source|Visitar fonte
 See more games|Ver mais jogos
 Saga not found.|Saga não encontrada.
+Ranked by the number of players who rated or reviewed each game on BackLog.|Ordenado pelo número de pessoas que avaliaram ou escreveram uma review de cada jogo no BackLog.
+Loading popular games…|Carregando jogos populares…
+No games have been rated or reviewed yet.|Nenhum jogo foi avaliado ou recebeu reviews ainda.
+Could not load popular games.|Não foi possível carregar os jogos populares.
+player|jogador
+players|jogadores
 `.trim().split('\n').map(line=>line.split('|')));

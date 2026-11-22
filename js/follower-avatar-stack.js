@@ -1,6 +1,6 @@
 /* Prévia compacta de seguidores, com dados reais e acesso ao diálogo existente. */
 (() => {
-    'use strict';const ui=window.BacklogUI,bar=document.querySelector('.profile-social-bar');if(!ui||!bar)return;
+    'use strict';const ui=window.BacklogUI,bar=document.getElementById('profile-counts')||document.querySelector('.profile-social-bar');if(!ui||!bar)return;
     const el=ui.element,t=s=>window.BacklogI18n?.t(s)||s,host=el('div','follower-stack-host');host.id='follower-avatar-preview';host.hidden=true;bar.append(host);let current=null;
     function clear(){current=null;host.hidden=true;host.replaceChildren();}
     function render(profiles,total){

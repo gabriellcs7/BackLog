@@ -25,3 +25,17 @@
 html[data-presentation-motion=full] .profile-banner-v2 .connection-stat,html[data-presentation-motion=full] .profile-banner-v2 .profile-banner-credit { transition:background .2s,border-color .2s,box-shadow .2s; }
 @media(max-width:800px) { .profile-banner-v2 .profile-banner-info { grid-template-columns:90px minmax(0,1fr); gap:18px; padding:0 24px 25px; } .profile-banner-v2 #profile-avatar { width:90px; height:90px; font-size:36px; } .profile-banner-v2 .profile-details { grid-column:2; flex-direction:row; flex-wrap:wrap; border:0; padding:0; margin-top:0; max-width:none; } }
 @media(max-width:560px) { .player-profile .profile-header.profile-banner-v2 { border-radius:18px; } .profile-banner-v2 .profile-banner-art { height:230px; } .profile-banner-v2:not(.has-profile-banner) .profile-banner-art { height:115px; } .profile-banner-v2 .profile-banner-info { grid-template-columns:1fr; gap:12px; padding:0 20px 24px; } .profile-banner-v2 #profile-avatar { margin-top:-45px; width:88px; height:88px; } .profile-banner-v2 .profile-banner-copy { margin-top:0; } .player-profile .profile-banner-v2 h1 { font-size:34px; } .profile-banner-v2 #profile-bio { font-size:11px; } .profile-banner-v2 .profile-details { grid-column:1; gap:11px 15px; font-size:9px; } .profile-banner-v2 .profile-connection-counts { top:14px; left:14px; gap:5px; max-width:51%; } .profile-banner-v2 .connection-stat { padding:7px 8px; min-height:29px; } .profile-banner-v2 .connection-stat strong { font-size:10px; } .profile-banner-v2 .connection-stat span { font-size:8px; } .profile-banner-v2 .profile-banner-credit { top:14px; right:14px; padding:8px 10px; max-width:43%; font-size:8px; } }
+
+/* A identidade deve ficar acima da camada de sombra também sem arte escolhida. */
+.profile-banner-v2 .profile-banner-info { z-index:2; }
+.profile-banner-v2 .profile-banner-art { z-index:0; }
+/* A prévia fica na linha imediatamente abaixo dos dois contadores. */
+.profile-banner-v2 .profile-connection-counts { align-content:start; max-width:calc(100% - 40px); }
+.profile-banner-v2 .follower-stack-host { flex-basis:100%; margin:0; }
+.profile-banner-v2 .follower-stack { gap:10px; padding:8px 11px; width:max-content; max-width:100%; border-color:#ffffff18; background:#10180fbd; backdrop-filter:blur(15px); border-radius:14px; }
+.profile-banner-v2 .follower-stack:hover { border-color:#ffd21f70; background:#1c2715ed; }
+.profile-banner-v2 .follower-stack-person .community-avatar,.profile-banner-v2 .follower-stack-more { width:30px; height:30px; border-width:2px; }
+.profile-banner-v2 .follower-stack-copy small { margin-bottom:3px; font-size:8px; }
+.profile-banner-v2 .follower-stack-copy strong { font-size:9px; }
+.profile-banner-v2:not(.has-profile-banner):has(.follower-stack-host:not([hidden])) .profile-banner-art { height:185px; }
+@media(max-width:560px) { .profile-banner-v2 .profile-connection-counts { max-width:calc(100% - 28px); } .profile-banner-v2 .follower-stack { gap:8px; padding:7px 9px; } .profile-banner-v2 .follower-stack-person .community-avatar,.profile-banner-v2 .follower-stack-more { width:26px; height:26px; } }

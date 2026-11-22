@@ -12,9 +12,7 @@
 .profile-stat .profile-stat-icon { display:grid; place-items:center; width:26px; height:26px; border:1px solid #d8e4a828; border-radius:9px; color:#b8c994; background:#b7c58b08; }
 .profile-stat-icon svg { width:16px; height:16px; }
 .profile-stat .profile-stat-arrow { font-size:17px; color:#aab58b; }
-.profile-stat:first-child .profile-stat-arrow { color:#ffdc24; }
 .player-profile .profile-overview .profile-stat strong { font-size:32px; letter-spacing:-1.6px; line-height:1; font-weight:700; }
-.player-profile .profile-overview .profile-stat:first-child strong { color:#ffe060; }
 .player-profile .profile-stat .profile-stat-caption { font-size:11px; margin-top:6px; color:#d2d8c8; }
 .player-profile .profile-stat .profile-stat-kicker { font-size:7px; letter-spacing:1.5px; color:#7e8d72; margin-top:11px; }
 html[data-presentation-motion=full] .profile-overview .profile-stat { transition:border-color .2s,transform .2s,box-shadow .2s; }

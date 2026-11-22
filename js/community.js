@@ -25,6 +25,24 @@
             }
             return {counts,total,average:total?sum/total:null};
         },
+        async catalogPopularity(){
+            const api=await client(),known=new Set(window.BacklogGames.map(game=>game.id)),byGame=new Map();
+            const size=1000;let offset=0;
+            while(true){
+                const rows=check(await api.from('reviews').select('game_id,user_id,rating,text')
+                    .order('game_id').order('user_id').range(offset,offset+size-1))||[];
+                for(const row of rows){
+                    if(!known.has(row.game_id)||!row.user_id)continue;
+                    const score=Number(row.rating),rated=row.rating!=null&&score>=.5&&score<=5&&Number.isInteger(score*2);
+                    if(!rated&&!String(row.text||'').trim())continue;
+                    if(!byGame.has(row.game_id))byGame.set(row.game_id,new Map());
+                    byGame.get(row.game_id).set(row.user_id,rated?score:null);
+                }
+                if(rows.length<size)break;offset+=rows.length;
+            }
+            return [...byGame].map(([game_id,people])=>{const ratings=[...people.values()].filter(value=>value!=null);return {game_id,player_count:people.size,average:ratings.length?ratings.reduce((sum,n)=>sum+n,0)/ratings.length:null};})
+                .sort((a,b)=>b.player_count-a.player_count||(b.average||0)-(a.average||0)||window.BacklogGames.find(g=>g.id===a.game_id).title.localeCompare(window.BacklogGames.find(g=>g.id===b.game_id).title));
+        },
         async searchPlayers(query,offset=0){return check(await(await client()).rpc('search_players',{search_term:query,page_offset:offset}))||[];},
         async activity(offset=0,filter='all'){const api=await client(true),params={page_offset:offset,feed_filter:filter};let result=await api.rpc('activity_feed_v2',params);if(result.error?.code==='PGRST202')result=await api.rpc('activity_feed',params);return check(result)||[];},
         async metrics(id,year){return (check(await(await client()).rpc('profile_metrics',{profile_key:id,calendar_year:year}))||[])[0];},

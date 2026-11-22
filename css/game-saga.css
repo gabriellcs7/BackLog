@@ -10,3 +10,7 @@
 .saga-game-meta { margin:0; color:var(--muted); font-size:10px; }
 @media(max-width:560px) { .game-saga-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px 9px; } .saga-game-card h3 { font-size:10px; } }
 @media(max-width:360px) { .game-saga-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+.saga-see-more { margin-top:20px; }
+.saga-page { padding-block:40px 70px; }
+.saga-page .page-section-heading { margin-top:24px; }

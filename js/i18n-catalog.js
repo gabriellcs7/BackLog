@@ -691,6 +691,10 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Your gaming journal|Seu registro de jogos
+YOUR YEAR|SEU ANO
+YOUR CURATION|SUAS ESCOLHAS
+YOUR JOURNEY|SUA JORNADA
 Price|Preço
 Price not confirmed|Preço não confirmado
 Free to play|Grátis para jogar

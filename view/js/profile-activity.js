@@ -44,8 +44,16 @@
             loggedUrl.searchParams.set('id',player.profile.id);
             loggedLink.href=loggedUrl.href;
             const stats=[[diaryLink,data.metrics.played_this_year,'Played in '+year],[listLink,data.metrics.list_count,own?'Lists':'Public lists'],[loggedLink,data.metrics.logged_games,'Games logged']];
-            for(const [control,value,label] of stats){
-                control.append(ui.element('strong','',value),ui.element('span','',label));
+            $('profile-stats-year').textContent=year;
+            const icons=["<rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"3\"/><path d=\"M8 3v4m8-4v4M4 11h16m-11 5 2 2 4-4\"/>","<rect x=\"4\" y=\"4\" width=\"5\" height=\"5\" rx=\"1\"/><path d=\"M13 6h7M13 8h5\"/><rect x=\"4\" y=\"14\" width=\"5\" height=\"5\" rx=\"1\"/><path d=\"M13 16h7M13 18h5\"/>","<path d=\"M8 7h8c3 0 5 9 4 11-1 2-4-1-5-3H9c-1 2-4 5-5 3C3 16 5 7 8 7Z\"/><path d=\"M8 10v4m-2-2h4m5-1h.01m2 2h.01\"/>"],captions=['YOUR YEAR','YOUR CURATION','YOUR JOURNEY'];
+            for(const [index,[control,value,label]] of stats.entries()){
+                const top=ui.element('span','profile-stat-top'),icon=ui.element('span','profile-stat-icon'),arrow=ui.element('span','profile-stat-arrow','↗');
+                top.setAttribute('aria-hidden','true');
+                // Formas SVG locais e fixas; nenhum conteúdo de usuário é inserido como HTML.
+                icon.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+icons[index]+'</svg>';
+                top.append(icon,arrow);
+                const caption=ui.element('span','profile-stat-kicker',captions[index]);caption.setAttribute('aria-hidden','true');
+                control.append(top,ui.element('strong','',value),ui.element('span','profile-stat-caption',label),caption);
                 $('profile-metrics').append(control);
             }
             const grid=$('profile-recent-games');grid.replaceChildren();

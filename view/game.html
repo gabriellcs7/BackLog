@@ -168,6 +168,7 @@
                         <a href="#details">Game details</a>
                         <a href="#screenshots" hidden>Screenshots</a>
                         <a href="#characters" hidden>Characters</a>
+                        <a href="#saga" hidden>Saga</a>
                         <a id="review-tab" href="write-review.html">Write a review</a>
                         <a href="#community">Community</a>
                         <a href="#more-games">More games <span aria-hidden="true">↗</span></a>
@@ -217,6 +218,7 @@
                         <div class="section-heading"><h3 id="characters-title">Main characters</h3></div>
                         <ul class="game-character-list" id="character-list" role="list"></ul>
                     </section>
+                    <section class="game-saga" id="saga" aria-labelledby="saga-title" hidden><div class="game-saga-heading"><h3 id="saga-title">More from this saga<span>.</span></h3><span class="game-saga-name"></span></div><div class="game-saga-grid"></div></section>
                     <section id="community" class="community-section" aria-labelledby="community-title"><div class="section-heading"><span class="section-number">04 /</span><h3 id="community-title">Community reviews</h3></div><p class="community-intro">Reviews and discussion from other players.</p><div class="social-actions"><a class="social-button social-button-quiet" id="community-signin" href="profile.html#account">Sign in to like and comment ↗</a><button class="social-button social-button-quiet" id="refresh-community" type="button">Refresh reviews</button></div><p id="community-feedback" class="social-feedback" role="status" aria-live="polite"></p><div id="community-feed" class="community-feed"></div><button id="more-reviews" class="social-button" type="button" hidden>Load more reviews</button></section>
                 </div>
             </div>
@@ -300,5 +302,6 @@
         <script src="../js/notifications.js" defer></script>
         <script src="../js/game-galleries.js" defer></script>
         <script src="js/game-gallery.js" defer></script>
+        <script src="js/game-saga.js" defer></script>
     </body>
 </html>

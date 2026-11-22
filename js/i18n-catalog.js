@@ -689,4 +689,6 @@ Log 25 different games.|Registre 25 jogos diferentes.
 Public curator|Curador público
 Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
+Saga|Saga
+More from this saga|Mais desta saga
 `.trim().split('\n').map(line=>line.split('|')));

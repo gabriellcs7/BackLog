@@ -56,6 +56,7 @@ window.BacklogGames = [
     },
     {
         "id": "red-dead-redemption-2",
+        "franchise": "Red Dead Redemption",
         "title": "Red Dead Redemption 2",
         "cover": "catalogo/red-dead-redemption-2.webp",
         "genre": "Adventure",
@@ -128,6 +129,7 @@ window.BacklogGames = [
     },
     {
         "id": "minecraft",
+        "franchise": "Minecraft",
         "title": "Minecraft",
         "cover": "catalogo/minecraft.webp",
         "genre": "Sandbox",
@@ -211,6 +213,7 @@ window.BacklogGames = [
     },
     {
         "id": "red-dead-redemption",
+        "franchise": "Red Dead Redemption",
         "title": "Red Dead Redemption",
         "cover": "catalogo/red-dead-redemption.webp",
         "genre": "Adventure",
@@ -264,6 +267,7 @@ window.BacklogGames = [
     },
     {
         "id": "silent-hill-townfall",
+        "franchise": "Silent Hill",
         "title": "Silent Hill: Townfall",
         "cover": "catalogo/silent-hill-townfall.webp",
         "genre": "Horror",
@@ -287,6 +291,7 @@ window.BacklogGames = [
     },
     {
         "id": "minecraft-dungeons-ii",
+        "franchise": "Minecraft",
         "title": "Minecraft Dungeons II",
         "cover": "catalogo/minecraft-dungeons-ii.webp",
         "genre": "RPG",

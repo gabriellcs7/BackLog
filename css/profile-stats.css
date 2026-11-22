@@ -1,23 +1,23 @@
 /* Estatísticas aprovadas: cartões clicáveis com hierarquia e ícones discretos. */
-.player-profile .profile-overview .profile-totals { padding:22px; border-color:#ffffff16; border-radius:20px; background:radial-gradient(ellipse at 0 0,#85965112,transparent 65%),#181e16; box-shadow:0 20px 60px #0002; }
-.profile-stats-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 18px; }
+.player-profile .profile-overview .profile-totals { padding:17px; border-color:#ffffff16; border-radius:20px; background:radial-gradient(ellipse at 0 0,#85965112,transparent 65%),#181e16; box-shadow:0 20px 60px #0002; }
+.profile-stats-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 12px; }
 .profile-stats-heading h2 { margin:0; font-size:13px; font-weight:500; letter-spacing:.2px; color:#d7dfcb; }
-.profile-stats-heading>span { font-size:10px; padding:6px 10px; background:#aabb7710; border:1px solid #aabb7720; border-radius:30px; color:#c4cea9; }
+.profile-stats-heading>span { font-size:10px; padding:4px 9px; background:#aabb7710; border:1px solid #aabb7720; border-radius:30px; color:#c4cea9; }
 .profile-stats-heading>span:empty { display:none; }
-.player-profile .profile-overview .profile-metrics { gap:12px; align-content:start; min-height:0; }
-.player-profile .profile-overview .profile-stat { position:relative; display:flex; flex-direction:column; align-items:start; justify-content:start; gap:0; padding:17px 18px 15px; border:1px solid #b2c19722; border-radius:13px; color:inherit; background:linear-gradient(145deg,#35402a30,#191e1600); text-align:left; overflow:hidden; }
+.player-profile .profile-overview .profile-metrics { gap:10px; align-content:start; min-height:0; }
+.player-profile .profile-overview .profile-stat { position:relative; display:flex; flex-direction:column; align-items:start; justify-content:start; gap:0; padding:13px 14px 12px; border:1px solid #b2c19722; border-radius:13px; color:inherit; background:linear-gradient(145deg,#35402a30,#191e1600); text-align:left; overflow:hidden; }
 .player-profile .profile-overview .profile-stat:first-child { border-color:#e6c93440; background:radial-gradient(ellipse at 0 0,#d6c64710,transparent 75%),#20261b; }
 .player-profile .profile-overview .profile-stat:hover { border-color:#e6c93480; }
 .player-profile .profile-overview .profile-stat:focus-visible { outline:2px solid var(--yellow); outline-offset:4px; }
-.player-profile .profile-overview .profile-stat .profile-stat-top { display:flex; justify-content:space-between; align-items:center; width:100%; margin-bottom:19px; }
-.profile-stat .profile-stat-icon { display:grid; place-items:center; width:30px; height:30px; border:1px solid #d8e4a828; border-radius:9px; color:#b8c994; background:#b7c58b08; }
-.profile-stat-icon svg { width:18px; height:18px; }
+.player-profile .profile-overview .profile-stat .profile-stat-top { display:flex; justify-content:space-between; align-items:center; width:100%; margin-bottom:10px; }
+.profile-stat .profile-stat-icon { display:grid; place-items:center; width:26px; height:26px; border:1px solid #d8e4a828; border-radius:9px; color:#b8c994; background:#b7c58b08; }
+.profile-stat-icon svg { width:16px; height:16px; }
 .profile-stat .profile-stat-arrow { font-size:17px; color:#aab58b; }
 .profile-stat:first-child .profile-stat-arrow { color:#ffdc24; }
-.player-profile .profile-overview .profile-stat strong { font-size:38px; letter-spacing:-1.6px; line-height:1; font-weight:700; }
+.player-profile .profile-overview .profile-stat strong { font-size:32px; letter-spacing:-1.6px; line-height:1; font-weight:700; }
 .player-profile .profile-overview .profile-stat:first-child strong { color:#ffe060; }
-.player-profile .profile-stat .profile-stat-caption { font-size:12px; margin-top:8px; color:#d2d8c8; }
-.player-profile .profile-stat .profile-stat-kicker { font-size:7px; letter-spacing:1.5px; color:#7e8d72; margin-top:18px; }
+.player-profile .profile-stat .profile-stat-caption { font-size:11px; margin-top:6px; color:#d2d8c8; }
+.player-profile .profile-stat .profile-stat-kicker { font-size:7px; letter-spacing:1.5px; color:#7e8d72; margin-top:11px; }
 html[data-presentation-motion=full] .profile-overview .profile-stat { transition:border-color .2s,transform .2s,box-shadow .2s; }
 html[data-presentation-motion=full] .profile-overview .profile-stat:hover { transform:translateY(-3px); }
-@media(max-width:560px) { .player-profile .profile-overview .profile-totals { padding:15px; border-radius:17px; } .profile-stats-heading h2 { font-size:12px; } .player-profile .profile-overview .profile-metrics { gap:7px; } .player-profile .profile-overview .profile-stat { padding:12px 10px; border-radius:10px; } .player-profile .profile-overview .profile-stat strong { font-size:31px; } .profile-stat .profile-stat-icon { width:27px; height:27px; } .profile-stat .profile-stat-arrow { font-size:14px; } .player-profile .profile-stat .profile-stat-caption { font-size:10px; min-height:28px; line-height:1.4; } .player-profile .profile-stat .profile-stat-kicker { display:none; } .profile-stat-icon svg { width:16px; height:16px; } }
+@media(max-width:560px) { .player-profile .profile-overview .profile-totals { padding:13px; border-radius:17px; } .profile-stats-heading h2 { font-size:12px; } .player-profile .profile-overview .profile-metrics { gap:7px; } .player-profile .profile-overview .profile-stat { padding:10px 9px; border-radius:10px; } .player-profile .profile-overview .profile-stat strong { font-size:28px; } .profile-stat .profile-stat-icon { width:24px; height:24px; } .profile-stat .profile-stat-arrow { font-size:14px; } .player-profile .profile-stat .profile-stat-caption { font-size:10px; min-height:28px; line-height:1.4; } .player-profile .profile-stat .profile-stat-kicker { display:none; } .profile-stat-icon svg { width:16px; height:16px; } }

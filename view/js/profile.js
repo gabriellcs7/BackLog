@@ -20,7 +20,7 @@
             window.BacklogProfilePlaying.render(player.profile.id);
             window.BacklogProfileRatings.render(player.profile.id);
             renderProfileDetails();
-            for(const id of ['choose-profile-banner','edit-profile','choose-favorites','new-list'])$('#'+id).disabled=account.loading;
+            for(const id of ['choose-favorites','new-list'])$('#'+id).disabled=account.loading;
             $('#profile-owner-actions').hidden=!own;$('#choose-favorites').hidden=!own;$('#new-list').hidden=!own;$('#account').hidden=!own;
             $('#favorites-title').textContent=own?'Your favorite four.':'Favorite four.';$('#favorites-grid').replaceChildren();
             for(let i=0;i<4;i++){const id=player.favorites[i],slot=el('div','favorite-slot');if(id){slot.append(gameCard(id));}else{const empty=own?button('+',openFavorites,'favorite-empty'):el('div','favorite-empty','☆');if(own)empty.setAttribute('aria-label','Choose favorite game '+(i+1));empty.append(el('span','',own?'Choose a game':'Not selected'));slot.append(empty);}$('#favorites-grid').append(slot);}
@@ -28,9 +28,9 @@
         }catch(error){if(ticket===version)note(error.message);}
     }
     function openSettingsShortcut(){
-        const request=params.get('settings'),targets={profile:'#edit-profile',banner:'#choose-profile-banner',favorites:'#choose-favorites'};
-        if(!own||!player||account.loading||!targets[request])return;
-        params.delete('settings');const url=new URL(location.href);url.searchParams.delete('settings');history.replaceState(null,'',url);$(targets[request]).click();
+        const request=params.get('settings'),targets={profile:openProfileEditor,banner:openBannerEditor,favorites:openFavorites};
+        if(!own||!player||account.loading||!Object.hasOwn(targets,request))return;
+        params.delete('settings');const url=new URL(location.href);url.searchParams.delete('settings');history.replaceState(null,'',url);targets[request]();
     }
     function confirmListDeletion(list){
         pendingDelete=list.id;
@@ -96,7 +96,7 @@
         if(filePreview&&!account.user)$('#account-note').textContent='Open the local site to create an account and confirm your email. Your device profile stays available in this preview.';
         if(account.user){$('#account-email').textContent=account.user.email;let imported=false;try{imported=localStorage.getItem('backlog:imported:'+account.user.id)==='yes';}catch{}$('#import-device').disabled=imported;$('#import-device').textContent=imported?'Device profile copied':'Copy device profile & lists to account';}
     }
-    $('#edit-profile').addEventListener('click',()=>{if(!own)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#profile-location-input').value=player.profile.location||'';$('#profile-website-input').value=player.profile.website||'';$('#profile-platform-input').value=player.profile.gaming_platform||'';$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();});
+    function openProfileEditor(){if(!own||!player||account.loading)return;$('#display-name').value=player.profile.display_name;$('#profile-bio-input').value=player.profile.bio;$('#profile-location-input').value=player.profile.location||'';$('#profile-website-input').value=player.profile.website||'';$('#profile-platform-input').value=player.profile.gaming_platform||'';$('#edit-profile-feedback').textContent='';window.BacklogProfileSocial.edit(player.profile);$('#profile-dialog').showModal();}
     $('#profile-form').addEventListener('submit',event=>{event.preventDefault();action(event.submitter,$('#edit-profile-feedback'),async()=>{await account.saveProfile($('#display-name').value,$('#profile-bio-input').value,window.BacklogProfileSocial.photo(),{location:$('#profile-location-input').value,website:$('#profile-website-input').value,platform:$('#profile-platform-input').value});$('#profile-dialog').close();note('Profile saved.');await render();});});
     function renderProfileDetails(){
         const location=$('#profile-location'),website=$('#profile-website');
@@ -148,13 +148,13 @@
 
     const bannerPreview=$('#profile-banner-preview');
     bannerSelect.addEventListener('change',()=>setBannerImage(bannerPreview,game(bannerSelect.value)));
-    $('#choose-profile-banner').addEventListener('click',()=>{
+    function openBannerEditor(){
         if(!own||account.loading)return;
         bannerSelect.value=game(player.profile.banner_game_id)?.id||'';
         setBannerImage(bannerPreview,game(bannerSelect.value));
         $('#profile-banner-feedback').textContent='';
         $('#profile-banner-dialog').showModal();
-    });
+    }
     $('#profile-banner-form').addEventListener('submit',event=>{
         event.preventDefault();
         action(event.submitter,$('#profile-banner-feedback'),async()=>{

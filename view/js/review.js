@@ -6,6 +6,7 @@
     const reviews = window.BacklogReviews;
     const form = document.querySelector('#review-form');
     const text = document.querySelector('#review-text');
+    const spoiler=document.querySelector('#review-spoiler'),format=window.BacklogReviewText;
     const diaryDate = document.querySelector('#review-played-date');
     diaryDate.max = window.BacklogDiary.today();
     const radios = [...form.querySelectorAll('[name="review-rating"]')];
@@ -23,7 +24,7 @@
         const value = typeof preview === 'number' ? preview : rating();
         document.querySelector('#review-rating-value').textContent = value === null ? 'Not rated' : `${value} / 5`;
         document.querySelector('#clear-rating').hidden = value === null;
-        document.querySelector('#review-counter').textContent = `${text.value.length.toLocaleString('en-US')} / 3,000`;
+        document.querySelector('#review-counter').textContent = `${format.withSpoiler(text.value,spoiler.checked).length.toLocaleString('en-US')} / 3,000`;
         form.querySelectorAll('.rating-star-choice').forEach(star => {
             const fill = value === null ? 0 : Math.max(0, Math.min(1, value - Number(star.dataset.star) + 1));
             star.style.setProperty('--star-fill', (fill * 100) + '%');
@@ -51,7 +52,7 @@
         form.hidden = Boolean(review);
         confirmation.hidden = true;
         cancel.hidden = !review;
-        text.value = review?.text || '';
+        text.value = format.unwrap(review?.text||'');spoiler.checked=format.isSpoiler(review?.text);
         window.BacklogRichReview?.load();
         diaryDate.value = review?.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = review?.rating != null && Number(radio.value) === review.rating; });
@@ -78,7 +79,7 @@
                 savedRating.append(stars, score);
             }
             const savedText = document.querySelector('#review-saved-text');
-            window.BacklogReviewText.render(savedText,review.text);
+            window.BacklogReviewText.render(savedText,review.text,{reveal:true});
             const savedId=window.BacklogAccount.getState().reviews.find(item=>item.game_id===game.id)?.id;
             document.querySelector('#open-saved-review').href=window.BacklogUI.reviewHref(savedId?'id':'game',savedId||game.id);
             savedText.hidden = !review.text;
@@ -116,7 +117,7 @@
         }
         try {
             form.inert = true;
-            const saved = await reviews.save(game.id, rating(), text.value, diaryDate.value);
+            const saved = await reviews.save(game.id, rating(), text.value, diaryDate.value,spoiler.checked);
             render();
             feedback.textContent = saved.statusWarning ? 'Review saved to your diary. Could not update your collection in this browser.' : window.BacklogAccount?.user ? 'Your public review has been saved to your diary.' : 'Your review has been saved to your diary.';
             document.querySelector('#edit-review').focus();
@@ -157,7 +158,7 @@
     document.querySelector('#use-device-review').addEventListener('click', () => {
         const draft = reviews.getDevice(game.id);
         if (!draft) return;
-        text.value = draft.text;
+        text.value = format.unwrap(draft.text);spoiler.checked=format.isSpoiler(draft.text);
         window.BacklogRichReview?.load();
         diaryDate.value = draft.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = draft.rating !== null && Number(radio.value) === draft.rating; });

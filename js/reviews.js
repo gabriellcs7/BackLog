@@ -12,10 +12,10 @@
         window.dispatchEvent(new CustomEvent('backlog-review-change',{detail:{id}}));
         return {...value,statusWarning};
     }
-    function save(id,rating,text,date=diary.today()){
+    function save(id,rating,text,date=diary.today(),spoiler){
         if(!validGame(id)||!validRating(rating)||typeof text!=='string'||text.length>limit)throw new Error('Invalid review.');
         if(!diary.validDate(date))throw new Error('Choose today or an earlier date.');
-        const cleaned=text.trim();if(rating===null&&!cleaned)throw new Error('Choose a rating or write a review.');
+        const cleaned=spoiler===undefined?text.trim():window.BacklogReviewText.withSpoiler(text,spoiler);if(cleaned.length>limit)throw new Error('Your review and spoiler warning must fit within 3,000 characters.');if(rating===null&&!(window.BacklogReviewText?.unwrap(cleaned)??cleaned).trim())throw new Error('Choose a rating or write a review.');
         if(window.BacklogAccount?.user)return window.BacklogAccount.saveReview(id,rating,cleaned,date).then(value=>completedSave(id,value));
         return completedSave(id,diary.saveDevice(id,rating,cleaned,date));
     }

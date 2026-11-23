@@ -1,6 +1,6 @@
 /* Elementos seguros para perfis, listas e reviews sociais. */
 (() => {
-    const element=(tag,className='',text)=>{const node=document.createElement(tag);node.className=className;if(text!==undefined)node.textContent=window.BacklogReviewText&&String(text).startsWith(window.BacklogReviewText.marker)?window.BacklogReviewText.plain(text):String(text);return node;};
+    const element=(tag,className='',text)=>{const node=document.createElement(tag);node.className=className;if(text!==undefined){const format=window.BacklogReviewText;if(format?.isSpoiler(text)){node.textContent=window.BacklogI18n?.t('This review contains spoilers.')||'This review contains spoilers.';node.classList.add('spoiler-preview');}else node.textContent=format&&String(text).startsWith(format.marker)?format.plain(text):String(text);}return node;};
     const base=new URL('../',document.currentScript.src);
     const href=path=>new URL(path,base).href;
     const game=id=>window.BacklogGames.find(game=>game.id===id);

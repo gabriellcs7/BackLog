@@ -691,6 +691,13 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Contains spoilers|Contém spoilers
+Hide your review until readers choose to reveal it.|Oculte sua review até que a pessoa escolha revelá-la.
+This review contains spoilers.|Esta review contém spoilers.
+Show review|Mostrar review
+Hide spoilers|Ocultar spoilers
+You chose to reveal this review.|Você escolheu revelar esta review.
+Your review and spoiler warning must fit within 3,000 characters.|Sua review e o aviso de spoiler devem ter até 3.000 caracteres.
 Actions for|Ações para
 Mark as Played|Marcar como jogado
 Played ✓|Jogado ✓

@@ -23,7 +23,8 @@
             const status=window.Backlog.statusOptions.find(option=>option.id===entry.status);
             if(status)heading.append(el('span','social-small',status.label));
         }content.append(heading);
-        if(entry.text){if(entry.text.length>220){const details=el('details','diary-review');details.append(el('summary','','Preview review'),el('p','',entry.text));content.append(el('p','diary-excerpt',entry.text.slice(0,200)+'…'),details);}else content.append(el('p','diary-review-text',entry.text));}
+        if(entry.text&&window.BacklogReviewText.isSpoiler(entry.text)){const body=el('div','diary-review-text');window.BacklogReviewText.render(body,entry.text);content.append(body);}
+        else if(entry.text){if(entry.text.length>220){const details=el('details','diary-review');details.append(el('summary','','Preview review'),el('p','',entry.text));content.append(el('p','diary-excerpt',entry.text.slice(0,200)+'…'),details);}else content.append(el('p','diary-review-text',entry.text));}
         else if(!publicView)content.append(el('p','social-small','Rated this game.'));
         if(publicView){if(entry.reviewId)title.href=ui.reviewHref('id',entry.reviewId);row.append(day,cover,content);return row;}
         title.href=ui.reviewHref('entry',entry.id);

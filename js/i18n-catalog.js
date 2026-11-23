@@ -691,6 +691,7 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Choose an action|Escolha uma ação
 How to use BackLog|Como usar o BackLog
 A quick tour of your games, reviews, lists and diary.|Um passeio pelos seus jogos, reviews, listas e diário.
 Explore the main features at your own pace. This tour does not change your games or account.|Conheça os recursos no seu ritmo. Este passeio não altera seus jogos nem sua conta.

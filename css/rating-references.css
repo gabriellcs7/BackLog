@@ -13,3 +13,8 @@ html[data-presentation-motion=full] .review-rating[data-rating-theme=superhot].r
 @keyframes rating-shards-layer { 0%,80% { opacity:1; } 100% { opacity:0; } }
 @keyframes rating-shards-base { 0%,70% { opacity:0; } 100% { opacity:1; } }
 
+[data-rating-theme=uncharted] { --rating-asset:url('../imagens/ui/ratings/uncharted-gold-star.svg'); --rating-full-filter:none; --rating-empty-filter:grayscale(1) brightness(.5); }
+.rating-reflection { position:absolute; inset:0; z-index:2; opacity:0; pointer-events:none; background:linear-gradient(110deg,transparent 35%,#fff6c5d9 50%,transparent 65%) -140% 0/260% 100% no-repeat; -webkit-mask:var(--rating-asset) center/contain no-repeat; mask:var(--rating-asset) center/contain no-repeat; clip-path:inset(0 calc(100% - var(--star-fill,0%)) 0 0); }
+html[data-presentation-motion=full] .review-rating[data-rating-theme=uncharted].rating-effect-active .rating-reflection { animation:rating-treasure-glint .6s ease-out both; animation-delay:calc(var(--star-index,0)*20ms); }
+@keyframes rating-treasure-glint { 0% { opacity:0; background-position:140% 0; } 15%,75% { opacity:.9; } 100% { opacity:0; background-position:-140% 0; } }
+

@@ -3,6 +3,7 @@
     'use strict';
     const themes={minecraft:'minecraft','grand-theft-auto-vi':'gta-wanted',cuphead:'cuphead','cuphead-the-delicious-last-course':'cuphead'};
     Object.assign(themes,{"superhot":"superhot","superhot-mind-control-delete":"superhot"});
+    Object.assign(themes,{"uncharted-drakes-fortune":"uncharted","uncharted-2-among-thieves":"uncharted","uncharted-3-drakes-deception":"uncharted","uncharted-4-a-thiefs-end":"uncharted","uncharted-the-lost-legacy":"uncharted"});
     const ui=window.BacklogUI;
     function theme(id){return themes[id]||null;}
     function layer(parent,className){const node=document.createElement('span');node.className=className;node.setAttribute('aria-hidden','true');parent.append(node);return node;}

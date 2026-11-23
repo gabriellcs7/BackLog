@@ -30,7 +30,7 @@
   const controls=document.createElement('div');controls.className='backlog-tour-controls';previous=button(t('Back','Voltar'),'social-button',()=>go(progress.step-1));next=button('','social-button social-button-primary',()=>go(progress.step+1));
   const skip=button(t('End tour','Encerrar passeio'),'backlog-tour-close',stop);controls.append(previous,next);tip.append(count,skip,title,body,controls);dialog.append(frame,tip);document.body.append(dialog);
   dialog.addEventListener('cancel',e=>{e.preventDefault();stop();});
-  dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(progress.step+1);}if(e.key==='ArrowLeft'&&progress.step>0){e.preventDefault();go(progress.step-1);}});
+  dialog.addEventListener('keydown',e=>{if(e.key==='Tab'){const nodes=[...dialog.querySelectorAll('button:not(:disabled)')],first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}if(e.key==='ArrowRight'){e.preventDefault();go(progress.step+1);}if(e.key==='ArrowLeft'&&progress.step>0){e.preventDefault();go(progress.step-1);}});
   dialog.showModal();
  }
  function target(){const found=document.querySelector(steps[progress.step][1]);return found&&found.getBoundingClientRect().width>0?found:null;}

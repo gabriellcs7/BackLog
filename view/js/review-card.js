@@ -8,7 +8,7 @@
         const header=el('div','community-review-header'),identity=el('div','community-player');
         const avatar=ui.avatar({id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path});
         const name=ui.profileLink({id:review.user_id,display_name:review.display_name});identity.append(avatar,name);header.append(identity,el('span','social-small',ui.date(review.updated_at)));
-        const score=el('p','social-rating',review.rating===null?'Written review':review.rating+' / 5 ★');
+        const score=el('p','social-rating');if(review.rating===null)score.textContent='Written review';else score.append(ui.ratingStars(Number(review.rating),review.game_id));
         const text=el('div','community-review-text');
         if(expanded)window.BacklogReviewText.render(text,review.text);
         else{

@@ -16,7 +16,7 @@
         const content=el('div','diary-entry-content'),heading=el('div','diary-entry-heading'),title=el('a','diary-game-title',game.title);title.href=cover.href;
         const titleGroup=el('div','diary-title-group');
         titleGroup.append(title);
-        if(entry.rating!=null)titleGroup.append(ui.ratingStars(entry.rating));
+        if(entry.rating!=null)titleGroup.append(ui.ratingStars(entry.rating,entry.gameId));
         else if(entry.text||entry.reviewId)titleGroup.append(el('span','social-rating','Written review'));
         heading.append(titleGroup);
         if(entry.status){

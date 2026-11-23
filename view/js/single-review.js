@@ -59,7 +59,7 @@
             } else {
                 const article = ui.element('article', 'community-review');
                 const rating = review.rating === null ? 'Written review' : review.rating + ' / 5 ★';
-                const body=ui.element('div','community-review-text');window.BacklogReviewText.render(body,review.text||'Rated this game.');article.append(ui.element('p','social-rating',rating),body);
+                const body=ui.element('div','community-review-text');window.BacklogReviewText.render(body,review.text||'Rated this game.');const score=ui.element('p','social-rating');if(review.rating==null)score.textContent='Written review';else score.append(ui.ratingStars(Number(review.rating),item.id));article.append(score,body);
                 content.append(article);
             }
             document.title = item.title + ' · Review · BackLog';

@@ -13,7 +13,7 @@
         const copy=el('div');
         const rating=review.rating===null?'Written review':review.rating+' / 5 ★';
         const likes=Number(review.like_count||0);
-        copy.append(el('h3','',item.title),el('span','social-rating',rating+' · '+likes+' '+(likes===1?'like':'likes')),el('p','',review.text||'Rated this game.'));
+        const score=el('span','social-rating');if(review.rating===null)score.append(document.createTextNode('Written review'));else score.append(ui.ratingStars(Number(review.rating),item.id));score.append(document.createTextNode(' · '+likes+' '+(likes===1?'like':'likes')));copy.append(el('h3','',item.title),score,el('p','',review.text||'Rated this game.'));
         card.append(image,copy);
         return card;
     }

@@ -16,7 +16,7 @@
     function cardWithRating(game, rating) {
         const card = ui.gameCard(game.id);
         if (rating == null) return card;
-        card.append(ui.ratingStars(rating));
+        card.append(ui.ratingStars(rating,game.id));
         return card;
     }
 

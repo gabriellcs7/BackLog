@@ -64,16 +64,7 @@
                 savedRating.removeAttribute('aria-label');
             } else {
                 savedRating.setAttribute('aria-label', review.rating + ' out of 5 stars');
-                const stars = document.createElement('span');
-                stars.className = 'review-stars';
-                stars.setAttribute('aria-hidden', 'true');
-                for (let index = 0; index < 5; index++) {
-                    const star = document.createElement('span');
-                    star.className = 'rating-star-shape';
-                    star.textContent = '★';
-                    star.style.setProperty('--star-fill', (Math.max(0, Math.min(1, review.rating - index)) * 100) + '%');
-                    stars.append(star);
-                }
+                const stars = window.BacklogUI.ratingStars(review.rating,game.id);stars.classList.add('review-stars');stars.setAttribute('aria-hidden','true');
                 const score = document.createElement('span');
                 score.textContent = review.rating + ' / 5';
                 savedRating.append(stars, score);

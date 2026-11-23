@@ -7,7 +7,7 @@
         const url=ui.reviewHref('id',review.id);
         const link=el('a','home-review-game');link.href=url;const cover=el('img');cover.src=ui.href('imagens/capas/'+game.cover);cover.alt='';cover.loading='lazy';
         const title=el('div'),score=el('p','social-rating');
-        if(wall&&review.rating!==null)score.append(ui.ratingStars(Number(review.rating)));
+        if(review.rating!==null)score.append(ui.ratingStars(Number(review.rating),game.id));
         else score.textContent=review.rating===null?'Written review':review.rating+' / 5 ★';
         title.append(el('h3','',game.title),score);link.append(cover,title);
         const author=el('div','home-review-author'),profile={id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path};author.append(ui.avatar(profile),ui.profileLink(profile));

@@ -15,6 +15,7 @@
         preview.querySelector('div>span').textContent='Community ratings';
     }
     function render({counts,total,average}){
+        preview.querySelector('.rating-star')?.style.setProperty('--star-fill',total?'100%':'0%');
         const summary=el('div','ratings-summary');
         summary.append(el('span','social-small',total+(total===1?' rating':' ratings')),el('strong','ratings-average',total?average.toFixed(1)+' / 5':'—'));
         const histogram=el('ul','ratings-histogram');
@@ -30,7 +31,7 @@
             bin.append(bar);histogram.append(bin);
         });
         const scale=el('div','ratings-scale');scale.setAttribute('aria-hidden','true');
-        scale.append(el('span','','★'),el('span','','★★★★★'));
+        if(window.BacklogRatingThemes?.theme(game.id)){const first=window.BacklogUI.ratingStars(1,game.id),last=window.BacklogUI.ratingStars(5,game.id);first.classList.add('rating-scale-first');scale.append(first,last);}else scale.append(el('span','','★'),el('span','','★★★★★'));
         chart.replaceChildren(summary,histogram,scale);
         feedback.textContent=total?'':'No community ratings yet. Be the first to rate this game.';
         if(total){preview.querySelector('strong').textContent=average.toFixed(1)+' / 5';preview.querySelector('div>span').textContent=total+(total===1?' community rating':' community ratings');}

@@ -22,7 +22,7 @@
         identity.querySelector('time').dateTime=review.updated_at;
         const portrait=el('a','game-review-marquee-avatar');portrait.href=ui.href('view/profile.html?id='+encodeURIComponent(review.user_id));portrait.setAttribute('aria-label','View profile of '+review.display_name);portrait.append(ui.avatar(profile));header.append(portrait,identity);
         const destination=ui.reviewHref('id',review.id),body=el('a','game-review-marquee-body',review.text||'A rating shared by this player.');body.href=destination;
-        const score=el('div','game-review-marquee-rating');if(review.rating!=null)score.append(ui.ratingStars(Number(review.rating)));else score.textContent='Written review';
+        const score=el('div','game-review-marquee-rating');if(review.rating!=null)score.append(ui.ratingStars(Number(review.rating),review.game_id));else score.textContent='Written review';
         const actions=el('div','game-review-marquee-actions'),likes=el('button','game-review-marquee-like review-like'),comments=el('a','game-review-marquee-comments','↳ '+(review.comment_count||0));
         likes.type='button';likes.dataset.marqueeLike=review.id;comments.href=destination;comments.setAttribute('aria-label','Read '+(review.comment_count||0)+' comments on the review by '+review.display_name);
         const open=el('a','game-review-marquee-open','Read review ↗');open.href=destination;

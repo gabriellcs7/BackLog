@@ -33,12 +33,13 @@
     function reviewHref(key,value){
         return href('view/review.html?'+new URLSearchParams({[key]:value}));
     }
-    function ratingStars(rating){
+    function ratingStars(rating,gameId){
         const stars=element('span','game-rating-stars','★★★★★');
         stars.setAttribute('role','img');
         stars.setAttribute('aria-label',rating+' out of 5 stars');
         stars.title=rating+' / 5';
         stars.style.setProperty('--rating-fill',Number(rating)*20+'%');
+        window.BacklogRatingThemes?.apply(stars,gameId,rating);
         return stars;
     }
 

@@ -22,7 +22,7 @@
         const messages={follow:' followed '+target+'.',like:' liked '+(target==='you'?'your':target+'\'s')+' review of ',comment:' commented on '+(target==='you'?'your':target+'\'s')+' review of ',rating:event.review_number||event.rating===null?' reviewed ':' rated ',status:wishlistAddition?' added ':' marked '};sentence.append(document.createTextNode(messages[event.kind]||' updated '));
         const destination=event.review_id?ui.reviewHref('id',event.review_id):game?ui.href('view/game.html?id='+encodeURIComponent(game.id)):null;
         if(game){const link=ui.element('a','player-link',game.title);link.href=destination;sentence.append(link);}
-        if(event.kind==='rating'&&event.rating!==null){const score=ui.ratingStars(Number(event.rating));score.classList.add('activity-rating');sentence.append(document.createTextNode(' '),score);}
+        if(event.kind==='rating'&&event.rating!==null){const score=ui.ratingStars(Number(event.rating),event.game_id);score.classList.add('activity-rating');sentence.append(document.createTextNode(' '),score);}
         if(event.kind==='rating'&&event.review_number>1)sentence.append(document.createTextNode(' · '+ui.reviewOrdinal(event.review_number)));
         if(wishlistAddition)sentence.append(document.createTextNode(' to Want to play.'));
         else if(event.kind==='status')sentence.append(document.createTextNode(' as '+(window.Backlog.statusOptions.find(s=>s.id===event.status)?.label||event.status)+'.'));

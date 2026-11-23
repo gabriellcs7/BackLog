@@ -17,7 +17,7 @@
                 const image=ui.element('img','tooltip-game-cover');image.src=ui.href('imagens/capas/'+game.cover);image.alt='';
                 const copy=ui.element('div','tooltip-copy');copy.append(ui.element('strong','',game.title),ui.element('span','',[game.year,...game.tags.slice(0,2)].filter(Boolean).join(' · ')));
                 const status=window.Backlog?.getStatus(game.id)?.label;if(status)copy.append(ui.element('small','','Your status: '+status));
-                const rating=window.BacklogReviews?.get(game.id)?.rating;if(rating!=null){const stars=ui.ratingStars(Number(rating));stars.title='Your rating';copy.append(stars);}
+                const rating=window.BacklogReviews?.get(game.id)?.rating;if(rating!=null){const stars=ui.ratingStars(Number(rating),game.id);stars.title='Your rating';copy.append(stars);}
                 tip.append(image,copy);
             }else{
                 const container=node.closest('.home-review-author,.community-player,.connection-row,.activity-event,.nav-profile-link');

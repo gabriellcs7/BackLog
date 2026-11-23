@@ -23,6 +23,7 @@
   function reveal(next){if(opened!==row)close();opened=next?row:null;show(next);}
   toggle.addEventListener('click',()=>{if(offset){close();return;}const next=window.Backlog.getStatus(game.id)?.id==='playing'?-100:100;reveal(next);(next>0?playing:completed).focus();});
   row.addEventListener('keydown',e=>{if(e.key==='Escape'&&offset){e.preventDefault();close();toggle.focus();}});
+  content.addEventListener('dragstart',e=>{if(mobile.matches)e.preventDefault();});
   content.addEventListener('pointerdown',e=>{if(!mobile.matches||busy||e.button!==0||e.target.closest('button,input,select,textarea'))return;gesture={id:e.pointerId,x:e.clientX,y:e.clientY,base:offset,locked:false};});
   content.addEventListener('pointermove',e=>{if(!gesture||e.pointerId!==gesture.id)return;const dx=e.clientX-gesture.x,dy=e.clientY-gesture.y;
    if(!gesture.locked){if(Math.max(Math.abs(dx),Math.abs(dy))<10)return;if(Math.abs(dy)>=Math.abs(dx)){gesture=null;return;}gesture.locked=true;if(opened!==row)close();content.setPointerCapture(e.pointerId);row.classList.add('is-dragging');}

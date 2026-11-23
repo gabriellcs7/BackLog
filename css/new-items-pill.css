@@ -1,0 +1,6 @@
+.new-items-host { position:sticky; top:100px; z-index:8; height:0; display:flex; justify-content:center; pointer-events:none; }
+.new-items-pill { pointer-events:auto; display:inline-flex; align-items:center; gap:9px; align-self:start; padding:10px 17px; border:1px solid #e0ca5766; border-radius:30px; color:#ffe36c; background:#202619ed; backdrop-filter:blur(15px); box-shadow:0 8px 30px #0007; font:inherit; font-size:12px; cursor:pointer; }
+.new-items-pill>span:first-child { display:grid; place-items:center; width:20px; height:20px; border-radius:50%; background:#e6c93418; }
+.new-items-pill:hover { border-color:var(--yellow); background:#2b321f; }.new-items-pill:focus-visible { outline:2px solid var(--yellow); outline-offset:4px; }.new-items-pill:disabled { opacity:.6; cursor:wait; }
+html[data-presentation-motion=full] .new-items-pill { transition:transform .2s,border-color .2s,background .2s; }html[data-presentation-motion=full] .new-items-pill:hover { transform:translateY(-2px); }
+@media(max-width:560px) { .new-items-host { top:88px; }.new-items-pill { font-size:11px; padding:9px 13px; } }

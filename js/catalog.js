@@ -93,6 +93,7 @@
     ];
     function renderGroups(matches) {
         results.replaceChildren();
+        const hint=document.createElement('p');hint.className='swipe-backlog-hint';hint.textContent=window.BacklogPreferences?.get().language==='pt-BR'?'Deslize para os lados para revelar atalhos de status. Toque no status para salvar.':'Swipe either way for status shortcuts. Tap a status to save.';results.append(hint);
         for (const group of collectionGroups) {
             const section = document.createElement('section');
             section.id = 'collection-' + group.id;
@@ -107,7 +108,7 @@
             description.textContent = group.description;
             const grid = document.createElement('div');
             grid.className = 'catalog-grid';
-            grid.append(...items.map(createCard));
+            grid.append(...items.map(game => window.BacklogSwipeBacklog.create(createCard(game),game)));
             section.append(heading, description, grid);
             if (!items.length) {
                 const empty = document.createElement('p');

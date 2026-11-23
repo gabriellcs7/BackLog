@@ -18,3 +18,7 @@ html[data-presentation-motion=full] .review-rating[data-rating-theme=superhot].r
 html[data-presentation-motion=full] .review-rating[data-rating-theme=uncharted].rating-effect-active .rating-reflection { animation:rating-treasure-glint .6s ease-out both; animation-delay:calc(var(--star-index,0)*20ms); }
 @keyframes rating-treasure-glint { 0% { opacity:0; background-position:140% 0; } 15%,75% { opacity:.9; } 100% { opacity:0; background-position:-140% 0; } }
 
+[data-rating-theme=cyberpunk] { --rating-asset:url('../imagens/ui/ratings/cyberpunk-neon-star.svg'); --rating-full-filter:drop-shadow(0 0 2px #2df7df44); --rating-empty-filter:grayscale(1) brightness(.4); }
+html[data-presentation-motion=full] .review-rating[data-rating-theme=cyberpunk].rating-effect-active .rating-star-shape::after { animation:rating-neon-glitch .36s steps(1,end) both; }
+@keyframes rating-neon-glitch { 0%,100% { transform:none; filter:drop-shadow(0 0 2px #2df7df44); } 18% { transform:translateX(-1px); filter:drop-shadow(2px 0 #ff325a) drop-shadow(-1px 0 #53fff2); } 36% { transform:translate(.8px,-.5px); filter:drop-shadow(-2px 0 #ff325a); } 58% { transform:none; filter:drop-shadow(1px 0 #4affee); } 75% { transform:translateX(-.5px); filter:drop-shadow(1px 0 #ff325a); } }
+

@@ -5,6 +5,7 @@
     Object.assign(themes,{"superhot":"superhot","superhot-mind-control-delete":"superhot"});
     Object.assign(themes,{"uncharted-drakes-fortune":"uncharted","uncharted-2-among-thieves":"uncharted","uncharted-3-drakes-deception":"uncharted","uncharted-4-a-thiefs-end":"uncharted","uncharted-the-lost-legacy":"uncharted"});
     Object.assign(themes,{"cyberpunk-2077":"cyberpunk","cyberpunk-2077-phantom-liberty":"cyberpunk"});
+    Object.assign(themes,{"spider-man":"spiderman","spider-man-miles-morales":"spiderman","spider-man-2":"spiderman"});
     const ui=window.BacklogUI;
     function theme(id){return themes[id]||null;}
     function layer(parent,className){const node=document.createElement('span');node.className=className;node.setAttribute('aria-hidden','true');parent.append(node);return node;}

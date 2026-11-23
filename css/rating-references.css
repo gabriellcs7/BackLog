@@ -22,3 +22,9 @@ html[data-presentation-motion=full] .review-rating[data-rating-theme=uncharted].
 html[data-presentation-motion=full] .review-rating[data-rating-theme=cyberpunk].rating-effect-active .rating-star-shape::after { animation:rating-neon-glitch .36s steps(1,end) both; }
 @keyframes rating-neon-glitch { 0%,100% { transform:none; filter:drop-shadow(0 0 2px #2df7df44); } 18% { transform:translateX(-1px); filter:drop-shadow(2px 0 #ff325a) drop-shadow(-1px 0 #53fff2); } 36% { transform:translate(.8px,-.5px); filter:drop-shadow(-2px 0 #ff325a); } 58% { transform:none; filter:drop-shadow(1px 0 #4affee); } 75% { transform:translateX(-.5px); filter:drop-shadow(1px 0 #ff325a); } }
 
+
+.review-save-themed { gap:10px; }.review-typewriter { display:inline-flex; flex:none; width:23px; height:23px; }.review-typewriter svg { width:100%; height:100%; overflow:visible; }
+html[data-presentation-motion=full] .review-save-themed.is-saving .typewriter-key { transform-box:fill-box; transform-origin:center; animation:review-typewriter-key .42s ease-in-out infinite; animation-delay:calc(var(--key-index)*80ms); }
+html[data-presentation-motion=full] .review-save-themed.is-saving .typewriter-paper { animation:review-typewriter-paper 1.2s steps(3,end) infinite; }
+@keyframes review-typewriter-key { 0%,45%,100% { transform:none; } 20% { transform:translateY(1.5px); } }
+@keyframes review-typewriter-paper { 0%,100% { transform:none; } 65% { transform:translateY(-1px); } }

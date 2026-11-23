@@ -192,6 +192,7 @@
         });
         window.BacklogMultiSelect?.sync();
         updateAddress();
+        window.dispatchEvent(new Event("backlog-catalog-render"));
     }
 
     pagination.addEventListener('click',event=>{

@@ -33,7 +33,7 @@
   content.addEventListener('pointerup',e=>end(e));content.addEventListener('pointercancel',e=>end(e,true));
   content.addEventListener('click',e=>{if(Date.now()<suppressUntil&&!e.target.closest('button')){e.preventDefault();e.stopImmediatePropagation();}},true);
   async function save(status){if(busy)return;const owner=window.BacklogAccount?.user?.id||'local';busy=true;playing.disabled=completed.disabled=toggle.disabled=true;feedback.textContent='';
-   try{await window.BacklogAccount?.ready;await window.Backlog.statusReady;if(owner!==(window.BacklogAccount?.user?.id||'local'))throw Error('account');await window.Backlog.setStatus(game.id,status);close();
+   try{await window.BacklogAccount?.ready;await window.Backlog.statusReady;if(owner!==(window.BacklogAccount?.user?.id||'local'))throw Error('account');await window.BacklogStatusActions.setStatus(game.id,status);close();
     requestAnimationFrame(()=>document.querySelector('.swipe-backlog-row[data-game-id="'+CSS.escape(game.id)+'"] .swipe-backlog-toggle')?.focus({preventScroll:true}));
    }catch{feedback.textContent=text('Could not save. Please try again.','Não foi possível salvar. Tente novamente.');}finally{busy=false;playing.disabled=completed.disabled=toggle.disabled=false;}
   }

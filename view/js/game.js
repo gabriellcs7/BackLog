@@ -169,9 +169,7 @@
     async function updateStatus(statusId) {
         if (window.Backlog.getStatus(game.id)?.id === statusId) return;
         try {
-            await window.Backlog.setStatus(game.id, statusId);
-            const status = window.Backlog.getStatus(game.id);
-            notify(`${game.title}: ${status.label}.`);
+            await window.BacklogStatusActions.setStatus(game.id, statusId);
         } catch(error) {
             notify(error.message||'Could not save this status.');
         }
@@ -182,8 +180,8 @@
     });
     document.querySelector('#remove-game').addEventListener('click', async () => {
         try {
-            await window.Backlog.removeStatus(game.id);
-            notify('Game removed from your collection.');
+            await window.BacklogStatusActions.removeStatus(game.id);
+
             statusButtons[0].focus();
         } catch(error) {
             notify(error.message||'Could not remove this game.');

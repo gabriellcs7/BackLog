@@ -24,3 +24,9 @@ No Cuphead, quatro padrões de ruído alternam dentro da estrela, com aparência
 ## Verificações
 
 Testados no navegador: marcar, salvar, recarregar, editar e remover o aviso; revelação e ocultação; prevenção de trechos e links em spoilers; idioma português; preservação de um único registro no diário; temas por ID; exclusões de Dungeons; limites de meia estrela; teclado; exibição em jogos registrados; modo reduzido e layout móvel. Confirmada a alternância real das texturas de ruído por captura de quadros distintos. Em PostgreSQL local, a representação de spoiler e texto rico foi preservada pelo caminho existente de salvamento em conta/diário, sem migração.
+
+## Correção de visibilidade do chuvisco
+
+O ruído inicial era recortado junto ao preenchimento da nota, ficando invisível quando não havia estrelas preenchidas. Agora existe uma camada escura também nas estrelas vazias, sem alterar a indicação de meia estrela ou a nota. Os quatro novos padrões tv-static-01 a 04 usam geometria SVG explícita, sem filtros de turbulência, tornando o efeito independente desse recurso do navegador.
+
+O CSS e o módulo de temas têm versão explícita nas páginas para renovar arquivos em cache. Verificados Chrome e Brave, com e sem nota, quadros visualmente diferentes, modo completo explícito mesmo com o dispositivo em modo reduzido, modo reduzido do site, reviews salvas e tela móvel.

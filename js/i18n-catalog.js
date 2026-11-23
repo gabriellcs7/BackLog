@@ -691,6 +691,28 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Actions for|Ações para
+Mark as Played|Marcar como jogado
+Played ✓|Jogado ✓
+Change status|Mudar status
+Back|Voltar
+Add to a list|Adicionar a uma lista
+Copy game link|Copiar link do jogo
+Game address|Endereço do jogo
+Collection updated.|Coleção atualizada.
+Could not update this game. Please try again.|Não foi possível atualizar este jogo. Tente novamente.
+Create a new list|Criar uma nova lista
+Create list|Criar lista
+No lists yet. Create one below.|Nenhuma lista ainda. Crie uma abaixo.
+Already in this list|Já está nesta lista
+Add to this list|Adicionar a esta lista
+Game added to your list.|Jogo adicionado à sua lista.
+List created with this game.|Lista criada com este jogo.
+YouTube video|Vídeo do YouTube
+Watch the original video on YouTube.|Assista ao vídeo original no YouTube.
+Open the original page|Abrir a página original
+Open in a new tab|Abrir em uma nova aba
+Write about your experience…|Escreva sobre sua experiência…
 new activity|nova atividade
 new activities|novas atividades
 View latest|Ver novidades

@@ -29,3 +29,5 @@
 html[data-presentation-motion=full] .more-control { transition:color .18s,background-color .18s,border-color .18s,box-shadow .18s,transform .22s; }
 html[data-presentation-motion=full] .more-control::after { transition:transform .22s cubic-bezier(.22,1,.36,1); }
 @media(hover:hover) { html[data-presentation-motion=full] .more-control:hover { transform:translateY(-2px); } html[data-presentation-motion=full] .more-control:hover::after { transform:translate(2px,-2px); } html[data-presentation-motion=full] .more-control[aria-expanded]:hover::after { transform:translateY(2px); } }
+
+.rich-review-tool[aria-pressed=true] { color:var(--yellow); border-color:#ffd21f50; background:#ffd21f12; }

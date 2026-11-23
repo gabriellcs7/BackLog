@@ -29,7 +29,7 @@
             if(account.user&&window.Backlog.syncError)throw Error('Your game statuses could not be synchronized. Please try again.');
             const state=account.getState(),diary=await window.BacklogDiary.entries();if(owner!==(account.user?.id||'local'))throw Error('Your account changed. Please try again.');
             const profile=pick(state.profile,['id','display_name','bio','location','website','gaming_platform','banner_game_id','avatar_path','avatar_local']);
-            const lists=state.lists.map(list=>pick(list,['id','name','description','is_public','is_ranked','gameIds']));
+            const lists=state.lists.map(list=>pick(list,['id','name','description','tags','is_public','is_ranked','gameIds']));
             const games=window.BacklogGames.map(game=>({id:game.id,status:window.Backlog.getStatus(game.id)?.id||null,review:window.BacklogReviews.get(game.id)})).filter(game=>game.status||game.review);
             const backup={format:'backlog-personal-backup',version:1,exportedAt:new Date().toISOString(),source:owner==='local'?'device':'account',profile,favorites:state.favorites,lists,games,diary,preferences:preferences.get(),animationMode:motion.mode};
             const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='BackLog-backup-'+new Date().toISOString().slice(0,10)+'.json';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);feedback.textContent=t('Backup downloaded.');

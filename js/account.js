@@ -15,12 +15,13 @@
         try {
             const value = JSON.parse(localStorage.getItem(localKey));
             if (!value || !value.profile || !Array.isArray(value.favorites) || !Array.isArray(value.lists)) return empty();
-            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), location: String(value.profile.location || '').slice(0,80), website: String(value.profile.website || '').slice(0,300), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, gaming_platform: platforms.has(value.profile.gaming_platform) ? value.profile.gaming_platform : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
+            return { profile: { id: 'local', display_name: String(value.profile.display_name || 'Your profile').slice(0,40), bio: String(value.profile.bio || '').slice(0,280), location: String(value.profile.location || '').slice(0,80), website: String(value.profile.website || '').slice(0,300), banner_game_id: known(value.profile.banner_game_id) ? value.profile.banner_game_id : null, gaming_platform: platforms.has(value.profile.gaming_platform) ? value.profile.gaming_platform : null, avatar_local: /^data:image\/webp;base64,/.test(value.profile.avatar_local||'') && value.profile.avatar_local.length<700000 ? value.profile.avatar_local : null }, favorites: [...new Set(value.favorites.filter(known))].slice(0,4), lists: value.lists.filter(list => typeof list.id === 'string' && typeof list.name === 'string' && Array.isArray(list.gameIds)).map(list => ({ ...list, name: list.name.slice(0,80), description: String(list.description || '').slice(0,500), tags: cleanListTags(list.tags), gameIds: [...new Set(list.gameIds.filter(known))], is_public: false, is_ranked: list.is_ranked===true })), reviews: [] };
         } catch { return empty(); }
     }
     const copy = value => JSON.parse(JSON.stringify(value));
     function changed() { window.dispatchEvent(new Event('backlog-account-change')); }
     function persist(next) { localStorage.setItem(localKey, JSON.stringify(next)); state = next; changed(); }
+    function cleanListTags(value){const seen=new Set();return (Array.isArray(value)?value:[]).filter(s=>typeof s==='string').map(s=>s.trim()).filter(s=>s&&s.length<=24&&!/[\n\r\t]/.test(s)&&!seen.has(s.toLowerCase())&&seen.add(s.toLowerCase())).slice(0,8);}
     function requireUser() { if (!client || !user) throw new Error('Sign in to use this feature.'); return user.id; }
     function checked(result) { if (result.error) throw new Error(result.error.message || 'Could not connect. Please try again.'); return result.data; }
     async function loadPlayer(id, own) {
@@ -29,7 +30,7 @@
             client.from('favorites').select('game_id,position').eq('user_id',id).order('position'),
             (own ? client.from('game_lists').select('*,list_games(game_id,position)').eq('user_id',id) : client.from('game_lists').select('*,list_games(game_id,position)').eq('user_id',id).eq('is_public',true)).order('updated_at',{ascending:false})
         ]);
-        return { profile: checked(profile), favorites: (checked(favorites) || []).map(item=>item.game_id).filter(known), lists: (checked(lists) || []).map(list=>({ ...list, gameIds: list.list_games.sort((a,b)=>a.position-b.position).map(item=>item.game_id).filter(known) })), reviews: [] };
+        return { profile: checked(profile), favorites: (checked(favorites) || []).map(item=>item.game_id).filter(known), lists: (checked(lists) || []).map(list=>({ ...list, tags:cleanListTags(list.tags), gameIds: list.list_games.sort((a,b)=>a.position-b.position).map(item=>item.game_id).filter(known) })), reviews: [] };
     }
     async function synchronize(session) {
         const ticket = ++generation;
@@ -129,20 +130,25 @@
         else persist({...state,favorites:[...ids]});
     }
     async function saveList(list) {
-        const name=list.name.trim(),description=list.description.trim();
+        const name=list.name.trim(),description=list.description.trim(),rawTags=list.tags||[],tags=cleanListTags(rawTags);
+        if(!Array.isArray(rawTags)||rawTags.length!==tags.length)throw new Error('Use up to 8 different tags of 1 to 24 characters.');
         validateIds(list.gameIds,100);
         if(!name||name.length>80||description.length>500)throw new Error('Add a list name (up to 80 characters) and a description of up to 500 characters.');
         if(list.id&&!state.lists.some(item=>item.id===list.id))throw new Error('List not found.');
         if(user){ const owner=requireUser();
             const args={list_id:list.id||null,list_name:name,list_description:description,public_list:Boolean(list.is_public),game_ids:list.gameIds};
-            let result=await client.rpc('save_game_list_v2',{...args,ranked_list:list.is_ranked===true});
+            let result=await client.rpc('save_game_list_v3',{...args,ranked_list:list.is_ranked===true,list_tags:tags});
+            if(result.error?.code==='PGRST202'){
+                if(tags.length||(state.lists.find(item=>item.id===list.id)?.tags||[]).length)throw new Error('List tags need the latest list update. Your selections have not been lost.');
+                result=await client.rpc('save_game_list_v2',{...args,ranked_list:list.is_ranked===true});
+            }
             if(result.error?.code==='PGRST202'){
                 if(list.is_ranked===true)throw new Error('Ranked lists need the latest list update. Your selections have not been lost.');
                 result=await client.rpc('save_game_list',args);
             }
             const id=checked(result);if(user?.id!==owner)throw new Error('Your account changed. Please reload.');await synchronize({user});return id; }
         const id=list.id||crypto.randomUUID(),now=new Date().toISOString();
-        const saved={id,name,description,is_public:false,is_ranked:list.is_ranked===true,gameIds:[...list.gameIds],created_at:state.lists.find(item=>item.id===id)?.created_at||now,updated_at:now};
+        const saved={id,name,description,tags,is_public:false,is_ranked:list.is_ranked===true,gameIds:[...list.gameIds],created_at:state.lists.find(item=>item.id===id)?.created_at||now,updated_at:now};
         persist({...state,lists:[saved,...state.lists.filter(item=>item.id!==id)]});return id;
     }
     async function deleteList(id) {

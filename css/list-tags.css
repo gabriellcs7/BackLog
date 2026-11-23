@@ -1,0 +1,8 @@
+.tag-input-shell { display:flex; align-items:center; flex-wrap:wrap; gap:7px; padding:9px; border:1px solid var(--line); border-radius:12px; background:#11160f; }
+.tag-input-shell:focus-within { border-color:#ffd21f80; box-shadow:0 0 0 3px #ffd21f08; }
+.tag-input-shell input { flex:1; width:120px!important; min-width:110px; margin:0!important; padding:6px!important; border:0!important; box-shadow:none!important; background:none!important; }
+.tag-input-chips,.list-tag-chips { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+.tag-input-token,.list-tag { display:inline-flex; align-items:center; gap:8px; border:1px solid #a3b37b35; border-radius:7px; background:#a6b77710; color:#d0dcb6; padding:6px 9px; font:inherit; font-size:10px; overflow-wrap:anywhere; }
+.tag-input-token { cursor:pointer; }.tag-input-token>span { color:#acb88d; font-size:14px; }.tag-input-token:hover { border-color:#ffd21f70; color:var(--yellow); }.tag-input-token:focus-visible { outline:2px solid var(--yellow); outline-offset:2px; }
+.tag-input-status { margin:5px 0; min-height:0; color:var(--yellow); }.tag-input-status:empty { display:none; }
+.list-tag-chips { margin:12px 0; }.list-tag-chips:empty { display:none; }.glass-folder-card>.list-tag-chips { justify-content:center; }.list-tag { padding:4px 8px; border-radius:20px; }

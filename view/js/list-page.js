@@ -40,6 +40,7 @@
             meta.textContent=[player.profile.display_name,list.gameIds.length+(list.gameIds.length===1?' game':' games'),list.is_ranked?'Ranked':'Unranked',list.is_public?'Public':'Private'].join(' · ');
             description.textContent=list.description;
             description.hidden=!list.description;
+            document.getElementById('list-page-tags')?.remove();const tags=window.BacklogListTags.chips(list.tags);tags.id='list-page-tags';description.after(tags);
             for(const [index,id] of list.gameIds.entries()){
                 const game=ui.game(id);
                 if(!game)continue;

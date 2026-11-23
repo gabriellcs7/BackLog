@@ -2,6 +2,7 @@
 (() => {
     'use strict';
     const themes={minecraft:'minecraft','grand-theft-auto-vi':'gta-wanted',cuphead:'cuphead','cuphead-the-delicious-last-course':'cuphead'};
+    Object.assign(themes,{"superhot":"superhot","superhot-mind-control-delete":"superhot"});
     const ui=window.BacklogUI;
     function theme(id){return themes[id]||null;}
     function layer(parent,className){const node=document.createElement('span');node.className=className;node.setAttribute('aria-hidden','true');parent.append(node);return node;}

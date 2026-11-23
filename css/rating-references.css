@@ -1,0 +1,15 @@
+[data-rating-theme=superhot] { --rating-asset:url('../imagens/ui/ratings/superhot-shard-star.svg'); --rating-full-filter:drop-shadow(0 0 1px #ec1f2922); --rating-empty-filter:grayscale(1) brightness(.45); }
+.rating-fragments { position:absolute; inset:0; z-index:3; opacity:0; clip-path:inset(0 calc(100% - var(--star-fill,0%)) 0 0); }
+.rating-fragment { position:absolute; inset:0; background:var(--rating-asset) center/contain no-repeat; }
+.rating-fragment:nth-child(1) { clip-path:polygon(50% 0,50% 50%,0 0); --fragment-x:-4px; --fragment-y:-7px; }
+.rating-fragment:nth-child(2) { clip-path:polygon(50% 0,100% 0,100% 48%,50% 50%); --fragment-x:6px; --fragment-y:-5px; }
+.rating-fragment:nth-child(3) { clip-path:polygon(50% 50%,100% 48%,100% 100%,60% 100%); --fragment-x:6px; --fragment-y:6px; }
+.rating-fragment:nth-child(4) { clip-path:polygon(50% 50%,60% 100%,0 100%); --fragment-x:-3px; --fragment-y:7px; }
+.rating-fragment:nth-child(5) { clip-path:polygon(0 0,50% 50%,0 100%); --fragment-x:-7px; --fragment-y:1px; }
+html[data-presentation-motion=full] .review-rating[data-rating-theme=superhot].rating-effect-active .rating-fragment { animation:rating-shards-reform .48s cubic-bezier(.2,.8,.2,1) both; }
+html[data-presentation-motion=full] .review-rating[data-rating-theme=superhot].rating-effect-active .rating-fragments { animation:rating-shards-layer .48s linear both; }
+html[data-presentation-motion=full] .review-rating[data-rating-theme=superhot].rating-effect-active .rating-star-shape::after { animation:rating-shards-base .48s linear both; }
+@keyframes rating-shards-reform { from { transform:translate(var(--fragment-x),var(--fragment-y)) rotate(-9deg); } to { transform:none; } }
+@keyframes rating-shards-layer { 0%,80% { opacity:1; } 100% { opacity:0; } }
+@keyframes rating-shards-base { 0%,70% { opacity:0; } 100% { opacity:1; } }
+

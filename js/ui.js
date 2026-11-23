@@ -1,6 +1,6 @@
 /* Elementos seguros para perfis, listas e reviews sociais. */
 (() => {
-    const element=(tag,className='',text)=>{const node=document.createElement(tag);node.className=className;if(text!==undefined)node.textContent=String(text);return node;};
+    const element=(tag,className='',text)=>{const node=document.createElement(tag);node.className=className;if(text!==undefined)node.textContent=window.BacklogReviewText&&String(text).startsWith(window.BacklogReviewText.marker)?window.BacklogReviewText.plain(text):String(text);return node;};
     const base=new URL('../',document.currentScript.src);
     const href=path=>new URL(path,base).href;
     const game=id=>window.BacklogGames.find(game=>game.id===id);

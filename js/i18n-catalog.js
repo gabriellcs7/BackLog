@@ -691,6 +691,34 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+new activity|nova atividade
+new activities|novas atividades
+View latest|Ver novidades
+Tags|Etiquetas
+Remove tag|Remover etiqueta
+Maximum 8 tags|Máximo de 8 etiquetas
+Add a tag…|Adicionar etiqueta…
+Press Enter or comma to add up to 8 tags.|Pressione Enter ou vírgula para adicionar até 8 etiquetas.
+Use tags of up to 24 characters.|Use etiquetas com até 24 caracteres.
+This tag is already added.|Esta etiqueta já foi adicionada.
+You can add up to 8 tags.|Você pode adicionar até 8 etiquetas.
+Use up to 8 different tags of 1 to 24 characters.|Use até 8 etiquetas diferentes de 1 a 24 caracteres.
+List tags need the latest list update. Your selections have not been lost.|As etiquetas precisam da atualização de listas. Suas seleções foram preservadas.
+Read more|Ler mais
+Read less|Ler menos
+Review formatting|Formatação da review
+Bold|Negrito
+Italic|Itálico
+Heading|Título
+Bullet list|Lista com marcadores
+Numbered list|Lista numerada
+Quote|Citação
+Insert link|Inserir link
+Clear formatting|Limpar formatação
+Link text|Texto do link
+Add link|Adicionar link
+Your formatted review must fit within 3,000 characters.|Sua review formatada deve ter até 3.000 caracteres.
+Use a valid http or https link.|Use um link http ou https válido.
 Your gaming journal|Seu registro de jogos
 YOUR YEAR|SEU ANO
 YOUR CURATION|SUAS ESCOLHAS

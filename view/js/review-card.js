@@ -9,8 +9,8 @@
         const avatar=ui.avatar({id:review.user_id,display_name:review.display_name,avatar_path:review.avatar_path});
         const name=ui.profileLink({id:review.user_id,display_name:review.display_name});identity.append(avatar,name);header.append(identity,el('span','social-small',ui.date(review.updated_at)));
         const score=el('p','social-rating',review.rating===null?'Written review':review.rating+' / 5 ★');
-        const text=el('p','community-review-text');
-        if(expanded)text.textContent=review.text;
+        const text=el('div','community-review-text');
+        if(expanded)window.BacklogReviewText.render(text,review.text);
         else{
             const link=el('a','review-text-link',review.text||'Read review');
             link.href=ui.reviewHref('id',review.id);

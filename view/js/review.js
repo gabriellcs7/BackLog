@@ -52,6 +52,7 @@
         confirmation.hidden = true;
         cancel.hidden = !review;
         text.value = review?.text || '';
+        window.BacklogRichReview?.load();
         diaryDate.value = review?.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = review?.rating != null && Number(radio.value) === review.rating; });
         if (review) {
@@ -77,7 +78,7 @@
                 savedRating.append(stars, score);
             }
             const savedText = document.querySelector('#review-saved-text');
-            savedText.textContent = review.text;
+            window.BacklogReviewText.render(savedText,review.text);
             const savedId=window.BacklogAccount.getState().reviews.find(item=>item.game_id===game.id)?.id;
             document.querySelector('#open-saved-review').href=window.BacklogUI.reviewHref(savedId?'id':'game',savedId||game.id);
             savedText.hidden = !review.text;
@@ -157,6 +158,7 @@
         const draft = reviews.getDevice(game.id);
         if (!draft) return;
         text.value = draft.text;
+        window.BacklogRichReview?.load();
         diaryDate.value = draft.reviewedOn || window.BacklogDiary.today();
         radios.forEach(radio => { radio.checked = draft.rating !== null && Number(radio.value) === draft.rating; });
         dirty = true;

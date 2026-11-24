@@ -691,6 +691,45 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Could not load games.|Não foi possível carregar os jogos.
+Refresh the selection to try again.|Atualize a seleção para tentar novamente.
+Discover games ↗|Descobrir jogos ↗
+Discover|Descobrir
+← Games|← Jogos
+Refresh selection ↻|Atualizar seleção ↻
+A NEW CHAPTER AWAITS|UM NOVO CAPÍTULO ESPERA POR VOCÊ
+What will you|O que você vai
+play|jogar
+next?|agora?
+Swipe through games you have not added to your collection and save the ones that catch your eye.|Explore jogos que ainda não estão na sua coleção e salve os que chamarem sua atenção.
+Not for now? Skip to the next game.|Não é para agora? Pule para o próximo jogo.
+Looks interesting? Add to Want to play.|Gostou? Adicione em Quero jogar.
+Skipped games are not hidden permanently. Refresh the selection to see them again.|Jogos pulados não ficam ocultos para sempre. Atualize a seleção para vê-los novamente.
+DISCOVER YOUR NEXT FAVORITE|DESCUBRA SEU PRÓXIMO FAVORITO
+Game discovery|Descoberta de jogos
+No games remaining|Nenhum jogo restante
+Skip game|Pular jogo
+Undo last choice|Desfazer última escolha
+Add to Want to play|Adicionar em Quero jogar
+Skip|Pular
+Undo|Desfazer
+View game ↗|Ver jogo ↗
+Drag a cover, or use the buttons below.|Arraste uma capa ou use os botões abaixo.
+Use the arrow keys to skip or save this game.|Use as setas do teclado para pular ou salvar este jogo.
+WANT TO PLAY|QUERO JOGAR
+SKIP|PULAR
+All caught up.|Tudo em dia.
+Explore again to revisit skipped games, or browse the full catalog.|Explore novamente para rever jogos pulados ou abra o catálogo completo.
+Browse games ↗|Explorar jogos ↗
+This game is already in your collection.|Este jogo já está na sua coleção.
+Added to Want to play.|Adicionado em Quero jogar.
+Skipped. You can revisit it later.|Jogo pulado. Você pode revê-lo depois.
+Could not save this game. Please try again.|Não foi possível salvar este jogo. Tente novamente.
+This game changed elsewhere. Its current status was kept.|Este jogo foi alterado em outro lugar. O status atual foi mantido.
+Choice undone.|Escolha desfeita.
+Loading your next games…|Carregando seus próximos jogos…
+Could not load your collection. Please try again.|Não foi possível carregar sua coleção. Tente novamente.
+
 Text formatting|Formatação de texto
 List formatting|Formatação de listas
 Breadcrumb|Caminho de navegação

@@ -18,4 +18,6 @@ O material direciona para o repositório, sem afirmar que o site está publicado
 As capas pertencem aos respectivos jogos e foram usadas nas telas do projeto. O logo BackLog e as capturas são os mesmos da aplicação. O site em si não foi alterado para produzir estas artes.
 
 TIPOGRAFIA ATUALIZADA
-Títulos: Space Grotesk. Textos: Manrope. As fontes abertas estão em editaveis/fonts, com as licenças OFL. Os arquivos editáveis carregam as fontes localmente. A imagem da logo BackLog permanece original.
+Títulos: Outfit. Textos: DM Sans. As fontes abertas estão em editaveis/fonts, com as licenças OFL. Os arquivos editáveis carregam as fontes localmente. A imagem da logo BackLog permanece original.
+
+O nome BackLog aparece nas artes com Back em branco e Log em amarelo. A imagem original da logo não foi alterada.

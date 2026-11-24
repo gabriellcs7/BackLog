@@ -37,6 +37,8 @@ O projeto opera em dois modos:
 - Perfil com banner personalizável vinculado a qualquer jogo do catálogo, seleção de plataforma principal (PC, PlayStation, Xbox, Nintendo), localização e link externo.
 - Vitrine de quatro jogos favoritos no perfil com suporte a arrastar e soltar ou reordenação por teclado.
 - Barra de busca global com atalho `/` que localiza títulos, franquias e perfis de usuários.
+- Discover com capas arrastáveis para descobrir jogos e adicioná-los à lista de desejos, com opção de desfazer.
+- Rodapé com páginas Sobre, Ajuda e Créditos e links do autor ([detalhes](docs/components/tools-discover-footer.md)).
 
 ---
 

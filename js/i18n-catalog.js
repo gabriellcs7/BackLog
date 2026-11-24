@@ -4,7 +4,7 @@ Settings|Configurações
 SETTINGS|CONFIGURAÇÕES
 Your preferences|Suas preferências
 Make BackLog yours.|Deixe o BackLog do seu jeito.
-Small details. Your way to play.|Pequenos detalhes. Seu jeito de jogar.
+Interface, animation, and account preferences.|Preferências de interface, animações e conta.
 Preferences are saved on this browser.|As preferências ficam salvas neste navegador.
 Saved automatically|Salvo automaticamente
 General|Geral
@@ -19,7 +19,7 @@ Interface language|Idioma da interface
 English|Inglês
 Portuguese|Português
 Animation preferences|Preferências de animação
-Keep the movement you enjoy. Make it calmer whenever you like.|Mantenha as animações que você gosta. Deixe tudo mais tranquilo quando quiser.
+Adjust motion effects and background animations.|Ajuste os efeitos de movimento e animações de fundo.
 Animation mode|Modo de animação
 Follow device|Seguir dispositivo
 Full animations|Todas as animações
@@ -40,7 +40,7 @@ Applies only to new lists. You can change each list when editing it.|Vale apenas
 Private by default|Privadas por padrão
 Public by default|Públicas por padrão
 Profile & account|Perfil e conta
-Your next personal touch is one click away.|Seu próximo toque pessoal está a um clique.
+Manage your display name, avatar, and banner.|Altere seu nome de exibição, foto e banner.
 Edit profile & photo|Editar perfil e foto
 Change banner|Alterar banner
 Choose your favorite four|Escolher seus quatro favoritos
@@ -68,7 +68,7 @@ Keyboard shortcuts|Atalhos do teclado
 Open search|Abrir pesquisa
 Close dialogs|Fechar janelas
 Browse screenshots|Navegar pelas imagens
-Made for your next game.|Feito para o seu próximo jogo.
+Configured per browser.|Configurado neste navegador.
 Home|Início
 Profile|Perfil
 Activity|Atividade
@@ -125,9 +125,9 @@ QUICK LINKS|LINKS RÁPIDOS
 Browse all games|Ver todos os jogos
 Browse all games ↗|Ver todos os jogos ↗
 Browse the catalog ↗|Explorar o catálogo ↗
-Track your games, write reviews,|Acompanhe seus jogos, escreva reviews
+Track games you play, log dates,|Acompanhe os jogos que joga, anote datas
 and keep your backlog organized.|e mantenha sua coleção organizada.
-Track played games, ongoing runs, and your wishlist.|Acompanhe jogos jogados, partidas em andamento e sua lista de desejos.
+Track finished games, current playthroughs, and your wishlist.|Acompanhe jogos concluídos, partidas em andamento e sua lista de desejos.
 © 2026 BackLog. All rights reserved.|© 2026 BackLog. Todos os direitos reservados.
 Played|Jogado
 Playing|Jogando
@@ -185,7 +185,7 @@ Characters|Personagens
 Main characters|Personagens principais
 Community|Comunidade
 Community reviews|Reviews da comunidade
-Reviews and discussion from other players.|Reviews e conversas de outros jogadores.
+Reviews and ratings from other players.|Reviews e avaliações de outros jogadores.
 Write a review|Escrever uma review
 Write a review ↗|Escrever uma review ↗
 Edit review|Editar review
@@ -250,7 +250,7 @@ Watch gameplay|Ver gameplay
 Watch intro|Ver introdução
 Inside the game.|Por dentro do jogo.
 Inside the game|Por dentro do jogo
-A closer look. Select a screenshot to explore.|Veja de perto. Selecione uma imagem para ampliar.
+Select a screenshot to view full size.|Selecione uma imagem para ver em tamanho real.
 Official screenshots ↗|Imagens oficiais ↗
 Image source ↗|Fonte da imagem ↗
 ← Previous|← Anterior
@@ -286,7 +286,7 @@ Read article ↗|Ler notícia ↗
 Read more ↗|Ler mais ↗
 Latest news|Últimas notícias
 PLAYER PROFILE|PERFIL DO JOGADOR
-Games you play, reviews, and custom lists.|Seus jogos, reviews e listas personalizadas.
+Played games, reviews, and lists.|Jogos, reviews e listas.
 Edit profile|Editar perfil
 Save profile|Salvar perfil
 Profile saved.|Perfil salvo.
@@ -432,16 +432,16 @@ TRACK YOUR COLLECTION|ACOMPANHE SUA COLEÇÃO
 Track what you play.|Acompanhe o que você joga.
 Plan what|Planeje o que
 comes next.|vem a seguir.
-Log finished games, rate what you've played, and organize your backlog in one place.|Registre os jogos que terminou, avalie o que jogou e organize sua coleção em um só lugar.
+Log finished games, rate what you played, and organize your collection in one place.|Registre os jogos que terminou, avalie o que jogou e organize sua coleção em um só lugar.
 Browse games|Explorar jogos
 Open my backlog →|Abrir minha coleção →
 FEATURED GAME|JOGO EM DESTAQUE
 Presentation animations|Animações das apresentações
 Use device setting|Usar configuração do dispositivo
-YOUR NEXT ADVENTURE|SUA PRÓXIMA AVENTURA
-ONE MORE|MAIS UM
-WORLD.|MUNDO.
-New stories. Familiar favorites.|Novas histórias. Favoritos de sempre.
+CATALOG PREVIEW|PRÉVIA DO CATÁLOGO
+EXPLORE THE|EXPLORE O
+CATALOG.|CATÁLOGO.
+Browse recent releases and older favorites across every genre.|Explore lançamentos e jogos consagrados de todos os gêneros.
 Find the next game for your backlog.|Encontre o próximo jogo para sua coleção.
 Explore the catalog ↗|Explorar o catálogo ↗
 Scroll to explore|Role para explorar
@@ -454,14 +454,14 @@ Recent reviews from players you follow|Reviews recentes de pessoas que você seg
 The latest post from each person you follow.|A publicação mais recente de cada pessoa que você segue.
 Loading your feed…|Carregando seu feed…
 More recent reviews|Mais reviews recentes
-COMMUNITY FAVORITES|FAVORITOS DA COMUNIDADE
-What players are saying|O que os jogadores estão dizendo
-The most-liked reviews from the BackLog community.|As reviews mais curtidas da comunidade BackLog.
+COMMUNITY REVIEWS|REVIEWS DA COMUNIDADE
+Recent reviews|Reviews recentes
+Popular reviews from the BackLog community.|Reviews mais curtidas da comunidade BackLog.
 Loading popular reviews…|Carregando reviews populares…
 More popular reviews|Mais reviews populares
 THE GAMING BRIEF|O RESUMO DOS GAMES
 Gaming news|Notícias dos games
-Announcements, releases and stories from across the industry.|Anúncios, lançamentos e histórias de todo o mundo dos games.
+Announcements, updates, and release dates from studio blogs.|Anúncios, atualizações e datas de lançamento dos blogs dos estúdios.
 Selected|Selecionado
 IN THE SPOTLIGHT|EM DESTAQUE
 Death Stranding 2 leads November’s PlayStation Plus lineup|Death Stranding 2 lidera os jogos de novembro do PlayStation Plus
@@ -475,32 +475,32 @@ Xbox celebrates 25 years with new gameplay and anniversary updates|Xbox comemora
 A look at Fable, Halo Firefight and the anniversary announcements.|Novidades de Fable, Halo Firefight e os anúncios de aniversário.
 Pikmin gets its own day, new shorts and a fresh look at Pikmin 4|Pikmin ganha seu próprio dia, novos curtas e novidades de Pikmin 4
 Nintendo’s showcase brings Dandori Academy and Pikmin Bloom news.|A apresentação da Nintendo traz novidades de Dandori Academy e Pikmin Bloom.
-From the studios. To your next conversation.|Dos estúdios para sua próxima conversa.
+Selected stories from official studio feeds.|Notícias selecionadas de canais oficiais.
 Official sources|Fontes oficiais
 UPCOMING TITLES|PRÓXIMOS LANÇAMENTOS
 Martial arts|Artes marciais
-EVERY SESSION COUNTS|CADA PARTIDA CONTA
-Track the games.|Registre os jogos.
-Keep the stories.|Guarde as histórias.
-Your next adventure deserves a place in your backlog.|Sua próxima aventura merece um lugar na sua coleção.
-PLAY. RATE. REMEMBER.|JOGUE. AVALIE. RELEMBRE.
-A home for|Um lugar para
-every game.|cada jogo.
-From the first session to the final credits. Keep your collection, ratings and memories together with BackLog.|Da primeira partida aos créditos finais. Reúna sua coleção, avaliações e memórias no BackLog.
+COLLECTION AND DIARY|COLEÇÃO E DIÁRIO
+Log each playthrough.|Registre cada partida.
+Keep the details.|Guarde os detalhes.
+Track completed games, in-progress runs, and your wishlist.|Acompanhe jogos concluídos, em andamento e sua lista de desejos.
+REVIEWS AND RATINGS|AVALIAÇÕES E NOTAS
+Record what you|Registre o que
+thought.|achou.
+Rate games from 0.5 to 5 stars, write reviews with spoilers protected, and log the date for your diary.|Dê notas de 0.5 a 5 estrelas, escreva reviews protegidas contra spoiler e anote a data para o diário.
 YOUR COLLECTION|SUA COLEÇÃO
-A WORLD TO REMEMBER|UM MUNDO PARA RELEMBRAR
-GAMES TO EXPLORE|JOGOS PARA EXPLORAR
-FIND YOUR NEXT FAVORITE|ENCONTRE SEU PRÓXIMO FAVORITO
-Every rating matters|Cada avaliação importa
-Make your mark.|Deixe sua marca.
-Your next adventure|Sua próxima aventura
-Keep it in your backlog.|Guarde na sua coleção.
-YOUR GAMES.|SEUS JOGOS.
-YOUR STORY.|SUA HISTÓRIA.
-THE NEXT CHAPTER IS YOURS|O PRÓXIMO CAPÍTULO É SEU
-Great games.|Grandes jogos.
-Lasting memories.|Memórias duradouras.
-Discover your next favorite, rate the games you love and build a collection that tells your story.|Descubra seu próximo favorito, avalie os jogos que ama e crie uma coleção que conte sua história.
+RECENT ENTRY|REGISTRO RECENTE
+GAMES AVAILABLE|JOGOS DISPONÍVEIS
+BROWSE BY GENRE|EXPLORAR POR GÊNERO
+Personal ratings|Notas pessoais
+Half-star precision|Precisão de meia estrela
+Organized backlog|Coleção organizada
+Six collection statuses|Seis status de coleção
+CATALOG.|CATÁLOGO.
+DIARY. LISTS.|DIÁRIO. LISTAS.
+GET STARTED|COMECE AGORA
+Start your|Comece seu
+game log.|registro de jogos.
+Search titles, set your current status, and save your favorites to your profile.|Pesquise títulos, defina seus status e escolha seus favoritos no perfil.
 FEED|FEED
 Recent reviews, ratings, and follows from players you follow.|Reviews, avaliações e novas conexões de quem você segue.
 For you|Para você
@@ -539,7 +539,7 @@ Loading list…|Carregando lista…
 GAMES CATALOG|CATÁLOGO DE JOGOS
 Explore games and|Explore jogos e
 organize your backlog.|organize sua coleção.
-Browse titles by genre, check details, and track what you want to play.|Explore jogos por gênero, confira os detalhes e acompanhe o que deseja jogar.
+Browse titles by genre, check ratings, and update your backlog.|Explore jogos por gênero, confira avaliações e organize sua coleção.
 CATALOG|CATÁLOGO
 All games|Todos os jogos
 Status|Status
@@ -587,7 +587,7 @@ Load more|Carregar mais
 ← Home|← Início
 Loading review…|Carregando review…
 ONLY YOU|SOMENTE VOCÊ
-Choose your rating, add your thoughts, and set the date for your diary.|Escolha sua nota, escreva sua opinião e defina a data no diário.
+Set your rating, write your review, and choose the diary date.|Defina sua nota, escreva sua review e escolha a data no diário.
 Delete review|Excluir review
 Delete your rating and review for this game?|Excluir sua avaliação e review deste jogo?
 Yes, delete|Sim, excluir
@@ -693,7 +693,7 @@ Saga|Saga
 More from this saga|Mais desta saga
 Choose an action|Escolha uma ação
 How to use BackLog|Como usar o BackLog
-A quick tour of your games, reviews, lists and diary.|Um passeio pelos seus jogos, reviews, listas e diário.
+Walk through the catalog, collection statuses, reviews, and diary.|Conheça o catálogo, os status de coleção, as reviews e o diário.
 Explore the main features at your own pace. This tour does not change your games or account.|Conheça os recursos no seu ritmo. Este passeio não altera seus jogos nem sua conta.
 Take a tour ↗|Iniciar passeio ↗
 How to use BackLog ↗|Como usar o BackLog ↗

@@ -691,6 +691,48 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Reviewed|Avaliado
+View statistics ↗|Ver estatísticas ↗
+Gaming insights|Estatísticas de jogos
+GAMING INSIGHTS|ESTATÍSTICAS DE JOGOS
+Your year in games|Seu ano em jogos
+Year in review|Ano em análise
+Year summary|Resumo do ano
+Games completed|Jogos concluídos
+Average rating|Média das notas
+Genres explored|Gêneros explorados
+One game at a time.|Um jogo de cada vez.
+Games completed each month|Jogos concluídos em cada mês
+Monthly completions|Conclusões por mês
+Completed games|Jogos concluídos
+Your collection.|Sua coleção.
+A snapshot of your logged games|Um retrato dos seus jogos registrados
+All time|Todo o período
+games logged|jogos registrados
+Waiting for their next chapter|Esperando o próximo capítulo
+Where you spend your time.|Onde você passa seu tempo.
+Your most played genres this year|Seus gêneros mais jogados neste ano
+By games logged|Por jogos registrados
+The way you rate.|Seu jeito de avaliar.
+Your highest rated.|Suas maiores notas.
+Personal highlights|Destaques pessoais
+Loading statistics…|Carregando estatísticas…
+Could not load statistics. Please try again.|Não foi possível carregar as estatísticas. Tente novamente.
+Sign out to view your device statistics.|Saia da conta para ver as estatísticas deste dispositivo.
+Based on current Completed and Platinum statuses and the date they were recorded.|Com base nos status atuais Concluído e Platinado e na data em que foram registrados.
+Each game counts once, using its current rating and saved review date.|Cada jogo conta uma vez, usando a nota atual e a data salva da avaliação.
+Yearly totals use saved review dates and current status dates. Want to play alone does not count as a logged game.|Os totais anuais usam as datas salvas das avaliações e dos status atuais. Apenas Quero jogar não conta como jogo registrado.
+No games logged for this year.|Nenhum jogo registrado neste ano.
+No ratings for this year.|Nenhuma avaliação neste ano.
+Rate a game to see your highlights.|Avalie um jogo para ver seus destaques.
+vs|comparado a
+in|em
+stars|estrelas
+rating|avaliação
+ratings|avaliações
+game|jogo
+games|jogos
+
 Games in common|Jogos em comum
 You and|Você e
 You|Você

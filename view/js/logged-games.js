@@ -36,7 +36,7 @@
                 games = window.BacklogGames.filter(game => {
                     const review = window.BacklogReviews.getDevice(game.id);
                     if (review?.rating != null) ratings.set(game.id, review.rating);
-                    const status = window.Backlog.getStatus(game.id);
+                    const status = window.Backlog.getStatus(game.id,null);
                     return review || (status && status.id !== 'want-to-play');
                 });
             } else {
@@ -69,6 +69,14 @@
         }
     }
 
+    function refreshOwn(){
+        if(!account.loading&&(!target||target==='local'||target===account.user?.id))load();
+    }
+    window.addEventListener('backlog-change',refreshOwn);
+    window.addEventListener('backlog-review-change',refreshOwn);
+    window.addEventListener('storage',event=>{
+        if(event.key===null||event.key.startsWith('backlog:review:')||event.key.startsWith('backlog:status:')||/^backlog:[^:]+$/.test(event.key))refreshOwn();
+    });
     account.ready.then(load);
     window.addEventListener('backlog-account-change', () => {
         if (!account.loading) load();

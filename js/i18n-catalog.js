@@ -986,4 +986,36 @@ No games have been rated or reviewed yet.|Nenhum jogo foi avaliado ou recebeu re
 Could not load popular games.|Não foi possível carregar os jogos populares.
 player|jogador
 players|jogadores
+THE BACKLOG STORY|A HISTÓRIA DO BACKLOG
+Small ideas. A growing gaming universe.|Pequenas ideias. Um universo de jogos em expansão.
+Scroll to explore|Role para explorar
+BackLog project timeline. Scroll or use left and right arrow keys.|Linha do tempo do BackLog. Role ou use as setas para a esquerda e a direita.
+EVERY GAME TELLS A STORY.|TODO JOGO CONTA UMA HISTÓRIA.
+A project.|Um projeto.
+A passion.|Uma paixão.
+A journey.|Uma jornada.
+Built one feature at a time.|Construído uma função de cada vez.
+2026 — and counting.|2026 — e a história continua.
+01 / The first save|01 / O primeiro jogo salvo
+A place for every game.|Um lugar para cada jogo.
+Keep the games you played and the ones you want to play in one collection.|Reúna os jogos que você já jogou e os que ainda quer jogar em uma coleção.
+02 / Your gaming journal|02 / Seu diário de jogos
+More than a finished game.|Mais que um jogo terminado.
+Ratings, written reviews and a diary turn your play history into a story.|Notas, reviews escritas e um diário transformam suas partidas em uma história.
+03 / A profile that feels like you|03 / Um perfil com a sua cara
+Make it personal.|Deixe do seu jeito.
+Choose your favorite four, build lists and give your profile its own identity.|Escolha seus quatro favoritos, crie listas e dê uma identidade ao seu perfil.
+04 / Better together|04 / Melhor com companhia
+Find your people.|Encontre sua comunidade.
+Follow players, share reviews and discover what your community is playing.|Siga jogadores, compartilhe reviews e descubra o que sua comunidade está jogando.
+05 / Made to explore|05 / Feito para explorar
+Your next favorite awaits.|Seu próximo favorito espera.
+Browse 100 games, explore their worlds and save a new discovery.|Explore 100 jogos e seus universos e salve uma nova descoberta.
+06 / The little details|06 / Os pequenos detalhes
+A little more character.|Um pouco mais de personalidade.
+Game-inspired stars, thoughtful motion and familiar references make it BackLog.|Estrelas inspiradas nos jogos, animações e referências conhecidas dão identidade ao BackLog.
+07 / Still building|07 / Sempre em construção
+The next chapter is open.|O próximo capítulo está aberto.
+A personal project by Gabriel, growing with every idea and every commit.|Um projeto pessoal de Gabriel, crescendo a cada ideia e a cada commit.
+FROM A BACKLOG TO A COMMUNITY|DE UM BACKLOG A UMA COMUNIDADE
 `.trim().split('\n').map(line=>line.split('|')));

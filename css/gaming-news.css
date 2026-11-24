@@ -1,4 +1,4 @@
-/* Notícias editoriais da home, sem depender de serviços ou scripts externos. */
+/* Notícias oficiais atualizadas pelo servidor local. */
 .gaming-news .page-section-heading { align-items:flex-end; gap:24px; margin-bottom:28px; }
 .gaming-news-intro { margin:12px 0 0; color:var(--muted); font-size:13px; line-height:1.65; }
 .gaming-news-edition { display:inline-flex; align-items:center; flex-wrap:wrap; gap:6px; flex-shrink:0; color:var(--muted); font-size:10px; border:1px solid var(--line); border-radius:30px; padding:10px 13px; }
@@ -70,3 +70,5 @@
 .gaming-news-card:not(.gaming-news-featured) .gaming-news-image { background:#10150f; }
 .gaming-news-card:not(.gaming-news-featured) .gaming-news-image img { object-fit:contain; }
 .gaming-news-meta,.gaming-news-source { font-size:10px; }
+
+.gaming-news-controls{display:flex;align-items:center;justify-content:flex-end;gap:12px;flex-wrap:wrap}.gaming-news-controls .social-button{font-size:10px;min-height:38px;padding:9px 13px;border-radius:30px}.gaming-news-bottom p{margin:0;line-height:1.65;max-width:75%}.gaming-news-grid:empty{display:none}.gaming-news[data-news-state=loading] .gaming-news-bottom{min-height:100px;align-items:center}.gaming-news-placeholder img{object-fit:cover!important}.gaming-news-card h3{overflow-wrap:anywhere}.gaming-news-edition{line-height:1.5}@media(max-width:700px){.gaming-news-controls{justify-content:flex-start}.gaming-news-bottom{align-items:flex-start;gap:15px}.gaming-news-bottom p{max-width:100%}.gaming-news .page-section-heading{align-items:flex-start;flex-wrap:wrap}}

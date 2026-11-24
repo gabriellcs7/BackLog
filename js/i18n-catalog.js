@@ -691,6 +691,25 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+The latest announcements from official gaming feeds.|As últimas novidades dos canais oficiais de jogos.
+Live updates|Atualizações ao vivo
+Refresh news ↻|Atualizar notícias ↻
+Updating…|Atualizando…
+Updated|Atualizado
+Official sources|Fontes oficiais
+story|notícia
+stories|notícias
+Checking official news sources…|Consultando as fontes oficiais…
+Automatically checks for new stories every 10 minutes.|Busca novas notícias automaticamente a cada 10 minutos.
+Some sources are unavailable. Showing the latest available stories.|Algumas fontes estão indisponíveis. Exibindo as notícias mais recentes disponíveis.
+Showing saved stories. Trying to refresh the news.|Exibindo notícias salvas enquanto buscamos novidades.
+Showing saved stories. The sources could not be refreshed.|Exibindo notícias salvas. Não foi possível atualizar as fontes.
+News could not be loaded. Please try again shortly.|Não foi possível carregar as notícias. Tente novamente em instantes.
+Open the site through the BackLog local server for automatic news.|Abra o site pelo servidor local do BackLog para receber notícias automáticas.
+New stories are available. Refresh to view them.|Há novas notícias disponíveis. Atualize para vê-las.
+Read the full announcement at the official source.|Leia o anúncio completo na fonte oficial.
+PC gaming|Jogos de PC
+
 Reviewed|Avaliado
 View statistics ↗|Ver estatísticas ↗
 Gaming insights|Estatísticas de jogos

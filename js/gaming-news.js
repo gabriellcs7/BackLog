@@ -1,0 +1,36 @@
+/* Official headlines are fetched through the same-origin local server. */
+(() => {
+ 'use strict';const host=document.querySelector('.gaming-news');if(!host)return;
+ const grid=host.querySelector('.gaming-news-grid'),status=host.querySelector('#gaming-news-status'),edition=host.querySelector('#gaming-news-updated'),count=host.querySelector('#gaming-news-count'),refresh=host.querySelector('#refresh-gaming-news');
+ const endpoint=new URL('../api/gaming-news',document.currentScript.src),placeholder=new URL('../imagens/noticias/news-placeholder.svg',document.currentScript.src).href;
+ const cacheKey='backlog:news:v1',sources={'PlayStation.Blog':['blog.playstation.com'],'Xbox Wire':['news.xbox.com'],'Steam News':['store.steampowered.com','steamcommunity.com']};
+ const t=s=>window.BacklogI18n?.t(s)||s,locale=()=>window.BacklogPreferences?.get().language||'en';
+ let busy=false,lastAttempt=0,payload=null,queued=null,signature='',state='loading';
+ function link(value,allowed){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password&&(!allowed||allowed.includes(u.hostname))?u.href:null;}catch{return null;}}
+ function normalize(value){if(!value||!Array.isArray(value.items)||!Number.isFinite(Date.parse(value.fetched_at)))throw Error('Invalid news');const seen=new Set(),items=[];
+  for(const item of value.items){if(!item||!Object.hasOwn(sources,item.source)||typeof item.title!=='string'||!item.title.trim()||item.title.length>300)continue;const url=link(item.url,sources[item.source]),date=Date.parse(item.published_at);if(!url||!Number.isFinite(date)||date>Date.now()+300000||seen.has(url))continue;seen.add(url);items.push({title:item.title.trim(),url,published_at:new Date(date).toISOString(),source:item.source,category:typeof item.category==='string'?item.category.slice(0,50):item.source,image:item.image?link(item.image):null});if(items.length===4)break;}
+  if(!items.length)throw Error('No news');return {items,fetched_at:value.fetched_at,stale:Boolean(value.stale),partial:Boolean(value.partial)};
+ }
+ function readCache(){try{const cached=normalize(JSON.parse(localStorage.getItem(cacheKey))),age=Date.now()-Date.parse(cached.fetched_at);return age>=-300000&&age<7*86400000?cached:null;}catch{return null;}}
+ function saveCache(value){try{localStorage.setItem(cacheKey,JSON.stringify(value));}catch{}}
+ function element(tag,cls='',text){const n=document.createElement(tag);n.className=cls;if(text!==undefined)n.textContent=text;return n;}
+ function labels(){refresh.textContent=t(busy?'Updating…':'Refresh news ↻');refresh.disabled=busy;count.textContent=payload?payload.items.length+' '+t(payload.items.length===1?'story':'stories')+' / '+t('Official sources'):t('Official sources');
+  edition.replaceChildren();if(payload){edition.append(document.createTextNode(t('Updated')+' '));const time=element('time');time.dateTime=payload.fetched_at;time.textContent=new Intl.DateTimeFormat(locale(),{dateStyle:'medium',timeStyle:'short'}).format(new Date(payload.fetched_at));edition.append(time);}else edition.textContent=t('Live updates');
+  const messages={loading:'Checking official news sources…',live:'Automatically checks for new stories every 10 minutes.',partial:'Some sources are unavailable. Showing the latest available stories.',saved:'Showing saved stories. Trying to refresh the news.',stale:'Showing saved stories. The sources could not be refreshed.',empty:'News could not be loaded. Please try again shortly.',server:'Open the site through the BackLog local server for automatic news.',queued:'New stories are available. Refresh to view them.'};status.textContent=t(messages[state]||messages.empty);host.dataset.newsState=state;
+ }
+ function card(item,index){const article=element('article','gaming-news-card'+(index===0?' gaming-news-featured':'')),a=element('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';const art=element('div','gaming-news-image'),img=element('img');img.alt='';img.loading='lazy';img.width=index===0?1200:640;img.height=index===0?675:360;img.referrerPolicy='no-referrer';img.src=item.image||placeholder;img.addEventListener('error',()=>{img.src=placeholder;art.classList.add('gaming-news-placeholder');},{once:true});art.append(img);if(index===0)art.append(element('span','gaming-news-spotlight',t('IN THE SPOTLIGHT')));
+  const copy=element('div','gaming-news-copy'),meta=element('div','gaming-news-meta'),category=element('span','gaming-news-category',t(item.category)),time=element('time');time.dateTime=item.published_at;time.textContent=new Intl.DateTimeFormat(locale(),{dateStyle:'medium'}).format(new Date(item.published_at));meta.append(category,time);const title=element('h3','',item.title);title.dataset.noTranslate='';const source=element('div','gaming-news-source'),name=element('span','',item.source),read=element('span','gaming-news-read',t('Read story')+' ↗');name.dataset.noTranslate='';source.append(name,read);copy.append(meta,title,element('p','',t('Read the full announcement at the official source.')),source,element('span','visually-hidden',t('Opens in a new tab.')));a.append(art,copy);article.append(a);return article;
+ }
+ function render(value,nextState,force=false){if(!force&&grid.contains(document.activeElement)){queued={value,nextState};state='queued';labels();return;}payload=value;state=nextState;const next=JSON.stringify(value.items);if(force||signature!==next){signature=next;grid.replaceChildren(...value.items.map(card));}labels();}
+ async function update(manual=false){if(busy)return;if(manual&&queued){const next=queued;queued=null;render(next.value,next.nextState);return;}if(!manual&&Date.now()-lastAttempt<15000)return;
+  busy=true;lastAttempt=Date.now();labels();host.setAttribute('aria-busy','true');const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),18000);
+  try{if(!/^https?:$/.test(location.protocol)){const error=Error('server');error.server=true;throw error;}const url=new URL(endpoint);if(manual)url.searchParams.set('refresh','1');const response=await fetch(url,{cache:'no-store',signal:controller.signal,headers:{Accept:'application/json'}});if(!response.ok){const error=Error('news');error.server=response.status===404;throw error;}if(!response.headers.get('content-type')?.includes('application/json')){const error=Error('server');error.server=true;throw error;}const next=normalize(await response.json());saveCache(next);render(next,next.stale?'stale':next.partial?'partial':'live');}
+  catch(error){state=error.server?'server':payload?'stale':'empty';labels();}
+  finally{clearTimeout(timeout);busy=false;host.removeAttribute('aria-busy');labels();}
+ }
+ refresh.addEventListener('click',()=>update(true));grid.addEventListener('focusout',()=>setTimeout(()=>{if(queued&&!grid.contains(document.activeElement)){const next=queued;queued=null;render(next.value,next.nextState);}},0));
+ const cached=readCache();if(cached)render(cached,'saved');else labels();update();
+ setInterval(()=>{if(!document.hidden)update();},600000);
+ const resume=()=>{if(!document.hidden&&Date.now()-lastAttempt>=60000)update();};window.addEventListener('focus',resume);document.addEventListener('visibilitychange',resume);window.addEventListener('online',()=>update());
+ window.addEventListener('backlog-language-change',()=>{if(payload)render(payload,state,true);else labels();});
+})();

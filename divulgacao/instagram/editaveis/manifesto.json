@@ -1,0 +1,18 @@
+{
+  "feed": [
+    "feed-01-apresentacao.html",
+    "feed-02-catalogo.html",
+    "feed-03-perfil.html",
+    "feed-04-reviews.html",
+    "feed-05-discover.html",
+    "feed-06-tecnologias.html",
+    "feed-07-aprendizado.html",
+    "feed-08-convite.html"
+  ],
+  "stories": [
+    "story-01-conheca.html",
+    "story-02-funcoes.html",
+    "story-03-bastidores.html",
+    "story-04-codigo.html"
+  ]
+}

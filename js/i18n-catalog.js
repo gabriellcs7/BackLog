@@ -691,6 +691,25 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Games in common|Jogos em comum
+You and|Você e
+You|Você
+shared game|jogo em comum
+shared games|jogos em comum
+See all shared games ↗|Ver todos os jogos em comum ↗
+Sign in to see which games you have in common.|Entre para ver quais jogos vocês têm em comum.
+Sign in to compare your games.|Entre para comparar seus jogos.
+Finding your shared games…|Buscando jogos em comum…
+Compare your ratings side by side.|Compare as notas de vocês lado a lado.
+No games in common yet.|Ainda não há jogos em comum.
+Could not compare games. Please try again.|Não foi possível comparar os jogos. Tente novamente.
+Choose another player to compare games.|Escolha outro jogador para comparar os jogos.
+Find a shared game|Encontre um jogo em comum
+Search shared games…|Pesquisar jogos em comum…
+No games match your search.|Nenhum jogo corresponde à pesquisa.
+Not rated|Sem nota
+Unavailable|Indisponível
+
 Choose an action|Escolha uma ação
 How to use BackLog|Como usar o BackLog
 Walk through the catalog, collection statuses, reviews, and diary.|Conheça o catálogo, os status de coleção, as reviews e o diário.

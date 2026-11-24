@@ -465,7 +465,7 @@ window.BacklogGames = [
             "Story rich"
         ],
         "studio": "Santa Monica Studio",
-        "caption": "A fresh Norse journey for Kratos and his young son.",
+        "caption": "Kratos and Atreus in the Norse realms.",
         "description": "Kratos lives in the Norse wilderness with Atreus, trying to keep his violent past at a distance. After Atreus' mother dies, they set out to scatter her ashes from the highest peak in the realms and encounter gods with plans of their own.",
         "gameplay": "A close third-person camera gives weight to axe combat, shield defense and companion abilities. Travel through connected regions, solve rune puzzles and return with new tools. Optional favors and conversations reveal the world and the developing father-son relationship.",
         "platforms": [
@@ -489,7 +489,7 @@ window.BacklogGames = [
         ],
         "studio": "DMA Design / Rockstar Games",
         "caption": "Top-down urban crime across three classic cities.",
-        "description": "An aspiring criminal works through the underworlds of Liberty City, San Andreas and Vice City. Jobs from local bosses form a loose campaign where climbing the criminal ladder provides the structure for an open-ended journey through three cities.",
+        "description": "An aspiring criminal takes jobs from local bosses in Liberty City, San Andreas and Vice City. These jobs form a loose campaign as you rise through the underworld, with room to explore all three cities.",
         "gameplay": "View the action from above as you steal vehicles, answer mission phones and escape police. Driving, gunfire and exploration share the same streets. Earning enough money opens later stages, while free exploration creates chaotic detours between jobs.",
         "franchise": "Grand Theft Auto",
         "cover": "catalogo/grand-theft-auto.webp",
@@ -537,7 +537,7 @@ window.BacklogGames = [
             "Open world"
         ],
         "studio": "DMA Design / Rockstar Games",
-        "caption": "The 3D open-world breakthrough in Liberty City.",
+        "caption": "Claude takes criminal jobs across a 3D Liberty City.",
         "description": "Betrayed during a robbery, Claude escapes custody and begins working for the criminal organizations of Liberty City. Mafia families, cartels and rival gangs offer a route toward revenge while repeatedly changing who he can trust.",
         "gameplay": "Explore a three-dimensional city through vehicle theft, gunfights and mission progression. Different islands open as the story advances, adding routes and employers. Taxi work, emergency-service missions and hidden packages offer activities beyond the central campaign.",
         "franchise": "Grand Theft Auto",
@@ -1134,7 +1134,7 @@ window.BacklogGames = [
         "studio": "Team Cherry",
         "caption": "Metroidvania exploration through the kingdom of Hallownest.",
         "description": "A nameless Knight descends beneath Dirtmouth into Hallownest, a fallen insect kingdom afflicted by a mysterious infection. Travelers, guardians and remnants of its rulers gradually reveal a history whose apparent silence conceals unfinished obligations.",
-        "gameplay": "Explore an interconnected two-dimensional world through precise movement, nail combat and spells. Abilities open earlier inaccessible routes, while charms adjust your build. Benches, maps and recovering a lost Shade make navigation and risk management part of the journey.",
+        "gameplay": "Explore an interconnected two-dimensional world with precise movement, nail combat and spells. New abilities open routes you could not reach before, while charms adjust your build. You need to plan around benches, read maps and weigh the risk of recovering a lost Shade.",
         "banner": "banners/hollow-knight.webp",
         "bannerPosition": "center center",
         "bannerPositionMobile": "center center",
@@ -1347,7 +1347,7 @@ window.BacklogGames = [
         "studio": "EA Vancouver / EA Romania",
         "year": 2025,
         "caption": "Football simulation with career and Ultimate Team modes.",
-        "description": "FC 26 builds its football experience around club and international competition, letting players follow a team's season or develop an individual career. Managing matches, squads and long-term ambitions provides the structure of the experience.",
+        "description": "Play club and international football, follow a team's season or develop an individual career. Matches and squad management let you work toward longer-term goals.",
         "gameplay": "Adjust formations, develop players and test tactical approaches across career and team-building modes. Local and online matches offer shorter sessions, while longer modes add transfers, progression and squad decisions that connect one fixture to the next.",
         "platforms": [
             "PC",
@@ -1448,7 +1448,7 @@ window.BacklogGames = [
         "studio": "Valve",
         "year": 2000,
         "caption": "The original 1.6 tactical shooter.",
-        "description": "Terrorist and Counter-Terrorist teams compete in short rounds around bomb sites or hostage rescue. The original release establishes a tactical contest where information, discipline and limited resources shape each match's developing narrative.",
+        "description": "Terrorist and Counter-Terrorist teams compete in short rounds around bomb sites or hostage rescue. Information, discipline and limited resources shape how each match unfolds.",
         "gameplay": "Buy equipment, hold angles and coordinate routes with teammates. Recoil, movement accuracy and sound shape firefights. Death usually means waiting for the next round, so preserving weapons and reading the opposing team's economy become part of the strategy.",
         "platforms": [
             "PC",
@@ -1532,9 +1532,9 @@ window.BacklogGames = [
         ],
         "studio": "Valve / Hidden Path Entertainment",
         "year": 2012,
-        "caption": "The competitive tactical shooter that defined an era.",
+        "caption": "Competitive Counter-Strike with ranked play.",
         "description": "Global Offensive developed Counter-Strike's tactical matches into a long-running competitive platform. Terrorists and Counter-Terrorists fought over objectives on familiar and new maps, with ranked play and community competition central to its identity.",
-        "gameplay": "Round-based shooting rewards accurate movement, recoil control and coordinated utility. Match economy determines when a team saves or invests. This entry represents Global Offensive's original era, providing a place to log the experience that preceded Counter-Strike 2.",
+        "gameplay": "Round-based shooting rewards accurate movement, recoil control and coordinated utility. Match economy determines when a team saves or invests. You can log the original Global Offensive separately from the Counter-Strike 2 experience that followed it.",
         "platforms": [
             "PC",
             "PlayStation 3",
@@ -2191,7 +2191,7 @@ window.BacklogGames = [
         "studio": "Climax Studios",
         "year": 2009,
         "caption": "Psychological reimagining with frozen chases.",
-        "description": "Harry Mason searches for Cheryl after a crash, while sessions with a therapist frame his account. This reimagining changes familiar people and places, using the player's responses to reshape details of the journey.",
+        "description": "Harry Mason searches for Cheryl after a crash, while sessions with a therapist frame his account. This reimagining changes familiar people and places. Details change in response to the player's actions.",
         "gameplay": "Explore with a flashlight and phone, examine objects and solve environmental puzzles. When the world freezes, escape pursuers through routes and hiding places. Psychological profiling influences the presentation, making observation and interpretation central to the experience.",
         "platforms": [
             "Wii",
@@ -2423,7 +2423,7 @@ window.BacklogGames = [
         "studio": "Studio MDHR",
         "year": 2017,
         "caption": "A deal with the Devil in the Inkwell Isles.",
-        "description": "Cuphead and Mugman make a disastrous wager at the Devil's casino and must collect contracts across the Inkwell Isles to repay their debt. Their journey uses hand-drawn characters and settings inspired by early animated cartoons.",
+        "description": "Cuphead and Mugman make a disastrous wager at the Devil's casino. To repay their debt, they must collect contracts across the Inkwell Isles. The hand-drawn characters and settings take their style from early animated cartoons.",
         "gameplay": "Take on bosses, run-and-gun stages and aerial encounters alone or with a second player. Learn patterns, parry marked objects and select weapons and charms. Short attempts and precise controls make improvement depend on understanding each fight.",
         "platforms": [
             "PC",
@@ -2597,7 +2597,7 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2024,
         "caption": "Enter Playcare beneath the toy factory.",
-        "description": "Beneath Playtime Co., Playcare's past connects the experiments to the children who lived in its orphanage. CatNap and dangerous red smoke make this stage of the journey both a physical threat and a disturbing investigation.",
+        "description": "Beneath Playtime Co., Playcare's past connects the experiments to the children who lived in its orphanage. As you investigate, CatNap and dangerous red smoke threaten your progress.",
         "gameplay": "Explore connected spaces, solve GrabPack puzzles and handle environmental hazards with new tools. Pursuits demand attention to routes and enemy behavior. Recordings and discoveries reveal the orphanage's place in the factory's history.",
         "platforms": [
             "PC",
@@ -2657,7 +2657,7 @@ window.BacklogGames = [
         "studio": "Mob Entertainment",
         "year": 2026,
         "caption": "Venture into the Prototype’s domain.",
-        "description": "The journey reaches the Prototype's domain, where ruined experiments and surviving toys bring the factory's history into focus. Poppy's plans and its hidden ruler's intentions become central as the search moves into Playtime Co.'s most dangerous spaces.",
+        "description": "You reach the Prototype's domain, where ruined experiments and surviving toys reveal the factory's history. The search through Playtime Co.'s most dangerous spaces focuses on Poppy's plans and the hidden ruler's intentions.",
         "gameplay": "Manipulate the environment with the GrabPack and solve puzzles under pressure from hostile toys. New threats and tools change how paths and hazards are handled. Recordings and discoveries develop the continuing story.",
         "platforms": [
             "PC",
@@ -2731,7 +2731,7 @@ window.BacklogGames = [
         ],
         "studio": "Full Circle",
         "year": 2025,
-        "caption": "Find your next favorite spot in San Vansterdam.",
+        "caption": "Skateboarding in San Vansterdam.",
         "description": "Create a skater and make San Vansterdam your own through sessions, challenges and encounters with other players. Discovering spots, developing a style and sharing moments provides progression in the city's social skateboarding world.",
         "gameplay": "Use Flick-It controls to combine tricks, grinds and movement. Explore off the board, establish sessions and repeat attempts to refine a line. Multiplayer activities and the Replay Editor support friendly competition and creative experimentation.",
         "platforms": [

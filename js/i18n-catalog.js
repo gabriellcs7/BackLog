@@ -691,6 +691,76 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+THE PROJECT|O PROJETO
+A home for every gaming story.|Um lugar para cada história que você joga.
+BackLog is a personal project for remembering games, sharing reviews and discovering what to play next.|BackLog é um projeto pessoal para guardar suas experiências com jogos, compartilhar reviews e descobrir o que jogar depois.
+Explore games ↗|Explorar jogos ↗
+Remember what you play|Lembre do que você joga
+Rate games, write reviews and keep a diary with the dates that matter to you.|Avalie jogos, escreva reviews e mantenha um diário com as datas que importam para você.
+Open your diary ↗|Abrir seu diário ↗
+Make it your collection|Monte sua coleção
+Organize your backlog, create themed or ranked lists and choose your favorite four.|Organize sua coleção, crie listas temáticas ou ranqueadas e escolha seus quatro favoritos.
+Visit your profile ↗|Visitar seu perfil ↗
+Find your next favorite|Encontre seu próximo favorito
+Explore the catalog, try Discover and compare games with other players.|Explore o catálogo, experimente o Discover e compare jogos com outras pessoas.
+Try Discover ↗|Experimentar o Discover ↗
+BEHIND BACKLOG|POR TRÁS DO BACKLOG
+Created by Gabriel|Criado por Gabriel
+Built to learn, experiment and share a growing programming portfolio. Follow the project and more tech content through the links below.|Criado para aprender, experimentar e construir um portfólio de programação. Acompanhe o projeto e mais conteúdo tech pelos links abaixo.
+Built with curiosity|Feito com curiosidade
+The project uses HTML, CSS and JavaScript, with a Python local server and optional online accounts through Supabase.|O projeto usa HTML, CSS e JavaScript, com servidor local em Python e contas online opcionais pelo Supabase.
+A LITTLE GUIDANCE|UMA AJUDA PARA COMEÇAR
+Make the most of BackLog.|Aproveite o BackLog ao máximo.
+Quick answers for your games, reviews and collection.|Respostas rápidas sobre seus jogos, reviews e coleção.
+Open settings ↗|Abrir configurações ↗
+Find a help topic|Encontre um tópico de ajuda
+Search help…|Pesquisar na ajuda…
+Do I need an account?|Preciso de uma conta?
+You can keep a device profile without signing in. An online account syncs your profile and enables follows, likes and comments.|Você pode manter um perfil neste dispositivo sem entrar em uma conta. Uma conta online sincroniza o perfil e permite seguir pessoas, curtir e comentar.
+How do game statuses work?|Como funcionam os status dos jogos?
+Choose Played, Playing, Completed, Platinum, Dropped or Want to play on a game page. You can change the status later.|Escolha Jogado, Jogando, Zerado, Platinado, Dropado ou Quero jogar na página de um jogo. Você pode mudar o status depois.
+How do I write a review?|Como escrevo uma review?
+Open a game and select Write a review. You can give half-star ratings, choose the review date and mark spoilers before saving.|Abra um jogo e selecione Escrever uma review. Você pode dar meias estrelas, escolher a data da avaliação e marcar spoilers antes de salvar.
+What does Discover do?|O que o Discover faz?
+Discover shows games outside your collection. Swipe right to add a game to Want to play, left to skip, or use the buttons and Undo. Skipping does not hide a game permanently.|O Discover mostra jogos fora da sua coleção. Deslize para a direita para adicionar em Quero jogar, para a esquerda para pular, ou use os botões e Desfazer. Pular não oculta um jogo para sempre.
+Can I create a ranked list?|Posso criar uma lista ranqueada?
+Create a list from your profile and enable ranking. Add games, arrange their order and save the list.|Crie uma lista pelo seu perfil e ative o ranking. Adicione jogos, organize a ordem e salve a lista.
+Where are my statistics?|Onde ficam minhas estatísticas?
+Open View statistics in Your gaming journal on a profile. Choose a year to explore its logged games, ratings, genres and recorded completions.|Abra Ver estatísticas em Seu diário de jogos, no perfil. Escolha um ano para explorar jogos registrados, notas, gêneros e conclusões registradas.
+Why are the news not updating?|Por que as notícias não atualizam?
+Automatic news needs an internet connection and the BackLog local server. Start python servidor.py from the project folder and reload the site.|As notícias automáticas precisam de internet e do servidor local do BackLog. Execute python servidor.py na pasta do projeto e recarregue o site.
+How do I export my data?|Como exporto meus dados?
+Open Settings and choose Export my data. The backup includes the selected profile data, lists, games, reviews and diary available to that account or device.|Abra Configurações e escolha Exportar meus dados. O backup inclui os dados do perfil selecionado, listas, jogos, reviews e diário disponíveis para a conta ou dispositivo.
+Looking for project instructions?|Procurando instruções do projeto?
+The repository has the local setup guide and feature documentation.|O repositório tem o guia de execução local e a documentação dos recursos.
+Read the project guide ↗|Ler o guia do projeto ↗
+SOURCES AND INSPIRATIONS|FONTES E INSPIRAÇÕES
+The work behind the experience.|O trabalho por trás da experiência.
+References, tools and source records used while building BackLog.|Referências, ferramentas e registros de fontes usados na construção do BackLog.
+Catalog and artwork|Catálogo e artes
+Game information, cover choices, character portraits and screenshots have source records in the project repository.|As informações dos jogos, escolhas de capas, retratos e capturas de tela têm registros de fontes no repositório do projeto.
+Browse source records ↗|Ver registros de fontes ↗
+Official gaming news|Notícias oficiais de jogos
+Headlines link directly to their original publications.|As manchetes levam diretamente às publicações originais.
+Interface inspiration|Inspiração da interface
+Interactions were adapted for this project from community references on 21st.dev, using the colors and game catalog of BackLog.|As interações foram adaptadas para este projeto a partir de referências da comunidade no 21st.dev, usando as cores e o catálogo do BackLog.
+Accounts and synchronization|Contas e sincronização
+Online accounts and community features use Supabase. Its bundled client license is available in the project.|As contas online e os recursos de comunidade usam o Supabase. A licença do cliente incluído está disponível no projeto.
+Read the client license ↗|Ler a licença do cliente ↗
+Follow the development|Acompanhe o desenvolvimento
+About BackLog|Sobre o BackLog
+Help & FAQ|Ajuda e dúvidas
+Credits & sources|Créditos e fontes
+Statistics|Estatísticas
+Settings ↗|Configurações ↗
+Every game has a place in your story.|Todo jogo tem um lugar na sua história.
+Explore BackLog|Explore o BackLog
+Explore|Explorar
+Your journal|Seu diário
+About the project|Sobre o projeto
+The project|O projeto
+A personal project by Gabriel|Um projeto pessoal de Gabriel
+No help topics match your search.|Nenhum tópico corresponde à pesquisa.
 Could not load games.|Não foi possível carregar os jogos.
 Refresh the selection to try again.|Atualize a seleção para tentar novamente.
 Discover games ↗|Descobrir jogos ↗

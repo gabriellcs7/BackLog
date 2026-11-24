@@ -6,6 +6,7 @@
     const target = params.get('id');
     const filter = params.get('rating');
     const selectedRating = filter !== null && /^(?:[0-4](?:\.5)?|5)$/.test(filter) ? Number(filter) : null;
+    const yearParam=params.get('year'),selectedYear=/^\d{4}$/.test(yearParam||'')?Number(yearParam):null;
     const grid = document.querySelector('#logged-games-grid');
     const title = document.querySelector('#logged-games-title');
     const count = document.querySelector('#logged-games-count');
@@ -31,11 +32,12 @@
         count.textContent = 'Loading games…';
         try {
             let games;
-            const ratings = new Map();
+            const ratings = new Map(),reviewYears=new Map();
             if (id === 'local') {
                 games = window.BacklogGames.filter(game => {
                     const review = window.BacklogReviews.getDevice(game.id);
                     if (review?.rating != null) ratings.set(game.id, review.rating);
+                    if(review?.reviewedOn)reviewYears.set(game.id,Number(review.reviewedOn.slice(0,4)));
                     const status = window.Backlog.getStatus(game.id,null);
                     return review || (status && status.id !== 'want-to-play');
                 });
@@ -49,15 +51,16 @@
                 if (!player.profile) throw new Error('Profile not found.');
                 title.textContent = player.profile.display_name + '\'s logged games';
                 games = rows.map(row => ui.game(row.game_id)).filter(Boolean);
-                if (scoreRows === null && selectedRating !== null) throw new Error('Could not load star ratings.');
+                if (scoreRows === null && (selectedRating !== null||selectedYear!==null)) throw new Error('Could not load star ratings.');
                 if (scoreRows === null) feedback.textContent = 'Could not load star ratings.';
-                else for (const row of scoreRows) ratings.set(row.game_id, row.rating);
+                else for (const row of scoreRows){ratings.set(row.game_id,row.rating);const date=row.reviewed_on||row.updated_at; if(date)reviewYears.set(row.game_id,Number(date.slice(0,4)));}
             }
             if (ticket !== version) return;
             if (selectedRating !== null) {
                 title.textContent += ' · ' + selectedRating + ' / 5 ★';
                 games = games.filter(game => ratings.has(game.id) && Number(ratings.get(game.id)) === selectedRating);
             }
+            if(selectedYear!==null){title.textContent+=' · '+selectedYear;games=games.filter(game=>reviewYears.get(game.id)===selectedYear);}
             games.sort((a, b) => a.title.localeCompare(b.title));
             count.textContent = games.length + (games.length === 1 ? ' game' : ' games');
             grid.replaceChildren(...games.map(game => cardWithRating(game, ratings.get(game.id))));

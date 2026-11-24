@@ -66,7 +66,7 @@
         async loggedGames(id){return check(await(await client()).rpc('profile_logged_games',{profile_key:id}))||[];},
         async gameRatings(id){
             const api=await client();
-            return check(await api.from('reviews').select('game_id,rating').eq('user_id',id).not('rating','is',null))||[];
+            return check(await api.from('reviews').select('game_id,rating,reviewed_on,updated_at').eq('user_id',id).not('rating','is',null))||[];
         },
         async publicDiary(id,year,offset){return check(await(await client()).rpc('profile_public_diary',{profile_key:id,calendar_year:year,page_offset:offset}))||[];},
         async recent(id){

@@ -19,7 +19,7 @@ Aplicação web para catalogar jogos, registrar sessões em um diário cronológ
 
 O projeto opera em dois modos:
 
-1. **Modo local (offline):** Abra a aplicação no navegador e use imediatamente. Perfil, quatro jogos favoritos, listas (livres ou ranqueadas), avaliações e diário ficam salvos no `localStorage`. Nenhum dado sai da sua máquina e nenhuma conta é exigida.
+1. **Modo local (offline):** Abra a aplicação no navegador e use imediatamente. Perfil, quatro jogos favoritos, listas (livres ou ranqueadas), avaliações e diário ficam salvos no `localStorage`. Os dados do perfil ficam na sua máquina e nenhuma conta é exigida. As notícias automáticas precisam de conexão e do servidor local do BackLog.
 2. **Modo conectado (Supabase):** Ao preencher as chaves do Supabase no arquivo `js/config.js`, a aplicação ativa autenticação por e-mail, sincronização na nuvem, upload de fotos e banners de perfil, distribuição comunitária de notas, feed social de seguidos, central de atividades e busca de jogadores.
 
 ---
@@ -30,7 +30,7 @@ O projeto opera em dois modos:
 - Navegação em perspectiva tridimensional pelos jogos em destaque (`js/game-tunnel.js`), acionada pela rolagem suave, cursor ou teclado.
 - Linha do tempo interativa na página inicial demonstrando a interface mobile (`js/cinematic-backlog.js`).
 - Mais de 440 biografias de personagens em 90 jogos com retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers (`js/game-characters.js`).
-- Painel de notícias da indústria com fontes oficiais (`css/gaming-news.css`), sem dependências externas.
+- Notícias oficiais atualizadas automaticamente a cada dez minutos, com cache e imagens das matérias (`docs/noticias.md`), usando o servidor Python local sem bibliotecas adicionais.
 - Controle de movimento e acessibilidade (`js/presentation-motion.js`) com modos `auto`, `full` e `reduced`.
 - Histograma de avaliações comunitárias de 0.5 a 5.0 estrelas na página de cada jogo e no perfil (`view/js/game-ratings.js`).
 - Listas ranqueadas e temáticas (`docs/ranked-lists.md`) com suporte a reordenação por teclado ou arrastar e soltar.
@@ -150,7 +150,8 @@ BackLog/
 │   ├── ui.js                  # Modais, toasts e renderização de notas
 │   └── vendor/
 │       └── supabase.js        # Biblioteca cliente oficial do Supabase
-├── servidor.py                # Servidor local Python com cabeçalhos anti-cache
+├── servidor.py                # Servidor local Python, notícias e cabeçalhos anti-cache
+├── news_feed.py               # Feeds oficiais, imagens e cache das notícias
 ├── supabase/
 │   ├── setup.sql              # Schema inicial para novos bancos
 │   └── migrations/            # 18 migrações SQL incrementais
@@ -198,7 +199,7 @@ Como a aplicação é construída com JavaScript e CSS puros, não requer `node_
    ```bash
    python servidor.py
    ```
-   > **Por que usar o `servidor.py`?** Ele envia cabeçalhos `Cache-Control: no-store, no-cache` para garantir que alterações em arquivos `.js`, `.css` e `.html` apareçam imediatamente na tela após salvar, sem travar no cache do navegador.
+   > **Por que usar o `servidor.py`?** Ele oferece as notícias automáticas e envia cabeçalhos `Cache-Control: no-store, no-cache` para garantir que alterações em arquivos `.js`, `.css` e `.html` apareçam imediatamente na tela após salvar, sem travar no cache do navegador.
 
 4. **Acesse pelo navegador:**
    - Página inicial: [http://localhost:8000](http://localhost:8000)

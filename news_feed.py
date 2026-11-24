@@ -137,6 +137,38 @@ def fetch_feed(url):
     return data
 
 
+class ArticleImage(HTMLParser):
+    """Reads only public image metadata, never article text or executable HTML."""
+    def __init__(self, page_url):
+        super().__init__(convert_charrefs=True)
+        self.page_url, self.image = page_url, None
+
+    def handle_starttag(self, tag, attributes):
+        if tag != 'meta' or self.image:
+            return
+        attrs = dict(attributes)
+        if attrs.get('property', attrs.get('name', '')).lower() in ('og:image', 'twitter:image'):
+            self.image = safe_url(urljoin(self.page_url, attrs.get('content', '')))
+
+
+def fetch_article_image(url):
+    allowed = tuple(host for source in SOURCES for host in source['hosts'])
+    if not safe_url(url, allowed):
+        return None
+    try:
+        request = Request(url, headers={'User-Agent': 'BackLogLocalPreview/1.0', 'Accept': 'text/html'})
+        with urlopen(request, timeout=4) as response:
+            if not safe_url(response.geturl(), allowed):
+                return None
+            document = response.read(800_000).decode('utf-8', errors='replace')
+        end = document.lower().find('</head>')
+        parser = ArticleImage(url)
+        parser.feed(document[:end + 7] if end >= 0 else document)
+        return parser.image
+    except Exception:
+        return None
+
+
 def select_stories(items, limit=4):
     unique, titles = {}, set()
     for item in sorted(items, key=lambda row: row["published_at"], reverse=True):
@@ -158,8 +190,9 @@ def select_stories(items, limit=4):
 
 
 class NewsService:
-    def __init__(self, fetcher=fetch_feed, clock=time.time):
+    def __init__(self, fetcher=fetch_feed, clock=time.time, image_fetcher=fetch_article_image):
         self.fetcher, self.clock = fetcher, clock
+        self.image_fetcher = image_fetcher
         self.lock = threading.Lock()
         self.feeds = {}
         self.payload = None
@@ -196,7 +229,15 @@ class NewsService:
                     return self.payload
                 raise RuntimeError("News sources are temporarily unavailable")
             self.failed = available < len(SOURCES)
-            self.payload = {"items": select_stories([item for rows in self.feeds.values() for item in rows]),
+            selected = select_stories([item for rows in self.feeds.values() for item in rows])
+            missing = [item for item in selected if not item['image']]
+            if missing:
+                with ThreadPoolExecutor(max_workers=4) as pool:
+                    images = list(pool.map(self.image_fetcher, [item['url'] for item in missing]))
+                for item, image in zip(missing, images):
+                    if image:
+                        item['image'] = image
+            self.payload = {"items": selected,
                             "fetched_at": moment.isoformat(), "stale": False, "partial": self.failed,
                             "refresh_after": CACHE_SECONDS}
             return self.payload

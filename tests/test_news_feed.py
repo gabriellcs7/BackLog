@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 from urllib.request import urlopen, Request
 
-from news_feed import NewsService, SOURCES, parse_feed, select_stories, safe_url
+from news_feed import NewsService, SOURCES, parse_feed, select_stories, safe_url, ArticleImage
 import servidor
 
 NOW = datetime(2026, 11, 23, 20, tzinfo=timezone.utc)
@@ -33,6 +33,11 @@ class NewsTests(unittest.TestCase):
     def test_namespaced_steam_feed(self):
         data = b'''<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://purl.org/rss/1.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"><item><title>Steam update</title><link>https://store.steampowered.com/news/123/</link><dc:date>2026-11-23T12:00:00Z</dc:date></item></rdf:RDF>'''
         self.assertEqual(parse_feed(data, SOURCES[2], NOW)[0]['source'], 'Steam News')
+
+    def test_article_image_metadata(self):
+        parser = ArticleImage('https://blog.playstation.com/story/')
+        parser.feed('<meta property="og:image" content="javascript:alert(1)"><meta property="og:image" content="https://images.example.com/hero.jpg"><script>ignored()</script>')
+        self.assertEqual(parser.image, 'https://images.example.com/hero.jpg')
 
     def test_untrusted_urls_future_dates_and_entities(self):
         for url in ['javascript:alert(1)', 'https://localhost/x', 'https://127.0.0.1/x', 'https://user:secret@example.com/x']:

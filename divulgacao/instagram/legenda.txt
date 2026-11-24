@@ -1,0 +1,17 @@
+Apresentando o BackLog 🎮
+
+Meu projeto de desenvolvimento web para organizar jogos e guardar um pouco da experiência de cada partida.
+
+Dá para montar sua coleção, escolher quatro favoritos, criar listas, avaliar com meias estrelas e escrever reviews com aviso de spoiler. Também tem diário, Discover e recursos de comunidade para seguir jogadores, curtir e comentar reviews.
+
+Construí com HTML, CSS, JavaScript e Python, usando Supabase para contas e dados. No processo, usei VS Code, Git e GitHub, com Codex e Antigravity como auxílio no desenvolvimento.
+
+Aprendi muito sobre componentes, interface e entender quem usa o site. O maior desafio foi corrigir erros grandes e perceber as coisas que ainda faltavam.
+
+É um projeto do meu portfólio e continuo melhorando ele.
+
+Qual função você mais curtiu? Me conta nos comentários.
+
+Código: github.com/gabriellcs7/BackLog
+
+#DesenvolvimentoWeb #JavaScript #ProjetoPessoal #PortfolioDev #Programacao

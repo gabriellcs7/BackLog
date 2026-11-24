@@ -1,0 +1,18 @@
+BACKLOG • MATERIAL PARA INSTAGRAM
+
+CARROSSEL: pasta carrossel, 8 PNGs de 1080 × 1350 px.
+STORIES: pasta stories, 4 PNGs de 1080 × 1920 px.
+
+Selecione os arquivos na ordem dos números. Os arquivos previa-carrossel.png e previa-stories.png são folhas de contato para conferência, não fazem parte da postagem.
+
+A legenda está em legenda.txt. O arquivo previa.html permite visualizar todas as artes. Os HTMLs e o CSS em editaveis guardam o design para futuras alterações.
+
+O foco está no projeto. Tecnologias e aprendizado entram nos cards 6 e 7. Codex e Antigravity são apresentados como auxílio no desenvolvimento, conforme a descrição de Gabriel.
+
+No story 4, você pode colocar uma figurinha de link apontando para https://github.com/gabriellcs7/BackLog. O endereço da figurinha deve ser configurado dentro do Instagram. As imagens não têm links clicáveis.
+
+As capturas vieram do site atual, em um navegador isolado. Perfil, lista e review de exemplo usam dados demonstrativos, identificados nas artes. Nenhuma conta real foi alterada. Não há números de usuários, depoimentos ou métricas de crescimento inventados.
+
+O material direciona para o repositório, sem afirmar que o site está publicado. Nada foi postado automaticamente.
+
+As capas pertencem aos respectivos jogos e foram usadas nas telas do projeto. O logo BackLog e as capturas são os mesmos da aplicação. O site em si não foi alterado para produzir estas artes.

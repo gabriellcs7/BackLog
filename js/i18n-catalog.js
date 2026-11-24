@@ -691,6 +691,8 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Help topics|Tópicos de ajuda
+BackLog features|Recursos do BackLog
 THE PROJECT|O PROJETO
 A home for every gaming story.|Um lugar para cada história que você joga.
 BackLog is a personal project for remembering games, sharing reviews and discovering what to play next.|BackLog é um projeto pessoal para guardar suas experiências com jogos, compartilhar reviews e descobrir o que jogar depois.

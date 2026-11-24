@@ -4,3 +4,5 @@
 html[data-presentation-motion=reduced] .swipe-discover-card,html[data-presentation-motion=reduced] .swipe-discover-action{transition:none}
 
 .swipe-discover-back{font-size:11px;font-weight:700;color:var(--yellow)}
+
+.swipe-discover-page .swipe-discover-action{font-size:24px}.swipe-discover-page .swipe-discover-action.swipe-discover-undo{font-size:22px}

@@ -1090,4 +1090,15 @@ Could not rename this list. Please try again.|Não foi possível renomear esta l
 Genre distribution|Distribuição por gênero
 Hover or focus a point to see its count.|Passe o mouse ou foque um ponto para ver a quantidade.
 Up to six genres in the radar. The list includes every genre logged in the selected year.|O radar mostra até seis gêneros. A lista inclui todos os gêneros registrados no ano selecionado.
+List creation steps|Etapas da criação de lista
+Details|Detalhes
+Name and preferences|Nome e preferências
+Find and select|Encontre e selecione
+Review list|Conferir lista
+Organize your list|Organize sua lista
+List details|Detalhes da lista
+Choose games|Escolha jogos
+Back|Voltar
+Next step →|Próxima etapa →
+No games selected yet.|Nenhum jogo selecionado ainda.
 `.trim().split('\n').map(line=>line.split('|')));

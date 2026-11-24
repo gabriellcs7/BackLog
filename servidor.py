@@ -3,7 +3,10 @@ from argparse import ArgumentParser
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
+from io import BytesIO
+import json
+from news_feed import news_service
 
 ROOT = Path(__file__).resolve().parent
 
@@ -14,6 +17,8 @@ class BacklogHandler(SimpleHTTPRequestHandler):
         return path.endswith('/') or Path(path).suffix.lower() in {'.html', '.css', '.js', '.json'}
 
     def send_head(self):
+        if urlsplit(self.path).path == '/api/gaming-news':
+            return self.news_response()
         # Evita 304 de uma versão antiga e mantém a prévia dentro do projeto.
         try:
             target = Path(self.translate_path(self.path)).resolve()
@@ -29,6 +34,23 @@ class BacklogHandler(SimpleHTTPRequestHandler):
                 if name in self.headers:
                     del self.headers[name]
         return super().send_head()
+
+    def news_response(self):
+        try:
+            force = parse_qs(urlsplit(self.path).query).get('refresh') == ['1']
+            payload, status = news_service.get(force=force), 200
+        except Exception:
+            payload, status = {'error': 'News sources are temporarily unavailable', 'refresh_after': 60}, 503
+        content = json.dumps(payload, ensure_ascii=False).encode('utf-8')
+        self.send_response(status)
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.send_header('Content-Length', str(len(content)))
+        self.send_header('Cache-Control', 'no-store')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        if status != 200:
+            self.send_header('Retry-After', '60')
+        self.end_headers()
+        return BytesIO(content)
 
     def end_headers(self):
         if self.refresh_asset():
@@ -56,6 +78,7 @@ def main():
     port = server.server_address[1]
     print(f'BackLog: http://localhost:{port}', flush=True)
     print(f'Perfil: http://localhost:{port}/view/profile.html', flush=True)
+    print('Notícias oficiais: atualização automática ativada.', flush=True)
     print('Mantenha este terminal aberto. Atualize a página para ver as alterações; Ctrl+C para encerrar.', flush=True)
     with server:
         try:

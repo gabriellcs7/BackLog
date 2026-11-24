@@ -1,6 +1,6 @@
-# 🎮 BackLog
+# BackLog
 
-BackLog é uma aplicação web feita para catalogar jogos, registrar sessões de jogatina em um diário cronológico, organizar listas personalizadas e compartilhar avaliações com a comunidade. Funciona direto no navegador sem login (com armazenamento no `localStorage`), com suporte a sincronização na nuvem e recursos sociais via Supabase.
+Aplicação web para catalogar jogos, registrar sessões em um diário cronológico, organizar listas personalizadas e compartilhar avaliações. Funciona direto no navegador sem login, salvando dados no `localStorage`, e oferece sincronização na nuvem e recursos de comunidade opcionais via Supabase.
 
 [![GitHub](https://img.shields.io/badge/GitHub-gabriellcs7%2FBackLog-181717?logo=github&logoColor=white)](https://github.com/gabriellcs7/BackLog)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20ES6%2B-yellow?logo=javascript&logoColor=black)
@@ -19,64 +19,46 @@ BackLog é uma aplicação web feita para catalogar jogos, registrar sessões de
 
 O projeto opera em dois modos:
 
-1. **Modo local (offline por padrão):** Abra a aplicação no navegador e use imediatamente. Perfil, Top 4 de favoritos, listas ranqueadas ou livres, avaliações e diário cronológico ficam salvos no `localStorage`. Nenhum dado sai da sua máquina e nenhuma conta é exigida.
-2. **Modo conectado (com Supabase):** Ao preencher as chaves do Supabase no arquivo `js/config.js`, a aplicação ativa autenticação por e-mail, sincronização em tempo real na nuvem, upload de fotos e banners de perfil, distribuição comunitária de notas, feed social de seguidos, central de atividades e busca de jogadores.
+1. **Modo local (offline):** Abra a aplicação no navegador e use imediatamente. Perfil, quatro jogos favoritos, listas (livres ou ranqueadas), avaliações e diário ficam salvos no `localStorage`. Nenhum dado sai da sua máquina e nenhuma conta é exigida.
+2. **Modo conectado (Supabase):** Ao preencher as chaves do Supabase no arquivo `js/config.js`, a aplicação ativa autenticação por e-mail, sincronização na nuvem, upload de fotos e banners de perfil, distribuição comunitária de notas, feed social de seguidos, central de atividades e busca de jogadores.
 
 ---
 
-## Novidades e Destaques Recentes
+## Recursos principais
 
-- **Catálogo Expandido (100 Jogos):** 100 títulos com capas em alta definição, banners panorâmicos, logos transparentes e metadados completos de franquia, estúdio, plataformas e ambientação.
-- **Túnel 3D em Perspectiva (`js/game-tunnel.js`):** Navegação imersiva em perspectiva tridimensional pelos jogos em destaque, acionada pela rolagem suave da página, com inclinação interativa pelo cursor e atalhos de teclado.
-- **Vitrine Cinematográfica (`js/cinematic-backlog.js`):** Seção interativa com mockup de smartphone, iluminação dinâmica ao rolar a tela e linha do tempo de coleção.
-- **Galeria de Personagens do Catálogo (`js/game-characters.js`):** Mais de 440 biografias curadas em 90 jogos, com 371 retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers.
-- **Notícias Editoriais de Games (`css/gaming-news.css`):** Painel estático com as principais novidades oficiais da indústria (PlayStation.Blog, Xbox Wire, etc.) sem bibliotecas externas.
-- **Controle de Movimento (`js/presentation-motion.js`):** Alternador de acessibilidade para animações (`auto`, `full`, `reduced`), respeitando as configurações do sistema sem desativar efeitos para quem deseja visualizá-los.
-- **Distribuição Gráfica de Avaliações (`view/js/game-ratings.js`):** Histograma de notas comunitárias de 0.5 a 5.0 estrelas na página de cada jogo e no perfil, acompanhado de estatísticas compactas.
-- **Listas Ranqueadas (`docs/ranked-lists.md`):** Crie listas numeradas (Top 5, Top 10, até 100 jogos) com reordenação de posições por teclado, setas ou arrastar e soltar.
-- **Perfil Aprimorado com Banner Personalizado:** Defina um banner exclusivo no perfil vinculado a qualquer jogo do catálogo, selecione sua plataforma principal (PC, PlayStation, Xbox, Nintendo, etc.), informe localização e website.
-- **Reordenação dos Favoritos (Top 4):** Capas destacadas com suporte a arrastar e soltar ou reordenação rápida via teclado.
-- **Busca Unificada de Jogos e Jogadores:** Barra de busca global com atalho `/` que localiza tanto títulos e franquias quanto perfis de usuários com foto redonda.
+- Catálogo com 100 jogos detalhados com capas, banners panorâmicos, logos transparentes e metadados de franquia, estúdio, plataformas e ambientação.
+- Navegação em perspectiva tridimensional pelos jogos em destaque (`js/game-tunnel.js`), acionada pela rolagem suave, cursor ou teclado.
+- Linha do tempo interativa na página inicial demonstrando a interface mobile (`js/cinematic-backlog.js`).
+- Mais de 440 biografias de personagens em 90 jogos com retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers (`js/game-characters.js`).
+- Painel de notícias da indústria com fontes oficiais (`css/gaming-news.css`), sem dependências externas.
+- Controle de movimento e acessibilidade (`js/presentation-motion.js`) com modos `auto`, `full` e `reduced`.
+- Histograma de avaliações comunitárias de 0.5 a 5.0 estrelas na página de cada jogo e no perfil (`view/js/game-ratings.js`).
+- Listas ranqueadas e temáticas (`docs/ranked-lists.md`) com suporte a reordenação por teclado ou arrastar e soltar.
+- Perfil com banner personalizável vinculado a qualquer jogo do catálogo, seleção de plataforma principal (PC, PlayStation, Xbox, Nintendo), localização e link externo.
+- Vitrine de quatro jogos favoritos no perfil com suporte a arrastar e soltar ou reordenação por teclado.
+- Barra de busca global com atalho `/` que localiza títulos, franquias e perfis de usuários.
 
 ---
 
-## Funcionalidades
+## Estrutura da aplicação
 
-### 1. Catálogo e Coleções (`view/pagina_jogos.html`)
-- **Filtros Combinados:** Status da coleção, ordenação (Destaques, A-Z, Z-A) e 10 gêneros (`Action`, `Adventure`, `Fighting`, `Horror`, `MOBA`, `RPG`, `Sandbox`, `Shooter`, `Sports`, `Survival`).
-- **6 Status de Coleção:** `Played` (Jogado), `Playing` (Jogando), `Completed` (Zerado), `Platinum` (Platinado), `Dropped` (Dropado) e `Want to play` (Quero jogar).
-- **Cartões com Efeito Parallax:** Profundidade de camada ao rolar a página e acesso rápido à marcação de status sem sair do catálogo.
+### Catálogo e coleções (`view/pagina_jogos.html`)
+Filtros combinados por status da coleção, ordenação (Destaques, A-Z, Z-A) e 10 gêneros (`Action`, `Adventure`, `Fighting`, `Horror`, `MOBA`, `RPG`, `Sandbox`, `Shooter`, `Sports`, `Survival`). Acompanha seis status: `Played` (Jogado), `Playing` (Jogando), `Completed` (Zerado), `Platinum` (Platinado), `Dropped` (Dropado) e `Want to play` (Quero jogar).
 
-### 2. Página do Jogo (`view/game.html`)
-- **Banner Panorâmico & Logo Oficial:** Cabeçalho cinematográfico contextual com posição customizada para mobile e desktop.
-- **Distribuição de Notas Comunitárias:** Gráfico de frequência por estrelas (degraus de 0.5 em 0.5) e cálculo da nota média.
-- **Elenco e Personagens:** Carrossel de personagens com retratos e descrições dos papéis na história.
-- **Avaliações com Meio Ponto:** Editor de resenhas com notas de 0.5 a 5.0 estrelas (notas zero foram eliminadas para manter apenas resenhas qualificadas).
-- **Diário Integrado:** Opção de registrar a data exata da jogatina diretamente ao postar uma avaliação.
+### Página do jogo (`view/game.html`)
+Cabeçalho panorâmico com logo oficial, distribuição de notas da comunidade, carrossel de personagens com retratos, sinopse, plataformas e resenhas públicas de outros jogadores. Permite alterar o status na coleção e abrir o editor de resenhas.
 
-### 3. Diário de Jogos (`view/diary.html`)
-- **Linha do Tempo Cronológica:** Registro das sessões por data, ordenadas do mais recente para o mais antigo.
-- **Filtro por Ano:** Navegação rápida pelos anos em que você jogou.
-- **Metadados:** Exibe capa, nota concedida, texto de resenha e plataforma utilizada.
+### Diário de jogos (`view/diary.html`)
+Registro das sessões por data em ordem cronológica decrescente. Inclui filtro por mês e ano, busca textual e opção de alterar a data de cada registro sem modificar o texto da resenha.
 
-### 4. Perfil e Recursos Sociais (`view/profile.html`)
-- **Estatísticas Automáticas:** Métricas de *Games logged*, *Played in [ano]* e número de listas públicas/privadas.
-- **Top 4 Favoritos:** Vitrine de 4 jogos favoritos com suporte a busca de capas e reordenação por arrastar e soltar ou teclado.
-- **Banner Customizado:** Vincule qualquer jogo do acervo como cabeçalho do seu perfil.
-- **Rede de Conexões:** Sistema de seguir/deixar de seguir com contadores de seguidores e seguindo, com modais paginados de 20 em 20 usuários.
-- **Atividade Recente:** Grade com os últimos 8 jogos marcados, avaliados ou concluídos (excluindo itens pendentes da wishlist).
-- **Upload de Foto de Perfil:** Seletor de imagem (JPG, PNG ou WebP de até 5 MB) com recorte central em 384×384 px.
+### Perfil e recursos sociais (`view/profile.html`)
+Métricas automáticas (*Games logged*, *Played in [ano]*, número de listas públicas e privadas), vitrine de quatro favoritos, listas do usuário, atividade recente e lista de desejos. Na versão conectada ao Supabase, exibe contadores de conexões, feed de seguidos e suporte a upload de foto de perfil.
 
-### 5. Central de Atividades (`view/activity.html`)
-- Feed social em tempo real com filtros *All activity*, *For you* e *Following*.
-- Notificações de novos seguidores, curtidas, comentários em resenhas e mudanças de status de quem você segue.
+### Central de atividades (`view/activity.html`)
+Feed social com filtros por todas as atividades, personalizadas ou de quem você segue. Exibe novos seguidores, curtidas e comentários em resenhas.
 
-### 6. Página Inicial (`index.html`)
-- **Túnel 3D de Destaques:** Apresentação dinâmica da coleção central.
-- **Every game tells a story:** Destaque para as resenhas comunitárias mais curtidas (mínimo de 1 like).
-- **From your people:** Feed com a última resenha escrita de cada perfil que você segue.
-- **Notícias Editoriais:** Resumos com fontes oficiais da indústria.
-- **Vitrine Mobile Cinematográfica:** Demonstração da experiência responsiva da aplicação.
+### Página inicial (`index.html`)
+Apresentação do catálogo em perspectiva, atalhos para a coleção pessoal, resenhas recentes da comunidade, notícias de fontes oficiais e demonstração visual dos recursos.
 
 ---
 

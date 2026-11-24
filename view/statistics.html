@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <script src="../js/preferences.js"></script>
-        <script src="../js/i18n-catalog.js?v=20261124-humanizer-1" defer></script>
+        <script src="../js/i18n-catalog.js?v=20261124-radar-1" defer></script>
         <script src="../js/i18n.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="theme-color" content="#131414">
@@ -27,7 +27,8 @@
         <script src="../js/community.js?v=20261123-insights-1" defer></script>
         <title>Gaming insights · BackLog</title>
         <script src="../js/gaming-statistics.js" defer></script>
-<script src="js/gaming-statistics-page.js" defer></script>
+<script src="../js/genre-radar.js?v=20261124-1" defer></script>
+<script src="js/gaming-statistics-page.js?v=20261124-radar-1" defer></script>
         <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1">
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
@@ -35,6 +36,7 @@
 <link rel="stylesheet" href="../css/status-undo.css">
 <link rel="stylesheet" href="../css/gaming-statistics.css">
 <link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/genre-radar.css?v=20261124-1">
 </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -75,7 +77,7 @@
 <article class="insights-tile insight-card"><span class="insights-icon" aria-hidden="true">⌘</span><strong id="insights-genres" data-no-translate></strong><span class="insights-stat-label">Genres explored</span></article></section>
 <div class="insights-layout"><section class="insights-panel insight-card"><div class="insights-panel-head"><div><h2>Completions</h2><p class="insights-panel-sub">Games completed each month</p></div><small id="insights-total-year" data-no-translate></small></div><div class="insights-chart-wrap"><div class="insights-axis" id="insights-axis" aria-hidden="true"></div><div class="insights-bars" id="insights-monthly" role="group" aria-label="Monthly completions"></div><div class="insights-months" id="insights-months" aria-hidden="true"></div></div><div class="insights-chart-foot"><span><i class="insights-dot"></i>Completed games</span><strong id="insights-month-detail" role="status" data-no-translate></strong></div><div class="insights-month-games" id="insights-month-games"></div><p class="insights-data-note">Based on current Completed and Platinum statuses and the date they were recorded.</p></section>
 <section class="insights-panel insight-card"><div class="insights-panel-head"><div><h2>Collection</h2><p class="insights-panel-sub">A snapshot of your logged games</p></div><small>All time</small></div><div class="insights-collection"><div class="insights-donut" id="insights-donut"><div class="insights-donut-center"><a id="insights-all-count" href="logged-games.html" data-no-translate></a><small>games logged</small></div></div><div class="insights-status-legend" id="insights-legend"></div></div><div class="insights-wishlist"><span>Want to play</span><a id="insights-wishlist" href="want-to-play.html" data-no-translate></a></div></section>
-<section class="insights-panel insight-card"><div class="insights-panel-head"><div><h2>Genres</h2><p class="insights-panel-sub">Your most logged genres this year</p></div><small>By games logged</small></div><div class="insights-genres" id="insights-genre-bars"></div></section>
+<section class="insights-panel insight-card"><div class="insights-panel-head"><div><h2>Genres</h2><p class="insights-panel-sub">Your most logged genres this year</p></div><small>By games logged</small></div><div class="insights-genre-visual"><div class="genre-radar" id="insights-genre-radar" hidden></div><div class="insights-genres" id="insights-genre-bars"></div></div><p class="insights-genre-note" id="insights-genre-note" hidden>Up to six genres in the radar. The list includes every genre logged in the selected year.</p></section>
 <section class="insights-panel insight-card"><div class="insights-panel-head"><div><h2>Ratings</h2><p class="insights-panel-sub" id="insights-rating-total" data-no-translate></p></div><div class="insights-rating-average"><span id="insights-rating-average" data-no-translate></span><small> / 5</small></div></div><div class="insights-rating-bars" id="insights-rating-bars" role="group" aria-label="Rating distribution"></div><div class="insights-rating-ends" aria-hidden="true"><span>★</span><span>★★★★★</span></div><p class="insights-rating-note">Each game counts once, using its current rating and saved review date.</p><p class="insights-zero-note" id="insights-rating-empty"></p></section></div>
 <section class="insights-panel insights-highlights insight-card"><div class="insights-panel-head"><h2>Highest ratings</h2><small>Personal highlights</small></div><div class="insights-games" id="insights-highlights"></div><p class="insights-empty" id="insights-highlights-empty"></p></section><p class="insights-data-note">Yearly totals use saved review dates and current status dates. Want to play alone does not count as a logged game.</p>
 </div></div></main>

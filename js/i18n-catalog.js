@@ -691,6 +691,24 @@ Create 3 public game lists.|Crie 3 listas públicas de jogos.
 Could not load profile milestones.|Não foi possível carregar as conquistas do perfil.
 Saga|Saga
 More from this saga|Mais desta saga
+Text formatting|Formatação de texto
+List formatting|Formatação de listas
+Breadcrumb|Caminho de navegação
+Game|Jogo
+Review|Review
+Enter a password|Digite uma senha
+Weak password|Senha fraca
+Fair password|Senha razoável
+Good password|Senha boa
+Strong password|Senha forte
+Use at least 8 characters.|Use pelo menos 8 caracteres.
+Try a longer, less predictable password.|Tente uma senha mais longa e menos previsível.
+Hold to delete list|Segure para excluir a lista
+Hold to remove entry|Segure para remover o registro
+Release early to cancel|Solte antes para cancelar
+Hold for a moment to confirm. Release early to cancel.|Segure por um instante para confirmar. Solte antes para cancelar.
+Confirming…|Confirmando…
+
 The latest announcements from official gaming feeds.|As últimas novidades dos canais oficiais de jogos.
 Live updates|Atualizações ao vivo
 Refresh news ↻|Atualizar notícias ↻

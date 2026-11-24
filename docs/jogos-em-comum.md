@@ -21,4 +21,4 @@ Não é preciso executar SQL para ativar este recurso, desde que as atualizaçõ
 
 ## Estatísticas pessoais
 
-Foi produzida somente uma prévia independente com dados ilustrativos: seleção de ano, conclusões por mês, gêneros, distribuição de notas, coleção e destaques pessoais. O painel não foi integrado ao site e não lê dados da conta. A implementação depende de aprovação posterior.
+A prévia foi aprovada e a página de estatísticas foi implementada. O acesso fica em Your gaming journal → View statistics. Regras de cálculo e validação estão em estatisticas.md.

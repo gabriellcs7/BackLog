@@ -1,0 +1,8 @@
+Space Grotesk (300 a 700) e Manrope (200 a 800).
+Fontes variáveis, usadas sem modificação. Licenças SIL Open Font License incluídas.
+
+Arquivos oficiais:
+https://github.com/google/fonts/tree/main/ofl/spacegrotesk
+https://github.com/google/fonts/tree/main/ofl/manrope
+
+A logo do BackLog continua sendo a imagem original de assets/backlog-logo.png.

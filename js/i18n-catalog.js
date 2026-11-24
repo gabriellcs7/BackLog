@@ -1018,4 +1018,67 @@ Game-inspired stars, thoughtful motion and familiar references make it BackLog.|
 The next chapter is open.|O próximo capítulo está aberto.
 A personal project by Gabriel, growing with every idea and every commit.|Um projeto pessoal de Gabriel, crescendo a cada ideia e a cada commit.
 FROM A BACKLOG TO A COMMUNITY|DE UM BACKLOG A UMA COMUNIDADE
+A personal game catalog and diary.|Um catálogo e diário pessoal de jogos.
+BackLog is a personal project to log games, write reviews, and track what you want to play.|O BackLog é um projeto pessoal para registrar jogos, escrever reviews e guardar o que você quer jogar.
+Diary and reviews|Diário e reviews
+Choose a diary date for each review. Format your text and rate games in half-star steps.|Escolha a data de cada review no diário. Formate o texto e dê notas em intervalos de meia estrela.
+Custom lists and favorites|Listas e favoritos
+Sort your games by status and create lists, with or without a ranking. Your profile has room for four favorites.|Separe seus jogos por status e crie listas, com ou sem ranking. Seu perfil tem espaço para quatro favoritos.
+Catalog and discovery|Catálogo e descobertas
+Browse 100 games or try Discover to find titles outside your collection. You can compare ratings with friends.|Explore 100 jogos ou use o Discover para encontrar títulos fora da sua coleção. Você também pode comparar notas com amigos.
+PROJECT TIMELINE|EVOLUÇÃO DO PROJETO
+How the project has developed.|Como o projeto foi desenvolvido.
+BACKLOG INTERFACE|INTERFACE DO BACKLOG
+How BackLog|Como o BackLog
+was|foi
+built.|criado.
+Features added so far.|Funções adicionadas até aqui.
+Started in 2026.|Iniciado em 2026.
+Catalog and statuses|Catálogo e status
+Keep your collection on this device and choose from six statuses, including Playing and Want to play.|Mantenha sua coleção neste dispositivo e escolha entre seis status, como Jogando e Quero jogar.
+Diary and ratings|Diário e avaliações
+Save dated reviews with half-star ratings. Mark spoilers so readers can choose when to reveal them.|Salve reviews com data e notas em meias estrelas. Marque spoilers para que cada pessoa escolha quando vê-los.
+03 / Your profile|03 / Seu perfil
+Profiles and custom lists|Perfis e listas
+Choose four favorites and a profile banner. Create ranked lists or leave the games unranked.|Escolha quatro favoritos e um banner para o perfil. Crie listas com ranking ou deixe os jogos sem ordem.
+04 / Community|04 / Comunidade
+Community and sync|Comunidade e sincronização
+Follow other players and see the games you have in common. An online account syncs your data through Supabase.|Siga outros jogadores e veja os jogos que vocês têm em comum. Uma conta online sincroniza seus dados pelo Supabase.
+05 / Discovery|05 / Descobertas
+Discover and characters|Discover e personagens
+Discover shows games you have not logged. The catalog has 100 titles, with character bios on story-based games.|O Discover mostra jogos que você ainda não registrou. O catálogo tem 100 títulos, com descrições dos personagens nos jogos com história.
+06 / Interface|06 / Interface
+Interface details|Detalhes da interface
+Browse with a keyboard or on a phone. Some games have their own rating icons.|Navegue pelo teclado ou pelo celular. Alguns jogos têm seus próprios ícones de avaliação.
+Open development|Desenvolvimento do projeto
+Gabriel built BackLog to practice web development. You can follow changes in the GitHub repository.|Gabriel criou o BackLog para praticar desenvolvimento web. Você pode acompanhar as mudanças no repositório do GitHub.
+PROJECT MILESTONES|ETAPAS DO PROJETO
+I built BackLog to practice web development and share my work. You can find my code on GitHub and tech posts on Instagram.|Criei o BackLog para praticar desenvolvimento web e compartilhar meu trabalho. Meu código está no GitHub e publico sobre tecnologia no Instagram.
+Technology stack|Tecnologias
+Catalog games, log dates, and organize your collection.|Catalogue jogos, registre datas e organize sua coleção.
+SOURCES AND LICENSES|FONTES E LICENÇAS
+Credits and references|Créditos e referências
+Sources, design inspiration, and third-party tools used in BackLog.|Fontes, referências de design e ferramentas de terceiros usadas no BackLog.
+The repository lists sources for game information and artwork, including covers, character portraits and screenshots.|O repositório reúne as fontes das informações e imagens dos jogos, incluindo capas, retratos de personagens e capturas de tela.
+Some interactions are adapted from components on 21st.dev, with BackLog colors and games.|Algumas interações foram adaptadas de componentes do 21st.dev, com as cores e os jogos do BackLog.
+Frequently asked questions|Perguntas frequentes
+Guides and answers for managing your catalog, diary entries, and account.|Orientações para cuidar da sua coleção, dos registros no diário e da conta.
+DISCOVER GAMES|DESCUBRA JOGOS
+Find games for|Encontre jogos para
+collection.|coleção.
+your|sua
+UNLOGGED GAMES|JOGOS NÃO REGISTRADOS
+Browse games outside your collection and save the ones you want to play.|Veja jogos fora da sua coleção e salve os que você quer jogar.
+Swipe left to skip this game.|Deslize para a esquerda para pular este jogo.
+Swipe right to add it to Want to play.|Deslize para a direita para adicionar a Quero jogar.
+Browse recent releases and older favorites by genre.|Veja lançamentos e jogos mais antigos por gênero.
+Rate games from 0.5 to 5 stars and write a review. You can hide spoilers and choose a date for your diary.|Dê notas de 0,5 a 5 estrelas e escreva uma review. Você pode ocultar spoilers e escolher uma data para o diário.
+Search for a game and choose its status. You can also add your favorites to your profile.|Busque um jogo e escolha seu status. Você também pode colocar seus favoritos no perfil.
+Read the latest news at|Leia as últimas notícias no
+Completions|Jogos concluídos
+Collection|Coleção
+Your most logged genres this year|Seus gêneros mais registrados neste ano
+Highest ratings|Maiores notas
+These settings apply to this browser.|Estas configurações valem para este navegador.
+The tour leaves your games and account unchanged. You can close it at any time.|O passeio mantém seus jogos e sua conta como estão. Você pode fechá-lo a qualquer momento.
 `.trim().split('\n').map(line=>line.split('|')));

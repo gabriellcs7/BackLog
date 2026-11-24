@@ -1081,4 +1081,10 @@ Your most logged genres this year|Seus gêneros mais registrados neste ano
 Highest ratings|Maiores notas
 These settings apply to this browser.|Estas configurações valem para este navegador.
 The tour leaves your games and account unchanged. You can close it at any time.|O passeio mantém seus jogos e sua conta como estão. Você pode fechá-lo a qualquer momento.
+Rename list|Renomear lista
+Save name|Salvar nome
+Saving name…|Salvando nome…
+Use 1 to 80 characters for the list name.|Use de 1 a 80 caracteres no nome da lista.
+List renamed.|Lista renomeada.
+Could not rename this list. Please try again.|Não foi possível renomear esta lista. Tente novamente.
 `.trim().split('\n').map(line=>line.split('|')));

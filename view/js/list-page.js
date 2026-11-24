@@ -13,9 +13,11 @@
     const back=document.querySelector('#list-profile-link');
     const progressPanel=document.querySelector('#list-progress-panel');
     const share=document.querySelector('#share-list');window.BacklogShare.mount(share,{url:()=>location.href,title:()=>document.title});
+    const rename=window.BacklogInlineListName.mount(title,profileId,listId);
     let generation=0;
 
     async function render(){
+        rename.reset();
         const ticket=++generation;share.disabled=true;progressPanel.hidden=true;progressPanel.querySelector('.list-progress')?.remove();
         grid.replaceChildren();
         title.textContent='Game list';
@@ -36,6 +38,7 @@
             if(!list)throw new Error('List not found or private.');
             back.href=ui.href('view/profile.html'+(profileId==='local'?'':'?id='+encodeURIComponent(profileId))+'#profile-list-section');
             title.textContent=list.name;
+            rename.setList(list);
             document.title=list.name+' · BackLog';
             meta.textContent=[player.profile.display_name,list.gameIds.length+(list.gameIds.length===1?' game':' games'),list.is_ranked?'Ranked':'Unranked',list.is_public?'Public':'Private'].join(' · ');
             description.textContent=list.description;

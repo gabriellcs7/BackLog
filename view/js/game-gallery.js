@@ -13,14 +13,14 @@
     close.type='button';close.setAttribute('aria-label','Close screenshots');const zoom=el('button','game-gallery-step game-gallery-zoom-toggle');zoom.type='button';zoom.dataset.noTranslate='';zoom.setAttribute('aria-pressed','false');
     const tools=el('div','game-gallery-tools');tools.append(zoom,close);header.append(heading,tools);
     const figure=el('figure','game-gallery-stage'),image=el('img'),feedback=el('p','game-gallery-feedback');
-    image.decoding='async';feedback.setAttribute('role','status');figure.append(image,feedback);
+    figure.tabIndex=0;image.decoding='async';feedback.setAttribute('role','status');figure.append(image,feedback);
     const footer=el('div','game-gallery-controls'),previous=el('button','game-gallery-step','← Previous'),next=el('button','game-gallery-step','Next →'),counter=el('span');
     previous.type=next.type='button';counter.setAttribute('aria-live','polite');footer.append(previous,counter,next);
     const credit=el('a','game-gallery-credit','Image source ↗');credit.target='_blank';credit.rel='noopener noreferrer';
     dialog.append(header,figure,footer,credit);document.body.append(dialog);
     let index=0,opener=null,oldOverflow='',zoomed=false,pan=null,dragged=false;
     const pt=()=>window.BacklogPreferences?.get().language==='pt-BR';
-    function labels(){zoom.textContent=pt()?(zoomed?'Reduzir':'Ampliar'):(zoomed?'Zoom out':'Zoom in');zoom.setAttribute('aria-pressed',String(zoomed));image.setAttribute('aria-label',pt()?'Clique para ampliar ou reduzir a imagem':'Click to zoom in or out');}
+    function labels(){figure.setAttribute('aria-label',pt()?'Imagem do jogo. Após ampliar, role para explorar.':'Game screenshot. After zooming, scroll to explore.');zoom.textContent=pt()?(zoomed?'Reduzir':'Ampliar'):(zoomed?'Zoom out':'Zoom in');zoom.setAttribute('aria-pressed',String(zoomed));image.setAttribute('aria-label',pt()?'Clique para ampliar ou reduzir a imagem':'Click to zoom in or out');}
     function resetZoom(){zoomed=false;figure.classList.remove('is-zoomed');figure.scrollLeft=figure.scrollTop=0;pan=null;labels();}
     function toggleZoom(){if(image.hidden||!image.complete||!image.naturalWidth)return;const cx=(figure.scrollLeft+figure.clientWidth/2)/(figure.scrollWidth||1),cy=(figure.scrollTop+figure.clientHeight/2)/(figure.scrollHeight||1);zoomed=!zoomed;figure.classList.toggle('is-zoomed',zoomed);labels();if(zoomed){figure.scrollLeft=cx*figure.scrollWidth-figure.clientWidth/2;figure.scrollTop=cy*figure.scrollHeight-figure.clientHeight/2;}else figure.scrollLeft=figure.scrollTop=0;}
     zoom.addEventListener('click',toggleZoom);image.addEventListener('click',()=>{if(!dragged)toggleZoom();dragged=false;});

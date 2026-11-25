@@ -99,3 +99,7 @@ Não há migração SQL adicional nem mudança de políticas de acesso.
 - **File Upload:** https://21st.dev/@manuarora700/components/file-upload — `js/avatar-upload.js` e `css/avatar-upload.css`. Escolher, arrastar ou colar uma foto usa a validação e o recorte existentes. Aceita um JPG/PNG/WebP de até 5 MB; mostra nome/tamanho do arquivo sem simular envio. A imagem continua como rascunho até Save profile; cancelar ou rejeitar outro arquivo preserva o rascunho anterior.
 - São adaptações locais para a estrutura HTML/CSS/JavaScript do site. Inglês/português, brilho dos cards e movimento reduzido seguem as configurações existentes. Não há migração SQL adicional.
 - Verificado em navegador isolado sem alterar contas reais: progresso local e público, separação dos dados de quem visita, erros/nova tentativa, lista real de seguidores, data bissexta e Escape, edição de data sem duplicar registro, recorte cancelado, arrasto e salvamento local, rejeição de formato/tamanho/múltiplos arquivos, nomes preservados em português e layouts desktop/mobile. Nenhum erro de JavaScript ou recurso local ausente nesses testes.
+
+## Componentes aprovados em 25/11/2026
+
+Lista fixada no perfil, zoom da galeria, painel pesquisável de atalhos nas configurações e feedback privado pela Ajuda/rodapé. Detalhes, referências e atualização do Supabase em [featured-list-zoom-shortcuts-feedback.md](components/featured-list-zoom-shortcuts-feedback.md). O contador não foi integrado.

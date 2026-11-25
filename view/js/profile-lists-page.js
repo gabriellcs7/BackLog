@@ -40,7 +40,7 @@
                         link.setAttribute('aria-label',label+' '+list.name);
                         actions.append(link);
                     }
-                    card.append(actions);
+                    const pin=window.BacklogFeaturedList?.control(list,profileId,player.profile.featured_list_id);if(pin)actions.append(pin);card.append(actions);
                 }
                 grid.append(card);
             }
@@ -52,6 +52,7 @@
     }
 
     account.ready.then(render);
+    window.addEventListener('backlog-language-change',render);
     window.addEventListener('backlog-account-change',()=>{
         if(!account.loading)render();
     });

@@ -1102,3 +1102,9 @@ Back|Voltar
 Next step →|Próxima etapa →
 No games selected yet.|Nenhum jogo selecionado ainda.
 `.trim().split('\n').map(line=>line.split('|')));
+
+Object.assign(window.BacklogPortuguese,{
+ 'Featured on profile':'Em destaque no perfil','Feature on profile':'Destacar no perfil','Unpin list':'Desafixar lista','Featured list saved.':'Lista em destaque salva.',
+ 'Featured lists need the latest community update.':'As listas em destaque precisam da atualização mais recente da comunidade.',
+ 'Please wait for your profile to load.':'Aguarde o carregamento do seu perfil.'
+});

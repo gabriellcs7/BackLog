@@ -166,6 +166,13 @@
         if(user){const owner=requireUser();checked(await client.from('game_lists').delete().eq('id',id).eq('user_id',owner));if(user?.id!==owner)throw new Error('Your account changed. Please reload.');state.lists=state.lists.filter(list=>list.id!==id);if(state.profile.featured_list_id===id)state.profile.featured_list_id=null;changed();}
         else persist({...state,profile:{...state.profile,featured_list_id:state.profile.featured_list_id===id?null:state.profile.featured_list_id},lists:state.lists.filter(list=>list.id!==id)});
     }
+    async function submitFeedback(category,message){
+        await ready;const owner=requireUser();message=String(message||'').trim();
+        if(!['issue','image','suggestion','other'].includes(category)||message.length<10||message.length>500)throw new Error('Use 10 to 500 characters for your feedback.');
+        const result=await client.rpc('submit_site_feedback',{feedback_category:category,feedback_message:message});
+        if(result.error?.code==='PGRST202')throw new Error('Feedback needs the latest community update. Your message is still here.');
+        const id=checked(result);if(user?.id!==owner)throw new Error('Your account changed. Please reload.');return id;
+    }
     async function signIn(email,password){await ready;if(!client)throw new Error('Online accounts are not connected yet.');const data=checked(await client.auth.signInWithPassword({email,password}));await synchronize(data.session);if(issue)throw new Error(issue);}
     async function signUp(email,password,name){await ready;if(!client)throw new Error('Online accounts are not connected yet.');name=name.trim();if(name.length<2||name.length>40)throw new Error('Use 2 to 40 characters for your name.');const data=checked(await client.auth.signUp({email,password,options:{data:{display_name:name},emailRedirectTo:/^https?:$/.test(location.protocol)?new URL('../view/profile.html',base).href:undefined}}));if(data.session)await synchronize(data.session);return Boolean(data.session);}
     async function signOut(){if(client)checked(await client.auth.signOut());await synchronize(null);}
@@ -205,7 +212,7 @@
     async function importDevice(){requireUser();const local=localState();await saveProfile(local.profile.display_name,local.profile.bio);await saveFavorites(local.favorites);for(const list of local.lists){if(!state.lists.some(existing=>existing.name===list.name&&existing.description===list.description&&Boolean(existing.is_ranked)===Boolean(list.is_ranked)&&JSON.stringify(existing.gameIds)===JSON.stringify(list.gameIds)))await saveList({...list,id:null,is_public:false});}}
     window.BacklogAccount=Object.freeze({
         ready,configured,get loading(){return loading;},get user(){return user?{id:user.id,email:user.email}:null;},get error(){return issue;},get client(){return client;},getState:()=>copy(state),
-        saveProfile,saveProfileBanner,saveFavorites,saveList,saveFeaturedList,deleteList,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
+        saveProfile,saveProfileBanner,saveFavorites,saveList,saveFeaturedList,deleteList,submitFeedback,signIn,signUp,signOut,importDevice,saveReview:ownReview,removeReview,getDiaryEntries,changeDiaryDate,deleteDiaryEntry,
         getReview(gameId){const review=state.reviews.find(item=>item.game_id===gameId);return review?{rating:review.rating===null?null:Number(review.rating),text:review.text,updatedAt:review.updated_at,reviewedOn:review.reviewed_on||window.BacklogDiary?.dateFromTimestamp(review.updated_at)}:null;},
         async getProfile(id){await ready;if(!client)throw new Error('Online profiles are not connected yet.');if(!/^[0-9a-f-]{36}$/i.test(id))throw new Error('Profile not found.');return loadPlayer(id,id===user?.id);}
     });

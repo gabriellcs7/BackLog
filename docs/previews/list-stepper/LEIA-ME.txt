@@ -1,1 +1,0 @@
-Referência de design da criação de listas em etapas. A prévia foi aprovada e o fluxo já está integrado ao perfil do BackLog. Este index.html isolado continua sem gravar dados e não está ligado à navegação do site.

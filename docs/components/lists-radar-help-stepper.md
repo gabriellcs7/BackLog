@@ -42,7 +42,7 @@ A prévia foi mostrada e depois autorizada na mesma conversa. O fluxo está inte
 
 Os campos e o manipulador de salvamento originais são reaproveitados. Só a etapa final permite gravar. Voltar mantém o rascunho; cancelar e reabrir restaura os dados salvos. Falhas não fecham o diálogo. O fluxo permite listas vazias, como a API existente, e mantém os limites originais.
 
-Arquivos: `js/list-stepper.js`, `css/list-stepper.css`, `view/profile.html` e um ponto de reinicialização em `view/js/profile.js`. A versão isolada em `docs/previews/list-stepper` permanece como referência de design e não grava dados.
+Arquivos: `js/list-stepper.js`, `css/list-stepper.css`, `view/profile.html` e um ponto de reinicialização em `view/js/profile.js`.
 
 ## Verificação
 

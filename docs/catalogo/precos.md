@@ -4,7 +4,7 @@ Consulta em 22/11/2026. O catálogo tem 100 registros: 73 preços em BRL, 9 tít
 
 ## Critério
 
-Steam foi priorizada quando havia oferta para PC. Outros valores vieram da PlayStation Store, Microsoft Store e GOG. As fontes estão registradas em cada entrada de js/game-prices.js e acessíveis na página do jogo. Os preços são inteiros em centavos. Valores de assinatura ou testes gratuitos não foram usados como preço de compra.
+Steam foi priorizada quando havia oferta para PC. Outros valores vieram da PlayStation Store, Microsoft Store e GOG. As fontes estão registradas em cada entrada de js/data/game-prices.js e acessíveis na página do jogo. Os preços são inteiros em centavos. Valores de assinatura ou testes gratuitos não foram usados como preço de compra.
 
 Uncharted 1–3 usa a coletânea The Nathan Drake Collection e identifica a edição remasterizada. Uncharted 4 e The Lost Legacy usam a coletânea Legacy of Thieves para PC. God of War III identifica a edição Remastered para PS4. GTA V usa a edição Enhanced. Poppy Playtime esclarece que apenas o primeiro capítulo é grátis. Valores de coletânea não são apresentados como compra individual.
 

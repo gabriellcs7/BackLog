@@ -29,7 +29,7 @@ O projeto opera em dois modos:
 - Catálogo com 100 jogos detalhados com capas, banners panorâmicos, logos transparentes e metadados de franquia, estúdio, plataformas e ambientação.
 - Navegação em perspectiva tridimensional pelos jogos em destaque (`js/game-tunnel.js`), acionada pela rolagem suave, cursor ou teclado.
 - Linha do tempo interativa na página inicial demonstrando a interface mobile (`js/cinematic-backlog.js`).
-- Mais de 440 biografias de personagens em 90 jogos com retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers (`js/game-characters.js`).
+- Mais de 440 biografias de personagens em 90 jogos com retratos dedicados (`imagens/personagens/`) e sinopses sem spoilers (`js/data/game-characters.js`).
 - Notícias oficiais atualizadas automaticamente a cada dez minutos, com cache e imagens das matérias (`docs/noticias.md`), usando o servidor Python local sem bibliotecas adicionais.
 - Controle de movimento e acessibilidade (`js/presentation-motion.js`) com modos `auto`, `full` e `reduced`.
 - Histograma de avaliações comunitárias de 0.5 a 5.0 estrelas na página de cada jogo e no perfil (`view/js/game-ratings.js`).
@@ -66,7 +66,7 @@ Apresentação do catálogo em perspectiva, atalhos para a coleção pessoal, re
 
 ## Catálogo de Jogos (100 Títulos em 30 Coleções)
 
-O acervo reúne 100 jogos detalhados em `js/games.js`, todos com capas em `imagens/capas/catalogo/`, banners em `imagens/banners/` e logos em `imagens/logos/`:
+O acervo reúne 100 jogos detalhados em `js/data/games.js`, todos com capas em `imagens/capas/catalogo/`, banners em `imagens/banners/` e logos em `imagens/logos/`:
 
 | Franquia / Coleção | Qtd | Títulos Incluídos |
 | :--- | :---: | :--- |
@@ -257,7 +257,7 @@ window.BACKLOG_CONFIG = {
 
 ## Como Cadastrar Novos Jogos
 
-Para incluir novos títulos no acervo, insira o objeto no array em `js/games.js`:
+Para incluir novos títulos no acervo, insira o objeto no array em `js/data/games.js`:
 
 ```javascript
 {
@@ -281,7 +281,7 @@ Para incluir novos títulos no acervo, insira o objeto no array em `js/games.js`
 }
 ```
 
-Opcionalmente, adicione os personagens correspondentes em `js/game-characters.js`:
+Opcionalmente, adicione os personagens correspondentes em `js/data/game-characters.js`:
 ```javascript
 "titulo-do-jogo": [
     ["Nome do Personagem", "identificador-do-retrato", "Descrição neutra sem spoilers da trama."]

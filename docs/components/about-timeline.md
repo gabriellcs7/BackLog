@@ -8,7 +8,7 @@ A seção aparece em `view/about.html`, entre os recursos do projeto e a apresen
 
 - Estilos exclusivos: `css/about-timeline.css`.
 - Controle da animação: `js/about-timeline.js`.
-- Tradução: `js/i18n-catalog.js`.
+- Tradução: `js/data/i18n-catalog.js`.
 
 A adaptação usa os recursos nativos do navegador, sem React, GSAP ou novas dependências. Não altera contas, coleções ou o banco de dados.
 

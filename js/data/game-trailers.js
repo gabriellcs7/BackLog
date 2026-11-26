@@ -1,0 +1,495 @@
+/* Links diretos de vídeos conferidos no YouTube em 20/11/2026. */
+window.BacklogGameTrailers = Object.freeze({
+    'grand-theft-auto-vi': {
+        videoId: 'VQRLujxTm3c',
+        title: 'Grand Theft Auto VI Trailer 2',
+        channel: 'Rockstar Games',
+    },
+    'grand-theft-auto-v': {
+        videoId: 'hvoD7ehZPcM',
+        title: 'Grand Theft Auto V: The Official Trailer',
+        channel: 'Rockstar Games',
+    },
+    'red-dead-redemption-2': {
+        videoId: 'HVRzx17WHVk',
+        title: 'Red Dead Redemption 2 Launch Trailer',
+        channel: 'Rockstar Games',
+    },
+    'god-of-war-ragnarok': {
+        videoId: 'g1wr0DfV73E',
+        title: 'God of War Ragnarök - Launch Trailer | PS5 & PS4 Games',
+        channel: 'PlayStation',
+    },
+    'the-last-of-us': {
+        videoId: 'OQpdSVF_k_w',
+        title: 'The Last of Us | Launch Trailer',
+        channel: 'PlayStation',
+    },
+    minecraft: {
+        videoId: 'MmB9b5njVbA',
+        title: 'Official Minecraft Trailer',
+        channel: 'Minecraft',
+    },
+    fortnite: {
+        videoId: 'WJW-bzXZM8M',
+        title: 'Fortnite Battle Royale - Gameplay Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'spider-man': {
+        videoId: 'Pq02p3z3X2k',
+        title: 'Marvel’s Spider-Man - PGW 2017 Teaser Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'red-dead-redemption': {
+        videoId: '-o7rES_3ymA',
+        title: 'Red Dead Redemption Official Launch Trailer',
+        channel: 'Rockstar Games',
+    },
+    'phantom-blade-zero': {
+        videoId: 'EZr1HXkEahs',
+        title: 'Phantom Blade Zero - Announce Trailer | PS5 Games',
+        channel: 'PlayStation',
+    },
+    'silent-hill-townfall': {
+        videoId: 'ypOLLZ9G4g8',
+        title: 'SILENT HILL: Townfall | Official Reveal Trailer (4K:EN/PEGI) | KONAMI',
+        channel: 'SILENT HILL (Official)',
+    },
+    'minecraft-dungeons-ii': {
+        videoId: 'nHW7oH_kZd4',
+        title: 'MINECRAFT DUNGEONS II | Official Launch Trailer',
+        channel: 'Minecraft',
+    },
+    'spider-man-miles-morales': {
+        videoId: 'qjRzm9A7DU4',
+        title: 'Marvel’s Spider-Man: Miles Morales - Trailer de Lançamento I PS5, PS4',
+        channel: 'PlayStation Brasil',
+    },
+    'spider-man-2': {
+        videoId: '9fVYKsEmuRo',
+        title: "Marvel's Spider-Man 2 - Launch Trailer I PS5 Games",
+        channel: 'PlayStation',
+    },
+    'god-of-war-2005': {
+        videoId: 'pJyFlzarq-U',
+        title: 'God of War PlayStation 2 Trailer - Trailer',
+        channel: 'IGN',
+    },
+    'god-of-war-ii': {
+        videoId: 'oe0OmX9hINA',
+        title: 'God of War II PlayStation 2 Trailer - Official',
+        channel: 'IGN',
+    },
+    'god-of-war-iii': {
+        videoId: 'sGP6PZJMHvc',
+        title: 'God of War III Launch Trailer',
+        channel: 'IGN',
+    },
+    'god-of-war-ascension': {
+        videoId: 'VJMK8oFY1rA',
+        title: 'God of War: Ascension Launch Trailer',
+        channel: 'PlayStation',
+    },
+    'god-of-war-2018': {
+        videoId: 'K0u_kAWLJOA',
+        title: 'God of War – Story Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'grand-theft-auto': {
+        videoId: 'MdlhjRlNyA8',
+        title: 'Grand Theft Auto 1 - Trailer',
+        channel: 'HitokageProduction',
+    },
+    'grand-theft-auto-2': {
+        videoId: 'RkaEaR0ekWQ',
+        title: 'Grand Theft Auto 2 - TV Trailer',
+        channel: 'Grand Theft Encyclopedia',
+    },
+    'grand-theft-auto-iii': {
+        videoId: 'lCyiW882D7U',
+        title: 'GTA 3 Official Trailer (PS2)',
+        channel: 'GTA Series Videos',
+    },
+    'gta-vice-city': {
+        videoId: 'IlZZDQIYRyg',
+        title: 'GTA Vice City Official Trailer #1 (PS2)',
+        channel: 'GTA Series Videos',
+    },
+    'gta-san-andreas': {
+        videoId: 'yOzcbtsw_pQ',
+        title: 'Grand Theft Auto: San Andreas PlayStation 2 Trailer -',
+        channel: 'IGN',
+    },
+    'grand-theft-auto-iv': {
+        videoId: 'M80K51DosFo',
+        title: 'Grand Theft Auto IV Trailer 1 "Things Will Be Different"',
+        channel: 'Rockstar Games',
+    },
+    'the-last-of-us-part-ii': {
+        videoId: 'W2Wnvvj33Wo',
+        title: 'The Last of Us Part II - PlayStation Experience 2016: Reveal Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'league-of-legends': {
+        videoId: 'vzHrjOMfHPY',
+        title: 'A New Dawn | Cinematic - League of Legends',
+        channel: 'League of Legends',
+    },
+    'overwatch-1': {
+        videoId: 'FqnKB22pOC0',
+        title: 'Overwatch Cinematic Trailer',
+        channel: 'PlayOverwatch',
+    },
+    'overwatch-2': {
+        videoId: 'LGgqyer-qr4',
+        title: 'Overwatch 2 Launch Trailer',
+        channel: 'PlayOverwatch',
+    },
+    'resident-evil-1996': {
+        videoId: 'vdBYQqTIyjc',
+        title: 'Resident Evil / Biohazard Official Trailer (1996) - Playstation',
+        channel: 'Indie Horror Games',
+    },
+    'resident-evil-2-1998': {
+        videoId: 'LV5OTa0XdHQ',
+        title: 'Resident Evil 2 Official Trailer (1998) - PlayStation',
+        channel: 'Indie Horror Games',
+    },
+    'resident-evil-3-nemesis': {
+        videoId: 'gun-MVEWg40',
+        title: 'Resident Evil 3 Nemesis ( 1999 ) HQ CAPCOM Official Trailer',
+        channel: 'szymon',
+    },
+    'resident-evil-code-veronica': {
+        videoId: 'UgM3q1IJA0c',
+        title: 'Resident Evil: Code Veronica X HD launch trailer',
+        channel: 'Capcom USA',
+    },
+    'resident-evil-zero': {
+        videoId: '-mCjvN1_NTU',
+        title: 'Resident Evil Zero - Video Game Trailer. (2002). Gamecube',
+        channel: 'barbarianbros',
+    },
+    'resident-evil-4-2005': {
+        videoId: 'd6YSwVWqWWY',
+        title: 'Resident Evil 4 • Trailer E3 2005 • PS2',
+        channel: 'PlayscopeTimeline',
+    },
+    'resident-evil-5': {
+        videoId: '5lYNJQVz_Pc',
+        title: 'Resident Evil 5 Xbox 360 Trailer - Extended E3 Trailer (HD)',
+        channel: 'IGN',
+    },
+    'resident-evil-6': {
+        videoId: 'BmC1lZeQad4',
+        title: 'Resident Evil 6 - Official Announcement Trailer',
+        channel: 'Resident Evil',
+    },
+    'resident-evil-7': {
+        videoId: 'V_Hbr9ITvc0',
+        title: 'Resident Evil 7 biohazard - E3 2016 TAPE-1 "Desolation" Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'resident-evil-village': {
+        videoId: '26tay8lMZW4',
+        title: 'Resident Evil Village - Announcement Trailer',
+        channel: 'Resident Evil',
+    },
+    'resident-evil-requiem': {
+        videoId: 'POz1-EmLsTY',
+        title: 'Resident Evil Requiem - Reveal Trailer',
+        channel: 'Resident Evil',
+    },
+    'hollow-knight': {
+        videoId: 'UAO2urG23S4',
+        title: 'Hollow Knight - Release Trailer',
+        channel: 'Team Cherry',
+    },
+    'hollow-knight-silksong': {
+        videoId: '6XGeJwsUP9c',
+        title: 'Hollow Knight: Silksong - Release Trailer',
+        channel: 'Team Cherry',
+    },
+    'alan-wake': {
+        videoId: 'Z_6iHChUNhE',
+        title: 'Alan Wake Cinematic Trailer [HD]',
+        channel: 'Remedy Entertainment',
+    },
+    'alan-wake-2': {
+        videoId: 'MEWgOlTIW4Y',
+        title: 'Alan Wake 2 — Launch Trailer',
+        channel: 'Remedy Entertainment',
+    },
+    'watch-dogs': {
+        videoId: 'Qs4OcQNOM34',
+        title: 'Watch Dogs | E3 Introduction Trailer [EUROPE]',
+        channel: 'Ubisoft',
+    },
+    'watch-dogs-2': {
+        videoId: '2GIVVsTKTLg',
+        title: 'Watch Dogs 2 – Launch Trailer | Ubisoft [NA]',
+        channel: 'Ubisoft',
+    },
+    'watch-dogs-legion': {
+        videoId: 'E_V-YQW3Gos',
+        title: 'Watch Dogs: Legion - Tipping Point Cinematic Trailer',
+        channel: 'Ubisoft',
+    },
+    'ea-sports-fc-26': {
+        videoId: 'F2Q4xrASt94',
+        title: 'EA SPORTS FC 26 Official Launch Trailer | The Club is Yours',
+        channel: 'EA SPORTS FC',
+    },
+    'ea-sports-fc-27': {
+        videoId: 'zEcmpr1Ssr8',
+        title: 'EA SPORTS FC™ 27 | Official Launch Trailer',
+        channel: 'EA SPORTS FC',
+    },
+    roblox: {
+        videoId: 'eAvXhNlO-rA',
+        title: 'Roblox | Official Trailer (2020)',
+        channel: 'Roblox',
+    },
+    'counter-strike': {
+        videoId: 'ktnWh-uv-sI',
+        title: '(2000) Counter-Strike Trailer',
+        channel: 'wuoltervsky-',
+    },
+    'counter-strike-condition-zero': {
+        videoId: 'EcDqFnUyqYo',
+        title: 'Trailer de Counter-Strike: Condition Zero',
+        channel: 'WCG - World Cyber Games',
+    },
+    'counter-strike-source': {
+        videoId: 'bvI62FUDpKA',
+        title: 'Counter-Strike: Source 2004 Trailer (HD)',
+        channel: 'TDG_Twiztid Demonic Gaming',
+    },
+    'counter-strike-global-offensive': {
+        videoId: 'RzZ2bWZ_8Ho',
+        title: 'Counter-Strike: Global Offensive launch trailer',
+        channel: 'Valve',
+    },
+    'counter-strike-2': {
+        videoId: 'nSE38xjMLqE',
+        title: 'Counter-Strike 2 - Launch Trailer',
+        channel: 'Valve',
+    },
+    outlast: {
+        videoId: '2GPf3MdVOKI',
+        title: 'Outlast - Official Trailer from Red Barrels (Full version)',
+        channel: 'Red Barrels',
+    },
+    'outlast-2': {
+        videoId: 'MKrUZ36IVAY',
+        title: 'Outlast 2 - Launch Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'the-outlast-trials': {
+        videoId: '-4XudkeTlWo',
+        title: 'The Outlast Trials - Official Trailer | IGN Fan Fest 2024',
+        channel: 'IGN',
+    },
+    phasmophobia: {
+        videoId: 'adFNARIHlOs',
+        title: 'Phasmophobia - Launch Trailer',
+        channel: 'XBOX',
+    },
+    superhot: { videoId: 'R4LkToI4xzE', title: 'SUPERHOT LAUNCH TRAILER', channel: 'SUPERHOT' },
+    'superhot-mind-control-delete': {
+        videoId: 'rFAqvOASQrs',
+        title: 'SUPERHOT: MIND CONTROL DELETE | Launch Trailer | Out Now',
+        channel: 'SUPERHOT',
+    },
+    'cyberpunk-2077': {
+        videoId: 'qIcTM8WXFjk',
+        title: 'Cyberpunk 2077 — Official E3 2019 Cinematic Trailer',
+        channel: 'Cyberpunk 2077',
+    },
+    'cyberpunk-2077-phantom-liberty': {
+        videoId: 'kfX9n_G0N2Y',
+        title: 'Cyberpunk 2077: Phantom Liberty — Official Launch Trailer',
+        channel: 'Cyberpunk 2077',
+    },
+    'the-forest': {
+        videoId: 'lfHIqAzN5gk',
+        title: 'The Forest - Trailer',
+        channel: 'Endnight Games Studios',
+    },
+    'sons-of-the-forest': {
+        videoId: 'A_E4eCwUEqg',
+        title: 'Sons of the Forest 1.0 - Exclusive Trailer',
+        channel: 'IGN',
+    },
+    'the-witcher': {
+        videoId: 'fDfg1Q0gsvY',
+        title: 'The Witcher Trailer (2007)',
+        channel: 'YourEntertainment',
+    },
+    'the-witcher-2': {
+        videoId: 'SdiK8uaduZs',
+        title: 'The Witcher 2: Assassins of Kings Trailer',
+        channel: 'IGN',
+    },
+    'the-witcher-3': {
+        videoId: '1-l29HlKkXU',
+        title: 'The Witcher 3: Wild Hunt - Launch Cinematic',
+        channel: 'The Witcher',
+    },
+    'injustice-gods-among-us': {
+        videoId: 'MJlnar4O7-Y',
+        title: 'Injustice: Gods Among Us - Launch Trailer',
+        channel: 'Injustice',
+    },
+    'injustice-2': {
+        videoId: 'GXplrOBNfcU',
+        title: 'Injustice 2 – Launch Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    'silent-hill': {
+        videoId: '_5mZKe40zDA',
+        title: 'Silent Hill Official Trailer (1999) - PlayStation',
+        channel: 'Indie Horror Games',
+    },
+    'silent-hill-2': {
+        videoId: '6SaXXku2z5Q',
+        title: 'Silent Hill 2: TGS 2000 Autumn Trailer',
+        channel: 'Town of Silent Hill',
+    },
+    'silent-hill-3': {
+        videoId: 'HP4VMvKnCds',
+        title: 'Silent Hill 3 E3 2003 Trailer',
+        channel: 'Silent Hill Memories',
+    },
+    'silent-hill-4-the-room': {
+        videoId: 'R0vPhc63rk8',
+        title: 'Silent Hill 4: The Room E3 2004 Trailer (Full)',
+        channel: 'Silent Hill Memories',
+    },
+    'silent-hill-origins': {
+        videoId: 'aEhF3xceRBs',
+        title: 'Silent Hill Origins PSP Trailer - Trailer',
+        channel: 'IGN',
+    },
+    'silent-hill-homecoming': {
+        videoId: '5ViZHk0YOQk',
+        title: 'Silent Hill Homecoming Trailer',
+        channel: 'Konami',
+    },
+    'silent-hill-shattered-memories': {
+        videoId: 'H4QM1G-Ts_A',
+        title: 'Silent Hill: Shattered Memories E3 2009 Trailer',
+        channel: 'Silent Hill Memories',
+    },
+    'silent-hill-downpour': {
+        videoId: 's7RdBwaC8Tw',
+        title: 'Silent Hill Downpour - E3 2010 Trailer',
+        channel: 'Silent Hill Historical Society',
+    },
+    'silent-hill-f': {
+        videoId: '0-eMuy6UJ6U',
+        title: 'Silent Hill f - Reveal Trailer | PS5 Games',
+        channel: 'PlayStation',
+    },
+    'uncharted-drakes-fortune': {
+        videoId: 'H9c5ehcfvqI',
+        title: "Uncharted: Drake's Fortune PlayStation 3 Trailer -",
+        channel: 'IGN',
+    },
+    'uncharted-2-among-thieves': {
+        videoId: 'tzy2-UuFPJg',
+        title: 'UNCHARTED 2: Among Thieves™ - VGA World Premier Trailer',
+        channel: 'PlayStation',
+    },
+    'uncharted-3-drakes-deception': {
+        videoId: '1kyktW8KcFI',
+        title: "UNCHARTED 3: Drake's Deception™ Announce Trailer",
+        channel: 'PlayStation',
+    },
+    'uncharted-4-a-thiefs-end': {
+        videoId: 'hh5HV4iic1Y',
+        title: "UNCHARTED 4: A Thief's End (5/10/2016) - Story Trailer | PS4",
+        channel: 'PlayStation',
+    },
+    'uncharted-the-lost-legacy': {
+        videoId: '-PhhiKPHTWM',
+        title: 'UNCHARTED: The Lost Legacy - Launch Trailer | PS4',
+        channel: 'PlayStation',
+    },
+    cuphead: { videoId: '3jDZfREYppk', title: 'Cuphead E3 2014 Trailer', channel: 'Studio MDHR' },
+    'cuphead-the-delicious-last-course': {
+        videoId: 'sBMOXHrXJtI',
+        title: 'Cuphead DLC Announcement Trailer | Xbox One | Windows 10 | Steam | GOG',
+        channel: 'Studio MDHR',
+    },
+    'marvel-rivals': {
+        videoId: '-b0veB7q9P4',
+        title: 'Marvel Rivals | Launch Trailer',
+        channel: 'Marvel Entertainment',
+    },
+    'marvels-wolverine': {
+        videoId: 'G62QQ42Ewwg',
+        title: 'Marvel’s Wolverine - Launch Trailer | PS5 Games',
+        channel: 'PlayStation',
+    },
+    'poppy-playtime': {
+        videoId: 'xMQm8ubM-Cw',
+        title: 'Poppy Playtime: Chapter 1 - Official Game Trailer',
+        channel: 'Mob Entertainment',
+    },
+    'poppy-playtime-chapter-2': {
+        videoId: 'XVENjm3Bjk0',
+        title: 'Poppy Playtime: Chapter 2 - Official Game Trailer',
+        channel: 'Mob Entertainment',
+    },
+    'poppy-playtime-chapter-3': {
+        videoId: 's3_k03RC668',
+        title: 'Poppy Playtime: Chapter 3 - Official Game Trailer #1',
+        channel: 'Mob Entertainment',
+    },
+    'poppy-playtime-chapter-4': {
+        videoId: 'tych99G3-P0',
+        title: 'Poppy Playtime Chapter 4 Gameplay Trailer - Doey the Doughman',
+        channel: 'Mob Entertainment',
+    },
+    'poppy-playtime-chapter-5': {
+        videoId: 'EriEensiy0I',
+        title: 'Poppy Playtime: Chapter 5 - Official Game Trailer',
+        channel: 'Mob Entertainment',
+    },
+    'project-playtime': {
+        videoId: 'Q-HB94KdBXQ',
+        title: 'Project: Playtime - Official Cinematic Trailer',
+        channel: 'Mob Entertainment',
+    },
+    'escape-from-playtime': {
+        videoId: 'qRLTbHUl44U',
+        title: 'Escape From Playtime: A Smiling Critters Adventure | Reveal Trailer',
+        channel: 'Mob Entertainment',
+    },
+    skate: {
+        videoId: 'p14MSdRtNIo',
+        title: 'skate. | Early-Access Release Date Trailer',
+        channel: 'skate.',
+    },
+    'minecraft-dungeons': {
+        videoId: 'KCbE47v1qVk',
+        title: 'Minecraft Dungeons: Official Launch Trailer',
+        channel: 'Minecraft',
+    },
+    'dark-souls': {
+        videoId: '9IbPrk-yuts',
+        title: 'Dark Souls E3 2011 - Official Trailer',
+        channel: 'Bandai Namco Entertainment America',
+    },
+    'dark-souls-ii': {
+        videoId: '4IzXvLXbfzg',
+        title: 'Dark Souls II - PS3/X360/PC - The Curse of the Dark (EU Launch trailer)',
+        channel: 'BANDAI NAMCO Europe',
+    },
+    'dark-souls-iii': {
+        videoId: 'cWBwFhUv1-8',
+        title: 'Dark Souls III – Launch Trailer | PS4',
+        channel: 'PlayStation',
+    },
+});

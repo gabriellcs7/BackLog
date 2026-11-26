@@ -1,5 +1,6 @@
 /* Textos da interface. Conteúdo escrito pelos jogadores permanece como foi publicado. */
-window.BacklogPortuguese=Object.fromEntries(String.raw`
+window.BacklogPortuguese = Object.fromEntries(
+    String.raw`
 Settings|Configurações
 SETTINGS|CONFIGURAÇÕES
 Your preferences|Suas preferências
@@ -1101,29 +1102,70 @@ Choose games|Escolha jogos
 Back|Voltar
 Next step →|Próxima etapa →
 No games selected yet.|Nenhum jogo selecionado ainda.
-`.trim().split('\n').map(line=>line.split('|')));
+`
+        .trim()
+        .split('\n')
+        .map((line) => line.split('|'))
+);
 
-Object.assign(window.BacklogPortuguese,{
- 'Featured on profile':'Em destaque no perfil','Feature on profile':'Destacar no perfil','Unpin list':'Desafixar lista','Featured list saved.':'Lista em destaque salva.',
- 'Featured lists need the latest community update.':'As listas em destaque precisam da atualização mais recente da comunidade.',
- 'Please wait for your profile to load.':'Aguarde o carregamento do seu perfil.'
+Object.assign(window.BacklogPortuguese, {
+    'Featured on profile': 'Em destaque no perfil',
+    'Feature on profile': 'Destacar no perfil',
+    'Unpin list': 'Desafixar lista',
+    'Featured list saved.': 'Lista em destaque salva.',
+    'Featured lists need the latest community update.':
+        'As listas em destaque precisam da atualização mais recente da comunidade.',
+    'Please wait for your profile to load.': 'Aguarde o carregamento do seu perfil.',
 });
 
-Object.assign(window.BacklogPortuguese,{
- 'Browse keyboard shortcuts':'Ver atalhos de teclado','Find a shortcut for what you want to do.':'Encontre um atalho para o que você quer fazer.',
- 'Find a shortcut':'Pesquisar atalho','Find a shortcut…':'Pesquisar atalho…','Gallery arrow keys change images when zoom is off.':'Na galeria, as setas trocam imagens quando o zoom está desativado.',
- 'Navigation':'Navegação','Dialogs':'Janelas','Gallery':'Galeria','Open search from anywhere':'Abrir pesquisa de qualquer página','Previous / next image':'Imagem anterior / seguinte','No shortcuts found.':'Nenhum atalho encontrado.'
+Object.assign(window.BacklogPortuguese, {
+    'Browse keyboard shortcuts': 'Ver atalhos de teclado',
+    'Find a shortcut for what you want to do.': 'Encontre um atalho para o que você quer fazer.',
+    'Find a shortcut': 'Pesquisar atalho',
+    'Find a shortcut…': 'Pesquisar atalho…',
+    'Gallery arrow keys change images when zoom is off.':
+        'Na galeria, as setas trocam imagens quando o zoom está desativado.',
+    Navigation: 'Navegação',
+    Dialogs: 'Janelas',
+    Gallery: 'Galeria',
+    'Open search from anywhere': 'Abrir pesquisa de qualquer página',
+    'Previous / next image': 'Imagem anterior / seguinte',
+    'No shortcuts found.': 'Nenhum atalho encontrado.',
 });
 
-Object.assign(window.BacklogPortuguese,{
- 'Help us improve BackLog.':'Ajude a melhorar o BackLog.','Report a problem, flag an image, or share a suggestion.':'Conte sobre um problema, indique uma imagem incorreta ou compartilhe uma sugestão.',
- 'Send feedback':'Enviar feedback','Help us improve.':'Ajude a melhorar.','Found something? We would like to know.':'Encontrou algo? Conte para a gente.',
- 'Feedback category':'Categoria do feedback','Something is broken':'Algo não funciona','Wrong game image':'Imagem incorreta','A suggestion':'Uma sugestão','Something else':'Outro assunto',
- 'Tell us a little more':'Conte um pouco mais','What happened? What could be better?':'O que aconteceu? O que poderia melhorar?','Use 10 to 500 characters.':'Use de 10 a 500 caracteres.',
- 'Sending…':'Enviando…','Download message':'Baixar mensagem','Your message is private and can only be read by the project maintainer.':'Sua mensagem é privada e só pode ser lida pelo responsável pelo projeto.',
- 'Without signing in, download your message to share it yourself. Nothing is sent automatically.':'Sem entrar na conta, baixe sua mensagem para compartilhar por conta própria. Nada é enviado automaticamente.',
- 'Write another message':'Escrever outra mensagem','Thanks for your feedback.':'Obrigado pelo feedback.','Message file prepared.':'Arquivo da mensagem preparado.',
- 'Your message was saved in the private project inbox.':'Sua mensagem foi salva na caixa privada do projeto.','Your message was prepared as a text file. No message was sent.':'Sua mensagem foi preparada como arquivo de texto. Nenhuma mensagem foi enviada.',
- 'Could not send feedback. Please try again.':'Não foi possível enviar o feedback. Tente novamente.','Feedback needs the latest community update. Your message is still here.':'O feedback precisa da atualização mais recente da comunidade. Sua mensagem continua aqui.',
- 'Feedback limit reached. Please try again in an hour.':'Limite de feedbacks atingido. Tente novamente em uma hora.','Use 10 to 500 characters for your feedback.':'Use de 10 a 500 caracteres no feedback.'
+Object.assign(window.BacklogPortuguese, {
+    'Help us improve BackLog.': 'Ajude a melhorar o BackLog.',
+    'Report a problem, flag an image, or share a suggestion.':
+        'Conte sobre um problema, indique uma imagem incorreta ou compartilhe uma sugestão.',
+    'Send feedback': 'Enviar feedback',
+    'Help us improve.': 'Ajude a melhorar.',
+    'Found something? We would like to know.': 'Encontrou algo? Conte para a gente.',
+    'Feedback category': 'Categoria do feedback',
+    'Something is broken': 'Algo não funciona',
+    'Wrong game image': 'Imagem incorreta',
+    'A suggestion': 'Uma sugestão',
+    'Something else': 'Outro assunto',
+    'Tell us a little more': 'Conte um pouco mais',
+    'What happened? What could be better?': 'O que aconteceu? O que poderia melhorar?',
+    'Use 10 to 500 characters.': 'Use de 10 a 500 caracteres.',
+    'Sending…': 'Enviando…',
+    'Download message': 'Baixar mensagem',
+    'Your message is private and can only be read by the project maintainer.':
+        'Sua mensagem é privada e só pode ser lida pelo responsável pelo projeto.',
+    'Without signing in, download your message to share it yourself. Nothing is sent automatically.':
+        'Sem entrar na conta, baixe sua mensagem para compartilhar por conta própria. Nada é enviado automaticamente.',
+    'Write another message': 'Escrever outra mensagem',
+    'Thanks for your feedback.': 'Obrigado pelo feedback.',
+    'Message file prepared.': 'Arquivo da mensagem preparado.',
+    'Your message was saved in the private project inbox.':
+        'Sua mensagem foi salva na caixa privada do projeto.',
+    'Your message was prepared as a text file. No message was sent.':
+        'Sua mensagem foi preparada como arquivo de texto. Nenhuma mensagem foi enviada.',
+    'Could not send feedback. Please try again.':
+        'Não foi possível enviar o feedback. Tente novamente.',
+    'Feedback needs the latest community update. Your message is still here.':
+        'O feedback precisa da atualização mais recente da comunidade. Sua mensagem continua aqui.',
+    'Feedback limit reached. Please try again in an hour.':
+        'Limite de feedbacks atingido. Tente novamente em uma hora.',
+    'Use 10 to 500 characters for your feedback.': 'Use de 10 a 500 caracteres no feedback.',
 });

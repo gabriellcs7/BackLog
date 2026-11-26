@@ -17,7 +17,7 @@
 
 `js/preferences.js` valida os valores e salva as preferências em `backlog:preferences:v1`. O modo de animação mantém a chave existente `backlog:presentation-motion`. As escolhas valem para este navegador e se atualizam nas outras abas abertas. Quando o armazenamento não está disponível, a página informa que as escolhas são temporárias. Não há nova migração SQL.
 
-`js/i18n-catalog.js` guarda as traduções; `js/i18n.js` aplica traduções reversíveis à interface e observa novos elementos, mantendo uma referência ao texto original. Campos digitados não são alterados; opções nativas preservam seus valores originais, mantendo os identificadores usados pelo banco e pelos filtros. A tradução não é salva nos dados dos jogadores.
+`js/data/i18n-catalog.js` guarda as traduções; `js/i18n.js` aplica traduções reversíveis à interface e observa novos elementos, mantendo uma referência ao texto original. Campos digitados não são alterados; opções nativas preservam seus valores originais, mantendo os identificadores usados pelo banco e pelos filtros. A tradução não é salva nos dados dos jogadores.
 
 Novos textos de interface podem ser incluídos no catálogo inglês/português. Conteúdo escrito pelos jogadores deve usar as classes protegidas existentes ou `data-no-translate`.
 

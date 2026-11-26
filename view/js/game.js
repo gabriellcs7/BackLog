@@ -4,16 +4,25 @@
 
     const requestedId = new URLSearchParams(window.location.search).get('id');
     const games = window.BacklogGames;
-    const game = games.find(item => item.id === requestedId) || games[0];
-    const trailer=window.BacklogGameTrailers?.[game.id];
-    const trailerLink=document.querySelector('#game-trailer-link');
-    if(trailer&&/^[A-Za-z0-9_-]{11}$/.test(trailer.videoId)){
-        trailerLink.href='https://www.youtube.com/watch?v='+trailer.videoId;
-        trailerLink.title=trailer.title+' · '+trailer.channel;
-        trailerLink.setAttribute('aria-label','Watch '+game.title+' '+(trailer.kind||'trailer')+' on YouTube (opens in a new tab)');
-        if(trailer.kind==='gameplay')trailerLink.querySelector('span').textContent='Watch gameplay';
-        else if(trailer.kind==='intro')trailerLink.querySelector('span').textContent='Watch intro';
-    }else trailerLink.hidden=true;
+    const game = games.find((item) => item.id === requestedId) || games[0];
+    const trailer = window.BacklogGameTrailers?.[game.id];
+    const trailerLink = document.querySelector('#game-trailer-link');
+    if (trailer && /^[A-Za-z0-9_-]{11}$/.test(trailer.videoId)) {
+        trailerLink.href = 'https://www.youtube.com/watch?v=' + trailer.videoId;
+        trailerLink.title = trailer.title + ' · ' + trailer.channel;
+        trailerLink.setAttribute(
+            'aria-label',
+            'Watch ' +
+                game.title +
+                ' ' +
+                (trailer.kind || 'trailer') +
+                ' on YouTube (opens in a new tab)'
+        );
+        if (trailer.kind === 'gameplay')
+            trailerLink.querySelector('span').textContent = 'Watch gameplay';
+        else if (trailer.kind === 'intro')
+            trailerLink.querySelector('span').textContent = 'Watch intro';
+    } else trailerLink.hidden = true;
 
     const statusButtons = document.querySelectorAll('.game-status-button');
     const collectionStatus = document.querySelector('#collection-status');
@@ -41,9 +50,12 @@
         const cover = document.querySelector('.game-cover');
         cover.src = `../imagens/capas/${game.cover}`;
         cover.alt = `${game.title} cover`;
-        document.querySelector('.cover-label').textContent = game.releaseState === 'upcoming'
-            ? 'COMING SOON'
-            : game.releaseState === 'retired' ? 'HISTORICAL GAME' : (game.kind || 'CATALOG').toUpperCase();
+        document.querySelector('.cover-label').textContent =
+            game.releaseState === 'upcoming'
+                ? 'COMING SOON'
+                : game.releaseState === 'retired'
+                  ? 'HISTORICAL GAME'
+                  : (game.kind || 'CATALOG').toUpperCase();
         document.querySelector('.game-summary .eyebrow').textContent = game.studio;
         document.querySelector('.game-summary h2').textContent = game.caption;
         document.querySelector('.rating-preview strong').textContent = 'Not rated yet';
@@ -67,14 +79,18 @@
     logo.alt = game.title;
     logo.fetchPriority = 'high';
     title.classList.add('has-game-logo');
-    logo.addEventListener('error', () => {
-        title.classList.remove('has-game-logo');
-        title.textContent = game.title;
-    }, { once: true });
+    logo.addEventListener(
+        'error',
+        () => {
+            title.classList.remove('has-game-logo');
+            title.textContent = game.title;
+        },
+        { once: true }
+    );
     title.replaceChildren(logo);
 
     const platforms = document.querySelector('.platforms');
-    const platformItems = (game.platforms || []).map(platform => {
+    const platformItems = (game.platforms || []).map((platform) => {
         const item = document.createElement('span');
         item.className = 'platform';
         item.textContent = platform;
@@ -90,7 +106,7 @@
         ['Studio', game.studio],
         [game.franchise ? 'Franchise' : 'Collection', game.franchise || 'Backlog'],
         [game.releaseState === 'upcoming' ? 'Planned release' : 'First release', String(game.year)],
-        ['Your status', window.Backlog.getStatus(game.id)?.label || 'Not in collection']
+        ['Your status', window.Backlog.getStatus(game.id)?.label || 'Not in collection'],
     ];
     document.querySelectorAll('.details-grid>div').forEach((detail, index) => {
         detail.querySelector('dt').textContent = values[index][0];
@@ -124,7 +140,7 @@
         document.querySelector('.section-tabs a[href="#characters"]').hidden = false;
     }
 
-    const tags = game.tags.map(tag => {
+    const tags = game.tags.map((tag) => {
         const span = document.createElement('span');
         span.textContent = tag;
         return span;
@@ -132,9 +148,14 @@
     document.querySelector('.hero-tags').replaceChildren(...tags);
 
     // As sugestões levam a outros jogos e excluem o jogo aberto.
-    const otherGames = games.filter(item => item.id !== game.id);
-    const relatedGames = otherGames.filter(item => game.franchise && item.franchise === game.franchise);
-    const recommendations = [...relatedGames, ...otherGames.filter(item => !relatedGames.includes(item))].slice(0, 4);
+    const otherGames = games.filter((item) => item.id !== game.id);
+    const relatedGames = otherGames.filter(
+        (item) => game.franchise && item.franchise === game.franchise
+    );
+    const recommendations = [
+        ...relatedGames,
+        ...otherGames.filter((item) => !relatedGames.includes(item)),
+    ].slice(0, 4);
     document.querySelectorAll('.discover-card').forEach((card, index) => {
         const recommendation = recommendations[index];
         card.href = `game.html?id=${encodeURIComponent(recommendation.id)}`;
@@ -152,7 +173,7 @@
 
     function renderCollectionState() {
         const status = window.Backlog.getStatus(game.id);
-        statusButtons.forEach(button => {
+        statusButtons.forEach((button) => {
             button.setAttribute('aria-pressed', String(button.dataset.status === status?.id));
         });
         document.querySelector('#game-status-help').textContent = status
@@ -161,7 +182,8 @@
         document.querySelector('#collection-status-label').textContent = status?.label || '';
         collectionStatus.hidden = !status;
         if (game.id !== games[0].id) {
-            document.querySelector('.details-grid>div:last-child dd').textContent = status?.label || 'Not in collection';
+            document.querySelector('.details-grid>div:last-child dd').textContent =
+                status?.label || 'Not in collection';
         }
         window.Backlog.updateCount();
     }
@@ -170,12 +192,12 @@
         if (window.Backlog.getStatus(game.id)?.id === statusId) return;
         try {
             await window.BacklogStatusActions.setStatus(game.id, statusId);
-        } catch(error) {
-            notify(error.message||'Could not save this status.');
+        } catch (error) {
+            notify(error.message || 'Could not save this status.');
         }
     }
 
-    statusButtons.forEach(button => {
+    statusButtons.forEach((button) => {
         button.addEventListener('click', () => updateStatus(button.dataset.status));
     });
     document.querySelector('#remove-game').addEventListener('click', async () => {
@@ -183,8 +205,8 @@
             await window.BacklogStatusActions.removeStatus(game.id);
 
             statusButtons[0].focus();
-        } catch(error) {
-            notify(error.message||'Could not remove this game.');
+        } catch (error) {
+            notify(error.message || 'Could not remove this game.');
         }
     });
     window.addEventListener('backlog-change', renderCollectionState);
@@ -192,5 +214,8 @@
     window.addEventListener('pageshow', renderCollectionState);
     renderCollectionState();
 
-    window.BacklogShare.mount(document.querySelector('#share-game'),{url:()=>location.href.split('#')[0],title:()=>document.title});
+    window.BacklogShare.mount(document.querySelector('#share-game'), {
+        url: () => location.href.split('#')[0],
+        title: () => document.title,
+    });
 })();

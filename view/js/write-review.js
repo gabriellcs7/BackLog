@@ -1,7 +1,7 @@
 (() => {
     'use strict';
     const id = new URLSearchParams(location.search).get('id');
-    const game = window.BacklogGames.find(item => item.id === id) || window.BacklogGames[0];
+    const game = window.BacklogGames.find((item) => item.id === id) || window.BacklogGames[0];
     const href = 'game.html?id=' + encodeURIComponent(game.id);
     document.querySelector('#editor-game-link').href = href;
     document.querySelector('#editor-back').href = href;

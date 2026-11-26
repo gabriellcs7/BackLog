@@ -27,7 +27,9 @@
                 review = await window.BacklogCommunity.review(id);
                 gameId = review?.game_id;
             } else if (entryId) {
-                review = (await window.BacklogDiary.entries()).find(entry => entry.id === entryId);
+                review = (await window.BacklogDiary.entries()).find(
+                    (entry) => entry.id === entryId
+                );
                 gameId = review?.gameId;
             } else {
                 gameId = params.get('game');
@@ -46,7 +48,10 @@
             coverLink.href = gameUrl;
             coverLink.replaceChildren(cover);
             const copy = ui.element('div');
-            copy.append(ui.element('h1', '', item.title), ui.element('p', 'social-small', id ? 'Community review' : 'Your review'));
+            copy.append(
+                ui.element('h1', '', item.title),
+                ui.element('p', 'social-small', id ? 'Community review' : 'Your review')
+            );
             header.append(copy);
             heading.append(header);
             if (id) {
@@ -59,14 +64,20 @@
             } else {
                 const article = ui.element('article', 'community-review');
                 const rating = review.rating === null ? 'Written review' : review.rating + ' / 5 ★';
-                const body=ui.element('div','community-review-text');window.BacklogReviewText.render(body,review.text||'Rated this game.');const score=ui.element('p','social-rating');if(review.rating==null)score.textContent='Written review';else score.append(ui.ratingStars(Number(review.rating),item.id));article.append(score,body);
+                const body = ui.element('div', 'community-review-text');
+                window.BacklogReviewText.render(body, review.text || 'Rated this game.');
+                const score = ui.element('p', 'social-rating');
+                if (review.rating == null) score.textContent = 'Written review';
+                else score.append(ui.ratingStars(Number(review.rating), item.id));
+                article.append(score, body);
                 content.append(article);
             }
             document.title = item.title + ' · Review · BackLog';
             layout.hidden = false;
             feedback.textContent = '';
         } catch (error) {
-            if (ticket === version) feedback.textContent = error.message || 'Could not load this review.';
+            if (ticket === version)
+                feedback.textContent = error.message || 'Could not load this review.';
         }
     }
 

@@ -1,0 +1,7 @@
+REFERÊNCIAS EDITÁVEIS DA VERSÃO ANTERIOR
+
+Em 26/11/2026, o carrossel final foi substituído pelos dez PNGs backlog_01.png a backlog_10.png enviados por Gabriel. Eles estão em ../carrossel.
+
+Os oito HTMLs feed-* e a seção feed de manifesto.json pertencem ao design anterior e não são a fonte das dez imagens atuais. Não os use para sobrescrever o carrossel final.
+
+Os quatro arquivos story-* continuam correspondendo aos stories mantidos. Fontes e demais recursos foram preservados para referência.

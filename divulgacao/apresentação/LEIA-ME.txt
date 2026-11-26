@@ -1,23 +1,26 @@
 BACKLOG • MATERIAL PARA INSTAGRAM
 
-CARROSSEL: pasta carrossel, 8 PNGs de 1080 × 1350 px.
-STORIES: pasta stories, 4 PNGs de 1080 × 1920 px.
+CARROSSEL ATUAL: pasta carrossel, 10 PNGs de 1080 × 1350 px.
+Arquivos backlog_01.png até backlog_10.png, na ordem dos números.
+As dez imagens foram fornecidas por Gabriel em 26/11/2026 e copiadas sem alterações de conteúdo, qualidade ou dimensões. Elas substituem as oito artes anteriores do feed.
 
-Selecione os arquivos na ordem dos números. Os arquivos previa-carrossel.png e previa-stories.png são folhas de contato para conferência, não fazem parte da postagem.
+STORIES: pasta stories, 4 PNGs de 1080 × 1920 px, mantidos da versão anterior.
 
-A legenda está em legenda.txt. O arquivo previa.html permite visualizar todas as artes. Os HTMLs e o CSS em editaveis guardam o design para futuras alterações.
+Abra previa.html para conferir as imagens. previa-carrossel.png e previa-stories.png são folhas de contato, não fazem parte da postagem. A legenda disponível continua em legenda.txt.
 
-O foco está no projeto. Tecnologias e aprendizado entram nos cards 6 e 7. Codex e Antigravity são apresentados como auxílio no desenvolvimento, conforme a descrição de Gabriel.
+ORDEM DO CARROSSEL
+backlog_01.png — Apresentação do projeto
+backlog_02.png — Por que o projeto existe
+backlog_03.png — Catálogo e status
+backlog_04.png — Perfil e listas
+backlog_05.png — Reviews e diário
+backlog_06.png — Discover
+backlog_07.png — Detalhes e extras
+backlog_08.png — Tecnologias e bastidores
+backlog_09.png — Resumo do projeto
+backlog_10.png — Convite para comentar
 
-No story 4, você pode colocar uma figurinha de link apontando para https://github.com/gabriellcs7/BackLog. O endereço da figurinha deve ser configurado dentro do Instagram. As imagens não têm links clicáveis.
+FONTES E VERSÕES ANTERIORES
+Os HTMLs, fontes e capturas em editaveis e assets correspondem à versão anterior do material e foram preservados como referência. Eles não geram os dez PNGs atuais; as imagens atuais foram recebidas prontas. Consulte editaveis/LEIA-ME.txt antes de fazer novas exportações.
 
-As capturas vieram do site atual, em um navegador isolado. Perfil, lista e review de exemplo usam dados demonstrativos, identificados nas artes. Nenhuma conta real foi alterada. Não há números de usuários, depoimentos ou métricas de crescimento inventados.
-
-O material direciona para o repositório, sem afirmar que o site está publicado. Nada foi postado automaticamente.
-
-As capas pertencem aos respectivos jogos e foram usadas nas telas do projeto. O logo BackLog e as capturas são os mesmos da aplicação. O site em si não foi alterado para produzir estas artes.
-
-TIPOGRAFIA ATUALIZADA
-Títulos: Outfit. Textos: DM Sans. As fontes abertas estão em editaveis/fonts, com as licenças OFL. Os arquivos editáveis carregam as fontes localmente. A imagem da logo BackLog permanece original.
-
-O nome BackLog aparece nas artes com Back em branco e Log em amarelo. A imagem original da logo não foi alterada.
+Os stories e a legenda não foram refeitos nesta atualização. Nada foi publicado automaticamente no Instagram e nenhuma página do site foi alterada.

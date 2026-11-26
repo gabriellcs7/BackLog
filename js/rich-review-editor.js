@@ -1,25 +1,209 @@
 /* Editor visual que mantém o armazenamento de texto e as avaliações existentes. */
 (() => {
-    'use strict';const text=document.getElementById('review-text');if(!text)return;const format=window.BacklogReviewText,t=s=>window.BacklogI18n?.t(s)||s;
-    const box=document.createElement('div');box.className='rich-review-editor';const toolbar=document.createElement('div');toolbar.className='rich-review-toolbar';toolbar.setAttribute('role','toolbar');toolbar.setAttribute('aria-label','Review formatting');
-    const editor=document.createElement('div');editor.id='review-rich-text';editor.className='rich-review-content';editor.contentEditable='true';editor.setAttribute('role','textbox');editor.setAttribute('aria-multiline','true');editor.setAttribute('aria-label','Write your review');editor.setAttribute('aria-describedby','review-counter review-note rich-review-feedback');editor.dataset.placeholder='Write about your experience…';
-    const feedback=document.createElement('p');feedback.id='rich-review-feedback';feedback.className='social-feedback';feedback.setAttribute('role','status');
-    let selected=null,last='',lastHTML='',busy=false;const buttons=[];
-    function updateTools(){for(const b of buttons){if(!b.hasAttribute('aria-pressed'))continue;const command=b.dataset.command,active=command==='formatBlock'?String(document.queryCommandValue(command)).toLowerCase()===b.dataset.argument:document.queryCommandState(command);b.setAttribute('aria-pressed',String(Boolean(active)));}}
-    function selection(){const s=getSelection();if(s.rangeCount&&editor.contains(s.anchorNode)){selected=s.getRangeAt(0).cloneRange();updateTools();}}
-    function restore(){editor.focus();if(selected&&editor.contains(selected.startContainer)){const s=getSelection();s.removeAllRanges();s.addRange(selected);}}
-    function sync(){const next=format.serialize(editor);if(format.withSpoiler(next,document.getElementById('review-spoiler')?.checked).length>3000){editor.innerHTML=lastHTML;feedback.textContent=t('Your formatted review must fit within 3,000 characters.');return false;}text.value=next;last=next;lastHTML=editor.innerHTML;text.dispatchEvent(new Event('input',{bubbles:true}));feedback.textContent='';selection();return true;}
-    function load(){busy=true;const content=format.fragment(text.value);editor.replaceChildren(...content.childNodes);last=text.value;lastHTML=editor.innerHTML;selected=null;feedback.textContent='';busy=false;}
-    const controls=[['bold','B','Bold'],['italic','I','Italic'],['formatBlock','H','Heading','h3'],['insertUnorderedList','≡','Bullet list'],['insertOrderedList','1.','Numbered list'],['formatBlock','❝','Quote','blockquote'],['link','↗','Insert link'],['removeFormat','Tx','Clear formatting']];
-    for(const [command,glyph,label,arg]of controls){const b=document.createElement('button');b.type='button';b.className='rich-review-tool';b.textContent=glyph;b.title=label;b.setAttribute('aria-label',label);b.dataset.command=command;b.dataset.argument=arg||'';if(command!=='link'&&command!=='removeFormat')b.setAttribute('aria-pressed','false');b.addEventListener('pointerdown',e=>e.preventDefault());b.addEventListener('click',()=>{restore();if(command==='link'){const current=getSelection()?.toString()||'';document.getElementById('review-link-label').value=current;document.getElementById('review-link-url').value='';linkDialog.showModal();document.getElementById('review-link-url').focus();return;}if(command==='removeFormat'){document.execCommand('removeFormat',false);document.execCommand('formatBlock',false,'p');}else if(command==='formatBlock'){const current=String(document.queryCommandValue('formatBlock')).toLowerCase();document.execCommand(command,false,current===arg?'p':arg);}else document.execCommand(command,false,arg||null);sync();updateTools();});toolbar.append(b);buttons.push(b);}
-    const linkDialog=document.createElement('dialog');linkDialog.className='social-dialog';linkDialog.innerHTML='<form id="review-link-form"><h2>Insert link</h2><label>Link text<input id="review-link-label" maxlength="200" required></label><label>URL<input id="review-link-url" type="url" placeholder="https://" maxlength="500" required></label><p id="review-link-feedback" class="social-feedback" role="status"></p><div class="social-actions"><button type="submit" class="social-button social-button-primary">Add link</button><button type="button" class="social-button" data-cancel-link>Cancel</button></div></form>';document.body.append(linkDialog);
-    linkDialog.querySelector('[data-cancel-link]').addEventListener('click',()=>linkDialog.close());linkDialog.querySelector('form').addEventListener('submit',event=>{event.preventDefault();const dest=format.safeURL(document.getElementById('review-link-url').value);if(!dest){document.getElementById('review-link-feedback').textContent=t('Use a valid http or https link.');return;}linkDialog.close();restore();const a=document.createElement('a');a.href=dest;a.textContent=document.getElementById('review-link-label').value;a.target='_blank';a.rel='noopener noreferrer';const s=getSelection();if(s.rangeCount){const range=s.getRangeAt(0);range.deleteContents();range.insertNode(a);range.setStartAfter(a);range.collapse(true);s.removeAllRanges();s.addRange(range);}sync();});
-    editor.addEventListener('input',()=>{if(!busy)sync();});editor.addEventListener('keyup',selection);editor.addEventListener('pointerup',selection);editor.addEventListener('blur',selection);
-    editor.addEventListener('paste',event=>{event.preventDefault();document.execCommand('insertText',false,event.clipboardData.getData('text/plain'));sync();});editor.addEventListener('drop',event=>event.preventDefault());
-    text.before(box);box.append(toolbar,editor,feedback);text.hidden=true;text.tabIndex=-1;const label=document.querySelector('label[for="review-text"]');if(label)label.htmlFor=editor.id;
-    text.addEventListener('input',()=>{if(text.value!==last)load();});text.focus=()=>editor.focus();
-    function state(){const form=text.form;box.hidden=Boolean(form?.hidden);editor.setAttribute('aria-disabled',String(Boolean(form?.inert)));editor.contentEditable=String(!form?.inert);buttons.forEach(b=>b.disabled=Boolean(form?.inert));}
-    new MutationObserver(state).observe(text.form,{attributes:true,attributeFilter:['hidden','inert']});
-    function localize(){editor.dataset.placeholder=t('Write about your experience…');}window.addEventListener('backlog-language-change',localize);localize();
-    window.BacklogRichReview=Object.freeze({load,focus:()=>editor.focus(),sync});load();state();
+    'use strict';
+    const text = document.getElementById('review-text');
+    if (!text) return;
+    const format = window.BacklogReviewText,
+        t = (s) => window.BacklogI18n?.t(s) || s;
+    const box = document.createElement('div');
+    box.className = 'rich-review-editor';
+    const toolbar = document.createElement('div');
+    toolbar.className = 'rich-review-toolbar';
+    toolbar.setAttribute('role', 'toolbar');
+    toolbar.setAttribute('aria-label', 'Review formatting');
+    const editor = document.createElement('div');
+    editor.id = 'review-rich-text';
+    editor.className = 'rich-review-content';
+    editor.contentEditable = 'true';
+    editor.setAttribute('role', 'textbox');
+    editor.setAttribute('aria-multiline', 'true');
+    editor.setAttribute('aria-label', 'Write your review');
+    editor.setAttribute('aria-describedby', 'review-counter review-note rich-review-feedback');
+    editor.dataset.placeholder = 'Write about your experience…';
+    const feedback = document.createElement('p');
+    feedback.id = 'rich-review-feedback';
+    feedback.className = 'social-feedback';
+    feedback.setAttribute('role', 'status');
+    let selected = null,
+        last = '',
+        lastHTML = '',
+        busy = false;
+    const buttons = [];
+    function updateTools() {
+        for (const b of buttons) {
+            if (!b.hasAttribute('aria-pressed')) continue;
+            const command = b.dataset.command,
+                active =
+                    command === 'formatBlock'
+                        ? String(document.queryCommandValue(command)).toLowerCase() ===
+                          b.dataset.argument
+                        : document.queryCommandState(command);
+            b.setAttribute('aria-pressed', String(Boolean(active)));
+        }
+    }
+    function selection() {
+        const s = getSelection();
+        if (s.rangeCount && editor.contains(s.anchorNode)) {
+            selected = s.getRangeAt(0).cloneRange();
+            updateTools();
+        }
+    }
+    function restore() {
+        editor.focus();
+        if (selected && editor.contains(selected.startContainer)) {
+            const s = getSelection();
+            s.removeAllRanges();
+            s.addRange(selected);
+        }
+    }
+    function sync() {
+        const next = format.serialize(editor);
+        if (
+            format.withSpoiler(next, document.getElementById('review-spoiler')?.checked).length >
+            3000
+        ) {
+            editor.innerHTML = lastHTML;
+            feedback.textContent = t('Your formatted review must fit within 3,000 characters.');
+            return false;
+        }
+        text.value = next;
+        last = next;
+        lastHTML = editor.innerHTML;
+        text.dispatchEvent(new Event('input', { bubbles: true }));
+        feedback.textContent = '';
+        selection();
+        return true;
+    }
+    function load() {
+        busy = true;
+        const content = format.fragment(text.value);
+        editor.replaceChildren(...content.childNodes);
+        last = text.value;
+        lastHTML = editor.innerHTML;
+        selected = null;
+        feedback.textContent = '';
+        busy = false;
+    }
+    const controls = [
+        ['bold', 'B', 'Bold'],
+        ['italic', 'I', 'Italic'],
+        ['formatBlock', 'H', 'Heading', 'h3'],
+        ['insertUnorderedList', '≡', 'Bullet list'],
+        ['insertOrderedList', '1.', 'Numbered list'],
+        ['formatBlock', '❝', 'Quote', 'blockquote'],
+        ['link', '↗', 'Insert link'],
+        ['removeFormat', 'Tx', 'Clear formatting'],
+    ];
+    for (const [command, glyph, label, arg] of controls) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'rich-review-tool';
+        b.textContent = glyph;
+        b.title = label;
+        b.setAttribute('aria-label', label);
+        b.dataset.command = command;
+        b.dataset.argument = arg || '';
+        if (command !== 'link' && command !== 'removeFormat')
+            b.setAttribute('aria-pressed', 'false');
+        b.addEventListener('pointerdown', (e) => e.preventDefault());
+        b.addEventListener('click', () => {
+            restore();
+            if (command === 'link') {
+                const current = getSelection()?.toString() || '';
+                document.getElementById('review-link-label').value = current;
+                document.getElementById('review-link-url').value = '';
+                linkDialog.showModal();
+                document.getElementById('review-link-url').focus();
+                return;
+            }
+            if (command === 'removeFormat') {
+                document.execCommand('removeFormat', false);
+                document.execCommand('formatBlock', false, 'p');
+            } else if (command === 'formatBlock') {
+                const current = String(document.queryCommandValue('formatBlock')).toLowerCase();
+                document.execCommand(command, false, current === arg ? 'p' : arg);
+            } else document.execCommand(command, false, arg || null);
+            sync();
+            updateTools();
+        });
+        toolbar.append(b);
+        buttons.push(b);
+    }
+    const linkDialog = document.createElement('dialog');
+    linkDialog.className = 'social-dialog';
+    linkDialog.innerHTML =
+        '<form id="review-link-form"><h2>Insert link</h2><label>Link text<input id="review-link-label" maxlength="200" required></label><label>URL<input id="review-link-url" type="url" placeholder="https://" maxlength="500" required></label><p id="review-link-feedback" class="social-feedback" role="status"></p><div class="social-actions"><button type="submit" class="social-button social-button-primary">Add link</button><button type="button" class="social-button" data-cancel-link>Cancel</button></div></form>';
+    document.body.append(linkDialog);
+    linkDialog
+        .querySelector('[data-cancel-link]')
+        .addEventListener('click', () => linkDialog.close());
+    linkDialog.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const dest = format.safeURL(document.getElementById('review-link-url').value);
+        if (!dest) {
+            document.getElementById('review-link-feedback').textContent = t(
+                'Use a valid http or https link.'
+            );
+            return;
+        }
+        linkDialog.close();
+        restore();
+        const a = document.createElement('a');
+        a.href = dest;
+        a.textContent = document.getElementById('review-link-label').value;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        const s = getSelection();
+        if (s.rangeCount) {
+            const range = s.getRangeAt(0);
+            range.deleteContents();
+            range.insertNode(a);
+            range.setStartAfter(a);
+            range.collapse(true);
+            s.removeAllRanges();
+            s.addRange(range);
+        }
+        sync();
+    });
+    editor.addEventListener('input', () => {
+        if (!busy) sync();
+    });
+    editor.addEventListener('keyup', selection);
+    editor.addEventListener('pointerup', selection);
+    editor.addEventListener('blur', selection);
+    editor.addEventListener('paste', (event) => {
+        event.preventDefault();
+        document.execCommand('insertText', false, event.clipboardData.getData('text/plain'));
+        sync();
+    });
+    editor.addEventListener('drop', (event) => event.preventDefault());
+    text.before(box);
+    box.append(toolbar, editor, feedback);
+    text.hidden = true;
+    text.tabIndex = -1;
+    const label = document.querySelector('label[for="review-text"]');
+    if (label) label.htmlFor = editor.id;
+    text.addEventListener('input', () => {
+        if (text.value !== last) load();
+    });
+    text.focus = () => editor.focus();
+    function state() {
+        const form = text.form;
+        box.hidden = Boolean(form?.hidden);
+        editor.setAttribute('aria-disabled', String(Boolean(form?.inert)));
+        editor.contentEditable = String(!form?.inert);
+        buttons.forEach((b) => (b.disabled = Boolean(form?.inert)));
+    }
+    new MutationObserver(state).observe(text.form, {
+        attributes: true,
+        attributeFilter: ['hidden', 'inert'],
+    });
+    function localize() {
+        editor.dataset.placeholder = t('Write about your experience…');
+    }
+    window.addEventListener('backlog-language-change', localize);
+    localize();
+    window.BacklogRichReview = Object.freeze({ load, focus: () => editor.focus(), sync });
+    load();
+    state();
 })();

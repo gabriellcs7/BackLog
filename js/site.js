@@ -3,32 +3,50 @@
     'use strict';
 
     const games = window.BacklogGames;
-    const gameByCover = new Map(games.map(game => [
-        new URL('../imagens/capas/' + game.cover, document.currentScript.src).pathname,
-        game.id
-    ]));
+    const gameByCover = new Map(
+        games.map((game) => [
+            new URL('../imagens/capas/' + game.cover, document.currentScript.src).pathname,
+            game.id,
+        ])
+    );
     const searchForm = document.querySelector('.nav-search');
     const searchInput = document.querySelector('#site-search');
     const menuButton = document.querySelector('.menu-toggle');
     const navigation = document.querySelector('#navigation');
 
     // Um status atual por jogo, compartilhado pela página de detalhes e pela coleção.
-    const statusOptions = Object.freeze([
-        { id: 'played', label: 'Played', description: 'You have played this game.' },
-        { id: 'playing', label: 'Playing', description: 'You are currently playing this game.' },
-        { id: 'completed', label: 'Completed', description: 'You completed the game.' },
-        { id: 'platinum', label: 'Platinum', description: 'You completed all missions.' },
-        { id: 'dropped', label: 'Dropped', description: 'You played this game but stopped before completing it.' },
-        { id: 'want-to-play', label: 'Want to play', description: 'You want to play this game.' }
-    ].map(option => Object.freeze(option)));
+    const statusOptions = Object.freeze(
+        [
+            { id: 'played', label: 'Played', description: 'You have played this game.' },
+            {
+                id: 'playing',
+                label: 'Playing',
+                description: 'You are currently playing this game.',
+            },
+            { id: 'completed', label: 'Completed', description: 'You completed the game.' },
+            { id: 'platinum', label: 'Platinum', description: 'You completed all missions.' },
+            {
+                id: 'dropped',
+                label: 'Dropped',
+                description: 'You played this game but stopped before completing it.',
+            },
+            {
+                id: 'want-to-play',
+                label: 'Want to play',
+                description: 'You want to play this game.',
+            },
+        ].map((option) => Object.freeze(option))
+    );
 
-    const statusKey = (id,owner=window.BacklogAccount?.user?.id) => owner ? `backlog:status:${owner}:${id}` : `backlog:${id}`;
-    function getStatus(id,owner) {
+    const statusKey = (id, owner = window.BacklogAccount?.user?.id) =>
+        owner ? `backlog:status:${owner}:${id}` : `backlog:${id}`;
+    function getStatus(id, owner) {
         try {
-            const stored = localStorage.getItem(statusKey(id,owner));
+            const stored = localStorage.getItem(statusKey(id, owner));
             // Preserva os jogos salvos antes da introdução dos seis status.
-            if (stored === 'saved') return statusOptions.find(option => option.id === 'want-to-play');
-            return statusOptions.find(option => option.id === stored) || null;
+            if (stored === 'saved')
+                return statusOptions.find((option) => option.id === 'want-to-play');
+            return statusOptions.find((option) => option.id === stored) || null;
         } catch {
             return null;
         }
@@ -38,54 +56,104 @@
         return getStatus(id) !== null;
     }
 
-    const account=window.BacklogAccount;
-    let cloudOwner=null,hydration=Promise.resolve(),statusQueue=Promise.resolve(),syncIssue='',syncGeneration=0;
-    const syncedKey=(owner,id)=>'backlog:status-synced:'+owner+':'+id;
-    async function hydrateStatuses(){
-        const owner=account?.user?.id;
-        if(!owner){cloudOwner=null;++syncGeneration;return;}
-        if(account.loading||cloudOwner===owner)return;
-        cloudOwner=owner;const ticket=++syncGeneration;
-        hydration=(async()=>{try{
-            const result=await account.client.rpc('my_game_statuses');if(result.error)throw result.error;
-            if(ticket!==syncGeneration||account.user?.id!==owner)return;
-            const rows=new Map((result.data||[]).map(row=>[row.game_id,row.status]));
-            for(const game of games){
-                const key='backlog:status:'+owner+':'+game.id,marker=syncedKey(owner,game.id);
-                if(rows.has(game.id)){localStorage.setItem(key,rows.get(game.id));localStorage.setItem(marker,'yes');}
-                else if(localStorage.getItem(marker)==='yes')localStorage.removeItem(key);
-                else {const old=localStorage.getItem(key);if(statusOptions.some(option=>option.id===old)){
-                    const imported=await account.client.rpc('save_game_status',{game_key:game.id,new_status:old,initial_import:true});if(imported.error)throw imported.error;
-                    if(ticket!==syncGeneration||account.user?.id!==owner)return;localStorage.setItem(marker,'yes');
-                }}
+    const account = window.BacklogAccount;
+    let cloudOwner = null,
+        hydration = Promise.resolve(),
+        statusQueue = Promise.resolve(),
+        syncIssue = '',
+        syncGeneration = 0;
+    const syncedKey = (owner, id) => 'backlog:status-synced:' + owner + ':' + id;
+    async function hydrateStatuses() {
+        const owner = account?.user?.id;
+        if (!owner) {
+            cloudOwner = null;
+            ++syncGeneration;
+            return;
+        }
+        if (account.loading || cloudOwner === owner) return;
+        cloudOwner = owner;
+        const ticket = ++syncGeneration;
+        hydration = (async () => {
+            try {
+                const result = await account.client.rpc('my_game_statuses');
+                if (result.error) throw result.error;
+                if (ticket !== syncGeneration || account.user?.id !== owner) return;
+                const rows = new Map((result.data || []).map((row) => [row.game_id, row.status]));
+                for (const game of games) {
+                    const key = 'backlog:status:' + owner + ':' + game.id,
+                        marker = syncedKey(owner, game.id);
+                    if (rows.has(game.id)) {
+                        localStorage.setItem(key, rows.get(game.id));
+                        localStorage.setItem(marker, 'yes');
+                    } else if (localStorage.getItem(marker) === 'yes') localStorage.removeItem(key);
+                    else {
+                        const old = localStorage.getItem(key);
+                        if (statusOptions.some((option) => option.id === old)) {
+                            const imported = await account.client.rpc('save_game_status', {
+                                game_key: game.id,
+                                new_status: old,
+                                initial_import: true,
+                            });
+                            if (imported.error) throw imported.error;
+                            if (ticket !== syncGeneration || account.user?.id !== owner) return;
+                            localStorage.setItem(marker, 'yes');
+                        }
+                    }
+                }
+                syncIssue = '';
+                window.dispatchEvent(new Event('backlog-change'));
+            } catch (error) {
+                if (ticket === syncGeneration) {
+                    cloudOwner = null;
+                    syncIssue = error.message;
+                    window.dispatchEvent(new Event('backlog-status-sync-error'));
+                }
             }
-            syncIssue='';window.dispatchEvent(new Event('backlog-change'));
-        }catch(error){if(ticket===syncGeneration){cloudOwner=null;syncIssue=error.message;window.dispatchEvent(new Event('backlog-status-sync-error'));}}})();
+        })();
         return hydration;
     }
-    function cloudStatus(id,status){
-        const owner=account.user.id;const task=statusQueue.catch(()=>{}).then(async()=>{await hydration;
-        if(account.user?.id!==owner)throw new Error('Your account changed. Please try again.');
-        const result=await account.client.rpc('save_game_status',{game_key:id,new_status:status,initial_import:false});if(result.error)throw new Error(result.error.message);
-        if(account.user?.id!==owner)throw new Error('Your account changed. Please reload.');
-        const key='backlog:status:'+owner+':'+id;
-        if(status)localStorage.setItem(key,status);else localStorage.removeItem(key);
-        localStorage.setItem(syncedKey(owner,id),'yes');syncIssue='';window.dispatchEvent(new Event('backlog-change'));
-        });statusQueue=task;return task;
+    function cloudStatus(id, status) {
+        const owner = account.user.id;
+        const task = statusQueue
+            .catch(() => {})
+            .then(async () => {
+                await hydration;
+                if (account.user?.id !== owner)
+                    throw new Error('Your account changed. Please try again.');
+                const result = await account.client.rpc('save_game_status', {
+                    game_key: id,
+                    new_status: status,
+                    initial_import: false,
+                });
+                if (result.error) throw new Error(result.error.message);
+                if (account.user?.id !== owner)
+                    throw new Error('Your account changed. Please reload.');
+                const key = 'backlog:status:' + owner + ':' + id;
+                if (status) localStorage.setItem(key, status);
+                else localStorage.removeItem(key);
+                localStorage.setItem(syncedKey(owner, id), 'yes');
+                syncIssue = '';
+                window.dispatchEvent(new Event('backlog-change'));
+            });
+        statusQueue = task;
+        return task;
     }
     function setStatus(id, statusId) {
-        if (!games.some(game => game.id === id) || !statusOptions.some(option => option.id === statusId)) {
+        if (
+            !games.some((game) => game.id === id) ||
+            !statusOptions.some((option) => option.id === statusId)
+        ) {
             throw new Error('Invalid game or collection status.');
         }
-        if(account?.user)return cloudStatus(id,statusId);
-        localStorage.setItem('backlog:status-date:local:'+id,new Date().toISOString());
+        if (account?.user) return cloudStatus(id, statusId);
+        localStorage.setItem('backlog:status-date:local:' + id, new Date().toISOString());
         localStorage.setItem(statusKey(id), statusId);
         window.dispatchEvent(new Event('backlog-change'));
     }
 
     function removeStatus(id) {
-        if(account?.user)return cloudStatus(id,null);
-        localStorage.removeItem('backlog:status-date:local:'+id);
+        if (account?.user) return cloudStatus(id, null);
+        localStorage.removeItem('backlog:status-date:local:' + id);
         localStorage.removeItem(statusKey(id));
         window.dispatchEvent(new Event('backlog-change'));
     }
@@ -104,58 +172,88 @@
     }
 
     updateCovers();
-    new MutationObserver(records => {
+    new MutationObserver((records) => {
         for (const record of records) {
             if (record.type === 'attributes') {
                 if (record.target instanceof HTMLImageElement) updateCoverStatus(record.target);
-            }
-            else for (const node of record.addedNodes) {
-                if (node instanceof Element) updateCovers(node);
-            }
+            } else
+                for (const node of record.addedNodes) {
+                    if (node instanceof Element) updateCovers(node);
+                }
         }
-    }).observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+    }).observe(document.body, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ['src'],
+    });
     window.addEventListener('backlog-change', () => updateCovers());
     window.addEventListener('storage', () => updateCovers());
 
     // Reveal sections as they enter view without hiding them if JavaScript is unavailable.
     const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     if ('IntersectionObserver' in window) {
-        const reveal = new IntersectionObserver(entries => {
-            for (const entry of entries) {
-                if (!entry.isIntersecting) continue;
-                reveal.unobserve(entry.target);
-                if (!reducedMotion.matches && entry.boundingClientRect.top > 120) {
-                    entry.target.animate(
-                        [{ opacity: .72, transform: 'translateY(9px)' }, { opacity: 1, transform: 'none' }],
-                        { duration: 320, easing: 'cubic-bezier(.2,.7,.25,1)' }
-                    );
+        const reveal = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    reveal.unobserve(entry.target);
+                    if (!reducedMotion.matches && entry.boundingClientRect.top > 120) {
+                        entry.target.animate(
+                            [
+                                { opacity: 0.72, transform: 'translateY(9px)' },
+                                { opacity: 1, transform: 'none' },
+                            ],
+                            { duration: 320, easing: 'cubic-bezier(.2,.7,.25,1)' }
+                        );
+                    }
                 }
-            }
-        }, { threshold: .08 });
-        document.querySelectorAll('main section').forEach(section => reveal.observe(section));
+            },
+            { threshold: 0.08 }
+        );
+        document.querySelectorAll('main section').forEach((section) => reveal.observe(section));
     }
 
     function updateCount() {
-        const count = games.filter(game => isSaved(game.id)).length;
+        const count = games.filter((game) => isSaved(game.id)).length;
         document.querySelector('#nav-count').textContent = String(count);
         return count;
     }
 
-    window.Backlog = { statusOptions, getStatus, setStatus, removeStatus, isSaved, updateCount, syncStatuses:hydrateStatuses, get statusReady(){return hydration;}, get syncError(){return syncIssue;} };
+    window.Backlog = {
+        statusOptions,
+        getStatus,
+        setStatus,
+        removeStatus,
+        isSaved,
+        updateCount,
+        syncStatuses: hydrateStatuses,
+        get statusReady() {
+            return hydration;
+        },
+        get syncError() {
+            return syncIssue;
+        },
+    };
     updateCount();
     account?.ready.then(hydrateStatuses);
-    window.addEventListener('backlog-account-change',hydrateStatuses);
+    window.addEventListener('backlog-account-change', hydrateStatuses);
     window.addEventListener('storage', updateCount);
     window.addEventListener('backlog-change', updateCount);
-    window.addEventListener('backlog-account-change', () => window.dispatchEvent(new Event('backlog-change')));
+    window.addEventListener('backlog-account-change', () =>
+        window.dispatchEvent(new Event('backlog-change'))
+    );
 
     // A pesquisa funciona também ao abrir os arquivos diretamente no navegador.
     // Fora do catálogo, leva o termo para a página de resultados.
-    searchForm.addEventListener('submit', event => {
+    searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         if (document.querySelector('#game-results')) {
             window.dispatchEvent(new CustomEvent('backlog-search'));
-            (document.querySelector('#player-search-section:not([hidden])')||document.querySelector('#results-heading')).scrollIntoView({ behavior: 'smooth' });
+            (
+                document.querySelector('#player-search-section:not([hidden])') ||
+                document.querySelector('#results-heading')
+            ).scrollIntoView({ behavior: 'smooth' });
             return;
         }
 
@@ -178,15 +276,16 @@
         navigation.classList.toggle('is-open', open);
     });
 
-    navigation.querySelectorAll('a').forEach(link => {
+    navigation.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', closeMenu);
     });
 
-    document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', (event) => {
         const editing = event.target.closest('input, textarea, select, [contenteditable="true"]');
         if (event.key === '/' && !editing && !document.querySelector('dialog[open]')) {
             event.preventDefault();
-            if(window.BacklogQuickSearch)window.BacklogQuickSearch.open();else searchInput.focus();
+            if (window.BacklogQuickSearch) window.BacklogQuickSearch.open();
+            else searchInput.focus();
         }
         if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
             closeMenu();
@@ -194,7 +293,7 @@
         }
     });
 
-    window.matchMedia('(min-width: 801px)').addEventListener('change', event => {
+    window.matchMedia('(min-width: 801px)').addEventListener('change', (event) => {
         if (event.matches) closeMenu();
     });
 })();

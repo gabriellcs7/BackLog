@@ -1,52 +1,429 @@
 /* Notificações recebidas da Activity; marcações de leitura ficam neste navegador. */
 (() => {
-    'use strict';const account=window.BacklogAccount,api=window.BacklogCommunity,ui=window.BacklogUI;
-    const navbar=document.querySelector('.navbar');if(!navbar||!account||!api||!ui)return;
-    const el=ui.element,ns='http://www.w3.org/2000/svg',bell=el('button','notification-bell');bell.type='button';bell.setAttribute('aria-label','Notifications');bell.setAttribute('aria-expanded','false');bell.setAttribute('aria-controls','notifications-panel');bell.setAttribute('aria-haspopup','dialog');
-    const icon=document.createElementNS(ns,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');const path=document.createElementNS(ns,'path');path.setAttribute('d','M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6');icon.append(path);const badge=el('span','notification-unread-badge');badge.setAttribute('aria-hidden','true');badge.hidden=true;bell.append(icon,badge);navbar.insertBefore(bell,navbar.querySelector('.menu-toggle'));
-    const panel=el('section','notifications-panel');panel.id='notifications-panel';panel.hidden=true;panel.setAttribute('role','dialog');panel.setAttribute('aria-label','Notifications');const native=typeof panel.showPopover==='function';if(native)panel.setAttribute('popover','auto');
-    const heading=el('div','notifications-heading'),title=el('h2','','Notifications.'),readAll=el('button','','✓ Mark all as read');readAll.type='button';heading.append(title,readAll);
-    const tabs=el('div','notifications-tabs');tabs.setAttribute('role','group');tabs.setAttribute('aria-label','Notification filter');const allTab=el('button'),unreadTab=el('button');allTab.type=unreadTab.type='button';tabs.append(allTab,unreadTab);
-    const status=el('p','notifications-status');status.setAttribute('role','status');const list=el('div','notification-items');const footer=el('div','notifications-footer'),activity=el('a','','View all activity →'),refresh=el('button','','Refresh');activity.href=ui.href('view/activity.html');refresh.type='button';const note=el('small');footer.append(activity,refresh,note);panel.append(heading,tabs,status,list,footer);document.body.append(panel);
-    const live=el('span','visually-hidden');live.setAttribute('aria-live','polite');navbar.append(live);
-    let owner=null,events=[],read=new Set(),filter='all',busy=false,generation=0,last=0,error='',persistent=true,opened=false,announced=-1;
-    const key=id=>'backlog:notifications-read:'+id,token=event=>event.id+'@'+event.created_at;
-    function readStorage(){persistent=true;try{const value=JSON.parse(localStorage.getItem(key(owner))||'[]');return new Set(Array.isArray(value)?value.filter(v=>typeof v==='string'&&v.length<700).slice(-1000):[]);}catch{persistent=false;return new Set();}}
-    function saveRead(){try{localStorage.setItem(key(owner),JSON.stringify([...read].slice(-1000)));}catch{persistent=false;}}
-    function mark(event){read.add(token(event));saveRead();render();}
-    function position(){if(!opened)return;const rect=bell.getBoundingClientRect();panel.style.width=Math.min(390,innerWidth-24)+'px';panel.style.maxHeight=Math.max(150,innerHeight-rect.bottom-24)+'px';panel.style.left=Math.max(12,Math.min(innerWidth-panel.offsetWidth-12,rect.right-panel.offsetWidth))+'px';panel.style.top=Math.max(12,rect.bottom+10)+'px';}
-    function close(focus=false){opened=false;if(native&&panel.matches(':popover-open'))panel.hidePopover();panel.hidden=true;bell.setAttribute('aria-expanded','false');if(focus)bell.focus();}
-    function relativeTime(value){const minutes=Math.max(0,Math.floor((Date.now()-Date.parse(value))/60000));return minutes<1?'Just now':minutes<60?minutes+' min ago':minutes<1440?Math.floor(minutes/60)+' hours ago':ui.date(value);}
-    function item(event){
-        const row=el('article','notification-row'+(read.has(token(event))?'':' unread'));const profile={id:event.actor_id,display_name:event.display_name,avatar_path:event.avatar_path};
-        const identity=el('span','notification-identity');identity.append(ui.avatar(profile));const kind=el('span','notification-kind',({like:'♥',comment:'↳',follow:'+'})[event.kind]);kind.setAttribute('aria-hidden','true');identity.append(kind);
-        const game=ui.game(event.game_id),destination=event.review_id?ui.reviewHref('id',event.review_id):ui.href('view/profile.html?id='+encodeURIComponent(event.actor_id));
-        const content=el('a','notification-copy');content.href=destination;const sentence=el('span','notification-sentence');sentence.append(el('strong','',event.display_name||'Player'),document.createTextNode(({like:' liked your review',comment:' commented on your review',follow:' started following you'})[event.kind]));content.append(sentence);if(game)content.append(el('span','notification-game-name',game.title));const time=el('time','',relativeTime(event.created_at));time.dateTime=event.created_at;time.title=new Date(event.created_at).toLocaleString();content.append(time);content.addEventListener('click',()=>mark(event));row.append(identity,content);
-        if(game){const link=el('a','notification-cover-link');link.href=destination;link.setAttribute('aria-label','Open notification for '+game.title);const image=el('img','notification-cover');image.src=ui.href('imagens/capas/'+game.cover);image.alt='';image.loading='lazy';link.append(image);link.addEventListener('click',()=>mark(event));row.append(link);}
-        if(!read.has(token(event))){const button=el('button','notification-mark-read','●');button.type='button';button.title='Mark as read';button.setAttribute('aria-label','Mark notification from '+(event.display_name||'Player')+' as read');button.addEventListener('click',()=>{mark(event);(list.querySelector('a')||unreadTab).focus();});row.append(button);}
+    'use strict';
+    const account = window.BacklogAccount,
+        api = window.BacklogCommunity,
+        ui = window.BacklogUI;
+    const navbar = document.querySelector('.navbar');
+    if (!navbar || !account || !api || !ui) return;
+    const el = ui.element,
+        ns = 'http://www.w3.org/2000/svg',
+        bell = el('button', 'notification-bell');
+    bell.type = 'button';
+    bell.setAttribute('aria-label', 'Notifications');
+    bell.setAttribute('aria-expanded', 'false');
+    bell.setAttribute('aria-controls', 'notifications-panel');
+    bell.setAttribute('aria-haspopup', 'dialog');
+    const icon = document.createElementNS(ns, 'svg');
+    icon.setAttribute('viewBox', '0 0 24 24');
+    icon.setAttribute('aria-hidden', 'true');
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6');
+    icon.append(path);
+    const badge = el('span', 'notification-unread-badge');
+    badge.setAttribute('aria-hidden', 'true');
+    badge.hidden = true;
+    bell.append(icon, badge);
+    navbar.insertBefore(bell, navbar.querySelector('.menu-toggle'));
+    const panel = el('section', 'notifications-panel');
+    panel.id = 'notifications-panel';
+    panel.hidden = true;
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'Notifications');
+    const native = typeof panel.showPopover === 'function';
+    if (native) panel.setAttribute('popover', 'auto');
+    const heading = el('div', 'notifications-heading'),
+        title = el('h2', '', 'Notifications.'),
+        readAll = el('button', '', '✓ Mark all as read');
+    readAll.type = 'button';
+    heading.append(title, readAll);
+    const tabs = el('div', 'notifications-tabs');
+    tabs.setAttribute('role', 'group');
+    tabs.setAttribute('aria-label', 'Notification filter');
+    const allTab = el('button'),
+        unreadTab = el('button');
+    allTab.type = unreadTab.type = 'button';
+    tabs.append(allTab, unreadTab);
+    const status = el('p', 'notifications-status');
+    status.setAttribute('role', 'status');
+    const list = el('div', 'notification-items');
+    const footer = el('div', 'notifications-footer'),
+        activity = el('a', '', 'View all activity →'),
+        refresh = el('button', '', 'Refresh');
+    activity.href = ui.href('view/activity.html');
+    refresh.type = 'button';
+    const note = el('small');
+    footer.append(activity, refresh, note);
+    panel.append(heading, tabs, status, list, footer);
+    document.body.append(panel);
+    const live = el('span', 'visually-hidden');
+    live.setAttribute('aria-live', 'polite');
+    navbar.append(live);
+    let owner = null,
+        events = [],
+        read = new Set(),
+        filter = 'all',
+        busy = false,
+        generation = 0,
+        last = 0,
+        error = '',
+        persistent = true,
+        opened = false,
+        announced = -1;
+    const key = (id) => 'backlog:notifications-read:' + id,
+        token = (event) => event.id + '@' + event.created_at;
+    function readStorage() {
+        persistent = true;
+        try {
+            const value = JSON.parse(localStorage.getItem(key(owner)) || '[]');
+            return new Set(
+                Array.isArray(value)
+                    ? value.filter((v) => typeof v === 'string' && v.length < 700).slice(-1000)
+                    : []
+            );
+        } catch {
+            persistent = false;
+            return new Set();
+        }
+    }
+    function saveRead() {
+        try {
+            localStorage.setItem(key(owner), JSON.stringify([...read].slice(-1000)));
+        } catch {
+            persistent = false;
+        }
+    }
+    function mark(event) {
+        read.add(token(event));
+        saveRead();
+        render();
+    }
+    function position() {
+        if (!opened) return;
+        const rect = bell.getBoundingClientRect();
+        panel.style.width = Math.min(390, innerWidth - 24) + 'px';
+        panel.style.maxHeight = Math.max(150, innerHeight - rect.bottom - 24) + 'px';
+        panel.style.left =
+            Math.max(
+                12,
+                Math.min(innerWidth - panel.offsetWidth - 12, rect.right - panel.offsetWidth)
+            ) + 'px';
+        panel.style.top = Math.max(12, rect.bottom + 10) + 'px';
+    }
+    function close(focus = false) {
+        opened = false;
+        if (native && panel.matches(':popover-open')) panel.hidePopover();
+        panel.hidden = true;
+        bell.setAttribute('aria-expanded', 'false');
+        if (focus) bell.focus();
+    }
+    function relativeTime(value) {
+        const minutes = Math.max(0, Math.floor((Date.now() - Date.parse(value)) / 60000));
+        return minutes < 1
+            ? 'Just now'
+            : minutes < 60
+              ? minutes + ' min ago'
+              : minutes < 1440
+                ? Math.floor(minutes / 60) + ' hours ago'
+                : ui.date(value);
+    }
+    function item(event) {
+        const row = el('article', 'notification-row' + (read.has(token(event)) ? '' : ' unread'));
+        const profile = {
+            id: event.actor_id,
+            display_name: event.display_name,
+            avatar_path: event.avatar_path,
+        };
+        const identity = el('span', 'notification-identity');
+        identity.append(ui.avatar(profile));
+        const kind = el(
+            'span',
+            'notification-kind',
+            { like: '♥', comment: '↳', follow: '+' }[event.kind]
+        );
+        kind.setAttribute('aria-hidden', 'true');
+        identity.append(kind);
+        const game = ui.game(event.game_id),
+            destination = event.review_id
+                ? ui.reviewHref('id', event.review_id)
+                : ui.href('view/profile.html?id=' + encodeURIComponent(event.actor_id));
+        const content = el('a', 'notification-copy');
+        content.href = destination;
+        const sentence = el('span', 'notification-sentence');
+        sentence.append(
+            el('strong', '', event.display_name || 'Player'),
+            document.createTextNode(
+                {
+                    like: ' liked your review',
+                    comment: ' commented on your review',
+                    follow: ' started following you',
+                }[event.kind]
+            )
+        );
+        content.append(sentence);
+        if (game) content.append(el('span', 'notification-game-name', game.title));
+        const time = el('time', '', relativeTime(event.created_at));
+        time.dateTime = event.created_at;
+        time.title = new Date(event.created_at).toLocaleString();
+        content.append(time);
+        content.addEventListener('click', () => mark(event));
+        row.append(identity, content);
+        if (game) {
+            const link = el('a', 'notification-cover-link');
+            link.href = destination;
+            link.setAttribute('aria-label', 'Open notification for ' + game.title);
+            const image = el('img', 'notification-cover');
+            image.src = ui.href('imagens/capas/' + game.cover);
+            image.alt = '';
+            image.loading = 'lazy';
+            link.append(image);
+            link.addEventListener('click', () => mark(event));
+            row.append(link);
+        }
+        if (!read.has(token(event))) {
+            const button = el('button', 'notification-mark-read', '●');
+            button.type = 'button';
+            button.title = 'Mark as read';
+            button.setAttribute(
+                'aria-label',
+                'Mark notification from ' + (event.display_name || 'Player') + ' as read'
+            );
+            button.addEventListener('click', () => {
+                mark(event);
+                (list.querySelector('a') || unreadTab).focus();
+            });
+            row.append(button);
+        }
         return row;
     }
-    function render(){
-        const preferences=window.BacklogPreferences?.get(),preferenceKeys={like:'notificationLikes',comment:'notificationComments',follow:'notificationFollowers'},activeEvents=events.filter(event=>preferences?.[preferenceKeys[event.kind]]!==false);
-        const unread=activeEvents.filter(event=>!read.has(token(event))).length;badge.textContent=unread>99?'99+':String(unread);badge.hidden=!unread;bell.setAttribute('aria-label','Notifications'+(unread?', '+unread+' unread':''));if(unread!==announced){if(unread>announced&&announced>=0&&!(window.BacklogMotion?.matches??matchMedia('(prefers-reduced-motion:reduce)').matches)){bell.classList.remove('has-new-notification');void bell.offsetWidth;bell.classList.add('has-new-notification');}live.textContent=unread?unread+' unread notifications':'';announced=unread;}
-        allTab.textContent='All '+activeEvents.length;unreadTab.textContent='Unread '+unread;allTab.setAttribute('aria-pressed',String(filter==='all'));unreadTab.setAttribute('aria-pressed',String(filter==='unread'));readAll.disabled=!owner||!unread||busy;refresh.disabled=busy||!owner;
-        status.replaceChildren();status.textContent=error?error:busy?'Loading notifications…':'';list.replaceChildren();
-        if(!owner){const empty=el('div','notifications-empty');empty.append(el('strong','','Your community, closer.'),el('p','','Sign in to see likes, comments and new followers.'));const login=el('a','social-button','Sign in ↗');login.href=ui.href('view/profile.html#account');empty.append(login);list.append(empty);note.textContent='';return;}
-        const shown=activeEvents.filter(event=>filter==='all'||!read.has(token(event)));if(shown.length)list.append(...shown.map((event,index)=>{const row=item(event);row.style.setProperty('--notification-delay',Math.min(index,5)*25+'ms');return row;}));else if(!busy&&!error){const empty=el('div','notifications-empty');empty.append(el('span','notifications-empty-icon','✓'),el('strong','',filter==='unread'?'You’re all caught up.':(preferences&&!preferences.notificationLikes&&!preferences.notificationComments&&!preferences.notificationFollowers?'Notifications are paused.':'No notifications yet.')),el('p','','Likes, comments and new followers will appear here.'));list.append(empty);}
-        if(error){const retry=el('button','social-button','Try again');retry.type='button';retry.addEventListener('click',()=>load());status.append(document.createTextNode(' '),retry);}
-        note.textContent=(events.length>=100?'Latest 100 interactions. ':'')+(persistent?'Read status is saved on this browser.':'Read status is temporary on this page.');if(opened)position();
+    function render() {
+        const preferences = window.BacklogPreferences?.get(),
+            preferenceKeys = {
+                like: 'notificationLikes',
+                comment: 'notificationComments',
+                follow: 'notificationFollowers',
+            },
+            activeEvents = events.filter(
+                (event) => preferences?.[preferenceKeys[event.kind]] !== false
+            );
+        const unread = activeEvents.filter((event) => !read.has(token(event))).length;
+        badge.textContent = unread > 99 ? '99+' : String(unread);
+        badge.hidden = !unread;
+        bell.setAttribute(
+            'aria-label',
+            'Notifications' + (unread ? ', ' + unread + ' unread' : '')
+        );
+        if (unread !== announced) {
+            if (
+                unread > announced &&
+                announced >= 0 &&
+                !(
+                    window.BacklogMotion?.matches ??
+                    matchMedia('(prefers-reduced-motion:reduce)').matches
+                )
+            ) {
+                bell.classList.remove('has-new-notification');
+                void bell.offsetWidth;
+                bell.classList.add('has-new-notification');
+            }
+            live.textContent = unread ? unread + ' unread notifications' : '';
+            announced = unread;
+        }
+        allTab.textContent = 'All ' + activeEvents.length;
+        unreadTab.textContent = 'Unread ' + unread;
+        allTab.setAttribute('aria-pressed', String(filter === 'all'));
+        unreadTab.setAttribute('aria-pressed', String(filter === 'unread'));
+        readAll.disabled = !owner || !unread || busy;
+        refresh.disabled = busy || !owner;
+        status.replaceChildren();
+        status.textContent = error ? error : busy ? 'Loading notifications…' : '';
+        list.replaceChildren();
+        if (!owner) {
+            const empty = el('div', 'notifications-empty');
+            empty.append(
+                el('strong', '', 'Your community, closer.'),
+                el('p', '', 'Sign in to see likes, comments and new followers.')
+            );
+            const login = el('a', 'social-button', 'Sign in ↗');
+            login.href = ui.href('view/profile.html#account');
+            empty.append(login);
+            list.append(empty);
+            note.textContent = '';
+            return;
+        }
+        const shown = activeEvents.filter((event) => filter === 'all' || !read.has(token(event)));
+        if (shown.length)
+            list.append(
+                ...shown.map((event, index) => {
+                    const row = item(event);
+                    row.style.setProperty('--notification-delay', Math.min(index, 5) * 25 + 'ms');
+                    return row;
+                })
+            );
+        else if (!busy && !error) {
+            const empty = el('div', 'notifications-empty');
+            empty.append(
+                el('span', 'notifications-empty-icon', '✓'),
+                el(
+                    'strong',
+                    '',
+                    filter === 'unread'
+                        ? 'You’re all caught up.'
+                        : preferences &&
+                            !preferences.notificationLikes &&
+                            !preferences.notificationComments &&
+                            !preferences.notificationFollowers
+                          ? 'Notifications are paused.'
+                          : 'No notifications yet.'
+                ),
+                el('p', '', 'Likes, comments and new followers will appear here.')
+            );
+            list.append(empty);
+        }
+        if (error) {
+            const retry = el('button', 'social-button', 'Try again');
+            retry.type = 'button';
+            retry.addEventListener('click', () => load());
+            status.append(document.createTextNode(' '), retry);
+        }
+        note.textContent =
+            (events.length >= 100 ? 'Latest 100 interactions. ' : '') +
+            (persistent
+                ? 'Read status is saved on this browser.'
+                : 'Read status is temporary on this page.');
+        if (opened) position();
     }
-    async function load(){
-        const id=account.user?.id;if(!id||account.loading||busy)return;const ticket=++generation;busy=true;error='';render();
-        try{const found=new Map();for(let offset=0;offset<100;offset+=20){const batch=await api.activity(offset,'you');if(ticket!==generation||account.user?.id!==id)return;for(const event of batch)if(event.target_id===id&&event.actor_id!==id&&['follow','like','comment'].includes(event.kind)&&typeof event.id==='string'&&Number.isFinite(Date.parse(event.created_at)))found.set(token(event),event);if(batch.length<20)break;}events=[...found.values()].sort((a,b)=>b.created_at.localeCompare(a.created_at)||a.id.localeCompare(b.id));last=Date.now();}catch{if(ticket===generation)error='Could not load notifications. Please try again.';}finally{if(ticket===generation){busy=false;render();}}
+    async function load() {
+        const id = account.user?.id;
+        if (!id || account.loading || busy) return;
+        const ticket = ++generation;
+        busy = true;
+        error = '';
+        render();
+        try {
+            const found = new Map();
+            for (let offset = 0; offset < 100; offset += 20) {
+                const batch = await api.activity(offset, 'you');
+                if (ticket !== generation || account.user?.id !== id) return;
+                for (const event of batch)
+                    if (
+                        event.target_id === id &&
+                        event.actor_id !== id &&
+                        ['follow', 'like', 'comment'].includes(event.kind) &&
+                        typeof event.id === 'string' &&
+                        Number.isFinite(Date.parse(event.created_at))
+                    )
+                        found.set(token(event), event);
+                if (batch.length < 20) break;
+            }
+            events = [...found.values()].sort(
+                (a, b) => b.created_at.localeCompare(a.created_at) || a.id.localeCompare(b.id)
+            );
+            last = Date.now();
+        } catch {
+            if (ticket === generation) error = 'Could not load notifications. Please try again.';
+        } finally {
+            if (ticket === generation) {
+                busy = false;
+                render();
+            }
+        }
     }
-    function accountChanged(){const next=account.user?.id||null;if(next!==owner){++generation;busy=false;owner=next;events=[];read=next?readStorage():new Set();filter='all';last=0;error='';close();render();}if(next&&!account.loading)load();}
-    bell.addEventListener('click',()=>{if(opened){close();return;}const menu=navbar.querySelector('.menu-toggle[aria-expanded=true]');menu?.click();render();opened=true;panel.hidden=false;bell.setAttribute('aria-expanded','true');if(native)panel.showPopover();position();(owner?allTab:list.querySelector('a'))?.focus({preventScroll:true});if(owner&&!busy&&Date.now()-last>30000)load();});
-    panel.addEventListener('toggle',event=>{if(event.newState==='closed'&&opened){opened=false;panel.hidden=true;bell.setAttribute('aria-expanded','false');}});
-    bell.addEventListener('animationend',event=>{if(event.animationName==='notification-ring')bell.classList.remove('has-new-notification');});
-    readAll.addEventListener('click',()=>{events.forEach(event=>read.add(token(event)));saveRead();render();});allTab.addEventListener('click',()=>{filter='all';render();});unreadTab.addEventListener('click',()=>{filter='unread';render();});refresh.addEventListener('click',()=>load());
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&opened){event.preventDefault();close(true);}});document.addEventListener('pointerdown',event=>{if(opened&&!panel.contains(event.target)&&!bell.contains(event.target))close();});document.addEventListener('focusin',event=>{if(opened&&!panel.contains(event.target)&&!bell.contains(event.target))close();});
-    window.addEventListener('resize',()=>close());window.addEventListener('scroll',()=>{if(!opened)return;const rect=bell.getBoundingClientRect();if(rect.bottom<0||rect.top>innerHeight)close();else position();},{passive:true});window.addEventListener('backlog-account-change',accountChanged);window.addEventListener('storage',event=>{if(owner&&event.key===key(owner)){read=readStorage();render();}});
-    window.addEventListener('backlog-preferences-change',render);
-    function maybeRefresh(){if(!document.hidden&&account.user&&!account.loading&&Date.now()-last>60000)load();}document.addEventListener('visibilitychange',maybeRefresh);window.addEventListener('focus',maybeRefresh);setInterval(maybeRefresh,60000);account.ready.then(accountChanged);render();
+    function accountChanged() {
+        const next = account.user?.id || null;
+        if (next !== owner) {
+            ++generation;
+            busy = false;
+            owner = next;
+            events = [];
+            read = next ? readStorage() : new Set();
+            filter = 'all';
+            last = 0;
+            error = '';
+            close();
+            render();
+        }
+        if (next && !account.loading) load();
+    }
+    bell.addEventListener('click', () => {
+        if (opened) {
+            close();
+            return;
+        }
+        const menu = navbar.querySelector('.menu-toggle[aria-expanded=true]');
+        menu?.click();
+        render();
+        opened = true;
+        panel.hidden = false;
+        bell.setAttribute('aria-expanded', 'true');
+        if (native) panel.showPopover();
+        position();
+        (owner ? allTab : list.querySelector('a'))?.focus({ preventScroll: true });
+        if (owner && !busy && Date.now() - last > 30000) load();
+    });
+    panel.addEventListener('toggle', (event) => {
+        if (event.newState === 'closed' && opened) {
+            opened = false;
+            panel.hidden = true;
+            bell.setAttribute('aria-expanded', 'false');
+        }
+    });
+    bell.addEventListener('animationend', (event) => {
+        if (event.animationName === 'notification-ring')
+            bell.classList.remove('has-new-notification');
+    });
+    readAll.addEventListener('click', () => {
+        events.forEach((event) => read.add(token(event)));
+        saveRead();
+        render();
+    });
+    allTab.addEventListener('click', () => {
+        filter = 'all';
+        render();
+    });
+    unreadTab.addEventListener('click', () => {
+        filter = 'unread';
+        render();
+    });
+    refresh.addEventListener('click', () => load());
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && opened) {
+            event.preventDefault();
+            close(true);
+        }
+    });
+    document.addEventListener('pointerdown', (event) => {
+        if (opened && !panel.contains(event.target) && !bell.contains(event.target)) close();
+    });
+    document.addEventListener('focusin', (event) => {
+        if (opened && !panel.contains(event.target) && !bell.contains(event.target)) close();
+    });
+    window.addEventListener('resize', () => close());
+    window.addEventListener(
+        'scroll',
+        () => {
+            if (!opened) return;
+            const rect = bell.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > innerHeight) close();
+            else position();
+        },
+        { passive: true }
+    );
+    window.addEventListener('backlog-account-change', accountChanged);
+    window.addEventListener('storage', (event) => {
+        if (owner && event.key === key(owner)) {
+            read = readStorage();
+            render();
+        }
+    });
+    window.addEventListener('backlog-preferences-change', render);
+    function maybeRefresh() {
+        if (!document.hidden && account.user && !account.loading && Date.now() - last > 60000)
+            load();
+    }
+    document.addEventListener('visibilitychange', maybeRefresh);
+    window.addEventListener('focus', maybeRefresh);
+    setInterval(maybeRefresh, 60000);
+    account.ready.then(accountChanged);
+    render();
 })();

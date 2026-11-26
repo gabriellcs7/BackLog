@@ -1,16 +1,206 @@
 /* Cards de links nas reviews: metadados locais do catálogo e versões compactas para outros sites. */
 (() => {
-    'use strict';const ui=window.BacklogUI,format=window.BacklogReviewText,t=s=>window.BacklogI18n?.t(s)||s,el=ui.element,games=window.BacklogGames;
-    const videos=new Map(Object.entries(window.BacklogGameTrailers||{}).map(([id,v])=>[v.videoId,{...v,game:ui.game(id)}]));const offers=Object.entries(window.BacklogGamePrices||{}).filter(([id,p])=>ui.game(id)&&p.source).map(([id,p])=>({game:ui.game(id),...p}));const states=new Map();let scheduled=false;
-    function videoID(url){const host=url.hostname.toLowerCase().replace(/^(www\.|m\.|music\.)/,'');let id=null;if(host==='youtu.be')id=url.pathname.split('/')[1];else if(['youtube.com','youtube-nocookie.com'].includes(host))id=url.pathname==='/watch'?url.searchParams.get('v'):url.pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)/)?.[1];return /^[A-Za-z0-9_-]{11}$/.test(id||'')?id:null;}
-    function metadata(address,label){const parsed=new URL(address),id=videoID(parsed);if(id){const known=videos.get(id);return {key:'youtube:'+id,url:'https://www.youtube.com/watch?v='+id,site:'youtube.com',title:known?.title||(label&&label!==address?label:t('YouTube video')),description:known?.channel||t('Watch the original video on YouTube.'),image:known?.game?.banner?ui.href('imagens/'+known.game.banner):'https://i.ytimg.com/vi/'+id+'/hqdefault.jpg',video:true};}
-        const root=new URL(ui.href('view/game.html'));if(parsed.origin===root.origin&&parsed.pathname===root.pathname){const game=ui.game(parsed.searchParams.get('id'));if(game)return {key:'game:'+game.id,url:parsed.href,site:'BackLog',title:game.title,description:[game.year,...game.tags].join(' · '),image:ui.href('imagens/'+game.banner)};}
-        for(const offer of offers){let source;try{source=new URL(offer.source);}catch{continue;}if(parsed.hostname!==source.hostname)continue;const match=parsed.hostname==='store.steampowered.com'?parsed.pathname.match(/^\/app\/(\d+)/)?.[1]&&parsed.pathname.match(/^\/app\/(\d+)/)?.[1]===source.pathname.match(/^\/app\/(\d+)/)?.[1]:parsed.pathname.replace(/\/$/,'')===source.pathname.replace(/\/$/,'');if(match&&offer.store)return {key:source.origin+source.pathname,url:address,site:offer.store,title:offer.edition||offer.game.title,description:offer.platform||'',image:ui.href('imagens/'+offer.game.banner)};}
-        return {key:parsed.href,url:parsed.href,site:parsed.hostname.replace(/^www\./,''),title:label&&label!==address?label:parsed.hostname.replace(/^www\./,''),description:t('Open the original page')};
+    'use strict';
+    const ui = window.BacklogUI,
+        format = window.BacklogReviewText,
+        t = (s) => window.BacklogI18n?.t(s) || s,
+        el = ui.element,
+        games = window.BacklogGames;
+    const videos = new Map(
+        Object.entries(window.BacklogGameTrailers || {}).map(([id, v]) => [
+            v.videoId,
+            { ...v, game: ui.game(id) },
+        ])
+    );
+    const offers = Object.entries(window.BacklogGamePrices || {})
+        .filter(([id, p]) => ui.game(id) && p.source)
+        .map(([id, p]) => ({ game: ui.game(id), ...p }));
+    const states = new Map();
+    let scheduled = false;
+    function videoID(url) {
+        const host = url.hostname.toLowerCase().replace(/^(www\.|m\.|music\.)/, '');
+        let id = null;
+        if (host === 'youtu.be') id = url.pathname.split('/')[1];
+        else if (['youtube.com', 'youtube-nocookie.com'].includes(host))
+            id =
+                url.pathname === '/watch'
+                    ? url.searchParams.get('v')
+                    : url.pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)/)?.[1];
+        return /^[A-Za-z0-9_-]{11}$/.test(id || '') ? id : null;
     }
-    function links(node){const values=[];for(const a of node.querySelectorAll('a[href]')){const address=format.safeURL(a.getAttribute('href'));if(address)values.push({address,label:a.textContent.trim()});}for(const match of node.textContent.matchAll(/https?:\/\/[^\s<>"']+/g)){const address=format.safeURL(match[0].replace(/[.,;!?:]+$/,''));if(address)values.push({address,label:address});}const known=new Set(),result=[];for(const value of values){const item=metadata(value.address,value.label);if(known.has(item.key))continue;known.add(item.key);result.push(item);if(result.length===3)break;}return result;}
-    function card(item){const a=el('a','review-link-preview');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.setAttribute('aria-label',item.title+' · '+t('Open in a new tab'));a.dataset.noTranslate='';if(item.image){const media=el('div','review-link-image'),image=el('img');image.src=item.image;image.alt='';image.loading='lazy';image.referrerPolicy='no-referrer';image.addEventListener('error',()=>{media.remove();a.classList.add('is-compact');},{once:true});media.append(image);if(item.video){const play=el('span','review-link-play','▷');play.setAttribute('aria-hidden','true');media.append(play);}a.append(media);}else a.classList.add('is-compact');const copy=el('div','review-link-copy'),source=el('span','review-link-source');source.append(el('span','review-link-provider',item.video?'▷':'↗'),document.createTextNode(item.site),el('span','review-link-out','↗'));copy.append(source,el('strong','',item.title),el('span','review-link-description',item.description));a.append(copy);return a;}
-    function update(node){const values=links(node),signature=JSON.stringify(values.map(x=>[x.key,x.title,x.description]));let state=states.get(node);if(!state){const host=el('div','review-link-previews');const anchor=node.closest('.rich-review-editor,.expandable-text')||node;anchor.after(host);state={host,signature:null};states.set(node,state);}const hidden=!values.length||node.hidden;if(state.host.hidden!==hidden)state.host.hidden=hidden;if(signature===state.signature)return;state.signature=signature;state.host.replaceChildren(...values.map(card));}
-    function scan(){scheduled=false;for(const [node,state]of states)if(!node.isConnected){state.host.remove();states.delete(node);}for(const node of document.querySelectorAll('#single-review-content .community-review-text,#review-saved-text,#review-rich-text'))update(node);}
-    function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(scan);}}new MutationObserver(schedule).observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden']});window.addEventListener('backlog-language-change',()=>{for(const state of states.values())state.signature=null;schedule();});scan();
+    function metadata(address, label) {
+        const parsed = new URL(address),
+            id = videoID(parsed);
+        if (id) {
+            const known = videos.get(id);
+            return {
+                key: 'youtube:' + id,
+                url: 'https://www.youtube.com/watch?v=' + id,
+                site: 'youtube.com',
+                title: known?.title || (label && label !== address ? label : t('YouTube video')),
+                description: known?.channel || t('Watch the original video on YouTube.'),
+                image: known?.game?.banner
+                    ? ui.href('imagens/' + known.game.banner)
+                    : 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg',
+                video: true,
+            };
+        }
+        const root = new URL(ui.href('view/game.html'));
+        if (parsed.origin === root.origin && parsed.pathname === root.pathname) {
+            const game = ui.game(parsed.searchParams.get('id'));
+            if (game)
+                return {
+                    key: 'game:' + game.id,
+                    url: parsed.href,
+                    site: 'BackLog',
+                    title: game.title,
+                    description: [game.year, ...game.tags].join(' · '),
+                    image: ui.href('imagens/' + game.banner),
+                };
+        }
+        for (const offer of offers) {
+            let source;
+            try {
+                source = new URL(offer.source);
+            } catch {
+                continue;
+            }
+            if (parsed.hostname !== source.hostname) continue;
+            const match =
+                parsed.hostname === 'store.steampowered.com'
+                    ? parsed.pathname.match(/^\/app\/(\d+)/)?.[1] &&
+                      parsed.pathname.match(/^\/app\/(\d+)/)?.[1] ===
+                          source.pathname.match(/^\/app\/(\d+)/)?.[1]
+                    : parsed.pathname.replace(/\/$/, '') === source.pathname.replace(/\/$/, '');
+            if (match && offer.store)
+                return {
+                    key: source.origin + source.pathname,
+                    url: address,
+                    site: offer.store,
+                    title: offer.edition || offer.game.title,
+                    description: offer.platform || '',
+                    image: ui.href('imagens/' + offer.game.banner),
+                };
+        }
+        return {
+            key: parsed.href,
+            url: parsed.href,
+            site: parsed.hostname.replace(/^www\./, ''),
+            title: label && label !== address ? label : parsed.hostname.replace(/^www\./, ''),
+            description: t('Open the original page'),
+        };
+    }
+    function links(node) {
+        const values = [];
+        for (const a of node.querySelectorAll('a[href]')) {
+            const address = format.safeURL(a.getAttribute('href'));
+            if (address) values.push({ address, label: a.textContent.trim() });
+        }
+        for (const match of node.textContent.matchAll(/https?:\/\/[^\s<>"']+/g)) {
+            const address = format.safeURL(match[0].replace(/[.,;!?:]+$/, ''));
+            if (address) values.push({ address, label: address });
+        }
+        const known = new Set(),
+            result = [];
+        for (const value of values) {
+            const item = metadata(value.address, value.label);
+            if (known.has(item.key)) continue;
+            known.add(item.key);
+            result.push(item);
+            if (result.length === 3) break;
+        }
+        return result;
+    }
+    function card(item) {
+        const a = el('a', 'review-link-preview');
+        a.href = item.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.setAttribute('aria-label', item.title + ' · ' + t('Open in a new tab'));
+        a.dataset.noTranslate = '';
+        if (item.image) {
+            const media = el('div', 'review-link-image'),
+                image = el('img');
+            image.src = item.image;
+            image.alt = '';
+            image.loading = 'lazy';
+            image.referrerPolicy = 'no-referrer';
+            image.addEventListener(
+                'error',
+                () => {
+                    media.remove();
+                    a.classList.add('is-compact');
+                },
+                { once: true }
+            );
+            media.append(image);
+            if (item.video) {
+                const play = el('span', 'review-link-play', '▷');
+                play.setAttribute('aria-hidden', 'true');
+                media.append(play);
+            }
+            a.append(media);
+        } else a.classList.add('is-compact');
+        const copy = el('div', 'review-link-copy'),
+            source = el('span', 'review-link-source');
+        source.append(
+            el('span', 'review-link-provider', item.video ? '▷' : '↗'),
+            document.createTextNode(item.site),
+            el('span', 'review-link-out', '↗')
+        );
+        copy.append(
+            source,
+            el('strong', '', item.title),
+            el('span', 'review-link-description', item.description)
+        );
+        a.append(copy);
+        return a;
+    }
+    function update(node) {
+        const values = links(node),
+            signature = JSON.stringify(values.map((x) => [x.key, x.title, x.description]));
+        let state = states.get(node);
+        if (!state) {
+            const host = el('div', 'review-link-previews');
+            const anchor = node.closest('.rich-review-editor,.expandable-text') || node;
+            anchor.after(host);
+            state = { host, signature: null };
+            states.set(node, state);
+        }
+        const hidden = !values.length || node.hidden;
+        if (state.host.hidden !== hidden) state.host.hidden = hidden;
+        if (signature === state.signature) return;
+        state.signature = signature;
+        state.host.replaceChildren(...values.map(card));
+    }
+    function scan() {
+        scheduled = false;
+        for (const [node, state] of states)
+            if (!node.isConnected) {
+                state.host.remove();
+                states.delete(node);
+            }
+        for (const node of document.querySelectorAll(
+            '#single-review-content .community-review-text,#review-saved-text,#review-rich-text'
+        ))
+            update(node);
+    }
+    function schedule() {
+        if (!scheduled) {
+            scheduled = true;
+            requestAnimationFrame(scan);
+        }
+    }
+    new MutationObserver(schedule).observe(document.body, {
+        subtree: true,
+        childList: true,
+        characterData: true,
+        attributes: true,
+        attributeFilter: ['hidden'],
+    });
+    window.addEventListener('backlog-language-change', () => {
+        for (const state of states.values()) state.signature = null;
+        schedule();
+    });
+    scan();
 })();

@@ -1,4 +1,4 @@
-@import url("site.css");
+@import url('site.css');
 /* ===== 01. Destaque da página inicial ===== */
 .home-feature {
     position: relative;
@@ -22,7 +22,9 @@
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: linear-gradient(90deg,#111410f2 0%,#111410bd 37%,#11141018 75%),linear-gradient(0deg,#131414,transparent 60%);
+    background:
+        linear-gradient(90deg, #111410f2 0%, #111410bd 37%, #11141018 75%),
+        linear-gradient(0deg, #131414, transparent 60%);
 }
 
 .home-feature-inner {
@@ -32,7 +34,7 @@
 }
 
 .home-feature h1 {
-    font-size: clamp(50px,6vw,82px);
+    font-size: clamp(50px, 6vw, 82px);
     line-height: 1.05;
     letter-spacing: -4px;
     margin: 22px 0;
@@ -43,7 +45,7 @@
     color: var(--yellow);
 }
 
-.home-feature-inner>p {
+.home-feature-inner > p {
     color: #c2c5b5;
     font-size: 14px;
     line-height: 1.9;
@@ -75,7 +77,7 @@
     font-size: 18px;
     display: block;
     margin: 9px 0;
-    letter-spacing: -.3px;
+    letter-spacing: -0.3px;
 }
 
 .featured-caption strong span {
@@ -83,7 +85,7 @@
     color: var(--yellow);
 }
 
-.featured-caption>span:last-child {
+.featured-caption > span:last-child {
     color: #c5c7bb;
     font-size: 10px;
 }
@@ -99,13 +101,13 @@
 
 .home-games-grid {
     display: grid;
-    grid-template-columns: repeat(6,minmax(0,1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 22px;
 }
 
 .radar-grid {
     display: grid;
-    grid-template-columns: repeat(4,minmax(0,1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
 }
 
@@ -121,7 +123,7 @@
 /* ===== 03. Avaliações originais do projeto ===== */
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
@@ -129,7 +131,7 @@
     padding: 23px;
     border: 1px solid #32372a;
     border-radius: 10px;
-    background: linear-gradient(135deg,#1f2319,#191b17);
+    background: linear-gradient(135deg, #1f2319, #191b17);
     min-width: 0;
 }
 
@@ -144,7 +146,7 @@
     display: block;
     flex-shrink: 0;
     border-radius: 4px;
-    transition: box-shadow .2s;
+    transition: box-shadow 0.2s;
 }
 
 .review-cover-link:hover {
@@ -230,7 +232,7 @@
 }
 
 /* ===== 05. Adaptação para tablets e celulares ===== */
-@media(max-width:1100px) {
+@media (max-width: 1100px) {
     .home-games-grid {
         gap: 15px;
     }
@@ -246,10 +248,9 @@
     .review {
         padding: 18px;
     }
-
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
     .home-feature {
         min-height: 490px;
     }
@@ -271,7 +272,7 @@
     }
 
     .home-games-grid {
-        grid-template-columns: repeat(3,minmax(0,1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 24px 18px;
     }
 
@@ -290,16 +291,17 @@
     .home-section {
         padding-top: 44px;
     }
-
 }
 
-@media(max-width:560px) {
+@media (max-width: 560px) {
     .home-backdrop {
         object-position: 65% center;
     }
 
     .home-gradient {
-        background: linear-gradient(90deg,#111410e8,#11141060),linear-gradient(0deg,#131414,transparent);
+        background:
+            linear-gradient(90deg, #111410e8, #11141060),
+            linear-gradient(0deg, #131414, transparent);
     }
 
     .home-feature-inner {
@@ -308,15 +310,15 @@
     }
 
     .home-feature h1 {
-        font-size: clamp(40px,11vw,59px);
+        font-size: clamp(40px, 11vw, 59px);
         letter-spacing: -2.5px;
     }
 
-    .home-feature-inner>p {
+    .home-feature-inner > p {
         font-size: 12px;
     }
 
-    .home-feature-inner>p br {
+    .home-feature-inner > p br {
         display: none;
     }
 
@@ -351,22 +353,20 @@
         font-size: 7px;
     }
 
-    .featured-caption>span:last-child {
+    .featured-caption > span:last-child {
         font-size: 9px;
     }
 
     .home-games-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 25px 16px;
     }
 
     .radar-grid {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 25px 16px;
     }
-
 }
-
 
 /* ===== 06. Banner imersivo com identificação do jogo ===== */
 .home-backdrop {
@@ -393,7 +393,9 @@
 }
 
 .home-gradient {
-    background: linear-gradient(90deg, #111410ed 0%, #111410b3 32%, #11141014 68%), linear-gradient(0deg, #131414 0%, #13141470 18%, transparent 65%);
+    background:
+        linear-gradient(90deg, #111410ed 0%, #111410b3 32%, #11141014 68%),
+        linear-gradient(0deg, #131414 0%, #13141470 18%, transparent 65%);
 }
 
 .featured-caption {
@@ -448,7 +450,13 @@
     }
 
     .home-gradient {
-        background: linear-gradient(180deg, #13141412 0%, #13141455 28%, #131414ed 62%, #131414 100%);
+        background: linear-gradient(
+            180deg,
+            #13141412 0%,
+            #13141455 28%,
+            #131414ed 62%,
+            #131414 100%
+        );
     }
 
     .home-feature-inner {

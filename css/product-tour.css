@@ -1,7 +1,122 @@
-.backlog-tour{position:fixed;inset:0;margin:0;padding:0;border:0;max-width:none;max-height:none;width:100%;height:100dvh;background:transparent;color:#f4f5ee;overflow:hidden}
-.backlog-tour::backdrop{background:transparent;backdrop-filter:none}.backlog-tour-frame{position:absolute;border:1px solid #ffdb20;border-radius:14px;box-shadow:0 0 0 200vmax #050805c9,0 0 35px #ffda1630;pointer-events:none;transition:left .25s,top .25s,width .25s,height .25s}
-.backlog-tour-tip{position:absolute;box-sizing:border-box;width:min(390px,calc(100% - 28px));padding:26px;border:1px solid #ffffff30;border-radius:20px;background:linear-gradient(145deg,#272c1e,#151a13);box-shadow:0 24px 90px #0009;max-height:calc(100dvh - 28px);overflow:auto;animation:tour-arrive .25s ease-out}
-.backlog-tour-count{font-size:10px;letter-spacing:.14em;color:#ffdb20;margin:0 0 18px;padding-right:78px}.backlog-tour-tip h2{font-size:23px;line-height:1.15;margin:0 0 12px;letter-spacing:-.04em}.backlog-tour-tip #tour-body{font-size:13px;line-height:1.7;color:#bcc3b0;margin:0 0 24px}.backlog-tour-close{position:absolute;right:18px;top:21px;background:none;border:0;color:#bcc3b0;font-size:11px;cursor:pointer}.backlog-tour-close:hover{color:#ffdb20}.backlog-tour-controls{display:flex;justify-content:space-between;gap:12px}.backlog-tour-controls button{min-height:44px}.backlog-tour button:focus-visible{outline:2px solid #ffdb20;outline-offset:4px}.settings-tour-intro{max-width:540px;color:#abb29d;font-size:13px;line-height:1.7}.settings-tour-start{margin-top:8px}
-@keyframes tour-arrive{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
-@media(prefers-reduced-motion:reduce){.backlog-tour-frame{transition:none}.backlog-tour-tip{animation:none}}
-html[data-presentation-motion="reduced"] .backlog-tour-frame{transition:none}html[data-presentation-motion="reduced"] .backlog-tour-tip{animation:none}
+.backlog-tour {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 100dvh;
+    background: transparent;
+    color: #f4f5ee;
+    overflow: hidden;
+}
+.backlog-tour::backdrop {
+    background: transparent;
+    backdrop-filter: none;
+}
+.backlog-tour-frame {
+    position: absolute;
+    border: 1px solid #ffdb20;
+    border-radius: 14px;
+    box-shadow:
+        0 0 0 200vmax #050805c9,
+        0 0 35px #ffda1630;
+    pointer-events: none;
+    transition:
+        left 0.25s,
+        top 0.25s,
+        width 0.25s,
+        height 0.25s;
+}
+.backlog-tour-tip {
+    position: absolute;
+    box-sizing: border-box;
+    width: min(390px, calc(100% - 28px));
+    padding: 26px;
+    border: 1px solid #ffffff30;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #272c1e, #151a13);
+    box-shadow: 0 24px 90px #0009;
+    max-height: calc(100dvh - 28px);
+    overflow: auto;
+    animation: tour-arrive 0.25s ease-out;
+}
+.backlog-tour-count {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: #ffdb20;
+    margin: 0 0 18px;
+    padding-right: 78px;
+}
+.backlog-tour-tip h2 {
+    font-size: 23px;
+    line-height: 1.15;
+    margin: 0 0 12px;
+    letter-spacing: -0.04em;
+}
+.backlog-tour-tip #tour-body {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #bcc3b0;
+    margin: 0 0 24px;
+}
+.backlog-tour-close {
+    position: absolute;
+    right: 18px;
+    top: 21px;
+    background: none;
+    border: 0;
+    color: #bcc3b0;
+    font-size: 11px;
+    cursor: pointer;
+}
+.backlog-tour-close:hover {
+    color: #ffdb20;
+}
+.backlog-tour-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.backlog-tour-controls button {
+    min-height: 44px;
+}
+.backlog-tour button:focus-visible {
+    outline: 2px solid #ffdb20;
+    outline-offset: 4px;
+}
+.settings-tour-intro {
+    max-width: 540px;
+    color: #abb29d;
+    font-size: 13px;
+    line-height: 1.7;
+}
+.settings-tour-start {
+    margin-top: 8px;
+}
+@keyframes tour-arrive {
+    from {
+        opacity: 0;
+        translate: 0 8px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .backlog-tour-frame {
+        transition: none;
+    }
+    .backlog-tour-tip {
+        animation: none;
+    }
+}
+html[data-presentation-motion='reduced'] .backlog-tour-frame {
+    transition: none;
+}
+html[data-presentation-motion='reduced'] .backlog-tour-tip {
+    animation: none;
+}

@@ -1,5 +1,17 @@
-html[data-background=false] .site-background-paths { display:none; }
-html[data-card-glow=false] .backlog-spotlight::before { display:none!important; }
-.account-settings-link { border-top:1px solid var(--line); margin-top:5px; padding-top:12px!important; }
+html[data-background='false'] .site-background-paths {
+    display: none;
+}
+html[data-card-glow='false'] .backlog-spotlight::before {
+    display: none !important;
+}
+.account-settings-link {
+    border-top: 1px solid var(--line);
+    margin-top: 5px;
+    padding-top: 12px !important;
+}
 
-.footer-settings-link { display:block; margin-top:10px; width:fit-content; }
+.footer-settings-link {
+    display: block;
+    margin-top: 10px;
+    width: fit-content;
+}

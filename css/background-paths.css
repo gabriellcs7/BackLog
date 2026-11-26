@@ -1,12 +1,61 @@
 /* Curvas cinza com detalhes amarelos, inspiradas no Background Paths. */
-body { isolation:isolate; }
-.site-background-paths { position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none; mask-image:radial-gradient(ellipse at 50% 42%,#0005, #000 85%); }
-.site-background-paths svg { display:block; width:100%; height:100%; }
-.site-background-paths path { fill:none; stroke:#a1a39b; stroke-width:.8; stroke-opacity:.18; stroke-linecap:round; stroke-dasharray:680 320; animation:backlog-path-flow var(--path-duration,42s) linear infinite; animation-delay:var(--path-delay,0s); animation-play-state:paused; }
-.site-background-paths .path-gold { stroke:#d4b644; stroke-opacity:.23; stroke-width:1; }
-.site-background-paths.is-running path { animation-play-state:running; }
-@keyframes backlog-path-flow { to { stroke-dashoffset:-1000; } }
-html[data-presentation-motion=reduced] .site-background-paths path { animation:none; stroke-dasharray:none; }
-@media(prefers-reduced-motion:reduce) { html:not([data-presentation-motion=full]) .site-background-paths path { animation:none; stroke-dasharray:none; } }
-@media(max-width:600px) { .site-background-paths { opacity:.75; } }
-@media print { .site-background-paths { display:none; } }
+body {
+    isolation: isolate;
+}
+.site-background-paths {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at 50% 42%, #0005, #000 85%);
+}
+.site-background-paths svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.site-background-paths path {
+    fill: none;
+    stroke: #a1a39b;
+    stroke-width: 0.8;
+    stroke-opacity: 0.18;
+    stroke-linecap: round;
+    stroke-dasharray: 680 320;
+    animation: backlog-path-flow var(--path-duration, 42s) linear infinite;
+    animation-delay: var(--path-delay, 0s);
+    animation-play-state: paused;
+}
+.site-background-paths .path-gold {
+    stroke: #d4b644;
+    stroke-opacity: 0.23;
+    stroke-width: 1;
+}
+.site-background-paths.is-running path {
+    animation-play-state: running;
+}
+@keyframes backlog-path-flow {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+html[data-presentation-motion='reduced'] .site-background-paths path {
+    animation: none;
+    stroke-dasharray: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    html:not([data-presentation-motion='full']) .site-background-paths path {
+        animation: none;
+        stroke-dasharray: none;
+    }
+}
+@media (max-width: 600px) {
+    .site-background-paths {
+        opacity: 0.75;
+    }
+}
+@media print {
+    .site-background-paths {
+        display: none;
+    }
+}

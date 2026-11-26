@@ -1,45 +1,190 @@
 /* Mural das três reviews mais curtidas, com repetição visual para o fluxo contínuo. */
-.popular-review-section { padding-bottom:22px; }
-.review-wall-heading { text-align:center; max-width:600px; margin:0 auto 36px; }
-.review-wall-badge { display:inline-block; border:1px solid #ffffff26; border-radius:8px; padding:8px 12px; font-size:9px; letter-spacing:.15em; color:var(--yellow); background:#ffd21f05; }
-.review-wall-heading h2 { font-size:clamp(29px,3.4vw,43px); line-height:1.15; letter-spacing:-.045em; margin:19px 0 14px; }
-.review-wall-heading h2>span { color:var(--yellow); }
-.review-wall-heading p { font-size:13px; line-height:1.7; color:var(--muted); margin:0 auto; max-width:40ch; }
-#pause-review-wall { margin-top:18px; min-height:34px; padding:7px 12px; font-size:10px; }
-.popular-review-wall { max-width:1060px; margin-inline:auto; }
-.popular-review-wall.is-animated { height:640px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; overflow:hidden; mask-image:linear-gradient(to bottom,transparent,#000 16%,#000 84%,transparent); }
-.review-wall-column { min-width:0; overflow:hidden; }
-.review-wall-track { display:flex; flex-direction:column; gap:20px; }
-.is-animated .review-wall-track { will-change:transform; }
-.review-wall-group { display:grid; gap:20px; }
-.popular-review-wall .home-review-card { padding:25px; border:1px solid #ffffff1d; border-radius:24px; background:radial-gradient(ellipse at top right,#ffd21f05,transparent 65%),#191d17; box-shadow:0 12px 30px #0002; }
-.popular-review-wall .home-review-game { align-items:flex-start; gap:13px; margin-bottom:19px; }
-.popular-review-wall .home-review-game img { width:58px; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:6px; }
-.popular-review-wall .home-review-game h3 { font-size:15px; line-height:1.35; margin:2px 0 8px; }
-.popular-review-wall .home-review-game .game-rating-stars { font-size:14px; }
-.popular-review-wall .home-review-copy { min-height:6.8em; font-size:13px; line-height:1.7; -webkit-line-clamp:4; color:#ced2c6; }
-.popular-review-wall .home-review-author { margin:0 0 12px; font-size:12px; }
-.popular-review-wall .community-avatar { width:30px; height:30px; }
-.popular-review-wall .home-review-card time { font-size:10px; margin:14px 0 0; }
-.popular-review-wall .home-review-actions { gap:10px; margin-top:17px; padding-top:14px; border-top:1px solid #ffffff0d; }
-.popular-review-wall .home-review-actions .social-button { min-height:30px; padding:5px 9px; font-size:11px; }
-.popular-review-wall .home-review-actions a { font-size:10px; line-height:1.5; }
-.popular-review-wall .social-feedback:empty { display:none; }
-.popular-review-wall.is-static { display:block; height:auto; overflow:visible; mask-image:none; }
-.is-static .review-wall-column:not(:first-child),.is-static .review-wall-group[aria-hidden=true] { display:none; }
-.is-static .review-wall-track { transform:none!important; }
-.is-static .review-wall-group:not([aria-hidden=true]) { grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
-.popular-review-wall>.social-empty { margin:0; }
-@media(max-width:1050px) {
- .popular-review-wall.is-animated { grid-template-columns:repeat(2,minmax(0,1fr)); }
- .is-animated .review-wall-column:nth-child(3) { display:none; }
- .is-static .review-wall-group:not([aria-hidden=true]) { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.popular-review-section {
+    padding-bottom: 22px;
 }
-@media(max-width:620px) {
- .popular-review-wall { max-width:360px; }
- .popular-review-wall.is-animated { grid-template-columns:minmax(0,1fr); height:580px; }
- .is-animated .review-wall-column:not(:first-child) { display:none; }
- .is-static .review-wall-group:not([aria-hidden=true]) { grid-template-columns:minmax(0,1fr); }
- .review-wall-heading { margin-bottom:25px; }
+.review-wall-heading {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 36px;
 }
-@media(prefers-reduced-motion:no-preference) { .popular-review-wall .home-review-card { transition:border-color 180ms ease; } .popular-review-wall .home-review-card:hover { border-color:#ffd21f55; } }
+.review-wall-badge {
+    display: inline-block;
+    border: 1px solid #ffffff26;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--yellow);
+    background: #ffd21f05;
+}
+.review-wall-heading h2 {
+    font-size: clamp(29px, 3.4vw, 43px);
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    margin: 19px 0 14px;
+}
+.review-wall-heading h2 > span {
+    color: var(--yellow);
+}
+.review-wall-heading p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0 auto;
+    max-width: 40ch;
+}
+#pause-review-wall {
+    margin-top: 18px;
+    min-height: 34px;
+    padding: 7px 12px;
+    font-size: 10px;
+}
+.popular-review-wall {
+    max-width: 1060px;
+    margin-inline: auto;
+}
+.popular-review-wall.is-animated {
+    height: 640px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+}
+.review-wall-column {
+    min-width: 0;
+    overflow: hidden;
+}
+.review-wall-track {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.is-animated .review-wall-track {
+    will-change: transform;
+}
+.review-wall-group {
+    display: grid;
+    gap: 20px;
+}
+.popular-review-wall .home-review-card {
+    padding: 25px;
+    border: 1px solid #ffffff1d;
+    border-radius: 24px;
+    background: radial-gradient(ellipse at top right, #ffd21f05, transparent 65%), #191d17;
+    box-shadow: 0 12px 30px #0002;
+}
+.popular-review-wall .home-review-game {
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 19px;
+}
+.popular-review-wall .home-review-game img {
+    width: 58px;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.popular-review-wall .home-review-game h3 {
+    font-size: 15px;
+    line-height: 1.35;
+    margin: 2px 0 8px;
+}
+.popular-review-wall .home-review-game .game-rating-stars {
+    font-size: 14px;
+}
+.popular-review-wall .home-review-copy {
+    min-height: 6.8em;
+    font-size: 13px;
+    line-height: 1.7;
+    -webkit-line-clamp: 4;
+    color: #ced2c6;
+}
+.popular-review-wall .home-review-author {
+    margin: 0 0 12px;
+    font-size: 12px;
+}
+.popular-review-wall .community-avatar {
+    width: 30px;
+    height: 30px;
+}
+.popular-review-wall .home-review-card time {
+    font-size: 10px;
+    margin: 14px 0 0;
+}
+.popular-review-wall .home-review-actions {
+    gap: 10px;
+    margin-top: 17px;
+    padding-top: 14px;
+    border-top: 1px solid #ffffff0d;
+}
+.popular-review-wall .home-review-actions .social-button {
+    min-height: 30px;
+    padding: 5px 9px;
+    font-size: 11px;
+}
+.popular-review-wall .home-review-actions a {
+    font-size: 10px;
+    line-height: 1.5;
+}
+.popular-review-wall .social-feedback:empty {
+    display: none;
+}
+.popular-review-wall.is-static {
+    display: block;
+    height: auto;
+    overflow: visible;
+    mask-image: none;
+}
+.is-static .review-wall-column:not(:first-child),
+.is-static .review-wall-group[aria-hidden='true'] {
+    display: none;
+}
+.is-static .review-wall-track {
+    transform: none !important;
+}
+.is-static .review-wall-group:not([aria-hidden='true']) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.popular-review-wall > .social-empty {
+    margin: 0;
+}
+@media (max-width: 1050px) {
+    .popular-review-wall.is-animated {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .is-animated .review-wall-column:nth-child(3) {
+        display: none;
+    }
+    .is-static .review-wall-group:not([aria-hidden='true']) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 620px) {
+    .popular-review-wall {
+        max-width: 360px;
+    }
+    .popular-review-wall.is-animated {
+        grid-template-columns: minmax(0, 1fr);
+        height: 580px;
+    }
+    .is-animated .review-wall-column:not(:first-child) {
+        display: none;
+    }
+    .is-static .review-wall-group:not([aria-hidden='true']) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .review-wall-heading {
+        margin-bottom: 25px;
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .popular-review-wall .home-review-card {
+        transition: border-color 180ms ease;
+    }
+    .popular-review-wall .home-review-card:hover {
+        border-color: #ffd21f55;
+    }
+}

@@ -1,1 +1,122 @@
-.review-link-previews { display:grid; gap:12px; margin:16px 0; }.review-link-previews:empty { display:none; }.review-link-preview { display:grid; grid-template-columns:180px minmax(0,1fr); min-width:0; border:1px solid #c5d2952e; border-radius:12px; overflow:hidden; background:#10160f; text-decoration:none; color:var(--text); }.review-link-preview:hover { border-color:#ffe04b80; }.review-link-preview:focus-visible { outline:2px solid var(--yellow); outline-offset:4px; }.review-link-image { position:relative; min-height:120px; }.review-link-image img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }.review-link-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:grid; place-items:center; width:35px; height:35px; border:1px solid #ffffff65; border-radius:50%; background:#101510bb; font-size:15px; color:white; }.review-link-copy { min-width:0; padding:16px 17px; }.review-link-source { display:flex; align-items:center; gap:6px; color:#a1ad90; font-size:9px; line-height:1.5; overflow-wrap:anywhere; }.review-link-provider { display:grid; place-items:center; width:16px; height:13px; border-radius:3px; background:#aabb771a; color:#d4dfbd; font-size:9px; }.review-link-out { margin-left:auto; }.review-link-copy strong { display:block; font-size:13px; line-height:1.5; margin:9px 0 7px; overflow-wrap:anywhere; }.review-link-description { display:block; color:#849577; font-size:10px; line-height:1.6; }.review-link-preview.is-compact { grid-template-columns:minmax(0,1fr); }.review-link-preview.is-compact .review-link-copy { padding:13px 16px; }html[data-presentation-motion=full] .review-link-preview { transition:border-color .2s,transform .2s; }html[data-presentation-motion=full] .review-link-preview:hover { transform:translateY(-2px); }@media(max-width:560px) { .review-link-preview { grid-template-columns:110px minmax(0,1fr); }.review-link-copy { padding:12px; }.review-link-copy strong { font-size:11px; }.review-link-image { min-height:125px; }.review-link-description { font-size:9px; } }
+.review-link-previews {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+}
+.review-link-previews:empty {
+    display: none;
+}
+.review-link-preview {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    min-width: 0;
+    border: 1px solid #c5d2952e;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #10160f;
+    text-decoration: none;
+    color: var(--text);
+}
+.review-link-preview:hover {
+    border-color: #ffe04b80;
+}
+.review-link-preview:focus-visible {
+    outline: 2px solid var(--yellow);
+    outline-offset: 4px;
+}
+.review-link-image {
+    position: relative;
+    min-height: 120px;
+}
+.review-link-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.review-link-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ffffff65;
+    border-radius: 50%;
+    background: #101510bb;
+    font-size: 15px;
+    color: white;
+}
+.review-link-copy {
+    min-width: 0;
+    padding: 16px 17px;
+}
+.review-link-source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #a1ad90;
+    font-size: 9px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+.review-link-provider {
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 13px;
+    border-radius: 3px;
+    background: #aabb771a;
+    color: #d4dfbd;
+    font-size: 9px;
+}
+.review-link-out {
+    margin-left: auto;
+}
+.review-link-copy strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 9px 0 7px;
+    overflow-wrap: anywhere;
+}
+.review-link-description {
+    display: block;
+    color: #849577;
+    font-size: 10px;
+    line-height: 1.6;
+}
+.review-link-preview.is-compact {
+    grid-template-columns: minmax(0, 1fr);
+}
+.review-link-preview.is-compact .review-link-copy {
+    padding: 13px 16px;
+}
+html[data-presentation-motion='full'] .review-link-preview {
+    transition:
+        border-color 0.2s,
+        transform 0.2s;
+}
+html[data-presentation-motion='full'] .review-link-preview:hover {
+    transform: translateY(-2px);
+}
+@media (max-width: 560px) {
+    .review-link-preview {
+        grid-template-columns: 110px minmax(0, 1fr);
+    }
+    .review-link-copy {
+        padding: 12px;
+    }
+    .review-link-copy strong {
+        font-size: 11px;
+    }
+    .review-link-image {
+        min-height: 125px;
+    }
+    .review-link-description {
+        font-size: 9px;
+    }
+}

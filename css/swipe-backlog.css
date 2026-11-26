@@ -1,22 +1,145 @@
-.swipe-backlog-row,.swipe-backlog-content{display:contents}.swipe-backlog-action,.swipe-backlog-toggle,.swipe-backlog-feedback,.swipe-backlog-hint{display:none}
-@media(max-width:600px){
- .collection-group .catalog-grid{grid-template-columns:minmax(0,1fr);gap:12px}
- .swipe-backlog-hint{display:block;color:#aeb3a2;font-size:12px;line-height:1.6;margin:0 0 22px}
- .swipe-backlog-row{display:block;position:relative;overflow:hidden;isolation:isolate;border:1px solid #ffffff20;border-radius:14px;background:#121611;min-width:0}
- .swipe-backlog-content{display:flex;position:relative;z-index:1;align-items:center;background:#1b1f17;transform:translateX(var(--swipe-offset,0px));transition:transform .28s cubic-bezier(.2,.8,.2,1);touch-action:pan-y pinch-zoom;min-height:118px}
- .swipe-backlog-row.is-dragging .swipe-backlog-content{transition:none}
- .swipe-backlog-content>.cover-menu-wrap,.swipe-backlog-content>.library-card{flex:1;min-width:0}
- .swipe-backlog-content .library-card{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:15px;align-content:center;padding:12px;min-height:118px}
- .swipe-backlog-content .library-art{grid-column:1;grid-row:1 / span 5;aspect-ratio:3/4;width:64px;margin:0}
- .swipe-backlog-content .library-card>h3,.swipe-backlog-content .library-card>p,.swipe-backlog-content .game-price{grid-column:2;margin:0;align-self:center}
- .swipe-backlog-content .library-card>h3{font-size:14px;padding-right:18px}
- .swipe-backlog-content .library-card>p{font-size:11px;color:#aeb3a2}
- .swipe-backlog-content .saved-badge,.swipe-backlog-content .card-arrow{display:none}
- .swipe-backlog-toggle{display:grid;place-items:center;flex:none;width:34px;height:44px;margin:0 8px 0 0;border:1px solid #ffffff24;border-radius:9px;background:#ffffff05;color:#ffda16;font-size:21px;cursor:pointer}
- .swipe-backlog-action{display:flex;position:absolute;inset-block:0;width:100px;align-items:center;justify-content:center;flex-direction:column;border:0;font-size:12px;font-weight:700;cursor:pointer;white-space:normal}
- .swipe-backlog-playing{left:0;color:#b5e6ff;background:#203b48}.swipe-backlog-completed{right:0;color:#a7eebc;background:#234331}
- .swipe-backlog-action:focus-visible,.swipe-backlog-toggle:focus-visible{outline:2px solid #ffda16;outline-offset:-4px}
- .swipe-backlog-feedback:not(:empty){display:block;position:relative;margin:0;padding:10px 14px;color:#ffd6c1;font-size:12px}
+.swipe-backlog-row,
+.swipe-backlog-content {
+    display: contents;
 }
-@media(prefers-reduced-motion:reduce){.swipe-backlog-content{transition:none}}
-html[data-presentation-motion="reduced"] .swipe-backlog-content{transition:none}
+.swipe-backlog-action,
+.swipe-backlog-toggle,
+.swipe-backlog-feedback,
+.swipe-backlog-hint {
+    display: none;
+}
+@media (max-width: 600px) {
+    .collection-group .catalog-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+    .swipe-backlog-hint {
+        display: block;
+        color: #aeb3a2;
+        font-size: 12px;
+        line-height: 1.6;
+        margin: 0 0 22px;
+    }
+    .swipe-backlog-row {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid #ffffff20;
+        border-radius: 14px;
+        background: #121611;
+        min-width: 0;
+    }
+    .swipe-backlog-content {
+        display: flex;
+        position: relative;
+        z-index: 1;
+        align-items: center;
+        background: #1b1f17;
+        transform: translateX(var(--swipe-offset, 0px));
+        transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+        touch-action: pan-y pinch-zoom;
+        min-height: 118px;
+    }
+    .swipe-backlog-row.is-dragging .swipe-backlog-content {
+        transition: none;
+    }
+    .swipe-backlog-content > .cover-menu-wrap,
+    .swipe-backlog-content > .library-card {
+        flex: 1;
+        min-width: 0;
+    }
+    .swipe-backlog-content .library-card {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 1fr);
+        column-gap: 15px;
+        align-content: center;
+        padding: 12px;
+        min-height: 118px;
+    }
+    .swipe-backlog-content .library-art {
+        grid-column: 1;
+        grid-row: 1 / span 5;
+        aspect-ratio: 3/4;
+        width: 64px;
+        margin: 0;
+    }
+    .swipe-backlog-content .library-card > h3,
+    .swipe-backlog-content .library-card > p,
+    .swipe-backlog-content .game-price {
+        grid-column: 2;
+        margin: 0;
+        align-self: center;
+    }
+    .swipe-backlog-content .library-card > h3 {
+        font-size: 14px;
+        padding-right: 18px;
+    }
+    .swipe-backlog-content .library-card > p {
+        font-size: 11px;
+        color: #aeb3a2;
+    }
+    .swipe-backlog-content .saved-badge,
+    .swipe-backlog-content .card-arrow {
+        display: none;
+    }
+    .swipe-backlog-toggle {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 34px;
+        height: 44px;
+        margin: 0 8px 0 0;
+        border: 1px solid #ffffff24;
+        border-radius: 9px;
+        background: #ffffff05;
+        color: #ffda16;
+        font-size: 21px;
+        cursor: pointer;
+    }
+    .swipe-backlog-action {
+        display: flex;
+        position: absolute;
+        inset-block: 0;
+        width: 100px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border: 0;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: normal;
+    }
+    .swipe-backlog-playing {
+        left: 0;
+        color: #b5e6ff;
+        background: #203b48;
+    }
+    .swipe-backlog-completed {
+        right: 0;
+        color: #a7eebc;
+        background: #234331;
+    }
+    .swipe-backlog-action:focus-visible,
+    .swipe-backlog-toggle:focus-visible {
+        outline: 2px solid #ffda16;
+        outline-offset: -4px;
+    }
+    .swipe-backlog-feedback:not(:empty) {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 10px 14px;
+        color: #ffd6c1;
+        font-size: 12px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .swipe-backlog-content {
+        transition: none;
+    }
+}
+html[data-presentation-motion='reduced'] .swipe-backlog-content {
+    transition: none;
+}

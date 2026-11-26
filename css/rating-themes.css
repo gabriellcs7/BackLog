@@ -1,19 +1,149 @@
 /* A arte troca somente o símbolo; valores, meios pontos e controles nativos continuam iguais. */
-[data-rating-theme=minecraft] { --rating-asset:url('../imagens/ui/ratings/nether-star.png'); --rating-full-filter:drop-shadow(0 0 1px #d7ffc755); --rating-empty-filter:grayscale(1) brightness(.5) opacity(.6); }
-[data-rating-theme=gta-wanted] { --rating-asset:url('../imagens/ui/ratings/gta-wanted-star.svg'); --rating-full-filter:drop-shadow(0 0 2px #e72b3733); --rating-empty-filter:grayscale(1) brightness(.7) opacity(.7); }
-[data-rating-theme=cuphead] { --rating-asset:url('../imagens/ui/ratings/cuphead-retro-star.svg'); --rating-full-filter:none; --rating-empty-filter:grayscale(1) brightness(.42); }
-.game-rating-stars[data-rating-theme] { display:inline-flex; align-items:center; gap:2px; line-height:1; background:none; background-clip:initial; color:inherit; letter-spacing:0; vertical-align:middle; }
-.rating-themed-star,[data-rating-theme] .rating-star-shape { position:relative; display:inline-block; flex:none; width:1.12em; height:1.12em; line-height:1; color:transparent; background:none; background-clip:initial; -webkit-background-clip:initial; vertical-align:middle; pointer-events:none; }
-.rating-themed-star::before,.rating-themed-star::after,[data-rating-theme] .rating-star-shape::before,[data-rating-theme] .rating-star-shape::after { content:''; position:absolute; inset:0; background-image:var(--rating-asset); background-position:center; background-size:contain; background-repeat:no-repeat; }
-.rating-themed-star::before,[data-rating-theme] .rating-star-shape::before { filter:var(--rating-empty-filter); }
-.rating-themed-star::after,[data-rating-theme] .rating-star-shape::after { filter:var(--rating-full-filter); clip-path:inset(0 calc(100% - var(--star-fill,0%)) 0 0); }
-[data-rating-theme=minecraft] .rating-themed-star::before,[data-rating-theme=minecraft] .rating-themed-star::after,[data-rating-theme=minecraft] .rating-star-shape::before,[data-rating-theme=minecraft] .rating-star-shape::after,.rating-themed-star[data-rating-theme=minecraft]::before,.rating-themed-star[data-rating-theme=minecraft]::after { image-rendering:pixelated; }
-.review-rating[data-rating-theme] .rating-star-shape { font-size:34px; }
-.review-stars[data-rating-theme] { font-size:22px; }
-.rating-scale-first>.rating-themed-star:not(:first-child) { display:none; }
-.rating-tv-noise,.rating-tv-noise-empty { position:absolute; inset:1px; z-index:2; pointer-events:none; opacity:.96; background-image:linear-gradient(0deg,transparent 44%,#0005 49%,transparent 54%),var(--tv-frame,url('../imagens/ui/ratings/tv-static-01.svg')); background-size:100% 200%,40px 40px; -webkit-mask-image:var(--rating-asset); -webkit-mask-size:contain; -webkit-mask-position:center; -webkit-mask-repeat:no-repeat; mask-image:var(--rating-asset); mask-size:contain; mask-position:center; mask-repeat:no-repeat; clip-path:inset(0 calc(100% - var(--star-fill,0%)) 0 0); image-rendering:pixelated; }
-.rating-tv-noise { z-index:3; }
-.rating-tv-noise-empty { clip-path:none; opacity:.32; filter:brightness(.65); }
-html[data-presentation-motion=full] [data-rating-theme=cuphead] :is(.rating-tv-noise,.rating-tv-noise-empty) { animation:rating-tv-static .64s steps(1,end) infinite; }
-@keyframes rating-tv-static { 0%,100% { --tv-frame:url('../imagens/ui/ratings/tv-static-01.svg'); background-position:0 0,0 0; } 25% { --tv-frame:url('../imagens/ui/ratings/tv-static-02.svg'); background-position:0 35%,11px 5px; } 50% { --tv-frame:url('../imagens/ui/ratings/tv-static-03.svg'); background-position:0 70%,-7px 13px; } 75% { --tv-frame:url('../imagens/ui/ratings/tv-static-04.svg'); background-position:0 100%,5px -9px; } }
-@media(max-width:380px) { .review-rating[data-rating-theme] .rating-star-shape { font-size:31px; } }
+[data-rating-theme='minecraft'] {
+    --rating-asset: url('../imagens/ui/ratings/nether-star.png');
+    --rating-full-filter: drop-shadow(0 0 1px #d7ffc755);
+    --rating-empty-filter: grayscale(1) brightness(0.5) opacity(0.6);
+}
+[data-rating-theme='gta-wanted'] {
+    --rating-asset: url('../imagens/ui/ratings/gta-wanted-star.svg');
+    --rating-full-filter: drop-shadow(0 0 2px #e72b3733);
+    --rating-empty-filter: grayscale(1) brightness(0.7) opacity(0.7);
+}
+[data-rating-theme='cuphead'] {
+    --rating-asset: url('../imagens/ui/ratings/cuphead-retro-star.svg');
+    --rating-full-filter: none;
+    --rating-empty-filter: grayscale(1) brightness(0.42);
+}
+.game-rating-stars[data-rating-theme] {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    line-height: 1;
+    background: none;
+    background-clip: initial;
+    color: inherit;
+    letter-spacing: 0;
+    vertical-align: middle;
+}
+.rating-themed-star,
+[data-rating-theme] .rating-star-shape {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    width: 1.12em;
+    height: 1.12em;
+    line-height: 1;
+    color: transparent;
+    background: none;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    vertical-align: middle;
+    pointer-events: none;
+}
+.rating-themed-star::before,
+.rating-themed-star::after,
+[data-rating-theme] .rating-star-shape::before,
+[data-rating-theme] .rating-star-shape::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--rating-asset);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.rating-themed-star::before,
+[data-rating-theme] .rating-star-shape::before {
+    filter: var(--rating-empty-filter);
+}
+.rating-themed-star::after,
+[data-rating-theme] .rating-star-shape::after {
+    filter: var(--rating-full-filter);
+    clip-path: inset(0 calc(100% - var(--star-fill, 0%)) 0 0);
+}
+[data-rating-theme='minecraft'] .rating-themed-star::before,
+[data-rating-theme='minecraft'] .rating-themed-star::after,
+[data-rating-theme='minecraft'] .rating-star-shape::before,
+[data-rating-theme='minecraft'] .rating-star-shape::after,
+.rating-themed-star[data-rating-theme='minecraft']::before,
+.rating-themed-star[data-rating-theme='minecraft']::after {
+    image-rendering: pixelated;
+}
+.review-rating[data-rating-theme] .rating-star-shape {
+    font-size: 34px;
+}
+.review-stars[data-rating-theme] {
+    font-size: 22px;
+}
+.rating-scale-first > .rating-themed-star:not(:first-child) {
+    display: none;
+}
+.rating-tv-noise,
+.rating-tv-noise-empty {
+    position: absolute;
+    inset: 1px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.96;
+    background-image:
+        linear-gradient(0deg, transparent 44%, #0005 49%, transparent 54%),
+        var(--tv-frame, url('../imagens/ui/ratings/tv-static-01.svg'));
+    background-size:
+        100% 200%,
+        40px 40px;
+    -webkit-mask-image: var(--rating-asset);
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-image: var(--rating-asset);
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    clip-path: inset(0 calc(100% - var(--star-fill, 0%)) 0 0);
+    image-rendering: pixelated;
+}
+.rating-tv-noise {
+    z-index: 3;
+}
+.rating-tv-noise-empty {
+    clip-path: none;
+    opacity: 0.32;
+    filter: brightness(0.65);
+}
+html[data-presentation-motion='full']
+    [data-rating-theme='cuphead']
+    :is(.rating-tv-noise, .rating-tv-noise-empty) {
+    animation: rating-tv-static 0.64s steps(1, end) infinite;
+}
+@keyframes rating-tv-static {
+    0%,
+    100% {
+        --tv-frame: url('../imagens/ui/ratings/tv-static-01.svg');
+        background-position:
+            0 0,
+            0 0;
+    }
+    25% {
+        --tv-frame: url('../imagens/ui/ratings/tv-static-02.svg');
+        background-position:
+            0 35%,
+            11px 5px;
+    }
+    50% {
+        --tv-frame: url('../imagens/ui/ratings/tv-static-03.svg');
+        background-position:
+            0 70%,
+            -7px 13px;
+    }
+    75% {
+        --tv-frame: url('../imagens/ui/ratings/tv-static-04.svg');
+        background-position:
+            0 100%,
+            5px -9px;
+    }
+}
+@media (max-width: 380px) {
+    .review-rating[data-rating-theme] .rating-star-shape {
+        font-size: 31px;
+    }
+}

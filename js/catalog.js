@@ -275,12 +275,10 @@
         page = next;
         render();
         pagination.querySelector('[aria-current="page"]')?.focus({ preventScroll: true });
-        document
-            .querySelector('#results-heading')
-            .scrollIntoView({
-                block: 'start',
-                behavior: window.BacklogMotion?.matches ? 'instant' : 'smooth',
-            });
+        document.querySelector('#results-heading').scrollIntoView({
+            block: 'start',
+            behavior: window.BacklogMotion?.matches ? 'instant' : 'smooth',
+        });
     });
     window.addEventListener('popstate', () => {
         const address = new URLSearchParams(location.search);

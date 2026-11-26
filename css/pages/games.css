@@ -1,4 +1,4 @@
-@import url("../../css/site.css");
+@import url('../site.css');
 /* ===== 01. Apresentação do catálogo ===== */
 .catalog-intro {
     padding-bottom: 48px;
@@ -6,13 +6,13 @@
 }
 
 .catalog-intro:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     right: 0;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse at top right,#66703325,transparent 70%);
+    background: radial-gradient(ellipse at top right, #66703325, transparent 70%);
     z-index: -1;
 }
 
@@ -115,7 +115,7 @@
     gap: 12px;
 }
 
-.catalog-selects>label:not(.visually-hidden) {
+.catalog-selects > label:not(.visually-hidden) {
     font-size: 10px;
     color: #929e7d;
 }
@@ -146,7 +146,7 @@
 
 .results-heading h2 {
     font-size: 18px;
-    letter-spacing: -.3px;
+    letter-spacing: -0.3px;
 }
 
 .results-heading p {
@@ -156,7 +156,6 @@
 }
 
 /* ===== 03. Grade de jogos e estados vazios ===== */
-
 
 .saved-badge {
     position: absolute;
@@ -179,7 +178,7 @@
     background: #1d221633;
 }
 
-.empty-state>span {
+.empty-state > span {
     color: var(--yellow);
     font-size: 40px;
 }
@@ -227,8 +226,7 @@
 }
 
 /* ===== 04. Tablets e celulares ===== */
-@media(max-width:1100px) {
-
+@media (max-width: 1100px) {
     .catalog-title-row h1 {
         font-size: 58px;
     }
@@ -236,10 +234,9 @@
     .catalog-mark {
         padding-right: 20px;
     }
-
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
     .catalog-title-row {
         padding-top: 35px;
     }
@@ -263,14 +260,12 @@
         width: 100%;
     }
 
-
     .catalog-intro {
         padding-bottom: 35px;
     }
-
 }
 
-@media(max-width:560px) {
+@media (max-width: 560px) {
     .breadcrumbs {
         font-size: 9px;
     }
@@ -280,7 +275,7 @@
     }
 
     .catalog-title-row h1 {
-        font-size: clamp(35px,10vw,48px);
+        font-size: clamp(35px, 10vw, 48px);
         letter-spacing: -2px;
     }
 
@@ -298,7 +293,7 @@
         padding: 10px 7px;
     }
 
-    .catalog-selects>label:not(.visually-hidden) {
+    .catalog-selects > label:not(.visually-hidden) {
         font-size: 9px;
     }
 
@@ -306,7 +301,6 @@
         font-size: 11px;
         padding: 9px 11px;
     }
-
 
     .catalog-end {
         flex-wrap: wrap;
@@ -327,7 +321,6 @@
         text-align: right;
         overflow-wrap: anywhere;
     }
-
 }
 
 /* ===== Filtro e identificação do status na coleção ===== */
@@ -347,31 +340,31 @@
     line-height: 1.4;
 }
 
-.saved-badge[data-status="playing"] {
+.saved-badge[data-status='playing'] {
     border-color: #6094b3;
     background: #14232fef;
     color: #a7ddff;
 }
 
-.saved-badge[data-status="completed"] {
+.saved-badge[data-status='completed'] {
     border-color: #709869;
     background: #1b2c19ef;
     color: #bfe8b3;
 }
 
-.saved-badge[data-status="platinum"] {
+.saved-badge[data-status='platinum'] {
     border-color: #9e89bd;
     background: #292037ef;
     color: #dfceff;
 }
 
-.saved-badge[data-status="dropped"] {
+.saved-badge[data-status='dropped'] {
     border-color: #ae8070;
     background: #321d18ef;
     color: #f3c4b4;
 }
 
-.saved-badge[data-status="want-to-play"] {
+.saved-badge[data-status='want-to-play'] {
     border-color: #bca047;
     background: #2b2513ef;
     color: #ffe28b;
@@ -384,18 +377,82 @@
 }
 
 /* Coleção separada entre histórico, jogos em andamento e lista de desejos. */
-.collection-sections { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 0; }
-.collection-sections a { border:1px solid #ffffff25; border-radius:7px; padding:11px 15px; font-size:12px; color:var(--muted); }
-.collection-sections a:hover { color:var(--yellow); border-color:var(--yellow); }
-.collection-sections span { color:var(--yellow); margin-left:8px; font-size:11px; }
-.catalog-grid.is-grouped { display:block; }
-.collection-group { padding-bottom:34px; margin-bottom:32px; border-bottom:1px solid var(--line); scroll-margin-top:24px; }
-.collection-group > h3 { font-size:22px; margin:0 0 8px; letter-spacing:-.5px; }
-.collection-group-description { color:var(--muted); font-size:12px; line-height:1.8; margin:0 0 24px; }
-.collection-group-empty { color:var(--muted); padding:20px; border:1px dashed #ffffff25; border-radius:8px; font-size:12px; }
+.collection-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 24px 0 0;
+}
+.collection-sections a {
+    border: 1px solid #ffffff25;
+    border-radius: 7px;
+    padding: 11px 15px;
+    font-size: 12px;
+    color: var(--muted);
+}
+.collection-sections a:hover {
+    color: var(--yellow);
+    border-color: var(--yellow);
+}
+.collection-sections span {
+    color: var(--yellow);
+    margin-left: 8px;
+    font-size: 11px;
+}
+.catalog-grid.is-grouped {
+    display: block;
+}
+.collection-group {
+    padding-bottom: 34px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 24px;
+}
+.collection-group > h3 {
+    font-size: 22px;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+.collection-group-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 0 0 24px;
+}
+.collection-group-empty {
+    color: var(--muted);
+    padding: 20px;
+    border: 1px dashed #ffffff25;
+    border-radius: 8px;
+    font-size: 12px;
+}
 
-.catalog-pages { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:34px 0 16px; }
-.catalog-pages a { display:grid; place-items:center; min-width:44px; min-height:44px; border:1px solid var(--line); border-radius:8px; color:var(--text); text-decoration:none; }
-.catalog-pages a:hover { border-color:var(--yellow); }
-.catalog-pages a[aria-current="page"] { background:var(--yellow); color:#151614; border-color:var(--yellow); font-weight:700; }
-#results-heading { scroll-margin-top:110px; }
+.catalog-pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 34px 0 16px;
+}
+.catalog-pages a {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+}
+.catalog-pages a:hover {
+    border-color: var(--yellow);
+}
+.catalog-pages a[aria-current='page'] {
+    background: var(--yellow);
+    color: #151614;
+    border-color: var(--yellow);
+    font-weight: 700;
+}
+#results-heading {
+    scroll-margin-top: 110px;
+}

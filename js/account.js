@@ -271,13 +271,11 @@
                     throw new Error('Choose a valid profile photo.');
                 const path = owner + '/' + crypto.randomUUID() + '.webp';
                 checked(
-                    await client.storage
-                        .from('avatars')
-                        .upload(path, photo, {
-                            contentType: 'image/webp',
-                            cacheControl: '31536000',
-                            upsert: false,
-                        })
+                    await client.storage.from('avatars').upload(path, photo, {
+                        contentType: 'image/webp',
+                        cacheControl: '31536000',
+                        upsert: false,
+                    })
                 );
                 if (user?.id !== owner) throw new Error('Your account changed. Please reload.');
                 patch.avatar_path = path;

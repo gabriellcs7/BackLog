@@ -19,6 +19,6 @@ Artes horizontais baixadas de fontes públicas. Os arquivos locais foram otimiza
 
 Minecraft e Minecraft Dungeons II: imagens selecionadas dentro dos pacotes oficiais de wallpapers da Mojang. Fortnite: arte oficial da temporada MEGA distribuída pela Nintendo. Phantom Blade Zero: wallpaper do perfil oficial do jogo. Os demais banners novos usam artes e capturas disponibilizadas pelos estúdios na Steam.
 
-Os enquadramentos de computador e celular ficam nos campos `bannerPosition` e `bannerPositionMobile` em `js/games.js`.
+Os enquadramentos de computador e celular ficam nos campos `bannerPosition` e `bannerPositionMobile` em `js/data/games.js`.
 
 A captura de Silent Hill: Townfall teve apenas suas faixas pretas externas removidas para preencher o banner.

@@ -1,24 +1,27 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
         <script src="../js/data/i18n-catalog.js?v=20261125-components-2" defer></script>
         <script src="../js/i18n.js" defer></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#131414">
-        <meta name="description" content="Personalize your BackLog language, appearance, notifications and account preferences.">
-        <link rel="icon" href="../imagens/favicon_2-32x32.png">
-        <link rel="stylesheet" href="../css/social.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#131414" />
+        <meta
+            name="description"
+            content="Personalize your BackLog language, appearance, notifications and account preferences."
+        />
+        <link rel="icon" href="../imagens/favicon_2-32x32.png" />
+        <link rel="stylesheet" href="../css/social.css" />
         <title>Settings · BackLog</title>
-        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1">
-        <link rel="stylesheet" href="../css/settings.css">
+        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1" />
+        <link rel="stylesheet" href="../css/settings.css" />
         <script src="../js/share-controls.js" defer></script>
         <script src="../js/data/games.js" defer></script>
         <script src="../js/config.js" defer></script>
         <script src="../js/account.js?v=20261125-community-2" defer></script>
         <script src="../js/site.js" defer></script>
-<script src="../js/status-undo.js" defer></script>
+        <script src="../js/status-undo.js" defer></script>
         <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js?v=20261123-audit-1" defer></script>
         <script src="../js/ui.js" defer></script>
@@ -33,100 +36,746 @@
         <script src="../js/avatar-upload.js" defer></script>
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
-    <link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2">
-<link rel="stylesheet" href="../css/status-undo.css">
-<link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" href="../css/component-dialog.css?v=20261125-2"></head>
+        <link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2" />
+        <link rel="stylesheet" href="../css/status-undo.css" />
+        <link rel="stylesheet" href="../css/footer.css" />
+        <link rel="stylesheet" href="../css/component-dialog.css?v=20261125-2" />
+    </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
         <!-- Navegação compartilhada e pesquisa -->
         <header class="site-header">
             <nav class="navbar shell" aria-label="Main navigation">
-                <a class="brand" href="../index.html" aria-label="BackLog home"> <img src="../imagens/logo_transparente.png" alt="BackLog"> </a>
-                <form class="nav-search" role="search" action="../view/pagina_jogos.html" data-catalog="../view/pagina_jogos.html">
+                <a class="brand" href="../index.html" aria-label="BackLog home">
+                    <img src="../imagens/logo_transparente.png" alt="BackLog" />
+                </a>
+                <form
+                    class="nav-search"
+                    role="search"
+                    action="../view/pagina_jogos.html"
+                    data-catalog="../view/pagina_jogos.html"
+                >
                     <label class="visually-hidden" for="site-search">Search games or players</label>
                     <button type="submit" aria-label="Search games or players">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/>
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="10.5"
+                                cy="10.5"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
 
-                            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-
+                            <path
+                                d="m16 16 4 4"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                            />
                         </svg>
                     </button>
-                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games or players..." autocomplete="off" maxlength="120">
-                    <kbd aria-hidden="true">
-                        /
-                    </kbd>
+                    <input
+                        id="site-search"
+                        class="search"
+                        type="search"
+                        name="q"
+                        placeholder="Search games or players..."
+                        autocomplete="off"
+                        maxlength="120"
+                    />
+                    <kbd aria-hidden="true"> / </kbd>
                 </form>
                 <div class="nav-links" id="navigation">
                     <a id="profile-nav-link" href="profile.html">Profile</a>
                     <a href="activity.html">Activity</a>
                     <a href="../view/pagina_jogos.html">Games</a>
-                    <a href="../view/pagina_jogos.html?saved=1">My backlog <span class="nav-count" id="nav-count">0</span></a>
+                    <a href="../view/pagina_jogos.html?saved=1"
+                        >My backlog <span class="nav-count" id="nav-count">0</span></a
+                    >
                     <a href="diary.html">Diary</a>
                 </div>
-                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button>
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                    aria-label="Open menu"
+                >
+                    <span></span><span></span>
+                </button>
             </nav>
         </header>
-<main id="main" class="settings-page shell">
- <header class="settings-hero"><div><span class="eyebrow">YOUR PREFERENCES</span><h1>Make BackLog yours<span>.</span></h1><p>Interface, animation, and account preferences.</p><span class="settings-saved" id="settings-save-state" role="status"><i aria-hidden="true"></i><span>Saved automatically</span></span></div><div class="settings-hero-art" aria-hidden="true"><img src="../imagens/capas/catalogo/god-of-war-ragnarok.webp" alt="" style="--cover-index:0"><img src="../imagens/capas/catalogo/hollow-knight.webp" alt="" style="--cover-index:1"><img src="../imagens/capas/catalogo/cyberpunk-2077.webp" alt="" style="--cover-index:2"><img src="../imagens/capas/catalogo/the-last-of-us.webp" alt="" style="--cover-index:3"><span>These settings apply to this browser.</span></div></header>
- <div class="settings-layout"><aside class="settings-sidebar"><nav aria-label="Settings sections"><a href="#settings-general" class="selected" aria-current="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c4 5 4 13 0 18-4-5-4-13 0-18Z"/></svg><span>General</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a><a href="#settings-appearance"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 16 16M8 4v4H4m12 12v-4h4M16 3v4m-2-2h4M5 14v6m-3-3h6"/></svg><span>Appearance</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a><a href="#settings-notifications"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6"/></svg><span>Notifications</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a><a href="#settings-privacy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><span>Privacy</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a><a href="#settings-account"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2"/></svg><span>Account</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a><a href="#settings-data"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg><span>Your data</span><span class="settings-nav-arrow" aria-hidden="true">↗</span></a></nav><div class="settings-local-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><span>Preferences are saved on this browser.</span></div></aside>
- <div class="settings-sections">
-  <section class="settings-card" id="settings-general" aria-labelledby="settings-language-heading"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c4 5 4 13 0 18-4-5-4-13 0-18Z"/></svg></span><div><h2>Language</h2><p>Choose the language for menus and controls.</p></div></div><div class="settings-language-options" role="group" aria-labelledby="settings-language-heading"><h3 id="settings-language-heading" class="visually-hidden">Interface language</h3><button type="button" class="settings-language" data-language="en" aria-pressed="true"><span class="language-monogram">EN</span><span data-no-translate>English<small>English</small></span><span class="language-check" aria-hidden="true">✓</span></button><button type="button" class="settings-language" data-language="pt-BR" aria-pressed="false"><span class="language-monogram">PT</span><span data-no-translate>Português<small>Português do Brasil</small></span><span class="language-check" aria-hidden="true">✓</span></button></div></section>
-  <section class="settings-card" id="settings-appearance"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 16 16M8 4v4H4m12 12v-4h4M16 3v4m-2-2h4M5 14v6m-3-3h6"/></svg></span><div><h2>Animation preferences</h2><p>Adjust motion effects and background animations.</p></div></div><div class="settings-option"><div><label for="presentation-motion">Animation mode</label><p id="presentation-motion-status" role="status"></p></div><select id="presentation-motion"><option value="auto">Follow device</option><option value="full">Full animations</option><option value="reduced">Reduced motion</option></select></div><div class="settings-option"><div><h3 id="label-background">Animated background</h3><p>Show the golden paths behind the pages.</p></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-background" data-preference="background"><span></span></button></div><div class="settings-option"><div><h3 id="label-cardGlow">Card glow</h3><p>Let a soft light follow your pointer over cards.</p></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-cardGlow" data-preference="cardGlow"><span></span></button></div></section>
-  <section class="settings-card" id="settings-notifications"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6"/></svg></span><div><h2>Your notification center</h2><p>Choose what appears in the bell. Your Activity feed stays available.</p></div></div><div class="settings-option"><div><h3 id="label-notificationLikes">Likes on your reviews</h3></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-notificationLikes" data-preference="notificationLikes"><span></span></button></div><div class="settings-option"><div><h3 id="label-notificationComments">Comments on your reviews</h3></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-notificationComments" data-preference="notificationComments"><span></span></button></div><div class="settings-option"><div><h3 id="label-notificationFollowers">New followers</h3></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-notificationFollowers" data-preference="notificationFollowers"><span></span></button></div><p class="settings-footnote">These preferences control the in-site bell on this browser.</p></section>
-  <section class="settings-card" id="settings-privacy"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg></span><div><h2>New list visibility</h2><p>Private by default</p></div></div><div class="settings-option"><div><h3 id="label-publicLists">Make new lists public</h3><p>Applies only to new lists. You can change each list when editing it.</p></div><button class="settings-switch" type="button" role="switch" aria-checked="true" aria-labelledby="label-publicLists" data-preference="publicLists"><span></span></button></div></section>
-  <section class="settings-card" id="settings-account"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2"/></svg></span><div><h2>Profile & account</h2><p>Manage your display name, avatar, and banner.</p></div></div><div class="settings-account-identity"><div id="settings-avatar"></div><div><h3 id="settings-player" data-no-translate>Device profile</h3><p id="settings-email" data-no-translate></p><span class="settings-account-status" id="settings-account-status">Device profile</span></div></div><p class="settings-account-description" id="settings-account-description"></p><section class="settings-profile-preview" aria-label="Profile preview"><div class="settings-preview-art"><img id="settings-preview-banner" alt="" hidden></div><div class="settings-preview-info"><span id="settings-preview-avatar"></span><div><h3 id="settings-preview-name" data-no-translate></h3><p id="settings-preview-bio" data-no-translate></p><p id="settings-preview-details" data-no-translate></p></div></div><div id="settings-preview-favorites" class="settings-preview-favorites"></div></section><div class="settings-profile-links"><button type="button" data-edit-profile="profile">Edit profile & photo <span aria-hidden="true">↗</span></button><button type="button" data-edit-profile="banner">Change banner <span aria-hidden="true">↗</span></button><button type="button" data-edit-profile="favorites">Choose your favorite four <span aria-hidden="true">↗</span></button><a href="profile-lists.html">Access your lists <span aria-hidden="true">↗</span></a></div><div class="settings-account-actions"><a class="social-button social-button-primary" id="settings-signin" href="profile.html#account">Sign in ↗</a><button class="social-button" id="settings-signout" type="button" hidden>Sign out</button><p class="social-feedback" id="settings-account-feedback" role="status"></p></div></section>
-  <section class="settings-card" id="settings-data"><div class="settings-section-heading"><span class="settings-section-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg></span><div><h2>Download your data</h2><p>Keep a personal copy of your profile, lists, diary, ratings and game statuses.</p></div></div><button class="social-button social-button-primary settings-export" id="settings-export" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></svg><span>Export my data</span></button><p class="social-feedback" id="settings-export-feedback" role="status"></p><div class="settings-reset"><div><h3>Restore default settings</h3><p>Reset language, appearance and notification preferences.</p><small>Your games, reviews and lists stay saved.</small></div><button class="social-button" id="settings-reset" type="button">Restore default settings</button></div></section>
-  <section class="settings-card" id="settings-help"><div class="settings-section-heading"><div><h2>How to use BackLog</h2><p>Walk through the catalog, collection statuses, reviews, and diary.</p></div></div><p class="settings-tour-intro">The tour leaves your games and account unchanged. You can close it at any time.</p><button type="button" class="social-button social-button-primary settings-tour-start" id="start-product-tour">Take a tour ↗</button><p id="tour-feedback" class="social-feedback" role="status"></p></section>
-  <section class="settings-shortcuts"><h2>Keyboard shortcuts</h2><div><span><kbd>/</kbd> Open search</span><span><kbd>Esc</kbd> Close dialogs</span><span><kbd>← →</kbd> Browse screenshots</span></div></section>
- </div></div></main>
-        <dialog class="social-dialog" id="profile-dialog" aria-labelledby="edit-profile-title"><form id="profile-form"><h2 id="edit-profile-title">Edit profile<span>.</span></h2><div class="photo-editor"><span id="photo-preview" class="player-avatar">P</span><div><label>Profile photo<input id="profile-photo" type="file" accept="image/jpeg,image/png,image/webp"></label><p class="social-small">JPG, PNG or WebP · up to 5 MB. Adjust the crop and zoom before saving.</p><button id="remove-photo" type="button" class="social-button social-button-quiet">Remove photo</button></div></div><label>Display name<input id="display-name" maxlength="40" minlength="2" required></label><label>Bio<textarea id="profile-bio-input" maxlength="280" rows="3" placeholder="Short bio, favorite genres, or platforms you play on."></textarea></label><div class="social-form-grid"><label>Location<input id="profile-location-input" maxlength="80" placeholder="City or region"></label><label>Social link<input id="profile-website-input" type="url" maxlength="300" placeholder="https://"></label></div><label>Gaming platform<select id="profile-platform-input"><option value="">Not selected</option><option>PC</option><option>PlayStation</option><option>Xbox</option><option>Nintendo</option><option>Mobile</option><option>Steam Deck</option><option>Other</option></select></label><p id="edit-profile-feedback" class="social-feedback" role="status"></p><div class="social-actions"><button class="social-button social-button-primary" type="submit">Save profile</button><button class="social-button" data-close="profile-dialog" type="button">Cancel</button></div></form></dialog>
-        <dialog class="social-dialog" id="profile-banner-dialog" aria-labelledby="profile-banner-title">
-            <form id="profile-banner-form">
-                <h2 id="profile-banner-title">Profile banner<span>.</span></h2>
-                <label for="profile-banner-game">Game artwork</label>
-                <select id="profile-banner-game"><option value="">No banner</option></select>
-                <img id="profile-banner-preview" class="profile-banner-preview" alt="" hidden>
-                <p id="profile-banner-feedback" class="social-feedback" role="status"></p>
+        <main id="main" class="settings-page shell">
+            <header class="settings-hero">
+                <div>
+                    <span class="eyebrow">YOUR PREFERENCES</span>
+                    <h1>Make BackLog yours<span>.</span></h1>
+                    <p>Interface, animation, and account preferences.</p>
+                    <span class="settings-saved" id="settings-save-state" role="status"
+                        ><i aria-hidden="true"></i><span>Saved automatically</span></span
+                    >
+                </div>
+                <div class="settings-hero-art" aria-hidden="true">
+                    <img
+                        src="../imagens/capas/catalogo/god-of-war-ragnarok.webp"
+                        alt=""
+                        style="--cover-index:0"
+                    /><img
+                        src="../imagens/capas/catalogo/hollow-knight.webp"
+                        alt=""
+                        style="--cover-index:1"
+                    /><img
+                        src="../imagens/capas/catalogo/cyberpunk-2077.webp"
+                        alt=""
+                        style="--cover-index:2"
+                    /><img
+                        src="../imagens/capas/catalogo/the-last-of-us.webp"
+                        alt=""
+                        style="--cover-index:3"
+                    /><span>These settings apply to this browser.</span>
+                </div>
+            </header>
+            <div class="settings-layout">
+                <aside class="settings-sidebar">
+                    <nav aria-label="Settings sections">
+                        <a href="#settings-general" class="selected" aria-current="location"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c4 5 4 13 0 18-4-5-4-13 0-18Z"
+                                /></svg
+                            ><span>General</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        ><a href="#settings-appearance"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="m4 4 16 16M8 4v4H4m12 12v-4h4M16 3v4m-2-2h4M5 14v6m-3-3h6"
+                                /></svg
+                            ><span>Appearance</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        ><a href="#settings-notifications"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6"
+                                /></svg
+                            ><span>Notifications</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        ><a href="#settings-privacy"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3" /></svg
+                            ><span>Privacy</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        ><a href="#settings-account"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2"
+                                /></svg
+                            ><span>Account</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        ><a href="#settings-data"
+                            ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" /></svg
+                            ><span>Your data</span
+                            ><span class="settings-nav-arrow" aria-hidden="true">↗</span></a
+                        >
+                    </nav>
+                    <div class="settings-local-note">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3" /></svg
+                        ><span>Preferences are saved on this browser.</span>
+                    </div>
+                </aside>
+                <div class="settings-sections">
+                    <section
+                        class="settings-card"
+                        id="settings-general"
+                        aria-labelledby="settings-language-heading"
+                    >
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3 12h18M12 3c4 5 4 13 0 18-4-5-4-13 0-18Z"
+                                    /></svg
+                            ></span>
+                            <div>
+                                <h2>Language</h2>
+                                <p>Choose the language for menus and controls.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="settings-language-options"
+                            role="group"
+                            aria-labelledby="settings-language-heading"
+                        >
+                            <h3 id="settings-language-heading" class="visually-hidden">
+                                Interface language
+                            </h3>
+                            <button
+                                type="button"
+                                class="settings-language"
+                                data-language="en"
+                                aria-pressed="true"
+                            >
+                                <span class="language-monogram">EN</span
+                                ><span data-no-translate>English<small>English</small></span
+                                ><span class="language-check" aria-hidden="true">✓</span></button
+                            ><button
+                                type="button"
+                                class="settings-language"
+                                data-language="pt-BR"
+                                aria-pressed="false"
+                            >
+                                <span class="language-monogram">PT</span
+                                ><span data-no-translate
+                                    >Português<small>Português do Brasil</small></span
+                                ><span class="language-check" aria-hidden="true">✓</span>
+                            </button>
+                        </div>
+                    </section>
+                    <section class="settings-card" id="settings-appearance">
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="m4 4 16 16M8 4v4H4m12 12v-4h4M16 3v4m-2-2h4M5 14v6m-3-3h6"
+                                    /></svg
+                            ></span>
+                            <div>
+                                <h2>Animation preferences</h2>
+                                <p>Adjust motion effects and background animations.</p>
+                            </div>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <label for="presentation-motion">Animation mode</label>
+                                <p id="presentation-motion-status" role="status"></p>
+                            </div>
+                            <select id="presentation-motion">
+                                <option value="auto">Follow device</option>
+                                <option value="full">Full animations</option>
+                                <option value="reduced">Reduced motion</option>
+                            </select>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3 id="label-background">Animated background</h3>
+                                <p>Show the golden paths behind the pages.</p>
+                            </div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-background"
+                                data-preference="background"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3 id="label-cardGlow">Card glow</h3>
+                                <p>Let a soft light follow your pointer over cards.</p>
+                            </div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-cardGlow"
+                                data-preference="cardGlow"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                    </section>
+                    <section class="settings-card" id="settings-notifications">
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M9 21h6"
+                                    /></svg
+                            ></span>
+                            <div>
+                                <h2>Your notification center</h2>
+                                <p>
+                                    Choose what appears in the bell. Your Activity feed stays
+                                    available.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="settings-option">
+                            <div><h3 id="label-notificationLikes">Likes on your reviews</h3></div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-notificationLikes"
+                                data-preference="notificationLikes"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3 id="label-notificationComments">Comments on your reviews</h3>
+                            </div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-notificationComments"
+                                data-preference="notificationComments"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="settings-option">
+                            <div><h3 id="label-notificationFollowers">New followers</h3></div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-notificationFollowers"
+                                data-preference="notificationFollowers"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                        <p class="settings-footnote">
+                            These preferences control the in-site bell on this browser.
+                        </p>
+                    </section>
+                    <section class="settings-card" id="settings-privacy">
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M5 10h14v11H5ZM8 10V7a4 4 0 0 1 8 0v3M12 14v3" /></svg
+                            ></span>
+                            <div>
+                                <h2>New list visibility</h2>
+                                <p>Private by default</p>
+                            </div>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3 id="label-publicLists">Make new lists public</h3>
+                                <p>
+                                    Applies only to new lists. You can change each list when editing
+                                    it.
+                                </p>
+                            </div>
+                            <button
+                                class="settings-switch"
+                                type="button"
+                                role="switch"
+                                aria-checked="true"
+                                aria-labelledby="label-publicLists"
+                                data-preference="publicLists"
+                            >
+                                <span></span>
+                            </button>
+                        </div>
+                    </section>
+                    <section class="settings-card" id="settings-account">
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2"
+                                    /></svg
+                            ></span>
+                            <div>
+                                <h2>Profile & account</h2>
+                                <p>Manage your display name, avatar, and banner.</p>
+                            </div>
+                        </div>
+                        <div class="settings-account-identity">
+                            <div id="settings-avatar"></div>
+                            <div>
+                                <h3 id="settings-player" data-no-translate>Device profile</h3>
+                                <p id="settings-email" data-no-translate></p>
+                                <span class="settings-account-status" id="settings-account-status"
+                                    >Device profile</span
+                                >
+                            </div>
+                        </div>
+                        <p
+                            class="settings-account-description"
+                            id="settings-account-description"
+                        ></p>
+                        <section class="settings-profile-preview" aria-label="Profile preview">
+                            <div class="settings-preview-art">
+                                <img id="settings-preview-banner" alt="" hidden />
+                            </div>
+                            <div class="settings-preview-info">
+                                <span id="settings-preview-avatar"></span>
+                                <div>
+                                    <h3 id="settings-preview-name" data-no-translate></h3>
+                                    <p id="settings-preview-bio" data-no-translate></p>
+                                    <p id="settings-preview-details" data-no-translate></p>
+                                </div>
+                            </div>
+                            <div
+                                id="settings-preview-favorites"
+                                class="settings-preview-favorites"
+                            ></div>
+                        </section>
+                        <div class="settings-profile-links">
+                            <button type="button" data-edit-profile="profile">
+                                Edit profile & photo <span aria-hidden="true">↗</span></button
+                            ><button type="button" data-edit-profile="banner">
+                                Change banner <span aria-hidden="true">↗</span></button
+                            ><button type="button" data-edit-profile="favorites">
+                                Choose your favorite four <span aria-hidden="true">↗</span></button
+                            ><a href="profile-lists.html"
+                                >Access your lists <span aria-hidden="true">↗</span></a
+                            >
+                        </div>
+                        <div class="settings-account-actions">
+                            <a
+                                class="social-button social-button-primary"
+                                id="settings-signin"
+                                href="profile.html#account"
+                                >Sign in ↗</a
+                            ><button
+                                class="social-button"
+                                id="settings-signout"
+                                type="button"
+                                hidden
+                            >
+                                Sign out
+                            </button>
+                            <p
+                                class="social-feedback"
+                                id="settings-account-feedback"
+                                role="status"
+                            ></p>
+                        </div>
+                    </section>
+                    <section class="settings-card" id="settings-data">
+                        <div class="settings-section-heading">
+                            <span class="settings-section-icon"
+                                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" /></svg
+                            ></span>
+                            <div>
+                                <h2>Download your data</h2>
+                                <p>
+                                    Keep a personal copy of your profile, lists, diary, ratings and
+                                    game statuses.
+                                </p>
+                            </div>
+                        </div>
+                        <button
+                            class="social-button social-button-primary settings-export"
+                            id="settings-export"
+                            type="button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" /></svg
+                            ><span>Export my data</span>
+                        </button>
+                        <p class="social-feedback" id="settings-export-feedback" role="status"></p>
+                        <div class="settings-reset">
+                            <div>
+                                <h3>Restore default settings</h3>
+                                <p>Reset language, appearance and notification preferences.</p>
+                                <small>Your games, reviews and lists stay saved.</small>
+                            </div>
+                            <button class="social-button" id="settings-reset" type="button">
+                                Restore default settings
+                            </button>
+                        </div>
+                    </section>
+                    <section class="settings-card" id="settings-help">
+                        <div class="settings-section-heading">
+                            <div>
+                                <h2>How to use BackLog</h2>
+                                <p>
+                                    Walk through the catalog, collection statuses, reviews, and
+                                    diary.
+                                </p>
+                            </div>
+                        </div>
+                        <p class="settings-tour-intro">
+                            The tour leaves your games and account unchanged. You can close it at
+                            any time.
+                        </p>
+                        <button
+                            type="button"
+                            class="social-button social-button-primary settings-tour-start"
+                            id="start-product-tour"
+                        >
+                            Take a tour ↗
+                        </button>
+                        <p id="tour-feedback" class="social-feedback" role="status"></p>
+                    </section>
+                    <section class="settings-shortcuts">
+                        <h2>Keyboard shortcuts</h2>
+                        <div>
+                            <span><kbd>/</kbd> Open search</span
+                            ><span><kbd>Esc</kbd> Close dialogs</span
+                            ><span><kbd>← →</kbd> Browse screenshots</span>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <dialog class="social-dialog" id="profile-dialog" aria-labelledby="edit-profile-title">
+            <form id="profile-form">
+                <h2 id="edit-profile-title">Edit profile<span>.</span></h2>
+                <div class="photo-editor">
+                    <span id="photo-preview" class="player-avatar">P</span>
+                    <div>
+                        <label
+                            >Profile photo<input
+                                id="profile-photo"
+                                type="file"
+                                accept="image/jpeg,image/png,image/webp"
+                        /></label>
+                        <p class="social-small">
+                            JPG, PNG or WebP · up to 5 MB. Adjust the crop and zoom before saving.
+                        </p>
+                        <button
+                            id="remove-photo"
+                            type="button"
+                            class="social-button social-button-quiet"
+                        >
+                            Remove photo
+                        </button>
+                    </div>
+                </div>
+                <label
+                    >Display name<input
+                        id="display-name"
+                        maxlength="40"
+                        minlength="2"
+                        required /></label
+                ><label
+                    >Bio<textarea
+                        id="profile-bio-input"
+                        maxlength="280"
+                        rows="3"
+                        placeholder="Short bio, favorite genres, or platforms you play on."
+                    ></textarea>
+                </label>
+                <div class="social-form-grid">
+                    <label
+                        >Location<input
+                            id="profile-location-input"
+                            maxlength="80"
+                            placeholder="City or region" /></label
+                    ><label
+                        >Social link<input
+                            id="profile-website-input"
+                            type="url"
+                            maxlength="300"
+                            placeholder="https://"
+                    /></label>
+                </div>
+                <label
+                    >Gaming platform<select id="profile-platform-input">
+                        <option value="">Not selected</option>
+                        <option>PC</option>
+                        <option>PlayStation</option>
+                        <option>Xbox</option>
+                        <option>Nintendo</option>
+                        <option>Mobile</option>
+                        <option>Steam Deck</option>
+                        <option>Other</option>
+                    </select></label
+                >
+                <p id="edit-profile-feedback" class="social-feedback" role="status"></p>
                 <div class="social-actions">
-                    <button class="social-button social-button-primary" type="submit">Save banner</button>
-                    <button class="social-button" type="button" data-close="profile-banner-dialog">Cancel</button>
+                    <button class="social-button social-button-primary" type="submit">
+                        Save profile</button
+                    ><button class="social-button" data-close="profile-dialog" type="button">
+                        Cancel
+                    </button>
                 </div>
             </form>
         </dialog>
-        <dialog class="social-dialog social-dialog-wide favorites-dialog" id="favorites-dialog" aria-labelledby="edit-favorites-title">
+        <dialog
+            class="social-dialog"
+            id="profile-banner-dialog"
+            aria-labelledby="profile-banner-title"
+        >
+            <form id="profile-banner-form">
+                <h2 id="profile-banner-title">Profile banner<span>.</span></h2>
+                <label for="profile-banner-game">Game artwork</label>
+                <select id="profile-banner-game">
+                    <option value="">No banner</option>
+                </select>
+                <img id="profile-banner-preview" class="profile-banner-preview" alt="" hidden />
+                <p id="profile-banner-feedback" class="social-feedback" role="status"></p>
+                <div class="social-actions">
+                    <button class="social-button social-button-primary" type="submit">
+                        Save banner
+                    </button>
+                    <button class="social-button" type="button" data-close="profile-banner-dialog">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </dialog>
+        <dialog
+            class="social-dialog social-dialog-wide favorites-dialog"
+            id="favorites-dialog"
+            aria-labelledby="edit-favorites-title"
+        >
             <form id="favorites-form">
                 <div class="favorites-picker-heading">
                     <h2 id="edit-favorites-title">Your favorite four<span>.</span></h2>
                     <p id="favorites-count" class="social-small" role="status"></p>
                 </div>
-                <p class="social-small" id="favorite-reorder-help">Drag the covers to rearrange them. Keyboard: Alt + Left or Right.</p>
-                <div id="favorite-selected" class="favorite-selected" aria-label="Selected favorites"></div>
+                <p class="social-small" id="favorite-reorder-help">
+                    Drag the covers to rearrange them. Keyboard: Alt + Left or Right.
+                </p>
+                <div
+                    id="favorite-selected"
+                    class="favorite-selected"
+                    aria-label="Selected favorites"
+                ></div>
                 <label for="favorite-search">Find a game</label>
-                <input id="favorite-search" type="search" placeholder="Search by title or franchise…" autocomplete="off" maxlength="120">
+                <input
+                    id="favorite-search"
+                    type="search"
+                    placeholder="Search by title or franchise…"
+                    autocomplete="off"
+                    maxlength="120"
+                />
                 <p id="favorite-search-status" class="social-small" role="status"></p>
-                <div id="favorite-results" class="favorite-results" aria-label="Games to choose from"></div>
+                <div
+                    id="favorite-results"
+                    class="favorite-results"
+                    aria-label="Games to choose from"
+                ></div>
                 <p id="favorites-feedback" class="social-feedback" role="status"></p>
                 <div class="social-actions">
-                    <button class="social-button social-button-primary" type="submit">Save favorites</button>
-                    <button class="social-button" data-close="favorites-dialog" type="button">Cancel</button>
+                    <button class="social-button social-button-primary" type="submit">
+                        Save favorites
+                    </button>
+                    <button class="social-button" data-close="favorites-dialog" type="button">
+                        Cancel
+                    </button>
                 </div>
             </form>
         </dialog>
 
-        <footer class="footer"><div class="footer-top footer-expanded shell"><div class="footer-brand"><a href="../index.html" aria-label="BackLog home"><img src="../imagens/logo_transparente.png" alt="BackLog"></a><p>Catalog games, log dates, and organize your collection.</p><div class="footer-social"><a href="https://github.com/gabriellcs7" target="_blank" rel="noopener noreferrer" aria-label="GitHub gabriellcs7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6"/></svg> GitHub <span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/codergabriel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram codergabriel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg> Instagram <span aria-hidden="true">↗</span></a></div><span class="footer-author" data-no-translate>@codergabriel</span></div><nav class="footer-link-group" aria-label="Explore BackLog"><h2>Explore</h2><ul><li><a href="pagina_jogos.html">Games</a></li><li><a href="discover.html">Discover</a></li><li><a href="want-to-play.html">Want to play</a></li><li><a href="../index.html#gaming-news-title">Gaming news</a></li></ul></nav><nav class="footer-link-group" aria-label="Your journal"><h2>Your journal</h2><ul><li><a href="profile.html">Profile</a></li><li><a href="pagina_jogos.html?saved=1">My backlog</a></li><li><a href="diary.html">Diary</a></li><li><a href="statistics.html">Statistics</a></li></ul></nav><nav class="footer-link-group" aria-label="About the project"><h2>The project</h2><ul><li><a href="about.html">About BackLog</a></li><li><a href="help.html">Help &amp; FAQ</a></li><li><a href="help.html#feedback">Send feedback</a></li><li><a href="credits.html">Credits &amp; sources</a></li><li><a href="settings.html" class="footer-settings-link">Settings ↗</a></li><li><a href="settings.html?tour=1" class="footer-tour-link">Take a tour ↗</a></li></ul></nav></div><div class="footer-bottom shell"><p>© 2026 BackLog · A personal project by Gabriel</p><a href="#main">Back to top ↑</a></div></footer>
-<script src="js/settings.js" defer></script>
-<script src="../js/select-controls.js" defer></script>
-<script src="../js/card-effects.js" defer></script>
-<script src="../js/animated-tabs.js" defer></script>
-<script src="../js/quick-search.js" defer></script>
-<script src="../js/rich-tooltips.js" defer></script>
-<script src="../js/profile-menu.js" defer></script>
-<script src="../js/empty-states.js" defer></script>
-<script src="../js/notifications.js" defer></script>
-<script src="../js/expandable-text.js" defer></script>
+        <footer class="footer">
+            <div class="footer-top footer-expanded shell">
+                <div class="footer-brand">
+                    <a href="../index.html" aria-label="BackLog home"
+                        ><img src="../imagens/logo_transparente.png" alt="BackLog"
+                    /></a>
+                    <p>Catalog games, log dates, and organize your collection.</p>
+                    <div class="footer-social">
+                        <a
+                            href="https://github.com/gabriellcs7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub gabriellcs7"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="6" cy="5" r="2" />
+                                <circle cx="18" cy="5" r="2" />
+                                <circle cx="6" cy="19" r="2" />
+                                <path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6" />
+                            </svg>
+                            GitHub <span aria-hidden="true">↗</span></a
+                        ><a
+                            href="https://www.instagram.com/codergabriel/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram codergabriel"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                aria-hidden="true"
+                            >
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none" />
+                            </svg>
+                            Instagram <span aria-hidden="true">↗</span></a
+                        >
+                    </div>
+                    <span class="footer-author" data-no-translate>@codergabriel</span>
+                </div>
+                <nav class="footer-link-group" aria-label="Explore BackLog">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="pagina_jogos.html">Games</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                        <li><a href="want-to-play.html">Want to play</a></li>
+                        <li><a href="../index.html#gaming-news-title">Gaming news</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="Your journal">
+                    <h2>Your journal</h2>
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="pagina_jogos.html?saved=1">My backlog</a></li>
+                        <li><a href="diary.html">Diary</a></li>
+                        <li><a href="statistics.html">Statistics</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="About the project">
+                    <h2>The project</h2>
+                    <ul>
+                        <li><a href="about.html">About BackLog</a></li>
+                        <li><a href="help.html">Help &amp; FAQ</a></li>
+                        <li><a href="help.html#feedback">Send feedback</a></li>
+                        <li><a href="credits.html">Credits &amp; sources</a></li>
+                        <li>
+                            <a href="settings.html" class="footer-settings-link">Settings ↗</a>
+                        </li>
+                        <li>
+                            <a href="settings.html?tour=1" class="footer-tour-link"
+                                >Take a tour ↗</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom shell">
+                <p>© 2026 BackLog · A personal project by Gabriel</p>
+                <a href="#main">Back to top ↑</a>
+            </div>
+        </footer>
+        <script src="js/settings.js" defer></script>
+        <script src="../js/select-controls.js" defer></script>
+        <script src="../js/card-effects.js" defer></script>
+        <script src="../js/animated-tabs.js" defer></script>
+        <script src="../js/quick-search.js" defer></script>
+        <script src="../js/rich-tooltips.js" defer></script>
+        <script src="../js/profile-menu.js" defer></script>
+        <script src="../js/empty-states.js" defer></script>
+        <script src="../js/notifications.js" defer></script>
+        <script src="../js/expandable-text.js" defer></script>
         <script src="../js/cover-menu.js?v=20261123-undo-2" defer></script>
-    <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
-<script src="../js/component-dialog.js?v=20261125-1" defer></script><script src="../js/keyboard-shortcuts.js?v=20261125-1" defer></script></body>
+        <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
+        <script src="../js/component-dialog.js?v=20261125-1" defer></script>
+        <script src="../js/keyboard-shortcuts.js?v=20261125-1" defer></script>
+    </body>
 </html>

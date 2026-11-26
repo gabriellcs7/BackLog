@@ -1,21 +1,24 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
         <script src="../js/data/i18n-catalog.js?v=20261125-components-2" defer></script>
         <script src="../js/i18n.js" defer></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#131414">
-        <meta name="description" content="Manage your game backlog, diary entries, reviews, and custom lists on BackLog.">
-        <link rel="icon" href="../imagens/favicon_2-32x32.png">
-        <link rel="stylesheet" href="../css/social.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#131414" />
+        <meta
+            name="description"
+            content="Manage your game backlog, diary entries, reviews, and custom lists on BackLog."
+        />
+        <link rel="icon" href="../imagens/favicon_2-32x32.png" />
+        <link rel="stylesheet" href="../css/social.css" />
         <script src="../js/share-controls.js" defer></script>
         <script src="../js/data/games.js" defer></script>
         <script src="../js/config.js" defer></script>
         <script src="../js/account.js?v=20261125-community-2" defer></script>
         <script src="../js/site.js" defer></script>
-<script src="../js/status-undo.js" defer></script>
+        <script src="../js/status-undo.js" defer></script>
         <script src="../js/diary.js" defer></script>
         <script src="../js/reviews.js?v=20261123-audit-1" defer></script>
         <script src="../js/ui.js" defer></script>
@@ -39,78 +42,176 @@
         <script src="js/profile-playing.js" defer></script>
         <script src="../js/sortable-list.js" defer></script>
         <script src="../js/common-games.js" defer></script>
-<script src="js/profile-common-games.js" defer></script>
-<script src="../js/list-stepper.js?v=20261124-1" defer></script>
-<script src="js/profile.js?v=20261125-pin-1" defer></script>
+        <script src="js/profile-common-games.js" defer></script>
+        <script src="../js/list-stepper.js?v=20261124-1" defer></script>
+        <script src="js/profile.js?v=20261125-pin-1" defer></script>
         <title>Profile · BackLog</title>
-        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1">
-        <link rel="stylesheet" href="../css/list-progress.css">
-        <link rel="stylesheet" href="../css/glass-folder-lists.css">
+        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1" />
+        <link rel="stylesheet" href="../css/list-progress.css" />
+        <link rel="stylesheet" href="../css/glass-folder-lists.css" />
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
-    <link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2">
-<link rel="stylesheet" href="../css/status-undo.css">
-<link rel="stylesheet" href="../css/common-games.css">
-<link rel="stylesheet" href="../css/profile-statistics-link.css">
-<link rel="stylesheet" href="../css/password-strength.css">
-<link rel="stylesheet" href="../css/hold-confirm.css">
-<link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" href="../css/list-stepper.css?v=20261124-1">
-</head>
+        <link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2" />
+        <link rel="stylesheet" href="../css/status-undo.css" />
+        <link rel="stylesheet" href="../css/common-games.css" />
+        <link rel="stylesheet" href="../css/profile-statistics-link.css" />
+        <link rel="stylesheet" href="../css/password-strength.css" />
+        <link rel="stylesheet" href="../css/hold-confirm.css" />
+        <link rel="stylesheet" href="../css/footer.css" />
+        <link rel="stylesheet" href="../css/list-stepper.css?v=20261124-1" />
+    </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
         <!-- Navegação compartilhada e pesquisa -->
         <header class="site-header">
             <nav class="navbar shell" aria-label="Main navigation">
-                <a class="brand" href="../index.html" aria-label="BackLog home"> <img src="../imagens/logo_transparente.png" alt="BackLog"> </a>
-                <form class="nav-search" role="search" action="../view/pagina_jogos.html" data-catalog="../view/pagina_jogos.html">
+                <a class="brand" href="../index.html" aria-label="BackLog home">
+                    <img src="../imagens/logo_transparente.png" alt="BackLog" />
+                </a>
+                <form
+                    class="nav-search"
+                    role="search"
+                    action="../view/pagina_jogos.html"
+                    data-catalog="../view/pagina_jogos.html"
+                >
                     <label class="visually-hidden" for="site-search">Search games or players</label>
                     <button type="submit" aria-label="Search games or players">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/>
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="10.5"
+                                cy="10.5"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
 
-                            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-
+                            <path
+                                d="m16 16 4 4"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                            />
                         </svg>
                     </button>
-                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games or players..." autocomplete="off" maxlength="120">
-                    <kbd aria-hidden="true">
-                        /
-                    </kbd>
+                    <input
+                        id="site-search"
+                        class="search"
+                        type="search"
+                        name="q"
+                        placeholder="Search games or players..."
+                        autocomplete="off"
+                        maxlength="120"
+                    />
+                    <kbd aria-hidden="true"> / </kbd>
                 </form>
                 <div class="nav-links" id="navigation">
                     <a id="profile-nav-link" href="profile.html">Profile</a>
                     <a href="activity.html">Activity</a>
                     <a href="../view/pagina_jogos.html">Games</a>
-                    <a href="../view/pagina_jogos.html?saved=1">My backlog <span class="nav-count" id="nav-count">0</span></a>
+                    <a href="../view/pagina_jogos.html?saved=1"
+                        >My backlog <span class="nav-count" id="nav-count">0</span></a
+                    >
                     <a href="diary.html">Diary</a>
                 </div>
-                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button>
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                    aria-label="Open menu"
+                >
+                    <span></span><span></span>
+                </button>
             </nav>
         </header>
         <main id="main" class="profile-page player-profile shell">
             <header class="profile-header profile-banner-v2">
                 <div class="profile-banner-art">
-                    <img id="profile-banner" class="profile-banner" alt="" hidden>
+                    <img id="profile-banner" class="profile-banner" alt="" hidden />
                     <div id="profile-counts" class="profile-connection-counts" hidden>
-                        <button class="connection-stat" id="show-followers" type="button" aria-haspopup="dialog"><strong id="followers-count">0</strong><span>Followers</span><span class="connection-chevron" aria-hidden="true">›</span></button>
-                        <button class="connection-stat" id="show-following" type="button" aria-haspopup="dialog"><strong id="following-count">0</strong><span>Following</span><span class="connection-chevron" aria-hidden="true">›</span></button>
+                        <button
+                            class="connection-stat"
+                            id="show-followers"
+                            type="button"
+                            aria-haspopup="dialog"
+                        >
+                            <strong id="followers-count">0</strong><span>Followers</span
+                            ><span class="connection-chevron" aria-hidden="true">›</span>
+                        </button>
+                        <button
+                            class="connection-stat"
+                            id="show-following"
+                            type="button"
+                            aria-haspopup="dialog"
+                        >
+                            <strong id="following-count">0</strong><span>Following</span
+                            ><span class="connection-chevron" aria-hidden="true">›</span>
+                        </button>
                     </div>
                     <a class="profile-banner-credit" id="profile-banner-credit" hidden></a>
                 </div>
                 <div class="profile-identity profile-banner-info">
                     <div id="profile-avatar" class="player-avatar" aria-hidden="true">P</div>
-                    <div class="profile-banner-copy"><span class="eyebrow">PLAYER PROFILE</span><div class="profile-name-row"><h1 id="profile-name">Your profile</h1><button class="profile-follow-link" id="follow-player" type="button" hidden>Follow</button></div><p id="profile-bio">Played games, reviews, and lists.</p></div>
-                    <div class="profile-details" id="profile-details" hidden><span id="profile-location" hidden></span><span id="profile-platform" hidden></span><a id="profile-website" target="_blank" rel="noopener noreferrer" hidden></a></div>
+                    <div class="profile-banner-copy">
+                        <span class="eyebrow">PLAYER PROFILE</span>
+                        <div class="profile-name-row">
+                            <h1 id="profile-name">Your profile</h1>
+                            <button
+                                class="profile-follow-link"
+                                id="follow-player"
+                                type="button"
+                                hidden
+                            >
+                                Follow
+                            </button>
+                        </div>
+                        <p id="profile-bio">Played games, reviews, and lists.</p>
+                    </div>
+                    <div class="profile-details" id="profile-details" hidden>
+                        <span id="profile-location" hidden></span
+                        ><span id="profile-platform" hidden></span
+                        ><a
+                            id="profile-website"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            hidden
+                        ></a>
+                    </div>
                 </div>
             </header>
             <div class="profile-social-bar"></div>
             <p class="social-feedback" id="follow-feedback" role="status"></p>
             <div class="profile-overview">
-                <div class="profile-totals"><div class="profile-stats-heading"><h2>Your gaming journal</h2><span id="profile-stats-year" data-no-translate></span><a class="text-link profile-statistics-link" id="profile-statistics-link" href="statistics.html" hidden>View statistics ↗</a></div>
-                    <div class="profile-metrics" id="profile-metrics" aria-label="Gaming statistics"></div>
+                <div class="profile-totals">
+                    <div class="profile-stats-heading">
+                        <h2>Your gaming journal</h2>
+                        <span id="profile-stats-year" data-no-translate></span
+                        ><a
+                            class="text-link profile-statistics-link"
+                            id="profile-statistics-link"
+                            href="statistics.html"
+                            hidden
+                            >View statistics ↗</a
+                        >
+                    </div>
+                    <div
+                        class="profile-metrics"
+                        id="profile-metrics"
+                        aria-label="Gaming statistics"
+                    ></div>
                     <p id="metrics-feedback" class="social-feedback" role="status"></p>
-                    <p id="profile-message" class="social-feedback" role="status" aria-live="polite"></p>
+                    <p
+                        id="profile-message"
+                        class="social-feedback"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
                 </div>
                 <section class="profile-ratings" aria-labelledby="profile-ratings-title">
                     <h2 id="profile-ratings-title">Ratings</h2>
@@ -121,82 +222,619 @@
             <div class="profile-content">
                 <div class="profile-shelves">
                     <section class="profile-favorites" aria-labelledby="favorites-title">
-                        <div class="social-section-heading"><div><h2 id="favorites-title">Your favorite four<span>.</span></h2></div><button class="social-button" id="choose-favorites" type="button">Choose favorites ↗</button></div>
+                        <div class="social-section-heading">
+                            <div>
+                                <h2 id="favorites-title">Your favorite four<span>.</span></h2>
+                            </div>
+                            <button class="social-button" id="choose-favorites" type="button">
+                                Choose favorites ↗
+                            </button>
+                        </div>
                         <div class="favorites-grid" id="favorites-grid"></div>
                     </section>
-                    <section class="profile-recent" aria-labelledby="recent-title"><div class="social-section-heading"><div><h2 id="recent-title">Recent activity<span>.</span></h2></div></div><div id="profile-recent-games" class="favorites-grid recent-games-grid"></div><p id="recent-feedback" class="social-feedback" role="status"></p></section>
+                    <section class="profile-recent" aria-labelledby="recent-title">
+                        <div class="social-section-heading">
+                            <div>
+                                <h2 id="recent-title">Recent activity<span>.</span></h2>
+                            </div>
+                        </div>
+                        <div
+                            id="profile-recent-games"
+                            class="favorites-grid recent-games-grid"
+                        ></div>
+                        <p id="recent-feedback" class="social-feedback" role="status"></p>
+                    </section>
                 </div>
                 <div class="profile-side-shelves">
-                    <section class="profile-lists" id="profile-list-section" aria-labelledby="lists-title"><div class="social-section-heading"><div><h2 id="lists-title"><a class="profile-list-heading-link" id="profile-lists-link" href="profile-lists.html">Game lists<span>.</span></a></h2></div><button class="social-button social-button-primary" id="new-list" type="button">+ Create a list</button></div><div id="profile-lists" class="list-grid"></div></section>
+                    <section
+                        class="profile-lists"
+                        id="profile-list-section"
+                        aria-labelledby="lists-title"
+                    >
+                        <div class="social-section-heading">
+                            <div>
+                                <h2 id="lists-title">
+                                    <a
+                                        class="profile-list-heading-link"
+                                        id="profile-lists-link"
+                                        href="profile-lists.html"
+                                        >Game lists<span>.</span></a
+                                    >
+                                </h2>
+                            </div>
+                            <button
+                                class="social-button social-button-primary"
+                                id="new-list"
+                                type="button"
+                            >
+                                + Create a list
+                            </button>
+                        </div>
+                        <div id="profile-lists" class="list-grid"></div>
+                    </section>
                     <section class="profile-wishlist" aria-labelledby="wishlist-title">
                         <a class="wishlist-preview" id="wishlist-link" href="want-to-play.html">
-                            <div class="wishlist-heading"><h2 id="wishlist-title">Want to play</h2><span id="wishlist-count"></span></div>
+                            <div class="wishlist-heading">
+                                <h2 id="wishlist-title">Want to play</h2>
+                                <span id="wishlist-count"></span>
+                            </div>
                             <div class="wishlist-covers" id="wishlist-covers"></div>
                         </a>
                         <p class="social-small" id="wishlist-feedback" role="status"></p>
                     </section>
                 </div>
                 <section class="profile-playing" aria-labelledby="profile-playing-title">
-                    <div class="social-section-heading"><h2 id="profile-playing-title">Currently playing<span>.</span></h2></div>
+                    <div class="social-section-heading">
+                        <h2 id="profile-playing-title">Currently playing<span>.</span></h2>
+                    </div>
                     <div id="profile-playing" class="profile-playing-grid"></div>
                     <p id="profile-playing-feedback" class="social-feedback" role="status"></p>
                 </section>
-                <section class="profile-reviews" aria-labelledby="profile-reviews-title"><div class="social-section-heading"><div><h2 id="profile-reviews-title">Reviews<span>.</span></h2></div></div><div id="profile-reviews" class="profile-review-grid"></div><p id="profile-reviews-feedback" class="social-feedback" role="status"></p><a class="social-button" id="more-profile-reviews" href="profile-reviews.html" hidden>See more reviews</a></section>
+                <section class="profile-reviews" aria-labelledby="profile-reviews-title">
+                    <div class="social-section-heading">
+                        <div>
+                            <h2 id="profile-reviews-title">Reviews<span>.</span></h2>
+                        </div>
+                    </div>
+                    <div id="profile-reviews" class="profile-review-grid"></div>
+                    <p id="profile-reviews-feedback" class="social-feedback" role="status"></p>
+                    <a
+                        class="social-button"
+                        id="more-profile-reviews"
+                        href="profile-reviews.html"
+                        hidden
+                        >See more reviews</a
+                    >
+                </section>
             </div>
-            <section class="profile-common-games" id="profile-common-games" aria-labelledby="profile-common-title" hidden><div class="common-games-heading"><h2 id="profile-common-title">Games in common<span>.</span></h2><span class="common-games-count" id="profile-common-count" data-no-translate></span><a class="social-button" id="profile-common-link" href="common-games.html" hidden>See all shared games ↗</a></div><p class="social-small" id="profile-common-feedback" role="status"></p><div id="profile-common-grid" class="common-games-grid"></div></section>
-            <section class="account-panel" id="account" aria-labelledby="account-title"><div><span class="eyebrow">SYNC AND BACKUP</span><h2 id="account-title">Your account</h2><p id="account-note">Your profile and lists are saved on this device.</p></div><a class="social-button social-button-primary" id="local-preview-link" href="http://localhost:8000/view/profile.html#account" hidden>Open local site ↗</a><div id="signed-in" hidden><p id="account-email"></p><div class="social-actions"><button type="button" class="social-button" id="import-device">Copy device profile &amp; lists to account</button><button type="button" class="social-button social-button-quiet" id="sign-out">Sign out</button></div><p class="social-small">Import keeps lists private and never publishes your saved reviews.</p></div><form id="auth-form" hidden><div class="social-form-grid"><label>Email<input id="auth-email" type="email" autocomplete="email" required maxlength="254"></label><label>Password<input id="auth-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label><label id="signup-name-wrap" hidden>Display name<input id="signup-name" type="text" autocomplete="nickname" minlength="2" maxlength="40"></label></div><div class="social-actions"><button class="social-button social-button-primary" id="auth-submit" type="submit">Sign in</button><button class="social-button social-button-quiet" id="auth-mode" type="button">Create an account</button></div></form><p id="auth-feedback" class="social-feedback" role="status" aria-live="polite"></p></section>
+            <section
+                class="profile-common-games"
+                id="profile-common-games"
+                aria-labelledby="profile-common-title"
+                hidden
+            >
+                <div class="common-games-heading">
+                    <h2 id="profile-common-title">Games in common<span>.</span></h2>
+                    <span
+                        class="common-games-count"
+                        id="profile-common-count"
+                        data-no-translate
+                    ></span
+                    ><a
+                        class="social-button"
+                        id="profile-common-link"
+                        href="common-games.html"
+                        hidden
+                        >See all shared games ↗</a
+                    >
+                </div>
+                <p class="social-small" id="profile-common-feedback" role="status"></p>
+                <div id="profile-common-grid" class="common-games-grid"></div>
+            </section>
+            <section class="account-panel" id="account" aria-labelledby="account-title">
+                <div>
+                    <span class="eyebrow">SYNC AND BACKUP</span>
+                    <h2 id="account-title">Your account</h2>
+                    <p id="account-note">Your profile and lists are saved on this device.</p>
+                </div>
+                <a
+                    class="social-button social-button-primary"
+                    id="local-preview-link"
+                    href="http://localhost:8000/view/profile.html#account"
+                    hidden
+                    >Open local site ↗</a
+                >
+                <div id="signed-in" hidden>
+                    <p id="account-email"></p>
+                    <div class="social-actions">
+                        <button type="button" class="social-button" id="import-device">
+                            Copy device profile &amp; lists to account</button
+                        ><button
+                            type="button"
+                            class="social-button social-button-quiet"
+                            id="sign-out"
+                        >
+                            Sign out
+                        </button>
+                    </div>
+                    <p class="social-small">
+                        Import keeps lists private and never publishes your saved reviews.
+                    </p>
+                </div>
+                <form id="auth-form" hidden>
+                    <div class="social-form-grid">
+                        <label
+                            >Email<input
+                                id="auth-email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                                maxlength="254" /></label
+                        ><label
+                            >Password<input
+                                id="auth-password"
+                                type="password"
+                                autocomplete="current-password"
+                                minlength="8"
+                                maxlength="128"
+                                required /></label
+                        ><label id="signup-name-wrap" hidden
+                            >Display name<input
+                                id="signup-name"
+                                type="text"
+                                autocomplete="nickname"
+                                minlength="2"
+                                maxlength="40"
+                        /></label>
+                    </div>
+                    <div class="social-actions">
+                        <button
+                            class="social-button social-button-primary"
+                            id="auth-submit"
+                            type="submit"
+                        >
+                            Sign in</button
+                        ><button
+                            class="social-button social-button-quiet"
+                            id="auth-mode"
+                            type="button"
+                        >
+                            Create an account
+                        </button>
+                    </div>
+                </form>
+                <p id="auth-feedback" class="social-feedback" role="status" aria-live="polite"></p>
+            </section>
         </main>
-        <dialog class="social-dialog" id="profile-dialog" aria-labelledby="edit-profile-title"><form id="profile-form"><h2 id="edit-profile-title">Edit profile<span>.</span></h2><div class="photo-editor"><span id="photo-preview" class="player-avatar">P</span><div><label>Profile photo<input id="profile-photo" type="file" accept="image/jpeg,image/png,image/webp"></label><p class="social-small">JPG, PNG or WebP · up to 5 MB. Adjust the crop and zoom before saving.</p><button id="remove-photo" type="button" class="social-button social-button-quiet">Remove photo</button></div></div><label>Display name<input id="display-name" maxlength="40" minlength="2" required></label><label>Bio<textarea id="profile-bio-input" maxlength="280" rows="3" placeholder="Short bio, favorite genres, or platforms you play on."></textarea></label><div class="social-form-grid"><label>Location<input id="profile-location-input" maxlength="80" placeholder="City or region"></label><label>Social link<input id="profile-website-input" type="url" maxlength="300" placeholder="https://"></label></div><label>Gaming platform<select id="profile-platform-input"><option value="">Not selected</option><option>PC</option><option>PlayStation</option><option>Xbox</option><option>Nintendo</option><option>Mobile</option><option>Steam Deck</option><option>Other</option></select></label><p id="edit-profile-feedback" class="social-feedback" role="status"></p><div class="social-actions"><button class="social-button social-button-primary" type="submit">Save profile</button><button class="social-button" data-close="profile-dialog" type="button">Cancel</button></div></form></dialog>
-        <dialog class="social-dialog" id="profile-banner-dialog" aria-labelledby="profile-banner-title">
-            <form id="profile-banner-form">
-                <h2 id="profile-banner-title">Profile banner<span>.</span></h2>
-                <label for="profile-banner-game">Game artwork</label>
-                <select id="profile-banner-game"><option value="">No banner</option></select>
-                <img id="profile-banner-preview" class="profile-banner-preview" alt="" hidden>
-                <p id="profile-banner-feedback" class="social-feedback" role="status"></p>
+        <dialog class="social-dialog" id="profile-dialog" aria-labelledby="edit-profile-title">
+            <form id="profile-form">
+                <h2 id="edit-profile-title">Edit profile<span>.</span></h2>
+                <div class="photo-editor">
+                    <span id="photo-preview" class="player-avatar">P</span>
+                    <div>
+                        <label
+                            >Profile photo<input
+                                id="profile-photo"
+                                type="file"
+                                accept="image/jpeg,image/png,image/webp"
+                        /></label>
+                        <p class="social-small">
+                            JPG, PNG or WebP · up to 5 MB. Adjust the crop and zoom before saving.
+                        </p>
+                        <button
+                            id="remove-photo"
+                            type="button"
+                            class="social-button social-button-quiet"
+                        >
+                            Remove photo
+                        </button>
+                    </div>
+                </div>
+                <label
+                    >Display name<input
+                        id="display-name"
+                        maxlength="40"
+                        minlength="2"
+                        required /></label
+                ><label
+                    >Bio<textarea
+                        id="profile-bio-input"
+                        maxlength="280"
+                        rows="3"
+                        placeholder="Short bio, favorite genres, or platforms you play on."
+                    ></textarea>
+                </label>
+                <div class="social-form-grid">
+                    <label
+                        >Location<input
+                            id="profile-location-input"
+                            maxlength="80"
+                            placeholder="City or region" /></label
+                    ><label
+                        >Social link<input
+                            id="profile-website-input"
+                            type="url"
+                            maxlength="300"
+                            placeholder="https://"
+                    /></label>
+                </div>
+                <label
+                    >Gaming platform<select id="profile-platform-input">
+                        <option value="">Not selected</option>
+                        <option>PC</option>
+                        <option>PlayStation</option>
+                        <option>Xbox</option>
+                        <option>Nintendo</option>
+                        <option>Mobile</option>
+                        <option>Steam Deck</option>
+                        <option>Other</option>
+                    </select></label
+                >
+                <p id="edit-profile-feedback" class="social-feedback" role="status"></p>
                 <div class="social-actions">
-                    <button class="social-button social-button-primary" type="submit">Save banner</button>
-                    <button class="social-button" type="button" data-close="profile-banner-dialog">Cancel</button>
+                    <button class="social-button social-button-primary" type="submit">
+                        Save profile</button
+                    ><button class="social-button" data-close="profile-dialog" type="button">
+                        Cancel
+                    </button>
                 </div>
             </form>
         </dialog>
-        <dialog class="social-dialog social-dialog-wide favorites-dialog" id="favorites-dialog" aria-labelledby="edit-favorites-title">
+        <dialog
+            class="social-dialog"
+            id="profile-banner-dialog"
+            aria-labelledby="profile-banner-title"
+        >
+            <form id="profile-banner-form">
+                <h2 id="profile-banner-title">Profile banner<span>.</span></h2>
+                <label for="profile-banner-game">Game artwork</label>
+                <select id="profile-banner-game">
+                    <option value="">No banner</option>
+                </select>
+                <img id="profile-banner-preview" class="profile-banner-preview" alt="" hidden />
+                <p id="profile-banner-feedback" class="social-feedback" role="status"></p>
+                <div class="social-actions">
+                    <button class="social-button social-button-primary" type="submit">
+                        Save banner
+                    </button>
+                    <button class="social-button" type="button" data-close="profile-banner-dialog">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </dialog>
+        <dialog
+            class="social-dialog social-dialog-wide favorites-dialog"
+            id="favorites-dialog"
+            aria-labelledby="edit-favorites-title"
+        >
             <form id="favorites-form">
                 <div class="favorites-picker-heading">
                     <h2 id="edit-favorites-title">Your favorite four<span>.</span></h2>
                     <p id="favorites-count" class="social-small" role="status"></p>
                 </div>
-                <p class="social-small" id="favorite-reorder-help">Drag the covers to rearrange them. Keyboard: Alt + Left or Right.</p>
-                <div id="favorite-selected" class="favorite-selected" aria-label="Selected favorites"></div>
+                <p class="social-small" id="favorite-reorder-help">
+                    Drag the covers to rearrange them. Keyboard: Alt + Left or Right.
+                </p>
+                <div
+                    id="favorite-selected"
+                    class="favorite-selected"
+                    aria-label="Selected favorites"
+                ></div>
                 <label for="favorite-search">Find a game</label>
-                <input id="favorite-search" type="search" placeholder="Search by title or franchise…" autocomplete="off" maxlength="120">
+                <input
+                    id="favorite-search"
+                    type="search"
+                    placeholder="Search by title or franchise…"
+                    autocomplete="off"
+                    maxlength="120"
+                />
                 <p id="favorite-search-status" class="social-small" role="status"></p>
-                <div id="favorite-results" class="favorite-results" aria-label="Games to choose from"></div>
+                <div
+                    id="favorite-results"
+                    class="favorite-results"
+                    aria-label="Games to choose from"
+                ></div>
                 <p id="favorites-feedback" class="social-feedback" role="status"></p>
                 <div class="social-actions">
-                    <button class="social-button social-button-primary" type="submit">Save favorites</button>
-                    <button class="social-button" data-close="favorites-dialog" type="button">Cancel</button>
+                    <button class="social-button social-button-primary" type="submit">
+                        Save favorites
+                    </button>
+                    <button class="social-button" data-close="favorites-dialog" type="button">
+                        Cancel
+                    </button>
                 </div>
             </form>
         </dialog>
-        <dialog class="social-dialog social-dialog-wide" id="list-dialog" aria-labelledby="list-editor-title"><form id="list-form"><h2 id="list-editor-title">Create a list<span>.</span></h2><input type="hidden" id="list-id"><nav class="list-stepper-nav" aria-label="List creation steps" hidden><button type="button" data-list-step="0"><span class="list-step-number">1</span><span><strong>Details</strong><small>Name and preferences</small></span></button><button type="button" data-list-step="1"><span class="list-step-number">2</span><span><strong>Games</strong><small>Find and select</small></span></button><button type="button" data-list-step="2"><span class="list-step-number">3</span><span><strong>Review list</strong><small>Organize your list</small></span></button></nav><section class="list-stepper-panel" data-list-panel="0" aria-label="List details"><div class="list-stepper-fields"><div><label>List name<input id="list-name" required maxlength="80" placeholder="Horror games I've played"></label><label>Description <span class="social-small">(optional)</span><textarea id="list-description" maxlength="500" rows="2" placeholder="Notes or context for this list"></textarea></label><label for="list-tags-input">Tags <span class="social-small">(optional)</span></label><input id="list-tags-input" maxlength="24" autocomplete="off" placeholder="Add a tag…"><p class="social-small">Press Enter or comma to add up to 8 tags.</p></div><div class="list-stepper-preferences"><label class="checkbox-row"><input type="checkbox" id="list-ranked">Rank this list</label><p class="social-small">Turn on rankings for a top 10, top 5 or any list with a preference order.</p><label class="checkbox-row"><input type="checkbox" id="list-public">Show this list on my public profile</label><p class="social-small" id="list-local-note">Lists on this device are private.</p></div></div></section><section class="list-stepper-panel" data-list-panel="1" aria-label="Choose games"><div class="picker-toolbar"><label>Find games<input id="list-search" type="search" placeholder="Search by title…"></label><label>Genre<select id="list-genre"><option value="all">All genres</option></select></label></div><label class="checkbox-row"><input type="checkbox" id="list-played">Only games I've played</label><div class="social-actions"><span class="social-small" id="list-selected-count">0 selected</span><button class="social-button social-button-quiet" id="select-visible" type="button">Add visible games</button></div><div class="game-picker" id="list-picker"></div></section><section class="list-stepper-panel" data-list-panel="2" aria-label="Review list"><div class="list-stepper-review"><div id="list-stepper-summary"></div><div><section id="list-order-panel" class="list-order-panel" aria-labelledby="list-order-title" hidden><h3 id="list-order-title">Selected games</h3><p class="social-small" id="list-order-help"></p><ul id="list-order" class="list-selected-games"></ul><p class="social-feedback" id="list-order-feedback" role="status" aria-live="polite"></p></section><p id="list-stepper-empty" class="social-small" hidden>No games selected yet.</p></div></div></section><p id="list-feedback" class="social-feedback" role="status"></p><div class="social-actions list-stepper-actions"><button class="social-button" id="list-stepper-back" type="button" hidden>Back</button><button class="social-button social-button-primary" id="list-stepper-next" type="button" hidden>Next step →</button><button class="social-button social-button-primary" id="list-stepper-save" type="submit">Save list</button><button class="social-button" data-close="list-dialog" type="button">Cancel</button></div></form></dialog>
-        <dialog class="social-dialog" id="delete-list-dialog" aria-labelledby="delete-list-title"><h2 id="delete-list-title">Delete this list?</h2><p id="delete-list-name"></p><p>Your games and reviews will stay in your collection.</p><p class="social-feedback" id="delete-list-feedback" role="status"></p><div class="social-actions"><button class="social-button social-danger" id="confirm-delete-list" type="button">Delete list</button><button class="social-button" data-close="delete-list-dialog" type="button">Keep list</button></div></dialog>
+        <dialog
+            class="social-dialog social-dialog-wide"
+            id="list-dialog"
+            aria-labelledby="list-editor-title"
+        >
+            <form id="list-form">
+                <h2 id="list-editor-title">Create a list<span>.</span></h2>
+                <input type="hidden" id="list-id" />
+                <nav class="list-stepper-nav" aria-label="List creation steps" hidden>
+                    <button type="button" data-list-step="0">
+                        <span class="list-step-number">1</span
+                        ><span
+                            ><strong>Details</strong><small>Name and preferences</small></span
+                        ></button
+                    ><button type="button" data-list-step="1">
+                        <span class="list-step-number">2</span
+                        ><span><strong>Games</strong><small>Find and select</small></span></button
+                    ><button type="button" data-list-step="2">
+                        <span class="list-step-number">3</span
+                        ><span><strong>Review list</strong><small>Organize your list</small></span>
+                    </button>
+                </nav>
+                <section class="list-stepper-panel" data-list-panel="0" aria-label="List details">
+                    <div class="list-stepper-fields">
+                        <div>
+                            <label
+                                >List name<input
+                                    id="list-name"
+                                    required
+                                    maxlength="80"
+                                    placeholder="Horror games I've played" /></label
+                            ><label
+                                >Description <span class="social-small">(optional)</span
+                                ><textarea
+                                    id="list-description"
+                                    maxlength="500"
+                                    rows="2"
+                                    placeholder="Notes or context for this list"
+                                ></textarea></label
+                            ><label for="list-tags-input"
+                                >Tags <span class="social-small">(optional)</span></label
+                            ><input
+                                id="list-tags-input"
+                                maxlength="24"
+                                autocomplete="off"
+                                placeholder="Add a tag…"
+                            />
+                            <p class="social-small">Press Enter or comma to add up to 8 tags.</p>
+                        </div>
+                        <div class="list-stepper-preferences">
+                            <label class="checkbox-row"
+                                ><input type="checkbox" id="list-ranked" />Rank this list</label
+                            >
+                            <p class="social-small">
+                                Turn on rankings for a top 10, top 5 or any list with a preference
+                                order.
+                            </p>
+                            <label class="checkbox-row"
+                                ><input type="checkbox" id="list-public" />Show this list on my
+                                public profile</label
+                            >
+                            <p class="social-small" id="list-local-note">
+                                Lists on this device are private.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="list-stepper-panel" data-list-panel="1" aria-label="Choose games">
+                    <div class="picker-toolbar">
+                        <label
+                            >Find games<input
+                                id="list-search"
+                                type="search"
+                                placeholder="Search by title…" /></label
+                        ><label
+                            >Genre<select id="list-genre">
+                                <option value="all">All genres</option>
+                            </select></label
+                        >
+                    </div>
+                    <label class="checkbox-row"
+                        ><input type="checkbox" id="list-played" />Only games I've played</label
+                    >
+                    <div class="social-actions">
+                        <span class="social-small" id="list-selected-count">0 selected</span
+                        ><button
+                            class="social-button social-button-quiet"
+                            id="select-visible"
+                            type="button"
+                        >
+                            Add visible games
+                        </button>
+                    </div>
+                    <div class="game-picker" id="list-picker"></div>
+                </section>
+                <section class="list-stepper-panel" data-list-panel="2" aria-label="Review list">
+                    <div class="list-stepper-review">
+                        <div id="list-stepper-summary"></div>
+                        <div>
+                            <section
+                                id="list-order-panel"
+                                class="list-order-panel"
+                                aria-labelledby="list-order-title"
+                                hidden
+                            >
+                                <h3 id="list-order-title">Selected games</h3>
+                                <p class="social-small" id="list-order-help"></p>
+                                <ul id="list-order" class="list-selected-games"></ul>
+                                <p
+                                    class="social-feedback"
+                                    id="list-order-feedback"
+                                    role="status"
+                                    aria-live="polite"
+                                ></p>
+                            </section>
+                            <p id="list-stepper-empty" class="social-small" hidden>
+                                No games selected yet.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <p id="list-feedback" class="social-feedback" role="status"></p>
+                <div class="social-actions list-stepper-actions">
+                    <button class="social-button" id="list-stepper-back" type="button" hidden>
+                        Back</button
+                    ><button
+                        class="social-button social-button-primary"
+                        id="list-stepper-next"
+                        type="button"
+                        hidden
+                    >
+                        Next step →</button
+                    ><button
+                        class="social-button social-button-primary"
+                        id="list-stepper-save"
+                        type="submit"
+                    >
+                        Save list</button
+                    ><button class="social-button" data-close="list-dialog" type="button">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </dialog>
+        <dialog class="social-dialog" id="delete-list-dialog" aria-labelledby="delete-list-title">
+            <h2 id="delete-list-title">Delete this list?</h2>
+            <p id="delete-list-name"></p>
+            <p>Your games and reviews will stay in your collection.</p>
+            <p class="social-feedback" id="delete-list-feedback" role="status"></p>
+            <div class="social-actions">
+                <button class="social-button social-danger" id="confirm-delete-list" type="button">
+                    Delete list</button
+                ><button class="social-button" data-close="delete-list-dialog" type="button">
+                    Keep list
+                </button>
+            </div>
+        </dialog>
 
-        <dialog class="social-dialog connections-dialog" id="connections-dialog" aria-labelledby="connections-title">
+        <dialog
+            class="social-dialog connections-dialog"
+            id="connections-dialog"
+            aria-labelledby="connections-title"
+        >
             <header class="connections-header">
                 <div id="connections-avatar"></div>
                 <h2 id="connections-title"></h2>
-                <button class="social-button connections-close" data-close="connections-dialog" type="button" aria-label="Close connections">×</button>
+                <button
+                    class="social-button connections-close"
+                    data-close="connections-dialog"
+                    type="button"
+                    aria-label="Close connections"
+                >
+                    ×
+                </button>
             </header>
             <div class="connections-tabs" role="group" aria-label="Connection type">
-                <button class="connections-tab" type="button" data-connections="followers" aria-pressed="true">Followers <span id="tab-followers-count"></span></button>
-                <button class="connections-tab" type="button" data-connections="following" aria-pressed="false">Following <span id="tab-following-count"></span></button>
+                <button
+                    class="connections-tab"
+                    type="button"
+                    data-connections="followers"
+                    aria-pressed="true"
+                >
+                    Followers <span id="tab-followers-count"></span>
+                </button>
+                <button
+                    class="connections-tab"
+                    type="button"
+                    data-connections="following"
+                    aria-pressed="false"
+                >
+                    Following <span id="tab-following-count"></span>
+                </button>
             </div>
             <ul class="connections-list" id="connections-list"></ul>
             <p id="connections-feedback" class="social-feedback" role="status"></p>
-            <button id="more-connections" class="social-button" type="button" hidden>Load more</button>
+            <button id="more-connections" class="social-button" type="button" hidden>
+                Load more
+            </button>
         </dialog>
-        <footer class="footer"><div class="footer-top footer-expanded shell"><div class="footer-brand"><a href="../index.html" aria-label="BackLog home"><img src="../imagens/logo_transparente.png" alt="BackLog"></a><p>Catalog games, log dates, and organize your collection.</p><div class="footer-social"><a href="https://github.com/gabriellcs7" target="_blank" rel="noopener noreferrer" aria-label="GitHub gabriellcs7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6"/></svg> GitHub <span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/codergabriel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram codergabriel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg> Instagram <span aria-hidden="true">↗</span></a></div><span class="footer-author" data-no-translate>@codergabriel</span></div><nav class="footer-link-group" aria-label="Explore BackLog"><h2>Explore</h2><ul><li><a href="pagina_jogos.html">Games</a></li><li><a href="discover.html">Discover</a></li><li><a href="want-to-play.html">Want to play</a></li><li><a href="../index.html#gaming-news-title">Gaming news</a></li></ul></nav><nav class="footer-link-group" aria-label="Your journal"><h2>Your journal</h2><ul><li><a href="profile.html">Profile</a></li><li><a href="pagina_jogos.html?saved=1">My backlog</a></li><li><a href="diary.html">Diary</a></li><li><a href="statistics.html">Statistics</a></li></ul></nav><nav class="footer-link-group" aria-label="About the project"><h2>The project</h2><ul><li><a href="about.html">About BackLog</a></li><li><a href="help.html">Help &amp; FAQ</a></li><li><a href="help.html#feedback">Send feedback</a></li><li><a href="credits.html">Credits &amp; sources</a></li><li><a href="settings.html" class="footer-settings-link">Settings ↗</a></li><li><a href="settings.html?tour=1" class="footer-tour-link">Take a tour ↗</a></li></ul></nav></div><div class="footer-bottom shell"><p>© 2026 BackLog · A personal project by Gabriel</p><a href="#main">Back to top ↑</a></div></footer>
+        <footer class="footer">
+            <div class="footer-top footer-expanded shell">
+                <div class="footer-brand">
+                    <a href="../index.html" aria-label="BackLog home"
+                        ><img src="../imagens/logo_transparente.png" alt="BackLog"
+                    /></a>
+                    <p>Catalog games, log dates, and organize your collection.</p>
+                    <div class="footer-social">
+                        <a
+                            href="https://github.com/gabriellcs7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub gabriellcs7"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="6" cy="5" r="2" />
+                                <circle cx="18" cy="5" r="2" />
+                                <circle cx="6" cy="19" r="2" />
+                                <path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6" />
+                            </svg>
+                            GitHub <span aria-hidden="true">↗</span></a
+                        ><a
+                            href="https://www.instagram.com/codergabriel/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram codergabriel"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                aria-hidden="true"
+                            >
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none" />
+                            </svg>
+                            Instagram <span aria-hidden="true">↗</span></a
+                        >
+                    </div>
+                    <span class="footer-author" data-no-translate>@codergabriel</span>
+                </div>
+                <nav class="footer-link-group" aria-label="Explore BackLog">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="pagina_jogos.html">Games</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                        <li><a href="want-to-play.html">Want to play</a></li>
+                        <li><a href="../index.html#gaming-news-title">Gaming news</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="Your journal">
+                    <h2>Your journal</h2>
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="pagina_jogos.html?saved=1">My backlog</a></li>
+                        <li><a href="diary.html">Diary</a></li>
+                        <li><a href="statistics.html">Statistics</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="About the project">
+                    <h2>The project</h2>
+                    <ul>
+                        <li><a href="about.html">About BackLog</a></li>
+                        <li><a href="help.html">Help &amp; FAQ</a></li>
+                        <li><a href="help.html#feedback">Send feedback</a></li>
+                        <li><a href="credits.html">Credits &amp; sources</a></li>
+                        <li>
+                            <a href="settings.html" class="footer-settings-link">Settings ↗</a>
+                        </li>
+                        <li>
+                            <a href="settings.html?tour=1" class="footer-tour-link"
+                                >Take a tour ↗</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom shell">
+                <p>© 2026 BackLog · A personal project by Gabriel</p>
+                <a href="#main">Back to top ↑</a>
+            </div>
+        </footer>
         <script src="../js/avatar-upload.js" defer></script>
         <script src="../js/select-controls.js" defer></script>
         <script src="../js/card-effects.js" defer></script>
@@ -207,10 +845,10 @@
         <script src="../js/empty-states.js" defer></script>
         <script src="../js/number-ticker.js" defer></script>
         <script src="../js/notifications.js" defer></script>
-    <script src="../js/expandable-text.js" defer></script>
+        <script src="../js/expandable-text.js" defer></script>
         <script src="../js/cover-menu.js?v=20261123-undo-2" defer></script>
-    <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
-<script src="../js/password-strength.js" defer></script>
-<script src="../js/hold-confirm.js" defer></script>
-</body>
+        <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
+        <script src="../js/password-strength.js" defer></script>
+        <script src="../js/hold-confirm.js" defer></script>
+    </body>
 </html>

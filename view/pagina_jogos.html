@@ -1,16 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
         <script src="../js/data/i18n-catalog.js?v=20261125-components-2" defer></script>
         <script src="../js/i18n.js" defer></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#131414">
-        <meta name="description" content="Browse the game catalog, filter by genre or status, and manage your backlog with BackLog.">
-        <link rel="icon" href="../imagens/favicon_2-32x32.png">
-        <link rel="stylesheet" href="../css/social.css">
-        <link rel="stylesheet" href="css_paginaJogos/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#131414" />
+        <meta
+            name="description"
+            content="Browse the game catalog, filter by genre or status, and manage your backlog with BackLog."
+        />
+        <link rel="icon" href="../imagens/favicon_2-32x32.png" />
+        <link rel="stylesheet" href="../css/social.css" />
+        <link rel="stylesheet" href="css_paginaJogos/style.css" />
         <script src="../js/share-controls.js" defer></script>
         <script src="../js/data/games.js" defer></script>
         <script src="../js/data/game-prices.js" defer></script>
@@ -18,11 +21,11 @@
         <script src="../js/config.js" defer></script>
         <script src="../js/account.js?v=20261125-community-2" defer></script>
         <script src="../js/site.js" defer></script>
-<script src="../js/status-undo.js" defer></script>
+        <script src="../js/status-undo.js" defer></script>
         <script src="../js/multi-select.js" defer></script>
         <script src="../js/swipe-backlog.js?v=20261123-undo-2" defer></script>
-    <script src="../js/active-filters.js" defer></script>
-    <script src="../js/catalog.js?v=20261123-filters-2" defer></script>
+        <script src="../js/active-filters.js" defer></script>
+        <script src="../js/catalog.js?v=20261123-filters-2" defer></script>
         <script src="../js/ui.js" defer></script>
         <script src="../js/review-format.js" defer></script>
         <script src="../js/rating-themes.js?v=20261123-references-1" defer></script>
@@ -32,46 +35,85 @@
         <script src="../js/community.js?v=20261123-insights-1" defer></script>
         <script src="../js/player-search.js" defer></script>
         <title>Games · BackLog</title>
-        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1">
-        <link rel="stylesheet" href="../css/catalog-multi-select.css">
+        <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1" />
+        <link rel="stylesheet" href="../css/catalog-multi-select.css" />
         <script src="../js/presentation-motion.js" defer></script>
         <script src="../js/background-paths.js" defer></script>
-    <link rel="stylesheet" href="../css/swipe-backlog.css">
-<link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2">
-<link rel="stylesheet" href="../css/active-filters.css">
-<link rel="stylesheet" href="../css/status-undo.css">
-<link rel="stylesheet" href="../css/discover.css">
-<link rel="stylesheet" href="../css/footer.css">
-</head>
+        <link rel="stylesheet" href="../css/swipe-backlog.css" />
+        <link rel="stylesheet" href="../css/product-tour.css?v=20261123-sharp-2" />
+        <link rel="stylesheet" href="../css/active-filters.css" />
+        <link rel="stylesheet" href="../css/status-undo.css" />
+        <link rel="stylesheet" href="../css/discover.css" />
+        <link rel="stylesheet" href="../css/footer.css" />
+    </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
         <!-- Navegação compartilhada e pesquisa -->
         <header class="site-header">
             <nav class="navbar shell" aria-label="Main navigation">
-                <a class="brand" href="../index.html" aria-label="BackLog home"> <img src="../imagens/logo_transparente.png" alt="BackLog"> </a>
-                <form class="nav-search" role="search" action="../view/pagina_jogos.html" data-catalog="../view/pagina_jogos.html">
+                <a class="brand" href="../index.html" aria-label="BackLog home">
+                    <img src="../imagens/logo_transparente.png" alt="BackLog" />
+                </a>
+                <form
+                    class="nav-search"
+                    role="search"
+                    action="../view/pagina_jogos.html"
+                    data-catalog="../view/pagina_jogos.html"
+                >
                     <label class="visually-hidden" for="site-search">Search games or players</label>
                     <button type="submit" aria-label="Search games or players">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.7"/>
-                            
-                            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-                            
+                        <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="10.5"
+                                cy="10.5"
+                                r="6.5"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <path
+                                d="m16 16 4 4"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                            />
                         </svg>
                     </button>
-                    <input id="site-search" class="search" type="search" name="q" placeholder="Search games or players..." autocomplete="off" maxlength="120">
-                    <kbd aria-hidden="true">
-                        /
-                    </kbd>
+                    <input
+                        id="site-search"
+                        class="search"
+                        type="search"
+                        name="q"
+                        placeholder="Search games or players..."
+                        autocomplete="off"
+                        maxlength="120"
+                    />
+                    <kbd aria-hidden="true"> / </kbd>
                 </form>
                 <div class="nav-links" id="navigation">
                     <a href="profile.html">Profile</a>
                     <a href="activity.html">Activity</a>
                     <a class="active" aria-current="page" href="../view/pagina_jogos.html">Games</a>
-                    <a href="../view/pagina_jogos.html?saved=1">My backlog <span class="nav-count" id="nav-count">0</span></a>
+                    <a href="../view/pagina_jogos.html?saved=1"
+                        >My backlog <span class="nav-count" id="nav-count">0</span></a
+                    >
                     <a href="diary.html">Diary</a>
                 </div>
-                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Open menu"><span></span><span></span></button>
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="navigation"
+                    aria-label="Open menu"
+                >
+                    <span></span><span></span>
+                </button>
             </nav>
         </header>
         <main id="main">
@@ -85,8 +127,17 @@
                 <div class="catalog-title-row">
                     <div>
                         <span class="eyebrow">GAMES CATALOG</span>
-                        <h1 id="catalog-title">Explore games and<br><span>organize your backlog.</span></h1>
-                        <p id="catalog-description">Browse titles by genre, check ratings, and update your backlog.</p><a class="social-button social-button-primary catalog-discover-link" href="discover.html">Discover games ↗</a>
+                        <h1 id="catalog-title">
+                            Explore games and<br /><span>organize your backlog.</span>
+                        </h1>
+                        <p id="catalog-description">
+                            Browse titles by genre, check ratings, and update your backlog.
+                        </p>
+                        <a
+                            class="social-button social-button-primary catalog-discover-link"
+                            href="discover.html"
+                            >Discover games ↗</a
+                        >
                     </div>
                     <div class="catalog-mark" aria-hidden="true">
                         CATALOG
@@ -98,8 +149,22 @@
             <section class="catalog-section shell" aria-labelledby="results-heading">
                 <div class="catalog-toolbar">
                     <div class="filter-tabs" role="group" aria-label="Collection filter">
-                        <button class="filter-tab selected" type="button" data-collection="all" aria-pressed="true">All games <span id="all-count">84</span></button>
-                        <button class="filter-tab" type="button" data-collection="saved" aria-pressed="false">My backlog <span id="saved-count">0</span></button>
+                        <button
+                            class="filter-tab selected"
+                            type="button"
+                            data-collection="all"
+                            aria-pressed="true"
+                        >
+                            All games <span id="all-count">84</span>
+                        </button>
+                        <button
+                            class="filter-tab"
+                            type="button"
+                            data-collection="saved"
+                            aria-pressed="false"
+                        >
+                            My backlog <span id="saved-count">0</span>
+                        </button>
                     </div>
                     <div class="catalog-selects">
                         <label for="status-filter">Status</label>
@@ -114,9 +179,7 @@
                         </select>
                         <label for="genre-filter">Genre</label>
                         <select id="genre-filter" multiple data-multi-filter="Genres">
-                            <option value="all">
-                                All genres
-                            </option>
+                            <option value="all">All genres</option>
                             <option value="Action">Action</option>
                             <option value="Adventure">Adventure</option>
                             <option value="Fighting">Fighting</option>
@@ -130,40 +193,64 @@
                         </select>
                         <label for="sort-games" class="visually-hidden">Sort games</label>
                         <select id="sort-games">
-                            <option value="featured">
-                                Featured first
-                            </option>
-                            <option value="az">
-                                Name: A-Z
-                            </option>
-                            <option value="za">
-                                Name: Z-A
-                            </option>
+                            <option value="featured">Featured first</option>
+                            <option value="az">Name: A-Z</option>
+                            <option value="za">Name: Z-A</option>
                         </select>
                     </div>
                 </div>
-                <section id="player-search-section" class="player-search-section" aria-labelledby="player-search-title" hidden>
-                    <div class="results-heading"><h2 id="player-search-title">Players</h2><p id="player-search-summary" role="status"></p></div>
+                <section
+                    id="player-search-section"
+                    class="player-search-section"
+                    aria-labelledby="player-search-title"
+                    hidden
+                >
+                    <div class="results-heading">
+                        <h2 id="player-search-title">Players</h2>
+                        <p id="player-search-summary" role="status"></p>
+                    </div>
                     <div id="player-search-results" class="player-search-grid"></div>
                     <p id="player-search-feedback" class="social-feedback" role="status"></p>
-                    <button id="more-players" class="social-button" type="button" hidden>More players</button>
+                    <button id="more-players" class="social-button" type="button" hidden>
+                        More players
+                    </button>
                 </section>
-                <nav class="collection-sections" id="collection-sections" aria-label="Your collection sections" hidden><a href="#collection-played">Played <span id="played-count">0</span></a><a href="#collection-playing">Playing <span id="playing-count">0</span></a><a href="#collection-want-to-play">Want to play <span id="wishlist-count">0</span></a></nav>
+                <nav
+                    class="collection-sections"
+                    id="collection-sections"
+                    aria-label="Your collection sections"
+                    hidden
+                >
+                    <a href="#collection-played">Played <span id="played-count">0</span></a
+                    ><a href="#collection-playing">Playing <span id="playing-count">0</span></a
+                    ><a href="#collection-want-to-play"
+                        >Want to play <span id="wishlist-count">0</span></a
+                    >
+                </nav>
                 <div class="results-heading">
                     <h2 id="results-heading">Catalog</h2>
                     <p id="result-count" role="status" aria-live="polite"></p>
                 </div>
-                <div class="catalog-grid" id="game-results">
-                </div>
-                <nav id="catalog-pages" class="catalog-pages" aria-label="Catalog pages" hidden></nav>
+                <div class="catalog-grid" id="game-results"></div>
+                <nav
+                    id="catalog-pages"
+                    class="catalog-pages"
+                    aria-label="Catalog pages"
+                    hidden
+                ></nav>
                 <div class="empty-state" id="empty-state" hidden>
                     <span aria-hidden="true">↗</span>
                     <h2 id="empty-title">No games found.</h2>
                     <p id="empty-description">Try another search or choose a different genre.</p>
-                    <button class="button button-primary" id="reset-filters" type="button">Show all games</button>
+                    <button class="button button-primary" id="reset-filters" type="button">
+                        Show all games
+                    </button>
                 </div>
                 <noscript>
-                    <p class="noscript-note">Enable JavaScript to search and filter the collection. You can still <a href="game.html">view Grand Theft Auto VI</a>.</p>
+                    <p class="noscript-note">
+                        Enable JavaScript to search and filter the collection. You can still
+                        <a href="game.html">view Grand Theft Auto VI</a>.
+                    </p>
                 </noscript>
                 <div class="catalog-end">
                     <span class="status-dot"></span>
@@ -173,7 +260,96 @@
             </section>
         </main>
         <!-- Rodapé compartilhado -->
-        <footer class="footer"><div class="footer-top footer-expanded shell"><div class="footer-brand"><a href="../index.html" aria-label="BackLog home"><img src="../imagens/logo_transparente.png" alt="BackLog"></a><p>Catalog games, log dates, and organize your collection.</p><div class="footer-social"><a href="https://github.com/gabriellcs7" target="_blank" rel="noopener noreferrer" aria-label="GitHub gabriellcs7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6"/></svg> GitHub <span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/codergabriel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram codergabriel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none"/></svg> Instagram <span aria-hidden="true">↗</span></a></div><span class="footer-author" data-no-translate>@codergabriel</span></div><nav class="footer-link-group" aria-label="Explore BackLog"><h2>Explore</h2><ul><li><a href="pagina_jogos.html">Games</a></li><li><a href="discover.html">Discover</a></li><li><a href="want-to-play.html">Want to play</a></li><li><a href="../index.html#gaming-news-title">Gaming news</a></li></ul></nav><nav class="footer-link-group" aria-label="Your journal"><h2>Your journal</h2><ul><li><a href="profile.html">Profile</a></li><li><a href="pagina_jogos.html?saved=1">My backlog</a></li><li><a href="diary.html">Diary</a></li><li><a href="statistics.html">Statistics</a></li></ul></nav><nav class="footer-link-group" aria-label="About the project"><h2>The project</h2><ul><li><a href="about.html">About BackLog</a></li><li><a href="help.html">Help &amp; FAQ</a></li><li><a href="help.html#feedback">Send feedback</a></li><li><a href="credits.html">Credits &amp; sources</a></li><li><a href="settings.html" class="footer-settings-link">Settings ↗</a></li><li><a href="settings.html?tour=1" class="footer-tour-link">Take a tour ↗</a></li></ul></nav></div><div class="footer-bottom shell"><p>© 2026 BackLog · A personal project by Gabriel</p><a href="#main">Back to top ↑</a></div></footer>
+        <footer class="footer">
+            <div class="footer-top footer-expanded shell">
+                <div class="footer-brand">
+                    <a href="../index.html" aria-label="BackLog home"
+                        ><img src="../imagens/logo_transparente.png" alt="BackLog"
+                    /></a>
+                    <p>Catalog games, log dates, and organize your collection.</p>
+                    <div class="footer-social">
+                        <a
+                            href="https://github.com/gabriellcs7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub gabriellcs7"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="6" cy="5" r="2" />
+                                <circle cx="18" cy="5" r="2" />
+                                <circle cx="6" cy="19" r="2" />
+                                <path d="M6 7v10m12-10v2a6 6 0 0 1-6 6H6" />
+                            </svg>
+                            GitHub <span aria-hidden="true">↗</span></a
+                        ><a
+                            href="https://www.instagram.com/codergabriel/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram codergabriel"
+                            ><svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.6"
+                                aria-hidden="true"
+                            >
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="18" cy="6" r=".8" fill="currentColor" stroke="none" />
+                            </svg>
+                            Instagram <span aria-hidden="true">↗</span></a
+                        >
+                    </div>
+                    <span class="footer-author" data-no-translate>@codergabriel</span>
+                </div>
+                <nav class="footer-link-group" aria-label="Explore BackLog">
+                    <h2>Explore</h2>
+                    <ul>
+                        <li><a href="pagina_jogos.html">Games</a></li>
+                        <li><a href="discover.html">Discover</a></li>
+                        <li><a href="want-to-play.html">Want to play</a></li>
+                        <li><a href="../index.html#gaming-news-title">Gaming news</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="Your journal">
+                    <h2>Your journal</h2>
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="pagina_jogos.html?saved=1">My backlog</a></li>
+                        <li><a href="diary.html">Diary</a></li>
+                        <li><a href="statistics.html">Statistics</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-link-group" aria-label="About the project">
+                    <h2>The project</h2>
+                    <ul>
+                        <li><a href="about.html">About BackLog</a></li>
+                        <li><a href="help.html">Help &amp; FAQ</a></li>
+                        <li><a href="help.html#feedback">Send feedback</a></li>
+                        <li><a href="credits.html">Credits &amp; sources</a></li>
+                        <li>
+                            <a href="settings.html" class="footer-settings-link">Settings ↗</a>
+                        </li>
+                        <li>
+                            <a href="settings.html?tour=1" class="footer-tour-link"
+                                >Take a tour ↗</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom shell">
+                <p>© 2026 BackLog · A personal project by Gabriel</p>
+                <a href="#main">Back to top ↑</a>
+            </div>
+        </footer>
         <script src="../js/select-controls.js" defer></script>
         <script src="../js/card-effects.js" defer></script>
         <script src="../js/animated-tabs.js" defer></script>
@@ -183,8 +359,8 @@
         <script src="../js/empty-states.js" defer></script>
         <script src="../js/pill-pagination.js" defer></script>
         <script src="../js/notifications.js" defer></script>
-    <script src="../js/expandable-text.js" defer></script>
+        <script src="../js/expandable-text.js" defer></script>
         <script src="../js/cover-menu.js?v=20261123-undo-2" defer></script>
-    <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
-</body>
+        <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
+    </body>
 </html>

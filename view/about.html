@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="../css/footer.css" />
         <link rel="stylesheet" href="../css/about-timeline.css?v=20261124-intro-2" />
         <script src="../js/about-timeline.js?v=20261124-1" defer></script>
+        <link rel="stylesheet" href="../css/project-comparison.css?v=20261127-1" />
     </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -313,6 +314,30 @@
                     </div>
                 </div>
             </section>
+            <section class="project-comparison insight-card" aria-labelledby="project-comparison-title">
+                <header class="project-comparison-heading">
+                    <div>
+                        <span class="eyebrow">How BackLog changed</span>
+                        <h2 id="project-comparison-title">The first version and today’s BackLog.</h2>
+                        <p>Drag the divider to compare.</p>
+                    </div>
+                </header>
+                <div class="project-image-compare" style="--comparison-split: 50%">
+                    <img src="../imagens/projeto/november-2026.png" alt="Current version" width="1280" height="860" loading="lazy" decoding="async" />
+                    <img class="project-comparison-original" src="../imagens/projeto/first-version.png" alt="First version" width="1280" height="860" loading="lazy" decoding="async" />
+                    <span class="project-comparison-label comparison-label-before">First version</span>
+                    <span class="project-comparison-label comparison-label-after">Current version</span>
+                    <span class="project-comparison-divider" aria-hidden="true"></span>
+                    <span class="project-comparison-grip" aria-hidden="true">‹ ›</span>
+                    <label class="visually-hidden" for="project-comparison-slider">Compare the first version with the current interface.</label>
+                    <input id="project-comparison-slider" type="range" min="0" max="100" value="50" step="1" aria-describedby="project-comparison-note" />
+                </div>
+                <p class="project-comparison-note" id="project-comparison-note">
+                    <span>First version on the left, current version on the right.</span>
+                    <span>Screenshots from the first saved version and November 2026.</span>
+                    <span>The original screenshot uses the fonts available offline.</span>
+                </p>
+            </section>
             <section class="project-author insight-card">
                 <div>
                     <span class="eyebrow muted">BEHIND BACKLOG</span>
@@ -453,5 +478,6 @@
         <script src="../js/expandable-text.js" defer></script>
         <script src="../js/cover-menu.js?v=20261123-undo-2" defer></script>
         <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
+        <script src="../js/project-comparison.js?v=20261127-1" defer></script>
     </body>
 </html>

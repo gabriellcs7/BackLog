@@ -23,6 +23,10 @@
     font: inherit;
     white-space: nowrap;
 }
+/* The former standalone share button had a bottom margin. */
+.list-action-toolbar #share-list {
+    margin: 0;
+}
 .list-action-item svg {
     width: 19px;
     height: 19px;

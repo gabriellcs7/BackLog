@@ -1,0 +1,46 @@
+.list-action-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    border: 1px solid #606b48;
+    border-radius: 14px;
+    background: #151d11ee;
+    box-shadow: 0 10px 28px #0003;
+    flex-shrink: 0;
+}
+.list-action-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 11px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    white-space: nowrap;
+}
+.list-action-item svg { width: 19px; height: 19px; flex-shrink: 0; }
+.list-action-label { display: grid; grid-template-columns: 0fr; opacity: 0; transition: grid-template-columns .23s, opacity .23s; }
+.list-action-label > span { min-width: 0; overflow: hidden; font-size: 12px; }
+.list-action-item:hover,
+.list-action-item:focus-visible { color: var(--yellow); background: #ffd21f12; }
+.list-action-item:hover .list-action-label,
+.list-action-item:focus-visible .list-action-label,
+.list-action-item[aria-expanded='true'] .list-action-label { grid-template-columns: 1fr; opacity: 1; }
+.list-action-item:disabled { opacity: .4; cursor: default; }
+.list-copy-fallback { width: min(100%, 450px); padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+.list-page-tools { flex-wrap: wrap; gap: 12px; }
+@media (max-width: 800px) {
+    .logged-games-heading:has(.list-action-toolbar) { flex-wrap: wrap; gap: 18px; }
+    .list-action-toolbar { max-width: 100%; flex-wrap: wrap; }
+    .list-action-label { grid-template-columns: 1fr; opacity: 1; }
+    .list-action-item { gap: 6px; padding: 10px; }
+    .list-action-label > span { font-size: 11px; }
+}
+@media (pointer: coarse) { .list-action-label { grid-template-columns: 1fr; opacity: 1; } }
+html[data-presentation-motion='reduced'] .list-action-label { transition: none; }
+@media (prefers-reduced-motion: reduce) { html:not([data-presentation-motion='full']) .list-action-label { transition: none; } }

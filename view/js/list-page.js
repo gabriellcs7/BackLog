@@ -15,10 +15,12 @@
     const share = document.querySelector('#share-list');
     window.BacklogShare.mount(share, { url: () => location.href, title: () => document.title });
     const rename = window.BacklogInlineListName.mount(title, profileId, listId);
+    const actions = window.BacklogListActions.mount({share, profileId, listId, feedback});
     let generation = 0;
 
     async function render() {
         rename.reset();
+        actions.reset();
         const ticket = ++generation;
         share.disabled = true;
         progressPanel.hidden = true;
@@ -48,6 +50,7 @@
             );
             title.textContent = list.name;
             rename.setList(list);
+            actions.setList(list);
             document.title = list.name + ' · BackLog';
             meta.textContent = [
                 player.profile.display_name,

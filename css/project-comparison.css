@@ -5,25 +5,128 @@
     border-radius: 18px;
     background: #171c14;
 }
-.project-comparison-heading { padding: 24px; }
-.project-comparison-heading h2 { margin: 10px 0; font-size: clamp(22px, 3vw, 32px); }
-.project-comparison-heading p { margin: 0; color: var(--muted); font-size: 13px; }
-.project-image-compare { position: relative; aspect-ratio: 1280 / 860; overflow: hidden; isolation: isolate; background: #101410; }
-.project-image-compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.project-image-compare .project-comparison-original { clip-path: inset(0 calc(100% - var(--comparison-split)) 0 0); }
-.project-comparison-label { position: absolute; top: 16px; padding: 8px 12px; border: 1px solid #b2ba9a44; border-radius: 20px; background: #0b1309e6; color: #f2f5e8; font-size: 11px; pointer-events: none; }
-.comparison-label-before { left: 16px; }
-.comparison-label-after { right: 16px; color: var(--yellow); border-color: #a08c3355; }
-.project-comparison-divider { position: absolute; top: 0; bottom: 0; left: var(--comparison-split); width: 2px; background: var(--yellow); box-shadow: 0 0 14px #ffd21f33; pointer-events: none; }
-.project-comparison-grip { position: absolute; top: 50%; left: var(--comparison-split); display: grid; place-items: center; translate: -50% -50%; width: 46px; height: 46px; border-radius: 50%; background: var(--yellow); color: #151a0d; box-shadow: 0 5px 20px #0008; font-size: 23px; pointer-events: none; }
-.project-image-compare input { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
-.project-image-compare:focus-within { outline: 3px solid var(--yellow); outline-offset: -3px; }
-.project-comparison-note { display: grid; gap: 3px; margin: 0; padding: 16px 24px; border-top: 1px solid #35412b; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.project-comparison-heading {
+    padding: 24px;
+}
+.project-comparison-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(22px, 3vw, 32px);
+}
+.project-comparison-heading p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+.project-image-compare {
+    position: relative;
+    aspect-ratio: 1280 / 860;
+    overflow: hidden;
+    isolation: isolate;
+    background: #101410;
+}
+.project-image-compare img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+.project-image-compare .project-comparison-original {
+    clip-path: inset(0 calc(100% - var(--comparison-split)) 0 0);
+}
+.project-comparison-label {
+    position: absolute;
+    top: 16px;
+    padding: 8px 12px;
+    border: 1px solid #b2ba9a44;
+    border-radius: 20px;
+    background: #0b1309e6;
+    color: #f2f5e8;
+    font-size: 11px;
+    pointer-events: none;
+}
+.comparison-label-before {
+    left: 16px;
+}
+.comparison-label-after {
+    right: 16px;
+    color: var(--yellow);
+    border-color: #a08c3355;
+}
+.project-comparison-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--comparison-split);
+    width: 2px;
+    background: var(--yellow);
+    box-shadow: 0 0 14px #ffd21f33;
+    pointer-events: none;
+}
+.project-comparison-grip {
+    position: absolute;
+    top: 50%;
+    left: var(--comparison-split);
+    display: grid;
+    place-items: center;
+    translate: -50% -50%;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--yellow);
+    color: #151a0d;
+    box-shadow: 0 5px 20px #0008;
+    font-size: 23px;
+    pointer-events: none;
+}
+.project-image-compare input {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    touch-action: pan-y;
+}
+.project-image-compare:focus-within {
+    outline: 3px solid var(--yellow);
+    outline-offset: -3px;
+}
+.project-comparison-note {
+    display: grid;
+    gap: 3px;
+    margin: 0;
+    padding: 16px 24px;
+    border-top: 1px solid #35412b;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
 @media (max-width: 600px) {
-    .project-comparison-heading { padding: 20px; }
-    .project-comparison-label { top: 8px; padding: 6px 8px; font-size: 9px; }
-    .comparison-label-before { left: 8px; }
-    .comparison-label-after { right: 8px; }
-    .project-comparison-grip { width: 34px; height: 34px; font-size: 19px; }
-    .project-comparison-note { padding: 14px 18px; font-size: 10px; }
+    .project-comparison-heading {
+        padding: 20px;
+    }
+    .project-comparison-label {
+        top: 8px;
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+    .comparison-label-before {
+        left: 8px;
+    }
+    .comparison-label-after {
+        right: 8px;
+    }
+    .project-comparison-grip {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+    .project-comparison-note {
+        padding: 14px 18px;
+        font-size: 10px;
+    }
 }

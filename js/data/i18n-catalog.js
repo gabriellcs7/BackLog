@@ -1169,3 +1169,23 @@ Object.assign(window.BacklogPortuguese, {
         'Limite de feedbacks atingido. Tente novamente em uma hora.',
     'Use 10 to 500 characters for your feedback.': 'Use de 10 a 500 caracteres no feedback.',
 });
+
+Object.assign(window.BacklogPortuguese, {
+    'Format selected text': 'Formatar texto selecionado',
+    'List actions': 'Ações da lista',
+    'Edit list': 'Editar lista',
+    'Export list': 'Exportar lista',
+    'List exported.': 'Lista exportada.',
+    'Private list: only you can open this link.': 'Lista privada: só você pode abrir este link.',
+    'Copy the selected link.': 'Copie o link selecionado.',
+    'Mobile navigation': 'Navegação no celular',
+    'First version': 'Primeira versão',
+    'Current version': 'Versão atual',
+    'The first version and today’s BackLog.': 'A primeira versão e o BackLog de hoje.',
+    'Drag the divider to compare.': 'Arraste o divisor para comparar.',
+    'Compare the first version with the current interface.': 'Compare a primeira versão com a interface atual.',
+    'First version on the left, current version on the right.': 'Primeira versão à esquerda, versão atual à direita.',
+    'Screenshots from the first saved version and November 2026.': 'Capturas da primeira versão salva e de novembro de 2026.',
+    'The original screenshot uses the fonts available offline.': 'A captura original usa as fontes disponíveis sem internet.',
+    'How BackLog changed': 'Como o BackLog mudou'
+});

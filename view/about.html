@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
-        <script src="../js/data/i18n-catalog.js?v=20261127-hearts-1" defer></script>
+        <script src="../js/data/i18n-catalog.js?v=20261127-badge-1" defer></script>
         <script src="../js/i18n.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#131414" />
@@ -42,6 +42,7 @@
         <link rel="stylesheet" href="../css/project-comparison.css?v=20261127-1" />
         <link rel="stylesheet" href="../css/mobile-dock.css?v=20261127-1" />
         <link rel="stylesheet" href="../css/game-hearts.css?v=20261127-1" />
+        <link rel="stylesheet" href="../css/creator-badge.css?v=20261127-1" />
     </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -375,31 +376,54 @@
                     <span>The original screenshot uses the fonts available offline.</span>
                 </p>
             </section>
-            <section class="project-author insight-card">
-                <div>
+            <section class="project-author creator-author insight-card">
+                <div class="creator-author-copy">
                     <span class="eyebrow muted">BEHIND BACKLOG</span>
                     <h2>Created by Gabriel</h2>
                     <p>
                         I built BackLog to practice web development and share my work. You can find
                         my code on GitHub and tech posts on Instagram.
                     </p>
+                    <div class="social-actions">
+                        <a
+                            class="social-button"
+                            href="https://www.instagram.com/codergabriel/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-no-translate
+                            >Instagram · @codergabriel ↗</a
+                        ><a
+                            class="social-button"
+                            href="https://github.com/gabriellcs7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-no-translate
+                            >GitHub · gabriellcs7 ↗</a
+                        >
+                    </div>
                 </div>
-                <div class="social-actions">
-                    <a
-                        class="social-button"
-                        href="https://www.instagram.com/codergabriel/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-no-translate
-                        >Instagram · @codergabriel ↗</a
-                    ><a
-                        class="social-button"
-                        href="https://github.com/gabriellcs7"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-no-translate
-                        >GitHub · gabriellcs7 ↗</a
+                <div class="creator-badge" id="creator-badge">
+                    <div
+                        class="creator-badge-stage"
+                        role="group"
+                        aria-label="Interactive creator badge."
                     >
+                        <div class="creator-badge-static">
+                            <img
+                                src="../imagens/projeto/gabriel-creator.webp"
+                                alt="Creator badge with Gabriel’s photo."
+                                loading="lazy"
+                            />
+                            <strong data-no-translate>Gabriel</strong
+                            ><span data-no-translate>@codergabriel</span>
+                        </div>
+                        <div class="creator-badge-scene"></div>
+                    </div>
+                    <p class="creator-badge-hint">Drag to move · click to flip</p>
+                    <div class="creator-badge-controls">
+                        <button type="button" data-badge-flip>Flip badge</button>
+                        <button type="button" data-badge-reset>Reset position</button>
+                    </div>
                 </div>
             </section>
             <section class="project-stack">
@@ -517,5 +541,6 @@
         <script src="../js/product-tour.js?v=20261123-sharp-2" defer></script>
         <script src="../js/project-comparison.js?v=20261127-1" defer></script>
         <script src="../js/mobile-dock.js?v=20261127-1" defer></script>
+        <script src="../js/creator-badge.js?v=20261127-1" defer></script>
     </body>
 </html>

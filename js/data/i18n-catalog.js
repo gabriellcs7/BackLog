@@ -1196,3 +1196,16 @@ Object.assign(window.BacklogPortuguese, {
  'This player liked this game.':'Esta pessoa gostou deste jogo.',
  'Game hearts need the latest database update. Your draft is still here.':'Os corações nos jogos precisam da atualização mais recente do banco de dados. Seu rascunho continua aqui.'
 });
+
+Object.assign(window.BacklogPortuguese, {
+ 'Interactive creator badge.':'Crachá interativo do criador.',
+ 'Creator badge with Gabriel’s photo.':'Crachá do criador com a foto de Gabriel.',
+ 'Drag to move · click to flip':'Arraste para mover · clique para virar',
+ 'Flip badge':'Virar crachá',
+ 'Reset position':'Redefinir posição'
+});
+
+Object.assign(window.BacklogPortuguese, {
+ 'The creator badge is adapted from React Bits and rendered with Three.js.':'O crachá do criador foi adaptado do React Bits e usa Three.js para a renderização.',
+ 'Component license':'Licença do componente'
+});

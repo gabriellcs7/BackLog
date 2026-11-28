@@ -1,16 +1,12 @@
-/* The About logo stays a normal home link; only the larger sticker can be dragged. */
+/* Preserve the home link while adding a peel effect to the About navigation logo. */
 (() => {
     'use strict';
     const base = new URL('.', document.currentScript.src),
-        brand = document.querySelector('.site-header .brand'),
-        board = document.querySelector('#about-sticker-board');
-    if (!board || !brand) return;
+        brand = document.querySelector('.site-header .brand');
+    if (!brand?.querySelector('img')) return;
     const motion = window.BacklogMotion || matchMedia('(prefers-reduced-motion: reduce)');
     let loader = null;
-    const targets = [
-        { host: brand, image: brand.querySelector('img'), logo: true },
-        { host: board, image: board.querySelector('img'), logo: false },
-    ].map((value) => ({
+    const targets = [{ host: brand, image: brand.querySelector('img') }].map((value) => ({
         ...value,
         engine: null,
         root: null,
@@ -45,18 +41,18 @@
             root.append(canvas, hit);
             t.host.append(root);
             t.root = root;
-            t.width = t.logo ? t.image.clientWidth : Math.min(245, t.host.clientWidth * 0.68);
+            t.width = t.image.clientWidth;
             t.engine = createStickerPeel(root, canvas, hit, {
                 imageSrc: t.image.src,
                 width: t.width,
-                rotate: t.logo ? 0 : (-9 * Math.PI) / 180,
-                hoverPeel: t.logo ? 0.13 : 0.22,
-                activePeel: t.logo ? 0.13 : 0.42,
-                draggable: !t.logo,
-                hoverOnly: t.logo,
-                swing: t.logo ? 0 : 0.7,
-                lighting: t.logo ? 0.2 : 0.5,
-                shadow: t.logo ? 0.15 : 0.6,
+                rotate: 0,
+                hoverPeel: 0.13,
+                activePeel: 0.13,
+                draggable: false,
+                hoverOnly: true,
+                swing: 0,
+                lighting: 0.2,
+                shadow: 0.15,
                 onReady: () => {
                     if (version === t.version) t.host.classList.add('has-peel-sticker');
                 },
@@ -85,9 +81,7 @@
         cancelAnimationFrame(resizeFrame);
         resizeFrame = requestAnimationFrame(() => {
             for (const t of targets) {
-                const width = t.logo
-                    ? t.image.clientWidth
-                    : Math.min(245, t.host.clientWidth * 0.68);
+                const width = t.image.clientWidth;
                 if (t.engine && Math.abs(width - t.width) > 2) {
                     stop(t);
                     start(t);
@@ -101,11 +95,6 @@
             if (motion.matches) stop(t);
             else start(t);
         }
-    });
-    document.querySelector('[data-reset-sticker]').addEventListener('click', () => {
-        const t = targets[1];
-        stop(t);
-        start(t);
     });
     window.addEventListener('pagehide', () => {
         for (const t of targets) stop(t);

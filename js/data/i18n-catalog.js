@@ -1209,12 +1209,3 @@ Object.assign(window.BacklogPortuguese, {
  'The creator badge is adapted from React Bits and rendered with Three.js.':'O crachá do criador foi adaptado do React Bits e usa Three.js para a renderização.',
  'Component license':'Licença do componente'
 });
-
-Object.assign(window.BacklogPortuguese, {
- 'ONE MORE GAME':'MAIS UMA PARTIDA',
- 'A little room to play.':'Um espaço para brincar.',
- 'A small detail for a project made around games. Pull a corner, drag the sticker, and let it go.':'Um pequeno detalhe em um projeto feito em torno dos jogos. Puxe uma ponta, arraste o adesivo e solte.',
- 'Reset sticker':'Reposicionar adesivo',
- 'BackLog gamepad sticker.':'Adesivo de controle do BackLog.',
- 'Pull a corner · drag · release':'Puxe uma ponta · arraste · solte'
-});

@@ -1,18 +1,10 @@
-/* Specular Button: original React Bits lighting, shared across native controls. */
+/* Specular Button lighting is reserved for the notification bell. */
 (() => {
     'use strict';
     const base = new URL('.', document.currentScript.src),
-        selector = 'button,summary,[role="button"],[role="tab"],a[class*="button"],[data-specular]',
+        selector = '.notification-bell',
         states = new Map();
     const motion = window.BacklogMotion || matchMedia('(prefers-reduced-motion: reduce)');
-    const statusColors = {
-        played: '#78d985',
-        playing: '#70a7ff',
-        completed: '#b7e476',
-        platinum: '#c4a1ff',
-        dropped: '#ff8a80',
-        'want-to-play': '#ffd21f',
-    };
     let api = null,
         renderer = null,
         frame = 0,
@@ -20,34 +12,14 @@
         pointer = null,
         touchTimer = 0;
     function eligible(button) {
-        if (
-            button.matches('input,select,textarea,[data-no-specular]') ||
-            button.closest('.nav-search,form[role="search"]')
-        )
-            return false;
-        if (button.matches('.filter-tab')) return button.getAttribute('aria-pressed') === 'true';
-        return true;
+        return button.matches('.notification-bell');
     }
     function color(button, state, style) {
-        const explicit = style.getPropertyValue('--specular-accent').trim();
-        if (explicit) return explicit;
-        if (
-            button.matches(
-                '.review-game-heart-toggle,.review-like,.social-danger,.review-delete,[data-danger]'
-            )
-        )
-            return '#ff786f';
-        if (statusColors[button.dataset.status]) return statusColors[button.dataset.status];
-        if (button.matches('.button-primary,.cinematic-button-primary,.filter-tab'))
-            return '#ffd21f';
+        if (button.classList.contains('has-new-notification')) return '#ffd21f';
         const channels = (style.color.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
-        if (
-            channels.length === 3 &&
-            Math.max(...channels) - Math.min(...channels) > 55 &&
-            Math.max(...channels) > 100
-        )
-            return style.color;
-        return state.originalAccent || '#dce6be';
+        return channels.length === 3 && Math.max(...channels) - Math.min(...channels) > 55
+            ? style.color
+            : '#dce6be';
     }
     function enhance(button) {
         if (!eligible(button)) {

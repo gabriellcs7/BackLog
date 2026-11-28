@@ -1,3 +1,4 @@
+/* Only the notification bell receives the Specular Button treatment. */
 /* Same glass surface and light renderer as the approved Specular Button preview. */
 :where(.has-specular-rim) {
     position: relative;
@@ -12,19 +13,6 @@
         .active
     ) {
     border-color: color-mix(in srgb, var(--specular-color, #dce6be) 35%, transparent);
-}
-.button-primary.has-specular-rim,
-.cinematic-button-primary.has-specular-rim {
-    background: color-mix(in srgb, var(--specular-color, #ffd21f) 8%, transparent);
-    color: #fff4ba;
-    font-weight: 500;
-    font-size: 13px;
-    border-radius: 12px;
-}
-.button-primary.has-specular-rim:hover,
-.cinematic-button-primary.has-specular-rim:hover {
-    background: color-mix(in srgb, var(--specular-color, #ffd21f) 8%, transparent);
-    color: #fff4ba;
 }
 .has-specular-light:not([aria-pressed='true']):not([aria-selected='true']):not(.selected):not(
         .active
@@ -51,14 +39,6 @@
 }
 .has-specular-rim:disabled > canvas.specular-light {
     opacity: 0;
-}
-.review-game-heart-toggle.has-specular-rim {
-    --specular-accent: #ff786f;
-}
-/* Filter/search controls keep their original layout; only the selected collection tab is enhanced. */
-.nav-search button,
-.filter-tab:not([aria-pressed='true']) {
-    box-shadow: none;
 }
 
 .has-specular-rim:not(.has-specular-light) > canvas.specular-light,

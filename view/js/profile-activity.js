@@ -41,7 +41,8 @@
                       kind: 'rating',
                       rating: review.rating,
                       review_number: review.text.trim() ? reviewCounts.get(item.id) : null,
-                      created_at: review.updatedAt,
+                      created_at: review.createdAt || review.updatedAt,
+                      game_liked: review.gameLiked === true,
                   }
                 : null;
             if (status && date && (!latest || date > latest.created_at))
@@ -50,6 +51,7 @@
                     kind: 'status',
                     status: status.id,
                     rating: review?.rating,
+                    game_liked: review?.gameLiked === true,
                     created_at: date,
                 };
             if (latest) recent.push(latest);
@@ -80,14 +82,19 @@
                     api.recent(id),
                     api.gameRatings(id).catch(() => []),
                 ]);
-                const ratings = new Map(scores.map((row) => [row.game_id, row.rating]));
+                const ratings = new Map(scores.map((row) => [row.game_id, row]));
                 data = {
                     metrics,
-                    recent: recent.map((entry) =>
-                        entry.kind === 'status'
-                            ? { ...entry, rating: ratings.get(entry.game_id) }
-                            : entry
-                    ),
+                    recent: recent.map((entry) => ({
+                        ...entry,
+                        rating:
+                            entry.kind === 'status'
+                                ? ratings.get(entry.game_id)?.rating
+                                : entry.rating,
+                        game_liked:
+                            ratings.get(entry.game_id)?.game_liked === true ||
+                            entry.game_liked === true,
+                    })),
                 };
             }
             if (ticket !== version) return;
@@ -154,7 +161,13 @@
                 const meta = ui.element('div', 'recent-game-meta');
                 if (entry.kind === 'status' || entry.rating == null)
                     meta.append(ui.element('span', 'recent-game-label', label));
-                if (entry.rating != null) meta.append(ui.ratingStars(entry.rating, entry.game_id));
+                if (entry.rating != null || entry.game_liked) {
+                    const score = ui.element('span', 'recent-game-score');
+                    if (entry.rating != null)
+                        score.append(ui.ratingStars(entry.rating, entry.game_id));
+                    window.BacklogGameHearts.append(score, entry);
+                    meta.append(score);
+                }
                 const date = ui.element('time', 'social-small', ui.date(entry.created_at));
                 date.dateTime = entry.created_at;
                 meta.append(date);

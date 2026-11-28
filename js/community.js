@@ -12,8 +12,8 @@
         if (required && !account.user) throw new Error('Sign in to join the conversation.');
         return account.client;
     }
-    async function withGameHearts(rows) {
-        const ids = rows.map((row) => row.id).filter((id) => typeof id === 'string');
+    async function withGameHearts(rows, key = 'id') {
+        const ids = rows.map((row) => row[key]).filter((id) => typeof id === 'string');
         if (!ids.length || !account.client) return rows;
         try {
             const result = await account.client
@@ -24,7 +24,7 @@
             const hearts = new Map(
                 (result.data || []).map((row) => [row.id, row.game_liked === true])
             );
-            return rows.map((row) => ({ ...row, game_liked: hearts.get(row.id) === true }));
+            return rows.map((row) => ({ ...row, game_liked: hearts.get(row[key]) === true }));
         } catch {
             return rows;
         }
@@ -202,15 +202,12 @@
         },
         async gameRatings(id) {
             const api = await client();
-            return (
-                check(
-                    await api
-                        .from('reviews')
-                        .select('game_id,rating,reviewed_on,updated_at')
-                        .eq('user_id', id)
-                        .not('rating', 'is', null)
-                ) || []
-            );
+            const query = (columns) =>
+                api.from('reviews').select(columns).eq('user_id', id).not('rating', 'is', null);
+            let result = await query('game_id,rating,reviewed_on,updated_at,created_at,game_liked');
+            if (result.error?.code === '42703' || result.error?.code === 'PGRST204')
+                result = await query('game_id,rating,reviewed_on,updated_at,created_at');
+            return check(result) || [];
         },
         async publicDiary(id, year, offset) {
             return (
@@ -229,7 +226,8 @@
             const api = await client(),
                 params = { profile_key: id };
             let result = await api.rpc('profile_recent_games_v3', params);
-            if (result.error?.code !== 'PGRST202') return check(result) || [];
+            if (result.error?.code !== 'PGRST202')
+                return withGameHearts(check(result) || [], 'review_id');
 
             // Backward compatibility while the new RPC is being deployed.
             result = await api.rpc('profile_recent_games_v2', params);

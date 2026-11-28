@@ -1944,3 +1944,12 @@
         font-size: 17px;
     }
 }
+
+.recent-game-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+.recent-game-score .review-game-heart {
+    margin-left: 7px;
+}

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
-        <script src="../js/data/i18n-catalog.js?v=20261127-badge-1" defer></script>
+        <script src="../js/data/i18n-catalog.js?v=20261128-sticker-1" defer></script>
         <script src="../js/i18n.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#131414" />
@@ -43,6 +43,8 @@
         <link rel="stylesheet" href="../css/mobile-dock.css?v=20261127-1" />
         <link rel="stylesheet" href="../css/game-hearts.css?v=20261127-1" />
         <link rel="stylesheet" href="../css/creator-badge.css?v=20261127-1" />
+        <link rel="stylesheet" href="../css/specular-buttons.css?v=20261128-1" />
+        <link rel="stylesheet" href="../css/about-stickers.css?v=20261128-1" />
     </head>
     <body>
         <a class="skip-link" href="#main">Skip to content</a>
@@ -426,6 +428,26 @@
                     </div>
                 </div>
             </section>
+            <section class="about-sticker-section" aria-labelledby="about-sticker-title">
+                <div class="about-sticker-copy">
+                    <span class="eyebrow muted">ONE MORE GAME</span>
+                    <h2 id="about-sticker-title">A little room to play.</h2>
+                    <p>
+                        A small detail for a project made around games. Pull a corner, drag the
+                        sticker, and let it go.
+                    </p>
+                    <button class="social-button" type="button" data-reset-sticker data-specular>
+                        Reset sticker
+                    </button>
+                </div>
+                <div class="about-sticker-board" id="about-sticker-board">
+                    <img
+                        src="../imagens/projeto/backlog-sticker.svg"
+                        alt="BackLog gamepad sticker."
+                        loading="lazy"
+                    /><span class="sticker-hint">Pull a corner · drag · release</span>
+                </div>
+            </section>
             <section class="project-stack">
                 <h2>Technology stack</h2>
                 <p>
@@ -542,5 +564,7 @@
         <script src="../js/project-comparison.js?v=20261127-1" defer></script>
         <script src="../js/mobile-dock.js?v=20261127-1" defer></script>
         <script src="../js/creator-badge.js?v=20261127-1" defer></script>
+        <script src="../js/specular-buttons.js?v=20261128-1" defer></script>
+        <script src="../js/about-stickers.js?v=20261128-1" defer></script>
     </body>
 </html>

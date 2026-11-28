@@ -1,0 +1,101 @@
+.about-sticker-section {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 28px;
+    align-items: center;
+    margin: 30px 0;
+}
+.about-sticker-copy h2 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+}
+.about-sticker-copy p {
+    max-width: 440px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+.about-sticker-board {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    border: 1px solid #57623c;
+    border-radius: 22px;
+    background:
+        linear-gradient(#a4b76608 1px, transparent 1px),
+        linear-gradient(90deg, #a4b76608 1px, transparent 1px),
+        radial-gradient(ellipse at center, #3d4b1e, #121a0c 75%);
+    background-size:
+        28px 28px,
+        28px 28px,
+        100% 100%;
+}
+.about-sticker-board > img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(245px, 68%);
+    transform: translate(-50%, -50%) rotate(-9deg);
+}
+.about-sticker-board .sticker-hint {
+    position: absolute;
+    bottom: 18px;
+    width: 100%;
+    text-align: center;
+    color: #a6b48b;
+    font-size: 12px;
+    pointer-events: none;
+}
+.sticker-peel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+.sticker-peel-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.sticker-peel-hit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    pointer-events: auto;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.has-peel-sticker > img {
+    visibility: hidden;
+}
+.about-sticker-brand {
+    position: relative;
+    display: block;
+    overflow: clip;
+}
+.about-sticker-brand > img {
+    display: block;
+}
+.about-sticker-brand .sticker-peel-hit {
+    touch-action: auto;
+    cursor: pointer;
+}
+.about-sticker-copy button {
+    margin-top: 12px;
+}
+@media (max-width: 760px) {
+    .about-sticker-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+    .about-sticker-board {
+        height: 340px;
+    }
+    .about-sticker-copy h2 {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,47 @@
+.radar-grid .upcoming-tilt {
+    position: relative;
+    overflow: visible;
+}
+.radar-grid .upcoming-tilt-art {
+    transform-origin: center;
+    isolation: isolate;
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+.radar-grid .upcoming-tilt.is-tilting {
+    z-index: 2;
+}
+.radar-grid .upcoming-tilt.is-tilting .library-art {
+    box-shadow: 0 15px 28px #0006;
+}
+.upcoming-tilt-glare {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+        ellipse at var(--tilt-x, 50%) var(--tilt-y, 50%),
+        #fff3b5 0%,
+        #fff3b533 35%,
+        transparent 70%
+    );
+    opacity: var(--tilt-light, 0);
+    mix-blend-mode: screen;
+}
+html[data-card-glow='false'] .upcoming-tilt-glare {
+    display: none;
+}
+html[data-presentation-motion='reduced'] .upcoming-tilt-art {
+    transform: none !important;
+    transition: none;
+}
+html[data-presentation-motion='reduced'] .upcoming-tilt-glare {
+    display: none;
+}
+@media (hover: none), (pointer: coarse) {
+    .upcoming-tilt-glare {
+        display: none;
+    }
+}

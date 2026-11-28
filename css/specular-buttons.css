@@ -1,0 +1,25 @@
+.has-specular-rim {
+    position: relative;
+    isolation: isolate;
+}
+.specular-rim {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 3;
+    filter: drop-shadow(0 0 4px #ffd21f44);
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+html[data-card-glow='false'] .specular-rim,
+html[data-presentation-motion='reduced'] .specular-rim {
+    display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    html:not([data-presentation-motion='full']) .specular-rim {
+        display: none;
+    }
+}

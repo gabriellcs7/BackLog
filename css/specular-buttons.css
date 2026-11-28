@@ -1,6 +1,6 @@
+:where(.has-specular-rim) { position:relative; }
 /* Shared glass finish and rim light, including dynamically rendered controls. */
 .has-specular-rim {
-    position: relative;
     isolation: isolate;
     background-image: linear-gradient(135deg, #e2e8c609, #ffffff02);
     box-shadow:

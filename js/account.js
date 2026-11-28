@@ -500,54 +500,38 @@
         if (client) checked(await client.auth.signOut());
         await synchronize(null);
     }
-    async function ownReview(gameId, rating, text, date) {
+    async function ownReview(gameId, rating, text, date, gameLiked) {
         const owner = requireUser();
-        const result = await client
-            .rpc('save_review_log', {
-                game_key: gameId,
-                review_rating: rating,
-                review_text: text,
-                log_date: date,
-            })
-            .single();
+        const previous = state.reviews.find(item => item.game_id === gameId);
+        const liked = gameLiked === undefined ? previous?.game_liked === true : gameLiked === true;
+        const args = {game_key: gameId, review_rating: rating, review_text: text, log_date: date};
+        let result = await client.rpc('save_review_with_heart', {...args, game_liked_flag: liked}).single();
+        if (result.error?.code === 'PGRST202') {
+            if (liked || previous?.game_liked) throw new Error('Game hearts need the latest database update. Your draft is still here.');
+            result = await client.rpc('save_review_log', args).single();
+        }
         const review = checked(result);
         if (user?.id !== owner) throw new Error('Your account changed. Please reload.');
-        state.reviews = [...state.reviews.filter((item) => item.game_id !== gameId), review];
+        state.reviews = [...state.reviews.filter(item => item.game_id !== gameId), review];
         window.dispatchEvent(new Event('backlog-diary-change'));
-        return {
-            rating: review.rating === null ? null : Number(review.rating),
-            text: review.text,
-            updatedAt: review.updated_at,
-            reviewedOn: review.reviewed_on,
-        };
+        return {rating: review.rating === null ? null : Number(review.rating), text: review.text, gameLiked: review.game_liked === true, updatedAt: review.updated_at, reviewedOn: review.reviewed_on};
     }
     async function getDiaryEntries() {
-        const owner = requireUser(),
-            entries = [];
-        for (let offset = 0; ; offset += 500) {
-            const batch =
-                checked(
-                    await client
-                        .from('diary_entries')
-                        .select('id,game_id,review_id,rating,text,reviewed_on,created_at')
-                        .eq('user_id', owner)
-                        .order('reviewed_on', { ascending: false })
-                        .order('created_at', { ascending: false })
-                        .order('id')
-                        .range(offset, offset + 499)
-                ) || [];
-            if (user?.id !== owner) throw new Error('Your account changed. Please reload.');
-            entries.push(...batch);
-            if (batch.length < 500) break;
+        const owner = requireUser(), entries = [];
+        let includeHeart = true;
+        async function batch(offset) {
+            return client.from('diary_entries').select('id,game_id,review_id,rating,text,reviewed_on,created_at' + (includeHeart ? ',game_liked' : ''))
+                .eq('user_id', owner).order('reviewed_on', {ascending:false}).order('created_at', {ascending:false}).order('id').range(offset, offset + 499);
         }
-        return entries.map((entry) => ({
-            id: entry.id,
-            gameId: entry.game_id,
-            rating: entry.rating === null ? null : Number(entry.rating),
-            text: entry.text,
-            reviewedOn: entry.reviewed_on,
-            createdAt: entry.created_at,
-        }));
+        for (let offset = 0;; offset += 500) {
+            let result = await batch(offset);
+            if (includeHeart && ['42703','PGRST204'].includes(result.error?.code)) { includeHeart = false; result = await batch(offset); }
+            const rows = checked(result) || [];
+            if (user?.id !== owner) throw new Error('Your account changed. Please reload.');
+            entries.push(...rows);
+            if (rows.length < 500) break;
+        }
+        return entries.map(entry => ({id:entry.id, gameId:entry.game_id, rating:entry.rating===null?null:Number(entry.rating), text:entry.text, gameLiked:entry.game_liked===true, reviewedOn:entry.reviewed_on, createdAt:entry.created_at}));
     }
     async function changeDiaryDate(id, date) {
         const owner = requireUser();
@@ -628,6 +612,7 @@
                 ? {
                       rating: review.rating === null ? null : Number(review.rating),
                       text: review.text,
+                      gameLiked: review.game_liked === true,
                       updatedAt: review.updated_at,
                       reviewedOn:
                           review.reviewed_on ||

@@ -27,7 +27,7 @@
         window.dispatchEvent(new CustomEvent('backlog-review-change', { detail: { id } }));
         return { ...value, statusWarning };
     }
-    function save(id, rating, text, date = diary.today(), spoiler) {
+    function save(id, rating, text, date = diary.today(), spoiler, gameLiked) {
         if (
             !validGame(id) ||
             !validRating(rating) ||
@@ -35,6 +35,8 @@
             text.length > limit
         )
             throw new Error('Invalid review.');
+        if (gameLiked !== undefined && typeof gameLiked !== 'boolean') throw new Error('Invalid review.');
+        const liked = gameLiked === undefined ? get(id)?.gameLiked === true : gameLiked;
         if (!diary.validDate(date)) throw new Error('Choose today or an earlier date.');
         const cleaned =
             spoiler === undefined
@@ -46,10 +48,10 @@
             throw new Error('Choose a rating or write a review.');
         const owner = window.BacklogAccount?.user?.id || null;
         if (owner)
-            return window.BacklogAccount.saveReview(id, rating, cleaned, date).then((value) =>
+            return window.BacklogAccount.saveReview(id, rating, cleaned, date, liked).then((value) =>
                 completedSave(id, value, owner)
             );
-        return completedSave(id, diary.saveDevice(id, rating, cleaned, date), owner);
+        return completedSave(id, diary.saveDevice(id, rating, cleaned, date, liked), owner);
     }
     function remove(id) {
         if (!validGame(id)) throw new Error('Invalid game.');

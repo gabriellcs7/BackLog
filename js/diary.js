@@ -79,6 +79,7 @@
         const value = raw(id);
         return value
             ? {
+                  gameLiked: value.gameLiked === true,
                   rating: value.rating,
                   text: value.text,
                   updatedAt: value.updatedAt,
@@ -91,22 +92,25 @@
     function currentId(id, review) {
         return review?.currentEntryId === undefined ? 'legacy:' + id : review.currentEntryId;
     }
-    function saveDevice(id, rating, text, date) {
+    function saveDevice(id, rating, text, date, gameLiked) {
         if (!known(id) || !validDate(date) || !validRating(rating))
             throw new Error('Invalid diary entry.');
         const previous = raw(id),
             entries = history(id, previous);
         const current = entries.find((entry) => entry.id === currentId(id, previous));
+        const liked = gameLiked === undefined ? previous?.gameLiked === true : gameLiked === true;
         const now = new Date().toISOString();
         const entry = {
             id: current?.id || crypto.randomUUID(),
             gameId: id,
+            gameLiked: liked,
             rating,
             text,
             reviewedOn: date,
             createdAt: current?.createdAt || now,
         };
         const value = {
+            gameLiked: liked,
             rating,
             text,
             updatedAt: now,
@@ -116,7 +120,7 @@
         };
         localStorage.setItem(key(id), JSON.stringify(value));
         notify(id);
-        return { rating, text, updatedAt: now, reviewedOn: date };
+        return { rating, text, gameLiked: liked, updatedAt: now, reviewedOn: date };
     }
     function localEntries() {
         return games.flatMap((game) => history(game.id, raw(game.id)));

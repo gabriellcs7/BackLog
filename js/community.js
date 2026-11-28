@@ -12,13 +12,23 @@
         if (required && !account.user) throw new Error('Sign in to join the conversation.');
         return account.client;
     }
+    async function withGameHearts(rows) {
+        const ids = rows.map(row => row.id).filter(id => typeof id === 'string');
+        if (!ids.length || !account.client) return rows;
+        try {
+            const result = await account.client.from('reviews').select('id,game_liked').in('id', ids);
+            if (result.error) return rows;
+            const hearts = new Map((result.data || []).map(row => [row.id, row.game_liked === true]));
+            return rows.map(row => ({...row, game_liked: hearts.get(row.id) === true}));
+        } catch { return rows; }
+    }
     window.BacklogCommunity = Object.freeze({
         async feed(gameId, offset = 0) {
             const api = await client();
             let result = await api.rpc('review_feed_v2', { game_key: gameId, page_offset: offset });
             if (result.error?.code === 'PGRST202')
                 result = await api.rpc('review_feed', { game_key: gameId, page_offset: offset });
-            return check(result) || [];
+            return withGameHearts(check(result) || []);
         },
 
         async ratingDistribution(gameId) {
@@ -239,7 +249,7 @@
             return entries.filter((entry) => !hiddenGames.has(entry.game_id));
         },
         async home(kind, offset = 0) {
-            return (
+            return withGameHearts(
                 check(
                     await (
                         await client(kind === 'following')
@@ -249,7 +259,7 @@
         },
         async profileReviews(id, offset, limit) {
             const api = await client();
-            return (
+            return withGameHearts(
                 check(
                     await api
                         .from('review_cards')
@@ -263,8 +273,8 @@
             );
         },
         async review(id) {
-            return (check(await (await client()).rpc('get_review_card', { review_key: id })) ||
-                [])[0];
+            const rows = await withGameHearts(check(await (await client()).rpc('get_review_card', {review_key:id})) || []);
+            return rows[0];
         },
         async social(id) {
             return (check(await (await client()).rpc('profile_social', { profile_key: id })) ||

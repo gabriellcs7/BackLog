@@ -554,3 +554,18 @@
 .quick-search-header input::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+
+/* Focus belongs to the activity bubble, leaving the timeline surface clean. */
+.activity-page .activity-event:focus-within {
+    background: transparent;
+}
+.activity-page .activity-event:focus-within .activity-event-copy {
+    border-color: #8b845044;
+    box-shadow: 0 0 0 1px #ffd21f0c;
+}
+.activity-page .activity-event a:focus-visible,
+.activity-page .activity-event summary:focus-visible {
+    outline: 2px solid var(--yellow);
+    outline-offset: 4px;
+    border-radius: 4px;
+}

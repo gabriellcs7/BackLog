@@ -1015,8 +1015,7 @@ h2 {
                 border-color 180ms ease;
         }
         .profile-review-card:hover,
-        .home-review-card:hover,
-        .activity-event:focus-within {
+        .home-review-card:hover {
             background-color: #22251d;
         }
     }

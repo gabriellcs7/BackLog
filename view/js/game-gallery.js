@@ -54,6 +54,41 @@
         zoomed = false,
         pan = null,
         dragged = false;
+    const motion = window.BacklogMotion || matchMedia('(prefers-reduced-motion: reduce)');
+    let morph = null,
+        effectModule = null,
+        effectVersion = 0,
+        loadTicket = 0,
+        displayedImage = null,
+        swipe = null,
+        loadTarget = '';
+    async function prepareMorph() {
+        if (motion.matches || morph || !dialog.open) return;
+        const version = ++effectVersion;
+        try {
+            const { createGalleryMorph } = await (effectModule ||= import(
+                ui.href('js/components/gallery-morph.js?v=20261128-1')
+            ));
+            if (version !== effectVersion || motion.matches || !dialog.open) return;
+            morph = createGalleryMorph(figure);
+        } catch {
+            /* Keep the native image viewer available. */
+        }
+    }
+    function releaseMorph() {
+        effectVersion++;
+        morph?.destroy();
+        morph = null;
+    }
+    motion.addEventListener('change', () => {
+        if (motion.matches) releaseMorph();
+        else prepareMorph();
+    });
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) morph?.cancel();
+    });
+    window.addEventListener('resize', () => morph?.cancel());
+    window.addEventListener('pagehide', releaseMorph);
     const pt = () => window.BacklogPreferences?.get().language === 'pt-BR';
     function labels() {
         figure.setAttribute(
@@ -76,14 +111,17 @@
         );
     }
     function resetZoom() {
+        morph?.cancel();
         zoomed = false;
         figure.classList.remove('is-zoomed');
         figure.scrollLeft = figure.scrollTop = 0;
         pan = null;
+        swipe = null;
         labels();
     }
     function toggleZoom() {
-        if (image.hidden || !image.complete || !image.naturalWidth) return;
+        morph?.cancel();
+        if (zoom.disabled || image.hidden || !image.complete || !image.naturalWidth) return;
         const cx = (figure.scrollLeft + figure.clientWidth / 2) / (figure.scrollWidth || 1),
             cy = (figure.scrollTop + figure.clientHeight / 2) / (figure.scrollHeight || 1);
         zoomed = !zoomed;
@@ -133,23 +171,49 @@
     window.addEventListener('backlog-language-change', labels);
     labels();
     function show(value) {
+        const previousIndex = index,
+            previousImage = displayedImage;
+        const animate = dialog.open && previousImage && !motion.matches;
         resetZoom();
         index = (value + gallery.images.length) % gallery.images.length;
+        const ticket = ++loadTicket;
         image.alt = game.title + ' — screenshot ' + (index + 1) + ' of ' + gallery.images.length;
         zoom.disabled = true;
         image.hidden = false;
         feedback.textContent = 'Loading screenshot…';
-        image.src = ui.href('imagens/' + gallery.images[index].full);
+        const target = ui.href('imagens/' + gallery.images[index].full);
+        loadTarget = target;
         credit.href = gallery.images[index].source || gallery.source;
         credit.textContent = (gallery.images[index].credit || gallery.edition) + ' ↗';
         counter.textContent = index + 1 + ' / ' + gallery.images.length;
         previous.disabled = next.disabled = gallery.images.length < 2;
+        const candidate = new Image();
+        candidate.onload = () => {
+            if (ticket !== loadTicket) return;
+            image.src = target;
+            displayedImage = candidate;
+            feedback.textContent = '';
+            zoom.disabled = false;
+            if (animate && index !== previousIndex && !motion.matches && dialog.open)
+                morph?.play(previousImage, candidate, value >= previousIndex ? 1 : -1);
+        };
+        candidate.onerror = () => {
+            if (ticket !== loadTicket) return;
+            morph?.cancel();
+            displayedImage = null;
+            zoom.disabled = true;
+            image.hidden = true;
+            feedback.textContent = 'This screenshot could not be loaded. Try the next image.';
+        };
+        candidate.src = target;
     }
     image.addEventListener('load', () => {
+        if (image.src !== loadTarget) return;
         feedback.textContent = '';
         zoom.disabled = false;
     });
     image.addEventListener('error', () => {
+        if (image.src !== loadTarget) return;
         zoom.disabled = true;
         resetZoom();
         image.hidden = true;
@@ -160,11 +224,15 @@
         oldOverflow = document.body.style.overflow;
         show(value);
         dialog.showModal();
+        prepareMorph();
         document.body.style.overflow = 'hidden';
         close.focus({ preventScroll: true });
     }
     close.addEventListener('click', () => dialog.close());
     dialog.addEventListener('close', () => {
+        loadTicket++;
+        displayedImage = null;
+        releaseMorph();
         resetZoom();
         document.body.style.overflow = oldOverflow;
         opener?.focus({ preventScroll: true });
@@ -186,6 +254,23 @@
             event.preventDefault();
             show(index + (event.key === 'ArrowRight' ? 1 : -1));
         }
+    });
+    figure.addEventListener('pointerdown', (event) => {
+        if (!zoomed && event.button === 0)
+            swipe = { x: event.clientX, y: event.clientY, id: event.pointerId };
+    });
+    figure.addEventListener('pointerup', (event) => {
+        if (!swipe || swipe.id !== event.pointerId) return;
+        const dx = event.clientX - swipe.x,
+            dy = event.clientY - swipe.y;
+        swipe = null;
+        if (!zoomed && Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+            dragged = true;
+            show(index + (dx < 0 ? 1 : -1));
+        }
+    });
+    figure.addEventListener('pointercancel', () => {
+        swipe = null;
     });
     previous.addEventListener('click', () => show(index - 1));
     next.addEventListener('click', () => show(index + 1));

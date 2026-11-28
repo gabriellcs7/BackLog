@@ -523,6 +523,7 @@
             rating: review.rating === null ? null : Number(review.rating),
             text: review.text,
             gameLiked: review.game_liked === true,
+            createdAt: review.created_at,
             updatedAt: review.updated_at,
             reviewedOn: review.reviewed_on,
         };
@@ -645,6 +646,7 @@
                       rating: review.rating === null ? null : Number(review.rating),
                       text: review.text,
                       gameLiked: review.game_liked === true,
+                      createdAt: review.created_at,
                       updatedAt: review.updated_at,
                       reviewedOn:
                           review.reviewed_on ||

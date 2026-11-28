@@ -82,6 +82,11 @@
                   gameLiked: value.gameLiked === true,
                   rating: value.rating,
                   text: value.text,
+                  createdAt:
+                      history(id, value).find((entry) => entry.id === currentId(id, value))
+                          ?.createdAt ||
+                      value.createdAt ||
+                      value.updatedAt,
                   updatedAt: value.updatedAt,
                   reviewedOn: validDate(value.reviewedOn)
                       ? value.reviewedOn
@@ -113,6 +118,7 @@
             gameLiked: liked,
             rating,
             text,
+            createdAt: entry.createdAt,
             updatedAt: now,
             reviewedOn: date,
             currentEntryId: entry.id,
@@ -120,7 +126,14 @@
         };
         localStorage.setItem(key(id), JSON.stringify(value));
         notify(id);
-        return { rating, text, gameLiked: liked, updatedAt: now, reviewedOn: date };
+        return {
+            rating,
+            text,
+            gameLiked: liked,
+            createdAt: entry.createdAt,
+            updatedAt: now,
+            reviewedOn: date,
+        };
     }
     function localEntries() {
         return games.flatMap((game) => history(game.id, raw(game.id)));

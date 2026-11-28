@@ -13,13 +13,13 @@
     function get(id) {
         return window.BacklogAccount?.user ? window.BacklogAccount.getReview(id) : getDevice(id);
     }
-    async function completedSave(id, value, owner) {
+    async function completedSave(id, value, owner, isNew) {
         let statusWarning = false;
         try {
             await window.Backlog?.statusReady;
             if ((window.BacklogAccount?.user?.id || null) !== owner)
                 throw new Error('Your account changed. Please reload.');
-            if (window.Backlog && !window.Backlog.getStatus(id))
+            if (isNew && window.Backlog && !window.Backlog.getStatus(id))
                 await window.Backlog.setStatus(id, 'played');
         } catch {
             statusWarning = true;
@@ -37,7 +37,8 @@
             throw new Error('Invalid review.');
         if (gameLiked !== undefined && typeof gameLiked !== 'boolean')
             throw new Error('Invalid review.');
-        const liked = gameLiked === undefined ? get(id)?.gameLiked === true : gameLiked;
+        const existing = get(id);
+        const liked = gameLiked === undefined ? existing?.gameLiked === true : gameLiked;
         if (!diary.validDate(date)) throw new Error('Choose today or an earlier date.');
         const cleaned =
             spoiler === undefined
@@ -50,9 +51,14 @@
         const owner = window.BacklogAccount?.user?.id || null;
         if (owner)
             return window.BacklogAccount.saveReview(id, rating, cleaned, date, liked).then(
-                (value) => completedSave(id, value, owner)
+                (value) => completedSave(id, value, owner, !existing)
             );
-        return completedSave(id, diary.saveDevice(id, rating, cleaned, date, liked), owner);
+        return completedSave(
+            id,
+            diary.saveDevice(id, rating, cleaned, date, liked),
+            owner,
+            !existing
+        );
     }
     function remove(id) {
         if (!validGame(id)) throw new Error('Invalid game.');

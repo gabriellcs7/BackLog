@@ -11,8 +11,11 @@
     const gameHeart = document.querySelector('#review-game-heart');
     gameHeart.addEventListener('click', () => {
         if (form.inert) return;
-        gameHeart.setAttribute('aria-pressed', String(gameHeart.getAttribute('aria-pressed') !== 'true'));
-        form.dispatchEvent(new Event('input', {bubbles:true}));
+        gameHeart.setAttribute(
+            'aria-pressed',
+            String(gameHeart.getAttribute('aria-pressed') !== 'true')
+        );
+        form.dispatchEvent(new Event('input', { bubbles: true }));
     });
     const diaryDate = document.querySelector('#review-played-date');
     diaryDate.max = window.BacklogDiary.today();
@@ -167,7 +170,8 @@
                   ? 'Your public review has been saved to your diary.'
                   : 'Your review has been saved to your diary.';
             document.querySelector('#edit-review').focus();
-            if ((window.BacklogAccount?.user?.id || 'local') === savingOwner) window.BacklogClickSpark?.burst(document.querySelector('#review-saved-rating'));
+            if ((window.BacklogAccount?.user?.id || 'local') === savingOwner)
+                window.BacklogClickSpark?.burst(document.querySelector('#review-saved-rating'));
         } catch (error) {
             feedback.textContent = error.message?.includes('latest database update')
                 ? error.message

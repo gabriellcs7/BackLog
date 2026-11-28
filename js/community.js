@@ -13,14 +13,21 @@
         return account.client;
     }
     async function withGameHearts(rows) {
-        const ids = rows.map(row => row.id).filter(id => typeof id === 'string');
+        const ids = rows.map((row) => row.id).filter((id) => typeof id === 'string');
         if (!ids.length || !account.client) return rows;
         try {
-            const result = await account.client.from('reviews').select('id,game_liked').in('id', ids);
+            const result = await account.client
+                .from('reviews')
+                .select('id,game_liked')
+                .in('id', ids);
             if (result.error) return rows;
-            const hearts = new Map((result.data || []).map(row => [row.id, row.game_liked === true]));
-            return rows.map(row => ({...row, game_liked: hearts.get(row.id) === true}));
-        } catch { return rows; }
+            const hearts = new Map(
+                (result.data || []).map((row) => [row.id, row.game_liked === true])
+            );
+            return rows.map((row) => ({ ...row, game_liked: hearts.get(row.id) === true }));
+        } catch {
+            return rows;
+        }
     }
     window.BacklogCommunity = Object.freeze({
         async feed(gameId, offset = 0) {
@@ -273,7 +280,9 @@
             );
         },
         async review(id) {
-            const rows = await withGameHearts(check(await (await client()).rpc('get_review_card', {review_key:id})) || []);
+            const rows = await withGameHearts(
+                check(await (await client()).rpc('get_review_card', { review_key: id })) || []
+            );
             return rows[0];
         },
         async social(id) {

@@ -35,7 +35,8 @@
             text.length > limit
         )
             throw new Error('Invalid review.');
-        if (gameLiked !== undefined && typeof gameLiked !== 'boolean') throw new Error('Invalid review.');
+        if (gameLiked !== undefined && typeof gameLiked !== 'boolean')
+            throw new Error('Invalid review.');
         const liked = gameLiked === undefined ? get(id)?.gameLiked === true : gameLiked;
         if (!diary.validDate(date)) throw new Error('Choose today or an earlier date.');
         const cleaned =
@@ -48,8 +49,8 @@
             throw new Error('Choose a rating or write a review.');
         const owner = window.BacklogAccount?.user?.id || null;
         if (owner)
-            return window.BacklogAccount.saveReview(id, rating, cleaned, date, liked).then((value) =>
-                completedSave(id, value, owner)
+            return window.BacklogAccount.saveReview(id, rating, cleaned, date, liked).then(
+                (value) => completedSave(id, value, owner)
             );
         return completedSave(id, diary.saveDevice(id, rating, cleaned, date, liked), owner);
     }

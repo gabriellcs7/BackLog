@@ -1,11 +1,69 @@
-.review-game-heart { display: inline-flex; align-items: center; justify-content: center; margin-left: 9px; color: #ff786f; vertical-align: middle; }
-.review-game-heart svg { width: 15px; height: 15px; }
-.review-game-appreciation { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin: 16px 0 24px; }
-.review-game-heart-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted); background: #ffffff03; font: inherit; font-size: 12px; }
-.review-game-heart-toggle svg { width: 21px; height: 21px; fill: transparent; stroke: currentColor; stroke-width: 1.6; transition: fill .2s, transform .2s; }
-.review-game-heart-toggle:hover { border-color: #b36d61; color: #ff958c; }
-.review-game-heart-toggle[aria-pressed='true'] { color: #ff897f; background: #ff786f10; border-color: #a95b54; }
-.review-game-heart-toggle[aria-pressed='true'] svg { fill: currentColor; transform: scale(1.08); }
-.review-game-heart-help { color: var(--muted); font-size: 11px; line-height: 1.5; }
-html[data-presentation-motion='reduced'] .review-game-heart-toggle svg { transition: none; }
-@media(prefers-reduced-motion:reduce) { html:not([data-presentation-motion='full']) .review-game-heart-toggle svg { transition: none; } }
+.review-game-heart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 9px;
+    color: #ff786f;
+    vertical-align: middle;
+}
+.review-game-heart svg {
+    width: 15px;
+    height: 15px;
+}
+.review-game-appreciation {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 24px;
+}
+.review-game-heart-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--muted);
+    background: #ffffff03;
+    font: inherit;
+    font-size: 12px;
+}
+.review-game-heart-toggle svg {
+    width: 21px;
+    height: 21px;
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    transition:
+        fill 0.2s,
+        transform 0.2s;
+}
+.review-game-heart-toggle:hover {
+    border-color: #b36d61;
+    color: #ff958c;
+}
+.review-game-heart-toggle[aria-pressed='true'] {
+    color: #ff897f;
+    background: #ff786f10;
+    border-color: #a95b54;
+}
+.review-game-heart-toggle[aria-pressed='true'] svg {
+    fill: currentColor;
+    transform: scale(1.08);
+}
+.review-game-heart-help {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+html[data-presentation-motion='reduced'] .review-game-heart-toggle svg {
+    transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+    html:not([data-presentation-motion='full']) .review-game-heart-toggle svg {
+        transition: none;
+    }
+}

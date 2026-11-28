@@ -1,25 +1,52 @@
+/* Shared glass finish and rim light, including dynamically rendered controls. */
 .has-specular-rim {
     position: relative;
     isolation: isolate;
+    background-image: linear-gradient(135deg, #e2e8c609, #ffffff02);
+    box-shadow:
+        inset 0 0 0 1px #c6cf9d30,
+        0 7px 18px -14px #000b;
 }
-.specular-rim {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+.button-primary.has-specular-rim:not([aria-pressed='true']),
+.cinematic-button-primary.has-specular-rim {
+    background-color: #242b1c;
+    color: #fff4bc;
+    border-color: #7d815180;
+}
+.button-primary.has-specular-rim:not([aria-pressed='true']):hover,
+.cinematic-button-primary.has-specular-rim:hover {
+    background-color: #303622;
+    color: #fff8dc;
+}
+.has-specular-rim > svg.specular-rim {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
     border-radius: inherit;
-    pointer-events: none;
+    pointer-events: none !important;
     z-index: 3;
-    filter: drop-shadow(0 0 4px #ffd21f44);
-    opacity: 0;
-    transition: opacity 0.25s;
+    filter: drop-shadow(0 0 5px #ffd21f66);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    animation: none !important;
+    transform: none !important;
 }
-html[data-card-glow='false'] .specular-rim,
-html[data-presentation-motion='reduced'] .specular-rim {
-    display: none;
+.has-specular-rim:disabled > svg.specular-rim {
+    opacity: 0 !important;
+}
+html[data-presentation-motion='reduced'] .has-specular-rim > svg.specular-rim {
+    transition: none;
+    filter: none;
 }
 @media (prefers-reduced-motion: reduce) {
-    html:not([data-presentation-motion='full']) .specular-rim {
-        display: none;
+    html:not([data-presentation-motion='full']) .has-specular-rim > svg.specular-rim {
+        transition: none;
+        filter: none;
     }
 }

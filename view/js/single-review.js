@@ -69,6 +69,7 @@
                 const score = ui.element('p', 'social-rating');
                 if (review.rating == null) score.textContent = 'Written review';
                 else score.append(ui.ratingStars(Number(review.rating), item.id));
+                window.BacklogGameHearts.append(score, review);
                 article.append(score, body);
                 content.append(article);
             }

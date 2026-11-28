@@ -22,6 +22,7 @@
         else
             score.textContent =
                 review.rating === null ? 'Written review' : review.rating + ' / 5 ★';
+        window.BacklogGameHearts.append(score, review);
         title.append(el('h3', '', game.title), score);
         link.append(cover, title);
         const author = el('div', 'home-review-author'),

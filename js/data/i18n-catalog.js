@@ -1189,3 +1189,10 @@ Object.assign(window.BacklogPortuguese, {
     'The original screenshot uses the fonts available offline.': 'A captura original usa as fontes disponíveis sem internet.',
     'How BackLog changed': 'Como o BackLog mudou'
 });
+
+Object.assign(window.BacklogPortuguese, {
+ 'I liked this game':'Gostei deste jogo',
+ 'Shows a heart with your review.':'Mostra um coração junto da sua review.',
+ 'This player liked this game.':'Esta pessoa gostou deste jogo.',
+ 'Game hearts need the latest database update. Your draft is still here.':'Os corações nos jogos precisam da atualização mais recente do banco de dados. Seu rascunho continua aqui.'
+});

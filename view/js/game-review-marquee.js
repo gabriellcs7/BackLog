@@ -60,6 +60,7 @@
         if (review.rating != null)
             score.append(ui.ratingStars(Number(review.rating), review.game_id));
         else score.textContent = 'Written review';
+        window.BacklogGameHearts.append(score, review);
         const actions = el('div', 'game-review-marquee-actions'),
             likes = el('button', 'game-review-marquee-like review-like'),
             comments = el('a', 'game-review-marquee-comments', '↳ ' + (review.comment_count || 0));

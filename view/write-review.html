@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <script src="../js/preferences.js"></script>
-        <script src="../js/data/i18n-catalog.js?v=20261127-components-1" defer></script>
+        <script src="../js/data/i18n-catalog.js?v=20261127-hearts-1" defer></script>
         <script src="../js/i18n.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#131414" />
@@ -17,13 +17,14 @@
         <script src="../js/share-controls.js" defer></script>
         <script src="../js/data/games.js" defer></script>
         <script src="../js/config.js" defer></script>
-        <script src="../js/account.js?v=20261125-community-2" defer></script>
+        <script src="../js/account.js?v=20261127-hearts-1" defer></script>
         <script src="../js/site.js" defer></script>
         <script src="../js/status-undo.js" defer></script>
-        <script src="../js/diary.js" defer></script>
-        <script src="../js/reviews.js?v=20261123-audit-1" defer></script>
+        <script src="../js/diary.js?v=20261127-hearts-1" defer></script>
+        <script src="../js/reviews.js?v=20261127-hearts-1" defer></script>
         <script src="../js/ui.js" defer></script>
         <script src="../js/ui-icons.js?v=20261127-1" defer></script>
+        <script src="../js/game-hearts.js?v=20261127-1" defer></script>
         <script src="../js/review-format.js" defer></script>
         <script src="../js/rating-themes.js?v=20261123-references-1" defer></script>
         <script src="../js/list-tags.js" defer></script>
@@ -34,7 +35,8 @@
         <script src="js/write-review.js" defer></script>
         <script src="../js/rich-review-editor.js" defer></script>
         <script src="../js/fold-review-tools.js" defer></script>
-        <script src="js/review.js" defer></script>
+        <script src="../js/click-spark.js?v=20261127-1" defer></script>
+        <script src="js/review.js?v=20261127-hearts-2" defer></script>
         <script src="../js/review-save-reference.js?v=20261123-references-1" defer></script>
         <link rel="stylesheet" href="../css/interface-effects.css?v=20261123-references-1" />
         <script src="../js/presentation-motion.js" defer></script>
@@ -45,6 +47,7 @@
         <link rel="stylesheet" href="../css/footer.css" />
         <link rel="stylesheet" href="../css/review-selection-toolbar.css?v=20261127-1" />
         <link rel="stylesheet" href="../css/mobile-dock.css?v=20261127-1" />
+        <link rel="stylesheet" href="../css/game-hearts.css?v=20261127-1" />
     </head>
     <body class="write-review-page">
         <a class="skip-link" href="#main">Skip to content</a>
@@ -283,6 +286,13 @@
                                 star. Use arrow keys to adjust.
                             </p>
                         </fieldset>
+                        <div class="review-game-appreciation">
+                            <button id="review-game-heart" type="button" class="review-game-heart-toggle" aria-pressed="false" aria-describedby="review-game-heart-help">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21 3.4 12.8C-3 6.4 6.4-1 12 5.5 17.6-1 27 6.4 20.6 12.8Z" /></svg>
+                                <span>I liked this game</span>
+                            </button>
+                            <span id="review-game-heart-help" class="review-game-heart-help">Shows a heart with your review.</span>
+                        </div>
                         <label class="review-text-label" for="review-played-date">Diary date</label>
                         <input
                             class="review-date-input"

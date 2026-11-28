@@ -17,6 +17,7 @@
         const score = el('span', 'social-rating');
         if (review.rating === null) score.append(document.createTextNode('Written review'));
         else score.append(ui.ratingStars(Number(review.rating), item.id));
+        window.BacklogGameHearts.append(score, review);
         score.append(
             document.createTextNode(' · ' + likes + ' ' + (likes === 1 ? 'like' : 'likes'))
         );

@@ -8,6 +8,12 @@
     const text = document.querySelector('#review-text');
     const spoiler = document.querySelector('#review-spoiler'),
         format = window.BacklogReviewText;
+    const gameHeart = document.querySelector('#review-game-heart');
+    gameHeart.addEventListener('click', () => {
+        if (form.inert) return;
+        gameHeart.setAttribute('aria-pressed', String(gameHeart.getAttribute('aria-pressed') !== 'true'));
+        form.dispatchEvent(new Event('input', {bubbles:true}));
+    });
     const diaryDate = document.querySelector('#review-played-date');
     diaryDate.max = window.BacklogDiary.today();
     const radios = [...form.querySelectorAll('[name="review-rating"]')];
@@ -63,6 +69,7 @@
         cancel.hidden = !review;
         text.value = format.unwrap(review?.text || '');
         spoiler.checked = format.isSpoiler(review?.text);
+        gameHeart.setAttribute('aria-pressed', String(review?.gameLiked === true));
         window.BacklogRichReview?.load();
         diaryDate.value = review?.reviewedOn || window.BacklogDiary.today();
         radios.forEach((radio) => {
@@ -83,6 +90,7 @@
                 score.textContent = review.rating + ' / 5';
                 savedRating.append(stars, score);
             }
+            window.BacklogGameHearts.append(savedRating, review);
             const savedText = document.querySelector('#review-saved-text');
             window.BacklogReviewText.render(savedText, review.text, { reveal: true });
             const savedId = window.BacklogAccount.getState().reviews.find(
@@ -143,12 +151,14 @@
         }
         try {
             form.inert = true;
+            const savingOwner = window.BacklogAccount?.user?.id || 'local';
             const saved = await reviews.save(
                 game.id,
                 rating(),
                 text.value,
                 diaryDate.value,
-                spoiler.checked
+                spoiler.checked,
+                gameHeart.getAttribute('aria-pressed') === 'true'
             );
             render();
             feedback.textContent = saved.statusWarning
@@ -157,9 +167,11 @@
                   ? 'Your public review has been saved to your diary.'
                   : 'Your review has been saved to your diary.';
             document.querySelector('#edit-review').focus();
-        } catch {
-            feedback.textContent =
-                'Could not save your review. Check your connection or browser storage and try again.';
+            if ((window.BacklogAccount?.user?.id || 'local') === savingOwner) window.BacklogClickSpark?.burst(document.querySelector('#review-saved-rating'));
+        } catch (error) {
+            feedback.textContent = error.message?.includes('latest database update')
+                ? error.message
+                : 'Could not save your review. Check your connection or browser storage and try again.';
         } finally {
             form.inert = false;
         }
@@ -202,6 +214,7 @@
         if (!draft) return;
         text.value = format.unwrap(draft.text);
         spoiler.checked = format.isSpoiler(draft.text);
+        gameHeart.setAttribute('aria-pressed', String(draft.gameLiked === true));
         window.BacklogRichReview?.load();
         diaryDate.value = draft.reviewedOn || window.BacklogDiary.today();
         radios.forEach((radio) => {

@@ -27,6 +27,7 @@
         const score = el('p', 'social-rating');
         if (review.rating === null) score.textContent = 'Written review';
         else score.append(ui.ratingStars(Number(review.rating), review.game_id));
+        window.BacklogGameHearts.append(score, review);
         const text = el('div', 'community-review-text');
         if (expanded) window.BacklogReviewText.render(text, review.text);
         else {
